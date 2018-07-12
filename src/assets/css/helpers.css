@@ -1,0 +1,19 @@
+/* Helpers */
+.draggable {-webkit-app-region: drag;}
+.l {float: left;}
+.r {float: right;}
+.w100 {float: left; width: 100%;}
+.w50 {float: left; width: 50%;}
+.h100 {height: 100%;}
+.center {width: calc(100% - 60px);max-width: 920px;display: inline-block;}
+.center2 {max-width: 440px;}
+.center_inline {display: inline-block;}
+.middle {position: absolute; top: 50%; transform: translateY(-50%); width: 100%; left: 0px;}
+.fixed100 {position: fixed; width: 100%; height: 100%; top: 0; left: 0;}
+.radius {border-radius: 5px;}
+.no_overflow {overflow: hidden;}
+.uppercase {text-transform: uppercase;}
+.circle {border-radius: 500px;}
+.scale_1_1 {width: 100%;opacity: 0;}
+.text_align_left {text-align: left;}
+.text_align_right {text-align: right;}

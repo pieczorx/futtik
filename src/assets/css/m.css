@@ -1,0 +1,14 @@
+body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 3px;font-size: 15px;text-align:center;}
+
+.h {float: left;width: 100%;height: 40px;background-color: hsl(0, 0%, 10%);color: white;}
+.h .logo {margin: 11px 0px 0px 13px;}
+.body {background-color: white;float: left;width: 100%;height: 100%;border-radius: 5px;overflow: hidden;box-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.05), 0px 0px 0px 1px hsla(0, 0%, 0%, 0.05);}
+.menuLeft {float: left;height: calc(100% - 40px);float: left;width: 48px;background-color: hsla(0, 0%, 95%, 1);/* margin-left: 10px; *//* margin-top: 10px; */}
+.menuLeft .e {transition:all .15s ease-in-out;cursor: pointer;float: left;width: 100%;height: 48px;position: relative;color: hsla(0, 0%, 15%, 1);}
+.menuLeft .e:hover {color: hsla(264, 67%, 48%, 1);/* background-color: rgba(0, 0, 0, 0.05); */}
+.menuLeft .e i {font-size: 20px; position: absolute;left: 0; width: 100%; top: 50%; transform: translateY(-50%);}
+.menuLeft .e .title {visibility: hidden;transition: all .15s ease-in-out;opacity: 0;top: 50%;transform: translateY(-50%);background-color: hsla(264, 67%, 48%, 1);color: white;position: absolute;left: calc(100%);padding: 7px 13px 7px 11px;border-radius: 8px;pointer-events: none;}
+.menuLeft .e .title::after {content: '';top: 50%;transform: translateY(-50%);position: absolute;left: -9px;border-top: 10px solid rgba(255, 255, 255, 0);border-right: 10px solid hsla(264, 67%, 48%, 1);border-bottom: 10px solid rgba(255, 255, 255, 0);}
+.menuLeft .e:hover .title {opacity: 1;visibility:visible;left: calc(100% + 5px);}
+.menuLeft .e[data-a-current='1'] {background-color: hsla(264, 67%, 48%, 1); color:hsla(0, 0%, 95%, 1);}
+.menuLeft .e[data-a-current='1']::after {opacity: 1;}
