@@ -1,0 +1,10 @@
+class AutoBuyer {
+  constructor() {
+
+  }
+  
+  addAccount() {
+
+  }
+
+}
