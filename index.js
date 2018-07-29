@@ -5,9 +5,9 @@ app.on('ready', () => {
     width: 720,
     height: 500,
     title: 'Futtik',
-    frame: false,
-    transparent: true
 
   });
   w.loadURL('file://' + __dirname + '/src/index.html');
+  w.setMenu(null);
+  w.webContents.openDevTools({detach:true});
 })

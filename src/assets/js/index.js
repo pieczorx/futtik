@@ -4,10 +4,17 @@ $(document).ready(() => {
   $(document).on('click', `[data-role='test1']`, function() {
     addAccount();
   });
+  $(document).on('submit', `form`, function() {
+    try {
+      const data = $(this).serializeJSON();
+      console.log('submit', data);
+
+    } catch(e) {
+      console.log('errorek xD', e);
+    }
+    return false;
+  });
 });
-
-
-
 
 const addAccount = async () => {
   try {
