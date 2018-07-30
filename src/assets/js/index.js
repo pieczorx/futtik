@@ -1,30 +1,20 @@
 require('dotenv').config()
-
+const fse = require('fs-extra');
 $(document).ready(() => {
-  $(document).on('click', `[data-role='test1']`, function() {
-    addAccount();
-  });
-  $(document).on('submit', `form`, function() {
-    try {
-      const data = $(this).serializeJSON();
-      console.log('submit', data);
-
-    } catch(e) {
-      console.log('errorek xD', e);
-    }
+  $(document).on('submit', `form[name='addAccount']`, function() {
+    const data = $(this).serializeJSON();
+    addAccount(data)
     return false;
   });
 });
 
-const addAccount = async () => {
+const autoBuyer = new AutoBuyer();
+const start = async () => {
+  autoBuyer.init();
+}
+
+const addAccount = async (options) => {
   try {
-    const options = {
-      mail: 'zpmzhc@cxxz.pl',
-      password: 'toHFIgPoH4',
-      answer: 'aaaa',
-      twoFactorToken: 'ajbcy2dyhomge4za',
-      platform: 'xone'
-    };
     const account = new Account(options);
 
     console.log('Logging in...');
@@ -36,5 +26,15 @@ const addAccount = async () => {
     alert(account.coins);
   } catch(e) {
     console.log('kurde mamy problemmo', e);
+  }
+}
+
+
+class AccountStorage {
+  constructor() {
+
+  }
+  addAccount() {
+
   }
 }
