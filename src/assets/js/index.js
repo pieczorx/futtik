@@ -1,10 +1,11 @@
 require('dotenv').config()
+
 const fse = require('fs-extra');
-const raven = require('raven');
-raven.config('https://a9e956f1b16a4aef87de8d1160260e7c@sentry.io/1254138').install();
+
+
 $(document).ready(() => {
-  alert('xd');
-  raven.captureException('test xdddd')
+  console.log('niby wyslalo');
+  raven.captureException(new Error('Sth went wronk'));
   $(document).on('submit', `form[name='addAccount']`, function() {
     const data = $(this).serializeJSON();
     addAccount(data)
@@ -12,7 +13,7 @@ $(document).ready(() => {
   });
 });
 
-const autoBuyer = new AutoBuyer();
+//const autoBuyer = new AutoBuyer();
 const start = async () => {
   autoBuyer.init();
 }

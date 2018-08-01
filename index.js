@@ -11,9 +11,9 @@ app.on('ready', () => {
 
 
 
-  w.once('ready-to-show', () => {
+  //w.once('ready-to-show', () => {
     //w.show();
     //w.setMenu(null);
     //w.webContents.openDevTools({mode: 'detach'});
-  })
+//  })
 })
