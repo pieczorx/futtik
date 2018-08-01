@@ -5,9 +5,15 @@ app.on('ready', () => {
     width: 720,
     height: 500,
     title: 'Futtik',
-
+    //show: false
   });
   w.loadURL('file://' + __dirname + '/src/index.html');
-  w.setMenu(null);
-  w.webContents.openDevTools({detach:true});
+
+
+
+  w.once('ready-to-show', () => {
+    //w.show();
+    //w.setMenu(null);
+    //w.webContents.openDevTools({mode: 'detach'});
+  })
 })

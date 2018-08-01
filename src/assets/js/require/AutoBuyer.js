@@ -1,6 +1,6 @@
 class AutoBuyer {
   constructor() {
-
+    this.accounts = [];
   }
 
   init() {
@@ -8,7 +8,9 @@ class AutoBuyer {
   }
 
   addAccount() {
-
+    this.accounts.push({
+      
+    });
   }
 
   loadAccounts() {

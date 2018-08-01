@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "dotenv": "^6.0.0",
+    "fs-extra": "^7.0.0",
     "gotp": "^1.0.0",
     "querystring": "^0.2.0",
+    "raven": "^2.6.3",
     "request": "^2.87.0"
   }
 }
