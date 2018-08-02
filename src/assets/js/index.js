@@ -4,8 +4,6 @@ const fse = require('fs-extra');
 
 
 $(document).ready(() => {
-  console.log('niby wyslalo');
-  raven.captureException(new Error('Sth went wronk'));
   $(document).on('submit', `form[name='addAccount']`, function() {
     const data = $(this).serializeJSON();
     addAccount(data)
