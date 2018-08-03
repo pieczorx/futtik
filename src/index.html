@@ -10,11 +10,14 @@
   <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
   <script src="assets/js/uncaughtExceptions.js"></script>
-
   <script src="assets/js/require/eaHasher.js"></script>
   <script src="assets/js/require/AutoBuyer.js"></script>
   <script src="assets/js/require/jquery.js"></script>
   <script src="assets/js/require/serializeJSON.js"></script>
+  <script src="assets/js/require/Table.js"></script>
+
+  <script src="assets/js/popups/addAccount.js"></script>
+
   <script src="assets/js/index.js"></script>
 
   <script>if (window.module) module = window.module;</script>
@@ -53,82 +56,46 @@
             <div class="title">Two factor secret key:</div>
             <input type="text" name="twoFactorToken" placeholder="12345678abc" class="radius" value="ajbcy2dyhomge4za"/>
           </div>
-          <button type="submit">Dodaj konto</button>
+          <button type="submit" class="r radius">Add account</button>
+          <button type="submit" class="r radius b2">Maybe</button>
+          <button type="submit" class="r radius b3">Cancel</button>
         </form>
 
       </div>
     </div>
-    <div class="h draggable radius noRadiusDown">
-      <div class="logo l">Futtik</div>
-    </div>
-
-    <div class="c">
-      <div class="s" data-name="accounts">
-        <div class="center">
-          <table>
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th>Buy</th>
-                <th>Sell</th>
-                <th>Mail</th>
-                <th>Platform</th>
-                <th>Coins</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>test@witam.pl</td>
-                <td>PS4</td>
-                <td>24,000</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>pc2018@origin.ea</td>
-                <td>PS4</td>
-                <td>24,000</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>hello@xnxx.com</td>
-                <td>PS4</td>
-                <td>24,000</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>siemaneczko@gmail.com</td>
-                <td>PS4</td>
-                <td>24,000</td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="a">
+      <div class="h draggable radius noRadiusDown">
+        <div class="logo l">Futtik</div>
+      </div>
+      <div class="c">
+        <div class="s" data-name="accounts">
+          <div class="center">
+            <div data-table="accounts"></div>
+          </div>
         </div>
-        <!--<span class="color" data-role="test1">Dodaj konto</span>-->
+      </div>
+      <div class="menuBottom">
+      <div class="l">
+        <div class="e">
+          <i class="fas fa-home"></i>
+          <div class="title">Home</div>
+        </div>
+        <div class="e">
+          <i class="fas fa-user-secret"></i>
+          <div class="title">Accounts</div>
+        </div>
+        <div class="e" data-a-current="1">
+          <i class="fas fa-sliders-h"></i>
+          <div class="title">Settings</div>
+        </div>
+      </div>
+      <div class="r">
+        <div class="e" data-role="showPopup" data-popup-name="addAccount">
+          <i class="fas fa-plus"></i>
+          <div class="title">Add account</div>
+        </div>
       </div>
     </div>
-
-    <div class="menuBottom">
-      <div class="e">
-        <i class="fas fa-home"></i>
-        <div class="title">Home</div>
-      </div>
-      <div class="e">
-        <i class="fas fa-user-secret"></i>
-        <div class="title">Accounts</div>
-      </div>
-      <div class="e" data-a-current="1">
-        <i class="fas fa-sliders-h"></i>
-        <div class="title">Settings</div>
-      </div>
     </div>
   </div>
 

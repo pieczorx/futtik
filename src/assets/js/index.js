@@ -1,21 +1,57 @@
 require('dotenv').config()
-
 const fse = require('fs-extra');
+
+const autoBuyer = new AutoBuyer();
+
+
+const start = async () => {
+  await autoBuyer.init();
+  tableAccounts.update();
+  console.log('App started');
+}
+
 
 
 $(document).ready(() => {
   $(document).on('submit', `form[name='addAccount']`, function() {
     const data = $(this).serializeJSON();
-    addAccount(data)
+    autoBuyer.addAccount(data).then(() => {
+      tableAccounts.update();
+      popupAddAccount.hide();
+
+    });
     return false;
   });
+  start();
 });
 
-//const autoBuyer = new AutoBuyer();
-const start = async () => {
-  autoBuyer.init();
-}
+let tableAccounts = new Table({
+    getData: () => {
+      return autoBuyer.accounts;
+    },
+    name: 'accounts',
+    empty: `
+    <div class="empty w100 center">
+      <div class="middle">
+        <div class="w100">No account added yet</div>
+        <button class="radius" data-role="showPopup" data-popup-name="addAccount">Add new account</button>
+      </div>
+    </div>
 
+    `,
+    fields: [
+      {name: 'enabled', title: 'Enabled?', format: row => {return row.options.enabled ? 'yes' : 'no';}},
+      {name: 'mail', title: 'Mail', format: row => row.options.mail},
+      {name: 'platform', title: 'Platform', format: row => {return row.options.platform;}},
+      {name: 'coins', title: 'Coins', format: row => {return row.options.coins;}}
+    ]
+});
+
+
+
+
+
+/*
 const addAccount = async (options) => {
   try {
     throw new Error('test erroru konta');
@@ -33,13 +69,4 @@ const addAccount = async (options) => {
     console.log('kurde mamy problemmo', e);
   }
 }
-
-
-class AccountStorage {
-  constructor() {
-
-  }
-  addAccount() {
-
-  }
-}
+*/
