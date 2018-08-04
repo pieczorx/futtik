@@ -9,6 +9,8 @@
   <!-- SCRIPTS -->
   <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
+  <script src="assets/js/config.js"></script>
+
   <script src="assets/js/uncaughtExceptions.js"></script>
   <script src="assets/js/require/eaHasher.js"></script>
   <script src="assets/js/require/AutoBuyer.js"></script>
@@ -56,9 +58,10 @@
             <div class="title">Two factor secret key:</div>
             <input type="text" name="twoFactorToken" placeholder="12345678abc" class="radius" value="ajbcy2dyhomge4za"/>
           </div>
-          <button type="submit" class="r radius">Add account</button>
-          <button type="submit" class="r radius b2">Maybe</button>
-          <button type="submit" class="r radius b3">Cancel</button>
+          <div class="r">
+            <button type="button" class="l radius b3" data-role="hidePopup" data-popup-name="addAccount">Cancel</button>
+            <button type="submit" class="l radius">Add account</button>
+          </div>
         </form>
 
       </div>

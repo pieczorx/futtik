@@ -3,6 +3,9 @@ class PopupAddAccount {
     $(document).on('click', `[data-role='showPopup'][data-popup-name='addAccount']`, () => {
       this.show();
     });
+    $(document).on('click', `[data-role='hidePopup'][data-popup-name='addAccount']`, () => {
+      this.hide();
+    });
   }
   show() {
     $(`[data-popup='addAccount']`).attr('data-show', 1);

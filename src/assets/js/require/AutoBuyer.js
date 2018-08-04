@@ -24,11 +24,15 @@ class AutoBuyer {
   }
 
   async loadAccounts() {
-
-  //  await fse.readJson();
+    try {
+      this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
+    } catch(e) {
+      
+    }
   }
 
   async saveAccounts() {
+    await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts);
     console.log('save accounts', this.accounts);
   }
 }
