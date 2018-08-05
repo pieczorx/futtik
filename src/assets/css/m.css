@@ -11,6 +11,19 @@ table th:last-child, table td:last-child {padding-right: 12px;}
 
 [data-table] .empty {font-size: 15px;}
 [data-table] .empty button {margin-top: 8px;}
+
+[data-table='accounts'] .activeStatus {cursor: pointer;position:relative;}
+[data-table='accounts'] .activeStatus::after {display: none;border-radius: 20px;position: absolute; content: ''; left: 0; top: 0; border: 2px solid hsl(176, 50%, 45%); width: 16px; height: 16px;}
+[data-table='accounts'] .activeStatus[data-status='0'] {color: rgba(255, 255, 255, 0.33);}
+[data-table='accounts'] .activeStatus[data-status='1'] {color: hsl(176, 50%, 45%);}
+[data-table='accounts'] .activeStatus[data-status='1']::after {opacity: 1; visibility: visible;}
+[data-table='accounts'] .activeStatus[data-status='2'] {color: hsl(121, 50%, 45%);}
+
+[data-table='accounts'] .activeStatus .dot {margin-right: 5px;width: 10px;height: 10px;margin-top: 3px;}
+[data-table='accounts'] .activeStatus[data-status='0'] .dot {background-color: rgba(255, 255, 255, 0.33);}
+[data-table='accounts'] .activeStatus[data-status='1'] .dot {background-color: hsl(176, 50%, 45%);}
+[data-table='accounts'] .activeStatus[data-status='2'] .dot {background-color: hsl(121, 50%, 45%);}
+
 *::-webkit-scrollbar {width: 10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .15s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}
 *::-webkit-scrollbar-track {width: 8px;border-radius: 0px;background-color: rgb(29, 30, 35);}
