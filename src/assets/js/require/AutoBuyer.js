@@ -28,11 +28,13 @@ class AutoBuyer {
     this.accounts[id].enabled = !this.accounts[id].enabled;
     this.emit('update');
   }
+
   workSingle(id) {
     //Check if account is not busy
     if(this.accounts[id].busy) {
       return;
     }
+
     //Check if instance was added
     if(!this.instances[id]) {
       this.addInstance(id);
