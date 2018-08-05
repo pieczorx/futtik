@@ -43,7 +43,7 @@ let tableAccounts = new Table({
       {name: 'enabled', title: 'Enabled?', format: row => {return row.options.enabled ? 'yes' : 'no';}},
       {name: 'mail', title: 'Mail', format: row => row.options.mail},
       {name: 'platform', title: 'Platform', format: row => {return row.options.platform;}},
-      {name: 'coins', title: 'Coins', format: row => {return row.options.coins;}}
+      {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '?';}}
     ]
 });
 
