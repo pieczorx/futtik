@@ -1,7 +1,7 @@
 class Table {
   constructor(info) {
     Object.assign(this, info);
-    
+
   }
 
   init() {
@@ -31,21 +31,21 @@ class Table {
   }
 
   appendData() {
-    this.rows.forEach(row => {
-      let values = this.getValuesFromRow(row);
+    this.rows.forEach((row, id) => {
+      let values = this.getValuesFromRow(row, id);
       this.appendRow(values);
     });
   }
 
-  getValuesFromRow(row) {
+  getValuesFromRow(row, id) {
     let values = [];
-    this.fields.forEach((field, i) => {
+    this.fields.forEach((field) => {
       let value = '-';
       if(typeof(row[field.name]) != 'undefined') {
         value = row[field.name];
       }
       if(typeof(field.format) === 'function') {
-        value = field.format(row, i);
+        value = field.format(row, id);
       }
       values[values.length] = value;
     });

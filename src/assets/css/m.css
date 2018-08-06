@@ -33,7 +33,7 @@ table th:last-child, table td:last-child {padding-right: 12px;}
 
 
 
-.a {will-change: filter;transition: filter .1s ease-in-out, opacity .1s ease-in-out;}
+.a {will-change: filter, opacity;transition: filter .1s ease-in-out, opacity .1s ease-in-out;}
 body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 .h {float: left;width: 100%;height: 48px;/* background-color: hsl(0, 0%, 10%); */color: white;display: none;}
 .h .logo {margin: 14px 0px 0px 15px;font-size: 17px;font-weight: 500;}
