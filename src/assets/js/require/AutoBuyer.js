@@ -32,6 +32,7 @@ class AutoBuyer {
   workSingle(id) {
     //Check if account is not busy
     if(this.accounts[id].busy) {
+      console.log('bizi');
       return;
     }
 
@@ -101,6 +102,10 @@ class AutoBuyer {
   async loadAccounts() {
     try {
       this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
+      for(let i = 0; i < this.accounts.length; i++) {
+        this.accounts[i].enabled = false;
+        this.accounts[i].busy = false;
+      }
     } catch(e) {
 
     }
