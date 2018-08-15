@@ -19,6 +19,9 @@
   <script src="assets/js/require/jquery.js"></script>
   <script src="assets/js/require/serializeJSON.js"></script>
   <script src="assets/js/require/Table.js"></script>
+  <script src="assets/js/require/AsyncPages.js"></script>
+
+  <script src="assets/js/pages/players.js"></script>
 
   <script src="assets/js/popups/addAccount.js"></script>
 
@@ -73,30 +76,39 @@
         <div class="logo l">Futtik</div>
       </div>
       <div class="c">
-        <div class="s" data-name="accounts">
+        <div class="s" data-name="bots" data-a-args="bots">
           <div class="center">
             <div data-table="accounts"></div>
+          </div>
+        </div>
+        <div class="s" data-name="players" data-a-args="players">
+          <div class="center">
+            <div class="w100">
+              <div class=""></div>
+              <button type="submit" class="r radius" data-role="playersUpdateDatabase">Update database</button>
+            </div>
+
           </div>
         </div>
       </div>
       <div class="menu">
 
-        <div class="e w100">
+        <a href="/stats" class="e w100" data-a-args="stats">
           <i class="fas fa-home l"></i>
           <div class="title l">Home</div>
-        </div>
-        <div class="e w100">
+        </a>
+        <a href="/bots" class="e w100" data-a-args="bots">
           <i class="fas fa-robot"></i>
-          <div class="title l ">Bots</div>
-        </div>
-        <div class="e w100">
+          <div class="title l">Bots</div>
+        </a>
+        <a href="/players" class="e w100" data-a-args="players">
           <i class="fas fa-users"></i>
           <div class="title l">Players</div>
-        </div>
-        <div class="e w100" data-a-current="1">
+        </a>
+        <a href="/settings" class="e w100" data-a-args="settings">
           <i class="fas fa-sliders-h l"></i>
           <div class="title l">Settings</div>
-        </div>
+        </a>
         <div class="e w100" data-role="showPopup" data-popup-name="addAccount">
           <i class="fas fa-plus l"></i>
           <div class="title l ">Add account</div>

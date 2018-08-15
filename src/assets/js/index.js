@@ -5,11 +5,13 @@ const autoBuyer = new AutoBuyer();
 
 
 const start = async () => {
+  a.go('/stats');
   autoBuyer.on('update', () => {
     tableAccounts.update();
   });
   await autoBuyer.init();
   tableAccounts.update();
+
   console.log('App started');
 }
 
@@ -64,6 +66,14 @@ let tableAccounts = new Table({
     {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '?';}}
   ]
 });
+
+
+
+const a = new AsyncPages();
+
+a.use((r, next) => {
+  r.set_data_args();
+})
 
 
 

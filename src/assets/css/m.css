@@ -1,4 +1,4 @@
-body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;font-family: 'Oxygen', sans-serif;font-family: 'Roboto', sans-serif;}
+body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;font-family: 'Oxygen', sans-serif;font-family: 'Roboto', sans-serif;overflow: hidden;}
 body, table {color: rgba(255, 255, 255, 0.95);}
 
 /*
@@ -67,7 +67,7 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 .menu .e[data-a-current='1']::after {opacity: 1;}
 .menu .e[data-a-current='1'] .title {opacity: 0; visibility: hidden; left: calc(100%);}
 */
-.c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;overflow-y: auto;position: relative;margin-left: 200px;box-sizing: border-box;padding: 15px 0px;}
+.c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
 
 input, select {border: none;padding: 0px 8px;outline: none;font-size: 14px;}
 button {margin-left: 5px;transition: all .1s ease;background-color: hsl(216, 83%, 61%);padding: 10px 15px;border: none;color: white;cursor: pointer;font-size: 15px;font-weight: 500;outline: none;}
@@ -89,3 +89,7 @@ button.b3:hover {background-color: hsla(0, 0%, 100%, 0.1);}
 .popup[data-popup='addAccount'] form .w100 {margin-bottom: 5px;}
 
 .popup[data-popup='addAccount'] form button {}
+
+
+.s {transition:all .15s ease;opacity: 0;pointer-events: none;visibility:hidden;position: absolute;left: 15px;top: 0;width: 100%;height: 100%;padding: 15px 0px;box-sizing: border-box;}
+.s[data-a-current='1'] {opacity: 1; pointer-events: all; visibility: visible;left:0;}
