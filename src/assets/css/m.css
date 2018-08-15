@@ -1,13 +1,22 @@
 body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;font-family: 'Oxygen', sans-serif;font-family: 'Roboto', sans-serif;}
 body, table {color: rgba(255, 255, 255, 0.95);}
 
+/*
 table td, table th {padding: 10px 0px;}
 table {width: 100%;font-size:14px;text-align: left;border-collapse: collapse;position: relative;}
-table th {background-color: hsl(0, 50%, 45%);font-weight: 500;/* padding: 10px 0px; *//* height: 39px; */font-size: 13px;}
-table tr {border-bottom: 1px solid rgba(255, 255, 255, 0.05);}
-table tr:first-child {/* position: relative; *//* width: 100%; *//* left: 0; *//* top: 0; */}
+table th {background-color: hsl(0, 50%, 45%);font-weight: 500;font-size: 13px;}
 table th:first-child, table td:first-child {padding-left: 12px;}
 table th:last-child, table td:last-child {padding-right: 12px;}
+*/
+
+table {border-spacing: 0px 1px;width: 100%;font-size:13px;border-radius: 5px;overflow: hidden;}
+table tr{background-color: hsla(0, 0%, 100%, 0.04);border: none;}
+table tr:hover {background-color: hsla(0, 0%, 100%, 0.06);}
+table tr:first-child {background-color: hsla(0, 0%, 100%, 0.08);}
+table thead tr:first-child{background-color:transparent; color: hsla(0, 0%, 50%, 1)}
+table th, table td{padding: 8px 12px; text-align: left}
+table tr:first-child th:first-child{border-top-left-radius: 5px;}
+table tr:first-child th:last-child{border-top-right-radius: 5px;}
 
 [data-table] .empty {font-size: 15px;}
 [data-table] .empty button {margin-top: 8px;}
@@ -27,7 +36,7 @@ table th:last-child, table td:last-child {padding-right: 12px;}
 *::-webkit-scrollbar {width: 10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .15s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}
 *::-webkit-scrollbar-track {width: 8px;border-radius: 0px;background-color: rgb(29, 30, 35);}
-*::-webkit-scrollbar-thumb {background-color: hsl(0, 0%, 85%);border-radius: 0px;}
+*::-webkit-scrollbar-thumb {background-color: hsl(0, 95%, 66%);border-radius: 0px;}
 *::-webkit-scrollbar-button {width: 0;height: 0;display: none;}
 ::-webkit-scrollbar-corner {background-color: transparent;}
 
@@ -39,19 +48,24 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 .h .logo {margin: 14px 0px 0px 15px;font-size: 17px;font-weight: 500;}
 .body {background-color: hsl(0, 0%, 15%);float: left;width: 100%;height: 100%;overflow: hidden;box-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.05), 0px 0px 0px 1px hsla(0, 0%, 0%, 0.05);position: relative;}
 
-.menuBottom {height: 48px;width: 100%;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */}
-.menuBottom .e {transition:all .15s ease;cursor: pointer;float: left;width: 48px;height: 48px;position: relative;color: hsla(0, 0%, 100%, 0.66);}
-.menuBottom .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */}
-.menuBottom .e i {transition:all .15s ease;font-size: 16px;position: absolute;left: 0;width: 100%;top: 50%;transform: translateY(-50%);}
-.menuBottom .e:hover i {transform: translateY(-50%) rotate(5deg);color: hsla(0, 0%, 100%, 1);}
-.menuBottom .e .title {visibility: hidden;transition: all .15s ease-in-out;opacity: 0;top: 50%;transform: translateY(-50%);background-color: hsla(0, 65%, 55%, 1);color: white;position: absolute;left: calc(100%);padding: 7px 15px 7px 12px;border-radius: 35px;display: none;pointer-events: none;}
-.menuBottom .e .title::after {content: '';top: 50%;transform: translateY(-50%);position: absolute;left: -6px;border-top: 10px solid rgba(255, 255, 255, 0);border-right: 10px solid hsla(0, 65%, 55%, 1);border-bottom: 10px solid rgba(255, 255, 255, 0);}
-.menuBottom .e:hover .title {opacity: 1;visibility:visible;left: calc(100% + 5px);}
-.menuBottom .e[data-a-current='1'] {background-color: hsl(0, 50%, 45%);color:hsla(0, 0%, 95%, 1);}
-.menuBottom .e[data-a-current='1']::after {opacity: 1;}
-.menuBottom .e[data-a-current='1'] .title {opacity: 0; visibility: hidden; left: calc(100%);}
+.menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */}
+.menu .e {transition:all .15s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
+.menu .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */}
+.menu .e i {transition:all .15s ease;/* font-size: 16px; *//* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;}
+.menu .e:hover i {transform: translateY(-50%) rotate(5deg);color: hsla(0, 0%, 100%, 1);}
+.menu .title {
+    margin-left: 5px;
+}
+.menu .e[data-a-current='1'] {background-color: hsl(0, 95%, 66%);color:hsla(0, 0%, 95%, 1);}
+/*
+.menu .e .title {visibility: hidden;transition: all .15s ease-in-out;opacity: 0;top: 50%;transform: translateY(-50%);background-color: hsla(0, 65%, 55%, 1);color: white;position: absolute;left: calc(100%);padding: 7px 15px 7px 12px;border-radius: 35px;display: none;pointer-events: none;}
+.menu .e .title::after {content: '';top: 50%;transform: translateY(-50%);position: absolute;left: -6px;border-top: 10px solid rgba(255, 255, 255, 0);border-right: 10px solid hsla(0, 65%, 55%, 1);border-bottom: 10px solid rgba(255, 255, 255, 0);}
+.menu .e:hover .title {opacity: 1;visibility:visible;left: calc(100% + 5px);}
 
-.c {float: left;width: 100%;font-size: 13px;height: calc(100% - 48px);overflow-y: auto;position: relative;}
+.menu .e[data-a-current='1']::after {opacity: 1;}
+.menu .e[data-a-current='1'] .title {opacity: 0; visibility: hidden; left: calc(100%);}
+*/
+.c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;overflow-y: auto;position: relative;margin-left: 200px;box-sizing: border-box;padding: 15px 0px;}
 
 input, select {border: none;padding: 0px 8px;outline: none;font-size: 14px;}
 button {margin-left: 5px;transition: all .1s ease;background-color: hsl(0, 50%, 45%);padding: 10px 15px;border: none;color: white;cursor: pointer;font-size: 15px;font-weight: 500;outline: none;}
