@@ -13,6 +13,9 @@ CONFIG.DIR_DATA = `${CONFIG.DIR_APPDATA}/Futtik`;
 //Path to account cookies etc
 CONFIG.PATH_ACCOUNTS = `${CONFIG.DIR_DATA}/accounts.json`;
 
+//Path to players
+CONFIG.PATH_PLAYERS = `${CONFIG.DIR_DATA}/players.json`;
+
 //AutoBuyer tick amount
 CONFIG.AUTOBUYER_TICK = 1000;
 

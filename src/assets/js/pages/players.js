@@ -64,12 +64,28 @@ class PagePlayers {
     } catch(e) {
       el.text('Error')
     }
+    await this.savePlayers();
     this.table.update();
     await this.wait(3000);
     el.text('Update database')
     el.attr('data-disabled', 0);
 
 
+  }
+
+  async savePlayers() {
+    await fse.outputJson(CONFIG.PATH_PLAYERS, this.players)
+  }
+
+  async loadPlayers() {
+    try {
+      console.log('getting players')
+      this.players = await fse.readJson(CONFIG.PATH_PLAYERS)
+      console.log('got', this.players)
+      this.table.update();
+    } catch(e) {
+      console.log(e)
+    }
   }
 
   wait(time) {

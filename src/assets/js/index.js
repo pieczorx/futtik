@@ -11,7 +11,7 @@ const start = async () => {
   });
   await autoBuyer.init();
   tableAccounts.update();
-
+  await pagePlayers.loadPlayers();
   console.log('App started');
 }
 
