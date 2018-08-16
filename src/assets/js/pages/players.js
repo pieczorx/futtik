@@ -15,20 +15,33 @@ class PagePlayers {
     let currentPage = 1;
     let players = [];
 
-    while(!fetchedAllPages) {
+    let el = $(`[data-role='playersUpdateDatabase']`);
+    el.attr('data-disabled', 1);
+    el.text('Updating database...')
+    try {
+      while(!fetchedAllPages) {
 
-      const result = await this.fetchSinglePage(currentPage);
-      allPages = result.totalPages;
-      players = players.concat(result.items);
+        const result = await this.fetchSinglePage(currentPage);
+        allPages = result.totalPages;
+        players = players.concat(result.items);
 
-      if(currentPage >= allPages) {
-        fetchedAllPages = true;
-      } else {
-        currentPage++;
-        await this.wait(1000);
+        el.text(`Updating database (${currentPage}/${allPages})...`)
+        if(currentPage >= allPages) {
+          fetchedAllPages = true;
+        } else {
+          currentPage++;
+          await this.wait(1000);
+        }
       }
+      console.log('fetched all players', players)
+      el.text('Database updated!')
+    } catch(e) {
+      el.text('Error')
     }
-    console.log('fetched all players', players)
+    await this.wait(3000);
+    el.text('Update database')
+    el.attr('data-disabled', 0);
+
 
   }
 
