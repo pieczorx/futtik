@@ -22,8 +22,14 @@ class PagePlayers {
       </div>
       `,
       fields: [
+        {name: 'avatar', title: '', format: (row) => {
+          //return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.id)}">`
+          //row.headshot.smallImgUrl
+          return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.baseId)}">`
+        }},
         {name: 'name', title: 'Name'},
-        {name: 'rating', title: 'Rating'}
+        {name: 'rating', title: 'Rating'},
+        {name: 'color', title: 'Color'}
       ]
     });
   }

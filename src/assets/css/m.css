@@ -1,6 +1,6 @@
-body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;font-family: 'Oxygen', sans-serif;font-family: 'Roboto', sans-serif;overflow: hidden;}
+body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;font-family: 'Oxygen', sans-serif;overflow: hidden;}
 body, table {color: rgba(255, 255, 255, 0.95);}
-
+body, button, input {font-family: 'Roboto', sans-serif;}
 /*
 table td, table th {padding: 10px 0px;}
 table {width: 100%;font-size:14px;text-align: left;border-collapse: collapse;position: relative;}
@@ -27,11 +27,13 @@ table tr:first-child th:last-child{border-top-right-radius: 5px;}
 [data-table='accounts'] .activeStatus[data-status='1'] {color: hsl(176, 50%, 45%);}
 [data-table='accounts'] .activeStatus[data-status='1']::after {opacity: 1; visibility: visible;}
 [data-table='accounts'] .activeStatus[data-status='2'] {color: hsl(121, 50%, 45%);}
-
 [data-table='accounts'] .activeStatus .dot {margin-right: 5px;width: 10px;height: 10px;margin-top: 3px;}
 [data-table='accounts'] .activeStatus[data-status='0'] .dot {background-color: rgba(255, 255, 255, 0.33);}
 [data-table='accounts'] .activeStatus[data-status='1'] .dot {background-color: hsl(176, 50%, 45%);}
 [data-table='accounts'] .activeStatus[data-status='2'] .dot {background-color: hsl(121, 50%, 45%);}
+
+[data-table='players'] td:first-child, [data-table='players'] th:first-child {width: 16px;padding: 0px 0px 0px 12px;}
+[data-table='players'] img {height: 24px;}
 
 *::-webkit-scrollbar {width: 10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .15s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}
@@ -70,7 +72,7 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
 
 input, select {border: none;padding: 0px 8px;outline: none;font-size: 14px;}
-button {margin-left: 5px;transition: all .1s ease;background-color: hsl(216, 83%, 61%);padding: 10px 15px;border: none;color: white;cursor: pointer;font-size: 15px;font-weight: 500;outline: none;}
+button {margin-left: 5px;transition: all .1s ease;background-color: hsl(216, 83%, 61%);padding: 8px 12px;border: none;color: white;cursor: pointer;font-size: 13px;font-weight: 600;outline: none;}
 button:hover {background-color: hsl(216, 83%, 66%)}
 button.b2 {background-color: rgba(255, 255, 255, 0.2);}
 button.b2:hover {background-color: hsla(0, 0%, 100%, 0.25);}
