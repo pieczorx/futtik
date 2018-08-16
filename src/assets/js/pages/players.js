@@ -6,7 +6,26 @@ class PagePlayers {
     $(document).on('click', `[data-role='playersUpdateDatabase']`, function() {
       that.updateDatabase();
     });
-    this.fetchUrl = ``
+    this.players = [];
+    this.fetchUrl = ``;
+    this.table = new Table({
+      getData: () => {
+        return this.players;
+      },
+      name: 'players',
+      empty: `
+      <div class="empty w100 center">
+        <div class="middle">
+          <div class="w100">There are no players</div>
+          <button type="submit" class="r radius" data-role="playersUpdateDatabase">Fetch database</button>
+        </div>
+      </div>
+      `,
+      fields: [
+        {name: 'name', title: 'Name'},
+        {name: 'rating', title: 'Rating'}
+      ]
+    });
   }
 
   async updateDatabase() {
@@ -34,10 +53,12 @@ class PagePlayers {
         }
       }
       console.log('fetched all players', players)
+      this.players = players;
       el.text('Database updated!')
     } catch(e) {
       el.text('Error')
     }
+    this.table.update();
     await this.wait(3000);
     el.text('Update database')
     el.attr('data-disabled', 0);
