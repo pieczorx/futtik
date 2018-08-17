@@ -50,7 +50,7 @@ class PagePlayers {
         allPages = result.totalPages;
         players = players.concat(result.items);
 
-        el.text(`Updating database (${currentPage}/${allPages})...`)
+        el.text(`Updating database... (${currentPage}/${allPages})`)
         if(currentPage >= allPages) {
           fetchedAllPages = true;
         } else {

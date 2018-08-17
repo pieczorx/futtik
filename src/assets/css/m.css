@@ -38,7 +38,7 @@ table tr:first-child th:last-child{border-top-right-radius: 5px;}
 *::-webkit-scrollbar {width: 10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .15s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}
 *::-webkit-scrollbar-track {width: 8px;border-radius: 0px;background-color: rgb(29, 30, 35);}
-*::-webkit-scrollbar-thumb {background-color: hsl(216, 83%, 61%);border-radius: 0px;}
+*::-webkit-scrollbar-thumb {background-color: hsl(216, 83%, 55%);border-radius: 0px;}
 *::-webkit-scrollbar-button {width: 0;height: 0;display: none;}
 ::-webkit-scrollbar-corner {background-color: transparent;}
 
@@ -59,7 +59,7 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 .menu .title {
     margin-left: 5px;
 }
-.menu .e[data-a-current='1'] {background-color: hsl(216, 83%, 61%);color:hsla(0, 0%, 95%, 1);}
+.menu .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
 /*
 .menu .e:hover i {transform: translateY(-50%) rotate(5deg);color: hsla(0, 0%, 100%, 1);}
 .menu .e .title {visibility: hidden;transition: all .15s ease-in-out;opacity: 0;top: 50%;transform: translateY(-50%);background-color: hsla(0, 65%, 55%, 1);color: white;position: absolute;left: calc(100%);padding: 7px 15px 7px 12px;border-radius: 35px;display: none;pointer-events: none;}
@@ -72,8 +72,9 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
 
 input, select {border: none;padding: 0px 8px;outline: none;font-size: 14px;}
-button {margin-left: 5px;transition: all .1s ease;background-color: hsl(216, 83%, 61%);padding: 8px 12px;border: none;color: white;cursor: pointer;font-size: 13px;font-weight: 600;outline: none;}
-button:hover {background-color: hsl(216, 83%, 66%)}
+button {margin-left: 5px;transition: all .1s ease;background-color: hsl(216, 83%, 55%);padding: 8px 12px;border: none;color: white;cursor: pointer;font-size: 13px;font-weight: 600;outline: none;}
+button:hover, button:active {background-color: hsl(216, 83%, 60%)}
+button:active {opacity: 0.75;}
 button.b2 {background-color: rgba(255, 255, 255, 0.2);}
 button.b2:hover {background-color: hsla(0, 0%, 100%, 0.25);}
 button.b3 {background-color: transparent;}
