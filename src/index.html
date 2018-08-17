@@ -81,13 +81,18 @@
             <div class="w100">
               <button type="submit" class="r radius" data-role="showPopup" data-popup-name="addAccount">Add account</button>
             </div>
-            <div data-table="accounts"></div>
+            <div data-table="accounts" class="w100"></div>
           </div>
         </div>
         <div class="s" data-name="players" data-a-args="players">
           <div class="center">
             <div class="w100">
-              <div class=""></div>
+              <div class="l">
+                <div class="paging l">
+                  <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="players"><i class="fal fa-angle-left"></i></button>
+                  <button class="b2 radius l" data-table-role="pagingNext" data-table-name="players"><i class="fal fa-angle-right"></i></button>
+                </div>
+              </div>
               <button type="submit" class="r radius" data-role="playersUpdateDatabase">Update database</button>
             </div>
             <div data-table="players" class="w100"></div>

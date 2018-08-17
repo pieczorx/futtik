@@ -12,14 +12,20 @@ table th:last-child, table td:last-child {padding-right: 12px;}
 table {border-spacing: 0px 1px;width: 100%;font-size:13px;border-radius: 5px;overflow: hidden;}
 table tr{background-color: hsla(0, 0%, 100%, 0.04);border: none;}
 table tr:hover {background-color: hsla(0, 0%, 100%, 0.06);}
-table tr:first-child {background-color: hsla(0, 0%, 100%, 0.08);}
-table thead tr:first-child{background-color:transparent; color: hsla(0, 0%, 50%, 1)}
+table thead tr:first-child {background-color: hsla(0, 0%, 100%, 0.08);}
+table thead tr:nth-child(2) {background-color: hsla(0, 0%, 100%, 0.06);}
+table thead tr:nth-child(2) th {padding: 0;}
+table thead tr:nth-child(2) th input {
+    padding: 8px 12px;
+}
+/*table thead tr:first-child{background-color:transparent; color: hsla(0, 0%, 50%, 1)}*/
 table th, table td{padding: 8px 12px; text-align: left}
 table tr:first-child th:first-child{border-top-left-radius: 5px;}
 table tr:first-child th:last-child{border-top-right-radius: 5px;}
 
 [data-table] .empty {font-size: 15px;}
 [data-table] .empty button {margin-top: 8px;}
+
 
 [data-table='accounts'] .activeStatus {cursor: pointer;position:relative;}
 [data-table='accounts'] .activeStatus::after {display: none;border-radius: 20px;position: absolute; content: ''; left: 0; top: 0; border: 2px solid hsl(176, 50%, 45%); width: 16px; height: 16px;}
@@ -71,8 +77,8 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 */
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
 
-input, select {border: none;padding: 0px 8px;outline: none;font-size: 14px;}
-button {margin-left: 5px;transition: all .1s ease;background-color: hsl(216, 83%, 55%);padding: 8px 12px;border: none;color: white;cursor: pointer;font-size: 13px;font-weight: 600;outline: none;}
+input, select {border: none;padding: 0px 8px;outline: none;font-size: 13px;}
+button {transition: all .1s ease;background-color: hsl(216, 83%, 55%);padding: 0px 12px;border: none;color: white;cursor: pointer;font-size: 13px;font-weight: 600;outline: none;height: 31px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 button:hover, button:active {background-color: hsl(216, 83%, 60%)}
 button:active {opacity: 0.75;}
 button.b2 {background-color: rgba(255, 255, 255, 0.2);}
@@ -80,6 +86,8 @@ button.b2:hover {background-color: hsla(0, 0%, 100%, 0.25);}
 button.b3 {background-color: transparent;}
 button.b3:hover {background-color: hsla(0, 0%, 100%, 0.1);}
 button[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
+button i {font-size: 17px;}
+table input {background-color: transparent;box-sizing: border-box;margin: 0;padding: 0;width: 100%;color: white;}
 
 .popup {position: absolute;left: 0;top: 0;width: 100%;height: 100%;/* background-color: hsla(0, 0%, 15%, 0.85); */z-index: 100;opacity: 0;visibility: hidden;transition: all .15s ease-in-out;transform: scale(0.95);}
 .popup[data-show='1'] {opacity: 1;visibility: visible;transform: scale(1) translateX(0);}
@@ -90,12 +98,14 @@ button[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
 .popup[data-popup='addAccount'] form .title {margin-top: 6px;float: left;width: calc((100% - 10px) * 1 / 3);text-align: right;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 14px;}
 .popup[data-popup='addAccount'] form .title + * {float: left;width: calc((100% - 10px) * 2 / 3);margin-left: 10px;height: 30px;}
 .popup[data-popup='addAccount'] form .w100 {margin-bottom: 5px;}
-
 .popup[data-popup='addAccount'] form button {}
 
 
 .s {transition:all .15s ease;opacity: 0;pointer-events: none;visibility:hidden;position: absolute;left: 15px;top: 0;width: 100%;height: 100%;padding: 15px 0px;box-sizing: border-box;overflow-y: auto;}
 .s[data-a-current='1'] {opacity: 1; pointer-events: all; visibility: visible;left:0;}
 
-
 .s[data-name='players'] [data-table] {margin-top: 10px;}
+.s[data-name='players'] .paging {}
+.s[data-name='players'] .paging button:first-child {margin-right: 5px;}
+.s[data-name='players'] [data-table] .paging {display: none;}
+.s[data-name='bots'] [data-table] {margin-top: 10px;}

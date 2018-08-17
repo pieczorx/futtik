@@ -1,5 +1,56 @@
 const util = require('util');
 
+const tableConverter = function (getData) {
+  const data = getData();
+  let rows = [];
+  let filters = data.filters;
+  let fields = data.fields;
+  //let {rows, filters, fields} = data;
+
+  data.rows.forEach(row => {
+    let matches = true;
+
+    //Search for fields
+    data.fields.forEach(field => {
+      if(field.search) {
+        if(data.filters[field.name]) {
+          const value = row[field.name].toLowerCase();
+          const search = data.filters[field.name].toLowerCase();
+          if(value.indexOf(search) < 0) {
+            matches = false;
+          }
+        }
+      }
+
+    });
+    console.log(row.name, matches);
+    if(matches) {
+      rows.push(row)
+    }
+  });
+
+  console.log('tyle rowsuw', rows.length);
+  let paging = {next: false, previous: false}
+  if(filters.page > 1) {
+    paging.previous = true;
+  }
+  if((filters.page * filters.limit) < rows.length) {
+    paging.next = true;
+  }
+  if(filters.limit) {
+
+    const INDEX_FROM = (filters.page - 1) * filters.limit
+    const INDEX_TO = filters.page * filters.limit
+    rows = rows.slice(INDEX_FROM, INDEX_TO)
+  }
+
+  return {
+    rows: rows,
+    paging: paging
+  }
+}
+
+
 class PagePlayers {
   constructor() {
     let that = this;
@@ -8,17 +59,26 @@ class PagePlayers {
     });
     this.players = [];
     this.fetchUrl = ``;
+
     this.table = new Table({
       getData: () => {
-        return this.players;
+        return tableConverter(() => {
+
+          return {
+            rows: this.players,
+            filters: this.table.filters,
+            fields: this.table.fields
+          }
+        })
+      },
+      onFilterChange: () => {
+        this.table.update();
       },
       name: 'players',
-      empty: `
+      htmlEmpty: `
       <div class="empty w100 center">
-        <div class="middle">
-          <div class="w100">There are no players</div>
-          <button type="submit" class="r radius" data-role="playersUpdateDatabase">Fetch database</button>
-        </div>
+        <div class="w100">There are no players</div>
+        <div class="w100"><button type="submit" class="r radius" data-role="playersUpdateDatabase">Fetch database</button></div>
       </div>
       `,
       fields: [
@@ -27,10 +87,13 @@ class PagePlayers {
           //row.headshot.smallImgUrl
           return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.baseId)}">`
         }},
-        {name: 'name', title: 'Name'},
-        {name: 'rating', title: 'Rating'},
-        {name: 'color', title: 'Color'}
-      ]
+        {name: 'name', search: 'text', title: 'Name'},
+        {name: 'rating', search: 'text', title: 'Rating'},
+        {name: 'color', search: 'text', title: 'Color'}
+      ],
+      filters: {
+        limit: 10
+      }
     });
   }
 

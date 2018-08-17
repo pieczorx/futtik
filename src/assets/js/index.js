@@ -32,10 +32,16 @@ $(document).ready(() => {
 
 let tableAccounts = new Table({
   getData: () => {
-    return autoBuyer.accounts;
+    return {
+      rows: autoBuyer.accounts,
+      paging: {
+        previous: false,
+        next: false
+      }
+    }
   },
   name: 'accounts',
-  empty: `
+  htmlEmpty: `
   <div class="empty w100 center">
     <div class="middle">
       <div class="w100">No account added yet</div>
