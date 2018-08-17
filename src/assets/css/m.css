@@ -41,7 +41,7 @@ table tr:first-child th:last-child{border-top-right-radius: 5px;}
 [data-table='players'] td:first-child, [data-table='players'] th:first-child {width: 16px;padding: 0px 0px 0px 12px;}
 [data-table='players'] img {height: 24px;}
 
-*::-webkit-scrollbar {width: 10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .15s ease-in-out;}
+*::-webkit-scrollbar {width: 10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .1s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}
 *::-webkit-scrollbar-track {width: 8px;border-radius: 0px;background-color: rgb(29, 30, 35);}
 *::-webkit-scrollbar-thumb {background-color: hsl(216, 83%, 55%);border-radius: 0px;}

@@ -92,7 +92,7 @@ class PagePlayers {
         {name: 'color', search: 'text', title: 'Color'}
       ],
       filters: {
-        limit: 10
+        limit: 15
       }
     });
   }
@@ -118,7 +118,7 @@ class PagePlayers {
           fetchedAllPages = true;
         } else {
           currentPage++;
-          await this.wait(1000);
+          await this.wait(500);
         }
       }
       console.log('fetched all players', players)
