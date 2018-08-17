@@ -7,6 +7,13 @@ const tableConverter = function (getData) {
   let fields = data.fields;
   //let {rows, filters, fields} = data;
 
+  //for(let i = 0; i < data.rows.length; i++) {
+
+  //}
+  // for(let i = 0; i < data.fields.length; i++) {
+  //   const field = data.fields[i];
+  //
+  // }
   data.rows.forEach(row => {
     let matches = true;
 
@@ -23,13 +30,12 @@ const tableConverter = function (getData) {
       }
 
     });
-    console.log(row.name, matches);
+
     if(matches) {
       rows.push(row)
     }
   });
 
-  console.log('tyle rowsuw', rows.length);
   let paging = {next: false, previous: false}
   if(filters.page > 1) {
     paging.previous = true;
