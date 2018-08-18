@@ -46,9 +46,9 @@ button i {margin-right: 2px;}
 button i.iconBig {font-size: 17px;margin-right: 0px;}
 
 
-*::-webkit-scrollbar {width: 10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .1s ease-in-out;}
+*::-webkit-scrollbar {width: 10px;height:10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .1s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}
-*::-webkit-scrollbar-track {width: 8px;border-radius: 0px;background-color: rgb(29, 30, 35);}
+*::-webkit-scrollbar-track {width: 8px;height:8px;border-radius: 0px;background-color: rgb(29, 30, 35);}
 *::-webkit-scrollbar-thumb {background-color: hsl(216, 83%, 55%);border-radius: 0px;}
 *::-webkit-scrollbar-button {width: 0;height: 0;display: none;}
 ::-webkit-scrollbar-corner {background-color: transparent;}
@@ -99,7 +99,7 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 .subMenu .e[data-a-current='1'] {border-color: hsl(216, 83%, 55%);color: hsl(216, 83%, 66%);/* color: white; *//* border-color: white; */font-weight: 600;background-color: hsl(0, 0%, 15%);}
 .subMenu .e i {margin-right: 2px;}
 
-.sSub {pointer-events:none;visibility:hidden;transition: all .15s ease;left:15px;opacity: 0;position: absolute;top: 45px;width: 100%;height: calc(100% - 45px);box-sizing: border-box;padding: 10px 0px 15px 0px;}
+.sSub {pointer-events:none;visibility:hidden;transition: all .15s ease;left:15px;opacity: 0;position: absolute;top: 45px;width: 100%;height: calc(100% - 45px);box-sizing: border-box;padding: 10px 0px 15px 0px;overflow-y: auto;}
 .sSub[data-a-current='1'] {opacity: 1;left: 0;pointer-events:all;visibility:visible;}
 
 .s[data-name='players'] {padding-top: 0px;}
