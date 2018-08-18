@@ -19,7 +19,9 @@ class TableConverter {
       data.fields.forEach(field => {
         if(field.search) {
           if(data.filters[field.name]) {
-            const value = row[field.name].toLowerCase();
+            let value = row[field.name];
+            value = value.toString();
+            value = value.toLowerCase();
             const search = data.filters[field.name].toLowerCase();
             if(value.indexOf(search) < 0) {
               matches = false;
