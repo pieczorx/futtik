@@ -20,6 +20,7 @@
   <script src="assets/js/require/serializeJSON.js"></script>
   <script src="assets/js/require/Table.js"></script>
   <script src="assets/js/require/AsyncPages.js"></script>
+  <script src="assets/js/require/tableConverter.js"></script>
 
   <script src="assets/js/pages/players.js"></script>
 
@@ -85,19 +86,46 @@
           </div>
         </div>
         <div class="s" data-name="players" data-a-args="players">
-          <div class="center">
-            <div class="w100">
-              <div class="l">
-                <div class="paging l">
-                  <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="players"><i class="fal fa-angle-left"></i></button>
-                  <button class="b2 radius l" data-table-role="pagingNext" data-table-name="players"><i class="fal fa-angle-right"></i></button>
+          <div class="subMenu w100">
+            <a class="e" href="/players" data-a-args="players,"><i class="fas fa-database"></i> Database (<span data-table-role="countAll" data-table-name="players">0</span>)</a>
+            <a class="e" href="/players/analyzer" data-a-args="players,analyzer"><i class="fas fa-crosshairs"></i> Analyzer (<span data-table-role="countAll" data-table-name="playersAnalyzer">0</span>)</a>
+            <a class="e" href="/players/current" data-a-args="players,current"><i class="fas fa-user-tie"></i> Current</a>
+          </div>
+
+          <div class="sSub" data-a-args="players,">
+            <div class="center">
+              <div class="w100">
+                <div class="l">
+                  <div class="paging l">
+                    <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="players"><i class="far fa-angle-left iconBig"></i></button>
+                    <button class="b2 radius l" data-table-role="pagingNext" data-table-name="players"><i class="far fa-angle-right iconBig"></i></button>
+                  </div>
+                </div>
+                <div class="r">
+                  <button type="submit" class="l radius" data-role="playersAddToAnalyzer"><i class="far fa-user-plus"></i> Add to analyzer (<span data-table-role="countAllSelected" data-table-name="players">0</span>)</button>
+                  <button type="submit" class="l radius" data-role="playersUpdateDatabase"><i class="far fa-sync-alt"></i> Update database</button>
+
                 </div>
               </div>
-              <button type="submit" class="r radius" data-role="playersUpdateDatabase">Update database</button>
+              <div data-table="players" data-table-design="players" class="w100"></div>
             </div>
-            <div data-table="players" class="w100"></div>
-
           </div>
+          <div class="sSub" data-a-args="players,analyzer">
+            <div class="center">
+              <div class="lay lay2 l">
+                filtry
+              </div>
+              <div class="lay lay2 l">
+                <div data-table="playersAnalyzer" data-table-design="players" class="w100"></div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
         </div>
       </div>
       <div class="menu">
@@ -136,3 +164,14 @@
   </div>
 
 </body>
+
+
+<!--
+min price
+max price
+min auctions
+check X pages
+use cheapest X items
+
+bronze
+-->

@@ -117,6 +117,8 @@ class Table {
     $(`[data-table='${this.name}'] [data-table-role='pagingNext'], [data-table-name='${this.name}'][data-table-role='pagingNext']`).attr(`data-disabled`, !this.paging.next << false).prop(`disabled`, !this.paging.next << false);
 
     $(`[data-table='${this.name}'] [data-table-role='count']`).html(`${this.rows.length * this.filters.page} / ${this.count}`);
+    $(`[data-table-name='${this.name}'][data-table-role='countAll']`).html(this.countAll);
+    $(`[data-table-name='${this.name}'][data-table-role='countAllSelected']`).html(this.countAllSelected);
     el.attr('data-empty', !(this.rows.length > 0) << false)
     if(this.rows.length > 0) {
 

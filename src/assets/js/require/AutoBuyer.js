@@ -4,7 +4,10 @@ class AutoBuyer {
     this.instances = [];
     this.listeners = [];
 
+    this.tasks = [];
     let that = this;
+
+    //Toggle account state
     $(document).on('click', `[data-role='toggleAccountState']`, function() {
       const id = $(this).attr('data-account-id');
       that.toggleAccountState(id);
@@ -12,6 +15,18 @@ class AutoBuyer {
 
     this.work();
   }
+
+  //Tasks
+  performTask(task) {
+    return new Promise((resolve, reject) => {
+      task.onComplete = resolve;
+      this.addTask(task);
+    });
+  }
+  addTask(task) {
+    this.tasks[this.tasks.length] = task;
+  }
+
 
   work() {
     clearTimeout(this.timeoutWork);
@@ -24,15 +39,17 @@ class AutoBuyer {
     }, CONFIG.AUTOBUYER_TICK);
   }
 
-  toggleAccountState(id) {
-    this.accounts[id].enabled = !this.accounts[id].enabled;
-    this.emit('update');
-  }
+
 
   workSingle(id) {
     //Check if account is not busy
     if(this.accounts[id].busy) {
       console.log('bizi');
+      return;
+    }
+
+    if(!this.accounts[id].enabled) {
+      console.log('account is disabled');
       return;
     }
 
@@ -45,10 +62,35 @@ class AutoBuyer {
     if(this.accounts[id].enabled && !this.accounts[id].logged) {
       return this.login(id);
     }
+
+    //Check for custom tasks
+    for(let i = 0; i < this.tasks.length; i++) {
+      const handledTask = this.handleTask(id, this.tasks[i]);
+      if(handledTask) {
+        return handledTask;
+      }
+    }
+
+    //Check for automatic tasks
+    //Price check every 10 seconds for example
+    //Get tradepile every minute for example
+  }
+
+  async handleTask(id, task) {
+
+    switch(task.type) {
+      case "priceCheck": {
+        this.busy(id);
+        console.log();
+        await this.instances[id].searchTransferMarket();
+        this.free(id);
+        return true;
+      }
+    }
+    return false;
   }
 
   addInstance(id) {
-    console.log('add instance', id);
     this.instances[id] = new Account(this.accounts[id].options);
   }
 
@@ -68,6 +110,7 @@ class AutoBuyer {
     } catch(e) {
       console.log('Error with login', id, e);
     }
+    this.free(id);
   }
 
   busy(id) {
@@ -77,6 +120,11 @@ class AutoBuyer {
   async free(id) {
     await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
     this.accounts[id].busy = false;
+  }
+
+  toggleAccountState(id) {
+    this.accounts[id].enabled = !this.accounts[id].enabled;
+    this.emit('update');
   }
 
   init() {
@@ -98,7 +146,6 @@ class AutoBuyer {
 
 
   }
-
   async loadAccounts() {
     try {
       this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
@@ -110,11 +157,12 @@ class AutoBuyer {
 
     }
   }
-
   async saveAccounts() {
     await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts);
     console.log('save accounts', this.accounts);
   }
+
+
 
   emit(type, data) {
     this.listeners.forEach(listener => {

@@ -1,80 +1,25 @@
 const util = require('util');
 
-const tableConverter = function (getData) {
-  const data = getData();
-  let rows = [];
-  let filters = data.filters;
-  let fields = data.fields;
-  //let {rows, filters, fields} = data;
-
-  //for(let i = 0; i < data.rows.length; i++) {
-
-  //}
-  // for(let i = 0; i < data.fields.length; i++) {
-  //   const field = data.fields[i];
-  //
-  // }
-  data.rows.forEach(row => {
-    let matches = true;
-
-    //Search for fields
-    data.fields.forEach(field => {
-      if(field.search) {
-        if(data.filters[field.name]) {
-          const value = row[field.name].toLowerCase();
-          const search = data.filters[field.name].toLowerCase();
-          if(value.indexOf(search) < 0) {
-            matches = false;
-          }
-        }
-      }
-
-    });
-
-    if(matches) {
-      rows.push(row)
-    }
-  });
-
-  let paging = {next: false, previous: false}
-  if(filters.page > 1) {
-    paging.previous = true;
-  }
-  if((filters.page * filters.limit) < rows.length) {
-    paging.next = true;
-  }
-  if(filters.limit) {
-
-    const INDEX_FROM = (filters.page - 1) * filters.limit
-    const INDEX_TO = filters.page * filters.limit
-    rows = rows.slice(INDEX_FROM, INDEX_TO)
-  }
-
-  return {
-    rows: rows,
-    paging: paging
-  }
-}
-
-
 class PagePlayers {
   constructor() {
     let that = this;
     $(document).on('click', `[data-role='playersUpdateDatabase']`, function() {
       that.updateDatabase();
     });
+    $(document).on('click', `[data-role='playersAddToAnalyzer']`, function() {
+      that.addToAnalyzer();
+    });
     this.players = [];
+    this.playersAnalyzer = [];
+
     this.fetchUrl = ``;
 
     this.table = new Table({
       getData: () => {
-        return tableConverter(() => {
-
-          return {
-            rows: this.players,
-            filters: this.table.filters,
-            fields: this.table.fields
-          }
+        return tableConverter.convert({
+          rows: this.players,
+          filters: this.table.filters,
+          fields: this.table.fields
         })
       },
       onFilterChange: () => {
@@ -95,12 +40,83 @@ class PagePlayers {
         }},
         {name: 'name', search: 'text', title: 'Name'},
         {name: 'rating', search: 'text', title: 'Rating'},
-        {name: 'color', search: 'text', title: 'Color'}
+        {name: 'color', search: 'text', title: 'Color'},
+        {
+          name: 'league',
+          search: {
+            type: 'text',
+            retrieve: (row) => {
+              return row.league.name;
+            }
+          },
+          title: 'League',
+          format: (row) => {
+            return row.league.name;
+          }
+        }
       ],
       filters: {
         limit: 15
       }
     });
+    this.tableAnalyzer = new Table({
+      getData: () => {
+        return tableConverter.convert({
+          rows: this.playersAnalyzer,
+          filters: this.tableAnalyzer.filters,
+          fields: this.tableAnalyzer.fields
+        })
+      },
+      onFilterChange: () => {
+        this.tableAnalyzer.update();
+      },
+      name: 'playersAnalyzer',
+      htmlEmpty: `
+      <div class="empty w100 center">
+        <div class="w100">There are no players, add them from <a href="/players/">database tab</a>.</div>
+      </div>
+      `,
+      fields: [
+        {name: 'avatar', title: '', format: (row) => {
+          return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.baseId)}">`
+        }},
+        {name: 'name', search: 'text', title: 'Name'},
+        {name: 'rating', search: 'text', title: 'Rating'},
+        {name: 'color', search: 'text', title: 'Color'},
+        {
+          name: 'league',
+          search: {
+            type: 'text',
+            retrieve: (row) => {
+              return row.league.name;
+            }
+          },
+          title: 'League',
+          format: (row) => {
+            return row.league.name;
+          }
+        }
+      ],
+      filters: {
+        limit: 15
+      }
+    });
+    this.tableAnalyzer.update();
+  }
+
+  addToAnalyzer() {
+    this.playersAnalyzer = tableConverter.getAllData({
+      filters: this.table.filters,
+      rows: this.players,
+      fields: this.table.fields
+    });
+    this.tableAnalyzer.update();
+
+    autoBuyer.performTask({
+      type: 'priceCheck',
+      playerId: 1
+    });
+
   }
 
   async updateDatabase() {

@@ -11,7 +11,6 @@ class Account {
     }
     this.gameSku = platforms[this.platform];
   }
-
   login() {
     return new Promise(async (resolve, reject) => {
       console.log('========== Visit first page');
@@ -74,8 +73,7 @@ class Account {
     });
   }
 
-
-
+  //Login
   async visitFirstPage() {
     const url = `https://www.easports.com/pl/fifa/ultimate-team/web-app/`;
     const data = await this.get(url);
@@ -223,7 +221,6 @@ class Account {
     console.log('Shards: ', data);
     this.shards = data.body.shardInfo;
   }
-
   async getUtasServer() {
     let finalShard;
     let finalData;
@@ -247,7 +244,6 @@ class Account {
     this.utas = `${finalShard.clientProtocol}://${finalShard.clientFacingIpPort}`;
     this.persona = finalData.body.userAccountInfo.personas[0];
   }
-
   async getFosServerCode() {
     const url = `https://accounts.ea.com/connect/auth?client_id=FOS-SERVER&redirect_uri=nucleus:rest&response_type=code&access_token=${this.accessToken}`;
     const data = await this.get(url, {
@@ -255,7 +251,6 @@ class Account {
     });
     this.fosCode = data.body.code;
   }
-
   async getUtSid() {
     const url = `${this.utas}/ut/auth?sku_b=FFT18`;
     const data = await this.post(url, {
@@ -279,7 +274,6 @@ class Account {
     this.utSid = data.body.sid;
     this.utas = `${data.body.protocol}://${data.body.ipPort}`;
   }
-
   async getSecurityQuestion() {
     const url = `${this.utas}/ut/game/fifa18/phishing/question`;
     const data = await this.get(url, {
@@ -288,7 +282,6 @@ class Account {
     console.log('Got security question info', data.body);
 
   }
-
   async answerSecurityQuestion() {
     const answerHashed = eaHasher(this.answer);
     console.log('answerHashed', answerHashed);
@@ -304,6 +297,7 @@ class Account {
     console.log('secret hash data', data);
   }
 
+  //Fifa functions
   async getMassInfo() {
     const url = `${this.utas}/ut/game/fifa18/usermassinfo`
     const data = await this.get(url, {
@@ -318,7 +312,25 @@ class Account {
     });
   }
 
+  async searchTransferMarket(p) {
 
+    const parameters = {
+      start: 0,
+      num: 36,
+      type: 'player',
+      maskedDefId: 188545,
+      //lev: 'bronze',
+      //micr: 150,
+      //macr: 350,
+      //minb: 200,
+      //maxb: 450
+    }
+    const url = `${this.utas}/ut/game/fifa18/transfermarket?${querystring.stringify(parameters)}`
+    const data = await this.get(url, {
+      json: true
+    });
+    console.log('Searched transfer market :)', data);
+  }
 
 
 
