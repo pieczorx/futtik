@@ -3,7 +3,10 @@ class TableConverter {
 
   }
 
-  convert(data) {
+  convert(data, options) {
+    if(!options) {
+      options = {};
+    }
     let rows = [];
     let filters = data.filters;
     let fields = data.fields;
@@ -34,7 +37,7 @@ class TableConverter {
     const countAllSelected = rows.length;
 
     let paging = {next: false, previous: false}
-    if(filters.limit) {
+    if(filters.limit && !options.ignoreLimit) {
       if(filters.page > 1) {
         paging.previous = true;
       }
@@ -53,11 +56,8 @@ class TableConverter {
       countAll: countAll
     }
   }
-
   getAllData(data) {
-    let newData = Object.assign({}, data);
-    newData.filters.limit = false;
-    return (this.convert(newData)).rows;
+    return this.convert(data, {ignoreLimit: true}).rows;
   }
 }
 const tableConverter = new TableConverter();

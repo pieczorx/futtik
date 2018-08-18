@@ -110,6 +110,7 @@ class PagePlayers {
       rows: this.players,
       fields: this.table.fields
     });
+
     this.tableAnalyzer.update();
 
     autoBuyer.performTask({
