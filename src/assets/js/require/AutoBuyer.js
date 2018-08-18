@@ -93,6 +93,10 @@ class AutoBuyer {
 
         this.busy(botId);
 
+        if(!task.page) {
+          task.page = 1;
+        }
+
         if(!task.auctions) {
           task.auctions = [];
         }
@@ -101,21 +105,23 @@ class AutoBuyer {
           page: task.page
         });
 
-        task.auctions.push(...response.auctions.map(e => {
-          return {
-            buyNowPrice: e.buyNowPrice,
-            startingBid: e.startingBid
-          }
-        }))
+        if(response.auctions.length > 0) {
+          task.auctions.push(...response.auctions.map(e => {
+            return {
+              buyNowPrice: e.buyNowPrice,
+              startingBid: e.startingBid
+            }
+          }));
+        }
 
-        if(task.page >= task.pageMax) {
+        if(task.page >= task.pageMax || response.auctions.length == 0) {
           //Sort auctions by price ascending
           task.auctions.sort((a, b) => {
             return a.buyNowPrice - b.buyNowPrice;
           })
           task.result = {
             auctions: task.auctions,
-            buyNowPriceAverage: (task.auctions.slice(0, task.cheapestItemsQuantity)).reduce((p, c) => p + c, 0) / task.cheapestItemsQuantity;
+            buyNowPriceAverage: (task.auctions.slice(0, task.cheapestItemsQuantity)).reduce((p, c) => p + c.buyNowPrice, 0) / task.cheapestItemsQuantity
           }
           this.finishTask(task);
         } else {
