@@ -113,7 +113,48 @@
           <div class="sSub" data-a-args="players,analyzer">
             <div class="center">
               <div class="lay lay2 l">
-                filtry
+
+                <!--
+                min price
+                max price
+                min auctions
+                check X pages
+                use cheapest X items
+
+                bronze
+                -->
+                <form name="playersAnalyzer">
+                  <div class="w100">
+                    <div class="lay lay3 l">
+                      <div class="title w100">Min price:</div>
+                      <input type="number" name="priceMin" class="radius w100" value="600"/>
+                    </div>
+                    <div class="lay lay3 l">
+                      <div class="title w100">Max price:</div>
+                      <input type="number" name="priceMax" class="radius w100" value="30000"/>
+                    </div>
+                    <div class="lay lay3 l">
+                      <div class="title w100">Min auctions:</div>
+                      <input type="number" name="auctionsMin" class="radius w100" value="15"/>
+                    </div>
+
+                  </div>
+                  <div class="w100">
+                    <div class="lay lay2 l ">
+                      <div class="title w100">Pages to check:</div>
+                      <input type="number" name="pagesMax" class="radius w100" value="6"/>
+                    </div>
+                    <div class="lay lay2 l">
+                      <div class="title w100">Cheapest items quantity:</div>
+                      <input type="number" name="cheapestItemsQuantity" class="radius w100" value="3"/>
+                    </div>
+
+                  </div>
+
+                  <div class="r">
+                    <button type="submit" class="l radius"><i class="fas fa-plus l"></i> Analyze</button>
+                  </div>
+                </form>
               </div>
               <div class="lay lay2 l">
                 <div data-table="playersAnalyzer" data-table-design="players" class="w100"></div>
@@ -164,14 +205,3 @@
   </div>
 
 </body>
-
-
-<!--
-min price
-max price
-min auctions
-check X pages
-use cheapest X items
-
-bronze
--->

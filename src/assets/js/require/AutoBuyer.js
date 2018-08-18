@@ -76,18 +76,65 @@ class AutoBuyer {
     //Get tradepile every minute for example
   }
 
-  async handleTask(id, task) {
+  async handleTask(botId, task) {
+    if(task.finished) {
+      return false;
+    }
+
+    if(typeof(task.botId) !== 'undefined' && task.botId != botId) {
+      return false;
+    }
+
 
     switch(task.type) {
       case "priceCheck": {
-        this.busy(id);
-        console.log();
-        await this.instances[id].searchTransferMarket();
-        this.free(id);
+
+        task.botId = botId;
+
+        this.busy(botId);
+
+        if(!task.auctions) {
+          task.auctions = [];
+        }
+
+        const response = await this.instances[botId].searchTransferMarket({
+          page: task.page
+        });
+
+        task.auctions.push(...response.auctions.map(e => {
+          return {
+            buyNowPrice: e.buyNowPrice,
+            startingBid: e.startingBid
+          }
+        }))
+
+        if(task.page >= task.pageMax) {
+          //Sort auctions by price ascending
+          task.auctions.sort((a, b) => {
+            return a.buyNowPrice - b.buyNowPrice;
+          })
+          task.result = {
+            auctions: task.auctions,
+            buyNowPriceAverage: (task.auctions.slice(0, task.cheapestItemsQuantity)).reduce((p, c) => p + c, 0) / task.cheapestItemsQuantity;
+          }
+          this.finishTask(task);
+        } else {
+          task.page++;
+        }
+
+        this.free(botId);
+
         return true;
       }
     }
     return false;
+  }
+
+  finishTask(task) {
+    task.finished = true;
+    if(typeof(task.onComplete) === 'function') {
+      task.onComplete(task.result);
+    }
   }
 
   addInstance(id) {

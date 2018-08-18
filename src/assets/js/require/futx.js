@@ -313,10 +313,10 @@ class Account {
   }
 
   async searchTransferMarket(p) {
-
+    const limit = 36;
     const parameters = {
-      start: 0,
-      num: 36,
+      start: (p.page - 1) * limit,
+      num: limit,
       type: 'player',
       maskedDefId: 188545,
       //lev: 'bronze',
@@ -329,7 +329,10 @@ class Account {
     const data = await this.get(url, {
       json: true
     });
-    console.log('Searched transfer market :)', data);
+    console.log('Searched transfer market :)', data.body);
+    return {
+      auctions: data.body.auctionInfo
+    };
   }
 
 

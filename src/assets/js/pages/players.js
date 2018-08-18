@@ -9,6 +9,13 @@ class PagePlayers {
     $(document).on('click', `[data-role='playersAddToAnalyzer']`, function() {
       that.addToAnalyzer();
     });
+
+    $(document).on('submit', `form[name='playersAnalyzer']`, function() {
+      const data = $(this).serializeJSON();
+      that.analyze(data);
+      return false;
+    });
+
     this.players = [];
     this.playersAnalyzer = [];
 
@@ -113,11 +120,19 @@ class PagePlayers {
 
     this.tableAnalyzer.update();
 
-    autoBuyer.performTask({
-      type: 'priceCheck',
-      playerId: 1
-    });
 
+
+  }
+
+  async analyze(data) {
+    const res = await autoBuyer.performTask({
+      type: 'priceCheck',
+      playerId: 1,
+      page: 1,
+      pageMax: parseInt(data.pagesMax),
+      cheapestItemsQuantity: data.cheapestItemsQuantity
+    });
+    console.log('UDALO SIE XDD', res);
   }
 
   async updateDatabase() {
