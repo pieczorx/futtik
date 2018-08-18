@@ -30,7 +30,6 @@ class AutoBuyer {
 
   work() {
     clearTimeout(this.timeoutWork);
-    console.log('workin...');
     for(let i = 0; i < this.accounts.length; i++) {
       this.workSingle(i);
     }
@@ -44,12 +43,11 @@ class AutoBuyer {
   workSingle(id) {
     //Check if account is not busy
     if(this.accounts[id].busy) {
-      console.log('bizi');
       return;
     }
 
+    //Check if account is enabled
     if(!this.accounts[id].enabled) {
-      console.log('account is disabled');
       return;
     }
 
@@ -102,7 +100,8 @@ class AutoBuyer {
         }
 
         const response = await this.instances[botId].searchTransferMarket({
-          page: task.page
+          page: task.page,
+          baseId: task.baseId
         });
 
         if(response.auctions.length > 0) {

@@ -102,7 +102,9 @@ class PagePlayers {
           format: (row) => {
             return row.league.name;
           }
-        }
+        },
+        {name: 'lastPriceCheckAuctionCount', search: 'text', title: 'Auctions'},
+        {name: 'lastPriceCheckPriceBuyNowAverage', search: 'text', title: 'Average price'}
       ],
       filters: {
         limit: 15
@@ -125,14 +127,20 @@ class PagePlayers {
   }
 
   async analyze(data) {
-    const res = await autoBuyer.performTask({
-      type: 'priceCheck',
-      playerId: 1,
-      page: 1,
-      pageMax: parseInt(data.pagesMax),
-      cheapestItemsQuantity: data.cheapestItemsQuantity
+    this.playersAnalyzer.forEach(async (player) => {
+      const res = await autoBuyer.performTask({
+        type: 'priceCheck',
+        baseId: player.baseId,
+        pageMax: parseInt(data.pagesMax),
+        cheapestItemsQuantity: data.cheapestItemsQuantity
+      });
+
+      player.lastPriceCheckAuctionCount = res.auctions.length;
+      player.lastPriceCheckPriceBuyNowAverage = res.buyNowPriceAverage;
+      this.tableAnalyzer.update();
     });
-    console.log('UDALO SIE XDD', res);
+
+
   }
 
   async updateDatabase() {

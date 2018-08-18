@@ -318,7 +318,7 @@ class Account {
       start: (p.page - 1) * limit,
       num: limit,
       type: 'player',
-      maskedDefId: 188545,
+      maskedDefId: p.baseId,
       //lev: 'bronze',
       //micr: 150,
       //macr: 350,
