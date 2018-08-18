@@ -40,7 +40,7 @@ class AutoBuyer {
 
 
 
-  workSingle(id) {
+  async workSingle(id) {
     //Check if account is not busy
     if(this.accounts[id].busy) {
       return;
@@ -63,7 +63,8 @@ class AutoBuyer {
 
     //Check for custom tasks
     for(let i = 0; i < this.tasks.length; i++) {
-      const handledTask = this.handleTask(id, this.tasks[i]);
+      const handledTask = await this.handleTask(id, this.tasks[i]);
+      console.log(`try to handle task with id ${i}`, handledTask);
       if(handledTask) {
         return handledTask;
       }
