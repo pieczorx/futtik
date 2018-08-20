@@ -5,6 +5,11 @@ const autoBuyer = new AutoBuyer();
 
 
 const start = async () => {
+  console.log(1)
+  await wait(1500);
+  console.log(2)
+  $(`[data-popup='loadingInitial']`).attr('data-status', 1);
+  await wait(1500);
   a.go('/stats');
   autoBuyer.on('update', () => {
     tableAccounts.update();
@@ -12,6 +17,9 @@ const start = async () => {
   await autoBuyer.init();
   tableAccounts.update();
   await pagePlayers.loadPlayers();
+  pagePlayers._load();
+  await wait(1500);
+  popupLoadingInitial.hide();
   console.log('App started');
 }
 

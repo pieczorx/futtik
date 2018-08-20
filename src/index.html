@@ -25,6 +25,7 @@
   <script src="assets/js/pages/players.js"></script>
 
   <script src="assets/js/popups/addAccount.js"></script>
+  <script src="assets/js/popups/loadingInitial.js"></script>
 
   <script src="assets/js/index.js"></script>
 
@@ -71,6 +72,14 @@
         </form>
 
       </div>
+      <div class="popup" data-popup="loadingInitial" data-show="1">
+        <div class="middle">
+          <div class="wrapper">
+            <div class="logo">Futtik</div>
+            <div class="loadingBar"><div class="bar"></div></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="a">
       <div class="h draggable radius noRadiusDown">
@@ -110,41 +119,20 @@
               <div data-table="players" data-table-design="players" class="w100"></div>
             </div>
           </div>
-          <div class="sSub" data-a-args="players,analyzer">
+          <div class="sSub" data-name="analyzer" data-a-args="players,analyzer">
             <div class="center">
-              <div class="lay lay2 l">
-
-                <!--
-                min price
-                max price
-                min auctions
-                check X pages
-                use cheapest X items
-
-                bronze
-                -->
+              <div class="lay layAnalyzer l">
                 <form name="playersAnalyzer">
-                  <div class="w100">
-                    <div class="lay lay3 l">
-                      <div class="title w100">Min price:</div>
-                      <input type="number" name="priceMin" class="radius w100" value="600"/>
-                    </div>
-                    <div class="lay lay3 l">
-                      <div class="title w100">Max price:</div>
-                      <input type="number" name="priceMax" class="radius w100" value="30000"/>
-                    </div>
-                    <div class="lay lay3 l">
+                  <div class="options w100">
+                    <div class="w100">
                       <div class="title w100">Min auctions:</div>
                       <input type="number" name="auctionsMin" class="radius w100" value="15"/>
                     </div>
-
-                  </div>
-                  <div class="w100">
-                    <div class="lay lay2 l ">
+                    <div class="w100">
                       <div class="title w100">Pages to check:</div>
                       <input type="number" name="pagesMax" class="radius w100" value="6"/>
                     </div>
-                    <div class="lay lay2 l">
+                    <div class="w100">
                       <div class="title w100">Cheapest items quantity:</div>
                       <input type="number" name="cheapestItemsQuantity" class="radius w100" value="3"/>
                     </div>
@@ -152,11 +140,22 @@
                   </div>
 
                   <div class="r">
-                    <button type="submit" class="l radius"><i class="fas fa-plus l"></i> Analyze</button>
+                    <button type="submit" class="l radius"><i class="fas fa-search"></i> Analyze</button>
                   </div>
                 </form>
               </div>
-              <div class="lay lay2 l">
+              <div class="lay layAnalyzer l">
+                <div class="w100">
+                  <div class="l">
+                    <div class="paging l">
+                      <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="playersAnalyzer"><i class="far fa-angle-left iconBig"></i></button>
+                      <button class="b2 radius l" data-table-role="pagingNext" data-table-name="playersAnalyzer"><i class="far fa-angle-right iconBig"></i></button>
+                    </div>
+                  </div>
+                  <div class="r">
+                    <button type="submit" class="l radius" data-role="playersAddToList"><i class="far fa-user-plus"></i> Add to list (<span data-table-role="countAllSelected" data-table-name="playersAnalyzer">0</span>)</button>
+                  </div>
+                </div>
                 <div data-table="playersAnalyzer" data-table-design="players" class="w100"></div>
               </div>
 

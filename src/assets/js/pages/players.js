@@ -110,9 +110,11 @@ class PagePlayers {
         limit: 15
       }
     });
+
+  }
+  _load() {
     this.tableAnalyzer.update();
   }
-
   addToAnalyzer() {
     this.playersAnalyzer = tableConverter.getAllData({
       filters: this.table.filters,
@@ -122,7 +124,7 @@ class PagePlayers {
 
     this.tableAnalyzer.update();
 
-
+    a.go('/players/analyzer')
 
   }
 
