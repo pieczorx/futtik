@@ -5,9 +5,9 @@ const autoBuyer = new AutoBuyer();
 
 
 const start = async () => {
-  console.log(1)
-  await wait(1500);
-  console.log(2)
+
+  await wait(100);
+
   $(`[data-popup='loadingInitial']`).attr('data-status', 1);
   await wait(1500);
   a.go('/stats');
