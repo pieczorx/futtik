@@ -10,7 +10,7 @@ const start = async () => {
 
   $(`[data-popup='loadingInitial']`).attr('data-status', 1);
   await wait(1500);
-  a.go('/stats');
+  a.go('/bots');
   autoBuyer.on('update', () => {
     tableAccounts.update();
   });

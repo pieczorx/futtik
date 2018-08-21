@@ -76,6 +76,7 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 body[data-loaded='1'] .a {transform: scale(1);}
 .menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
 .menu .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
+.menu .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
 .menu .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */color: hsla(0, 0%, 100%, 0.9);}
 .menu .e:hover {background-color: rgba(0, 0, 0, 0.33);}
 .menu .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}
