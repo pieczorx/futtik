@@ -14,5 +14,3 @@ Fifa Ultimate Team Auto Buyer & more soon
 
 ## Start app
 Type `npm start`
-
-## test
