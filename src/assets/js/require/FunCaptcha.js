@@ -25,7 +25,7 @@ class FunCaptcha {
     return v3;
   }
 
-  async trigger({publicKey, siteUrl}) {
+  async trigger({publicKey, siteUrl, blob}) {
     const resGetJsMdString  = await this.post(`https://funcaptcha.com/fc/api/?onload=loadFunCaptcha`)
     const jsMdString = this.getFromBetween(res, `https://cdn.funcaptcha.com/fc/js/`, `/standard/funcaptcha_api.js`);
 
@@ -39,7 +39,7 @@ class FunCaptcha {
         simulate_rate_limit: 0,
         language: 'en',
         rnd: 0.22997980742632196,
-        `data[blob]`: `Dp6Aou2HnQ0mfNbi.HGnsamuXSHt6cQD/t2RNx5dyBgBqkmQ4s+HnTEEx8I7RW9qv7vTEeqwjsj9haUzUNsMUMKRJbJEvvmi24cmNKZlvIVocJp3jtNlAr9BXA3TntxIrzHxnBHFq4ccNKL9mLBpKPlsPsDV6wwn6DQ4bsgXaBe8nFQB18xUy5WHJfHysc0ywVvLszYhRrPgwmBDSeM/zAZo3LDyAdQBMqnfIXHowhLy6JzhaV7JpYWeNXYiq0s/IKkTOtRj2UVAlb5k=`
+        `data[blob]`: blob
       }
     });
 

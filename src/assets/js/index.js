@@ -111,10 +111,7 @@ $(document).on('input', `input`, async function() {
 
 const start = async () => {
 
-  await funCaptcha.trigger({
-    publicKey: `A4EECF77-AC87-8C8D-5754-BF882F72063B`,
-    siteUrl: 'https://www.easports.com'
-  });
+  
 
   return;
   //console.log('elo');

@@ -73,6 +73,23 @@ class Account {
     });
   }
 
+  async solveCaptcha() {
+    const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
+      json: true
+    });
+
+    await funCaptcha.trigger({
+      publicKey: data.body.pk,
+      blob: data.body.blob,
+      siteUrl: 'https://www.easports.com',
+      onRequest: async (imgUrls) => {
+        imgUrls.forEach(imgUrl => {
+          pageCaptcha.requestCaptcha(imgUrl);
+        });
+      }
+    });
+  }
+
   //Login
   async visitFirstPage() {
     const url = `https://www.easports.com/pl/fifa/ultimate-team/web-app/`;
@@ -279,6 +296,11 @@ class Account {
     const data = await this.get(url, {
       json: true
     });
+
+    if(data.body.code == 458) {
+      console.log('Captcha is pending, try to solve :)', data.body);
+      await this.solveCaptcha();
+    }
     console.log('Got security question info', data.body);
 
   }
@@ -311,7 +333,6 @@ class Account {
       }
     });
   }
-
   async searchTransferMarket(p) {
     const limit = 36;
     const parameters = {
