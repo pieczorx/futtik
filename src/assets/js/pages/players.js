@@ -34,7 +34,7 @@ class PagePlayers {
       },
       name: 'players',
       htmlEmpty: `
-      <div class="empty w100 center">
+      <div class="empty w100">
         <div class="w100">There are no players</div>
         <div class="w100"><button type="submit" class="r radius" data-role="playersUpdateDatabase">Fetch database</button></div>
       </div>
@@ -60,7 +60,20 @@ class PagePlayers {
           format: (row) => {
             return row.league.name;
           }
-        }
+        },
+        {
+          name: 'club',
+          search: {
+            type: 'text',
+            retrieve: (row) => {
+              return row.club.name;
+            }
+          },
+          title: 'Club',
+          format: (row) => {
+            return row.club.name;
+          }
+        },
       ],
       filters: {
         limit: 15
@@ -79,9 +92,9 @@ class PagePlayers {
       },
       name: 'playersAnalyzer',
       htmlEmpty: `
-      <div class="empty w100 center">
-        <div class="w100">There are no players, add them from <a href="/players/">database tab</a>.</div>
-      </div>
+
+      <div class="w100">There are no players, add them from <a href="/players/">database tab</a>.</div>
+
       `,
       fields: [
         {name: 'avatar', title: '', format: (row) => {
@@ -132,7 +145,7 @@ class PagePlayers {
     this.playersAnalyzer.forEach(async (player) => {
       const res = await autoBuyer.performTask({
         type: 'priceCheck',
-        baseId: player.baseId,
+        baseId: player.id,
         pageMax: parseInt(data.pagesMax),
         cheapestItemsQuantity: data.cheapestItemsQuantity
       });

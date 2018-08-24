@@ -1,0 +1,7 @@
+console.log('Searched transfer market :)', data.body);
+
+Searched transfer market :) {reason: "expired session", code: 401, message: null}
+AutoBuyer.js:108 Uncaught (in promise) TypeError: Cannot read property 'length' of undefined
+    at AutoBuyer.handleTask (AutoBuyer.js:108)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188)

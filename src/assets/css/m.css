@@ -6,10 +6,13 @@
 }
 
 body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;text-align: -webkit-center;font-family: 'Oxygen', sans-serif;overflow: hidden;}
-body, table {color: rgba(255, 255, 255, 0.95);}
+body, table {color: rgba(255, 255, 255, 0.9);}
 body, button, input {font-family: 'Roboto', sans-serif;}
 
+a {color: hsl(216, 83%, 66%);text-decoration: none;}
+a:hover {text-decoration: underline;}
 table {border-spacing: 0px 1px;width: 100%;font-size:13px;border-radius: 5px;overflow: hidden;}
+
 table tr{background-color: hsla(0, 0%, 100%, 0.04);border: none;}
 table tr:hover {background-color: hsla(0, 0%, 100%, 0.06);}
 table thead tr:first-child {background-color: hsla(0, 0%, 100%, 0.08);}
@@ -20,9 +23,10 @@ table th, table td{padding: 8px 12px; text-align: left}
 table tr:first-child th:first-child{border-top-left-radius: 5px;}
 table tr:first-child th:last-child{border-top-right-radius: 5px;}
 
-[data-table] .empty {font-size: 15px;display:none;}
+[data-table] .empty {font-size: 15px;display:none;background-color: rgba(255, 255, 255, 0.04);padding: 30px 0px;float: left;width: 100%;border-radius: 5px;border-top-left-radius: 0px;border-top-right-radius: 0px;}
 [data-table][data-empty='1'] .empty {display: block;}
 [data-table] .empty button {margin-top: 8px;}
+[data-table][data-empty='1'] table {border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 
 [data-table='accounts'] .activeStatus {cursor: pointer;position:relative;}
 [data-table='accounts'] .activeStatus::after {display: none;border-radius: 20px;position: absolute; content: ''; left: 0; top: 0; border: 2px solid hsl(176, 50%, 45%); width: 16px; height: 16px;}

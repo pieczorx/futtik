@@ -23,10 +23,10 @@ class AutoBuyer {
       this.addTask(task);
     });
   }
+
   addTask(task) {
     this.tasks[this.tasks.length] = task;
   }
-
 
   work() {
     clearTimeout(this.timeoutWork);
@@ -37,8 +37,6 @@ class AutoBuyer {
       this.work();
     }, CONFIG.AUTOBUYER_TICK);
   }
-
-
 
   async workSingle(id) {
     //Check if account is not busy
@@ -69,10 +67,28 @@ class AutoBuyer {
         return handledTask;
       }
     }
+    
+
+    //Pricecheck co 30 minut
+
+    //Get tradepile every 2 minutes
+
+
+
+    //Clear sold cards
+
+
+
+    //Buy cards --> //Move card to tradepile --> //Sell cards
+
+
 
     //Check for automatic tasks
+
     //Price check every 10 seconds for example
-    //Get tradepile every minute for example
+
+
+
   }
 
   async handleTask(botId, task) {
