@@ -48,8 +48,8 @@ a.use((r, next) => {
 })
 
 
-a.get('/accounts', async (r, next) => {
-  await pageHandler.load('accounts');
+a.get('/bots', async (r, next) => {
+  await pageHandler.load('bots');
   next();
 });
 

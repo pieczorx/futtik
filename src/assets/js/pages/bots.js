@@ -61,6 +61,6 @@ class PageBots {
 
   }
   load() {
-      this.tableAccounts.update();
+    this.tableAccounts.update();
   }
 }
