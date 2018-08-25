@@ -23,7 +23,10 @@
   <script src="assets/js/require/tableConverter.js"></script>
   <script src="assets/js/require/FunCaptcha.js"></script>
   <script src="assets/js/require/html.js"></script>
+  <script src="assets/js/require/PagesHandler.js"></script>
 
+  <script src="assets/js/pages/bots.js"></script>
+  <script src="assets/js/pages/captcha.js"></script>
   <script src="assets/js/pages/players.js"></script>
 
   <script src="assets/js/popups/addAccount.js"></script>
@@ -35,12 +38,6 @@
 
 </head>
 <body>
-  <div style="position: absolute; left: 0; top: 0;z-index:999;padding: 20;">
-    <input type="text" data-role="test1" />
-    <input type="text" data-role="test2" />
-    <img src="" data-role="test3" />
-  </div>
-
   <div class="body">
     <div class="popups">
       <div class="popup" data-popup="addAccount">
@@ -189,6 +186,10 @@
         <a href="/players" class="e w100" data-a-args="players">
           <i class="fas fa-users"></i>
           <div class="title l">Players</div>
+        </a>
+        <a href="/captcha" class="e w100" data-a-args="captcha">
+          <i class="fas fa-fish"></i>
+          <div class="title l">Captcha</div>
         </a>
         <a href="/proxies" class="e w100" data-a-args="proxies" data-disabled="1">
         <i class="fas fa-user-secret"></i>

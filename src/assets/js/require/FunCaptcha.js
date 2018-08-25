@@ -32,22 +32,24 @@ class FunCaptcha {
     await this.post(`https://funcaptcha.com/fc/gt2/public_key/${publicKey}`, {
       json: true,
       form: {
-        bda: ???,
+        bda: '????????????',
         public_key: publicKey,
         site: 'https://www.easports.com',
         userbrowser: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
         simulate_rate_limit: 0,
         language: 'en',
         rnd: 0.22997980742632196,
-        `data[blob]`: blob
+        data: {
+          blob: blob
+        }
       }
     });
 
 
     await this.post(`https://funcaptcha.com/fc/gfct/`, {
       headers: {
-        `X-NewRelic-Timestamp`: `153509500866200`,
-        `X-Requested-ID`: `{"ct":"43RPIQBvveDmSSkS0qrTYQ==","iv":"c396d58b84f59673522c4c636ce56e68","s":"31cbd93dc2557280"}`
+        'X-NewRelic-Timestamp': `153509500866200`,
+        'X-Requested-ID': `{"ct":"43RPIQBvveDmSSkS0qrTYQ==","iv":"c396d58b84f59673522c4c636ce56e68","s":"31cbd93dc2557280"}`
       },
 
     });
