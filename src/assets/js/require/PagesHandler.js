@@ -31,7 +31,9 @@ class PagesHandler {
           }
 
           try {
-            await instance.instance._load(options);
+            if(instance.instance._load) {
+              await instance.instance._load(options);
+            }
           } catch(e) {
             console.log(e);
             // alrt.show('somethingWentWrong');
