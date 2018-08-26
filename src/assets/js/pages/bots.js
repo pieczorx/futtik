@@ -60,7 +60,7 @@ class PageBots {
     });
 
   }
-  load() {
+  _load() {
     this.tableAccounts.update();
   }
 }
