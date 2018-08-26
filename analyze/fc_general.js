@@ -586,7 +586,7 @@ var _player_token = S9vv.H0v;
 var _get_query;
 
 function prep(y4v) {
-    return makepackage(y4v, _session_token, pack_count);
+    return makepackage(new Date(), _session_token, pack_count);
 }
 var _htmlVerify = S9vv.Z7v;
 

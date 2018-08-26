@@ -77,16 +77,10 @@ class Account {
     const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
       json: true
     });
-
-    await funCaptcha.trigger({
+    await this.captcha.trigger({
       publicKey: data.body.pk,
       blob: data.body.blob,
-      siteUrl: 'https://www.easports.com',
-      onRequest: async (imgUrls) => {
-        imgUrls.forEach(imgUrl => {
-          pageCaptcha.requestCaptcha(imgUrl);
-        });
-      }
+      siteUrl: 'https://www.easports.com'
     });
   }
 
@@ -471,6 +465,17 @@ class Account {
       //Make request
       request(request_options, async function(err, res, body) {
         if(!err) {
+
+          //458 - puzzle captcha
+          if(res.statusCode === 358) {
+            console.log('CAPTCHA DETECTED XDDD');
+            return resolve(await this.login());
+          }
+
+          //426 - upgrade required (? XD)
+          //429 - too many requests (too many actions have been taken)
+          //521 - error (unknown but it's always related with too many requests)
+
           if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
             try {
               body = await that.unzip_body(body);

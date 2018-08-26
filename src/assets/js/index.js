@@ -1,23 +1,51 @@
 require('dotenv').config()
-
+const CryptoJS = require("crypto-js");
 const fse = require('fs-extra');
 const fs = require('fs');
 
 const readFile = util.promisify(fs.readFile);
 
-const autoBuyer = new AutoBuyer();
+//Add pages
+
+
+const funCaptcha = new FunCaptcha({
+  onRequest: async () => {
+    pages.captcha.updateCaptchas();
+    //pageCaptcha.requestCaptcha(imgUrl);
+    //imgUrls.forEach(imgUrl => {
+
+    //});
+  }
+});
+
+const testFuncaptcha = async () => {
+
+
+  console.log('Requested captcha answer');
+  funCaptcha.requestCaptchaAnswer({
+    imgUrl: 'assets/img/captchaTest.png'
+  }).then(x => {
+    console.log('fwhahaha, odpowiedz to', x);
+  })
+}
+
+const autoBuyer = new AutoBuyer({
+  captcha: funCaptcha
+});
 const pageHandler = new PagesHandler();
 const a = new AsyncPages();
 
-//Add pages
+
 const pages = {
   bots: new PageBots(),
   captcha: new PageCaptcha(),
   players: new PagePlayers()
 }
+
 Object.keys(pages).forEach(key => {
   pageHandler.add(key, pages[key]);
 })
+
 
 
 
@@ -27,8 +55,8 @@ const start = async () => {
 
   $(`[data-popup='loadingInitial']`).attr('data-status', 1);
   await wait(1500);
-  await a.go('/bots');
   await autoBuyer.init();
+  await a.go('/bots');
 
   await pages.players.loadPlayers();
 
