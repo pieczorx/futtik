@@ -79,14 +79,25 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 
 body[data-loaded='1'] .a {transform: scale(1);}
 .menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
-.menu .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
-.menu .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
-.menu .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */color: hsla(0, 0%, 100%, 0.9);}
-.menu .e:hover {background-color: rgba(0, 0, 0, 0.33);}
-.menu .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}
+.menu .links .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
+.menu .links .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
+.menu .links .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */color: hsla(0, 0%, 100%, 0.9);}
+.menu .links .e:hover {background-color: rgba(0, 0, 0, 0.33);}
+.menu .links .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}
 .menu .title {margin-left: 5px;}
-.menu .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
+.menu .links .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
 
+.menu .panelWrapper {width: calc(100% - 30px); position: absolute; bottom: 15px; left: 15px;}
+.menu .panel {width: 100%;margin-top: 10px;}
+.menu .panelHalf {width: calc((100% - 10px) / 2);}
+.menu .panelTop {margin-top: 0px;}
+.menu .panelBg {background-color: rgba(255, 255, 255, 0.05);}
+.menu .panelBgHover:hover {background-color: rgba(255, 255, 255, 0.1);}
+
+.menu .panel[data-name='platformChanger'] {}
+.menu .panel[data-name='platformChanger'] .e {margin-right: 1px;width: calc((100% - 2px) / 3);padding: 0px;}
+.menu .panel[data-name='platformChanger'] .e:last-child {margin-right: 0px;}
+.menu .panel[data-name='platformChanger'] .e[data-current='1'] {background-color: rgba(255, 255, 255, 0.95);color: black;}
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
 
 
