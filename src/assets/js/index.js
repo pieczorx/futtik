@@ -30,7 +30,7 @@ const testFuncaptcha = async () => {
     console.log('fwhahaha, odpowiedz to', x);
   })
 }
-
+const power = new Power();
 const autoBuyer = new AutoBuyer({
   captcha: funCaptcha
 });
@@ -63,7 +63,7 @@ const start = async () => {
   await pages.players.loadPlayers();
 
   platform.changePlatform('xone');
-  
+
   await wait(1500);
   popupLoadingInitial.hide();
   console.log('App started');

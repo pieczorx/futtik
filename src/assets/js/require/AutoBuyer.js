@@ -39,6 +39,11 @@ class AutoBuyer {
   }
 
   async workSingle(id) {
+    //Check if accounts are on globally
+    if(!power.state) {
+      return;
+    }
+
     //Check if account is not busy
     if(this.accounts[id].busy) {
       return;
@@ -62,12 +67,11 @@ class AutoBuyer {
     //Check for custom tasks
     for(let i = 0; i < this.tasks.length; i++) {
       const handledTask = await this.handleTask(id, this.tasks[i]);
-      console.log(`try to handle task with id ${i}`, handledTask);
       if(handledTask) {
         return handledTask;
       }
     }
-    
+
 
     //Pricecheck co 30 minut
 

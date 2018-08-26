@@ -26,6 +26,7 @@
   <script src="assets/js/require/PagesHandler.js"></script>
   <script src="assets/js/require/Emitter.js"></script>
   <script src="assets/js/require/Platform.js"></script>
+  <script src="assets/js/require/Power.js"></script>
 
   <script src="assets/js/pages/bots.js"></script>
   <script src="assets/js/pages/captcha.js"></script>
@@ -217,9 +218,10 @@
           </a>
         </div>
         <div class="panelWrapper">
-          <!--<div class="panel l panelHalf panelTop panelBg panelBgHover radius" data-name="power" data-role="power" data-status="0">
-            <i class="far fa-power-off"></i>
-          </div>-->
+          <div class="panel l panelTop radius no_overflow" data-name="power" data-role="power">
+            <button class="power l panelBg panelBgHover" data-role="powerToggle"><i class="fas fa-power-off"></i></button>
+            <div class="status l panelBg" data-role="powerText">Bots off</div>
+          </div>
           <div class="panel l radius no_overflow" data-name="platformChanger" data-role="platformChanger">
             <button class="e l panelBg panelBgHover" data-platform="ps4">PS4</button>
             <button class="e l panelBg panelBgHover" data-platform="xone">XONE</button>

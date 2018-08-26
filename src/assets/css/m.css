@@ -88,7 +88,7 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .menu .links .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
 
 .menu .panelWrapper {width: calc(100% - 30px); position: absolute; bottom: 15px; left: 15px;}
-.menu .panel {width: 100%;margin-top: 10px;}
+.menu .panel {width: 100%;margin-top: 5px;}
 .menu .panelHalf {width: calc((100% - 10px) / 2);}
 .menu .panelTop {margin-top: 0px;}
 .menu .panelBg {background-color: rgba(255, 255, 255, 0.05);}
@@ -98,6 +98,15 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .menu .panel[data-name='platformChanger'] .e {margin-right: 1px;width: calc((100% - 2px) / 3);padding: 0px;}
 .menu .panel[data-name='platformChanger'] .e:last-child {margin-right: 0px;}
 .menu .panel[data-name='platformChanger'] .e[data-current='1'] {background-color: rgba(255, 255, 255, 0.95);color: black;}
+
+.menu .panel[data-name='power'] {}
+.menu .panel[data-name='power'] .power {width: 31px;padding: 0;}
+.menu .panel[data-name='power'][data-state='1'] .power {background-color: rgba(255, 255, 255, 0.95); color: black;}
+.menu .panel[data-name='power'] .status {width: calc(100% - 33px);margin-left: 2px;height: 31px;box-sizing: border-box;padding-top: 8px;text-transform: uppercase;color: rgba(255, 255, 255, 0.5);}
+.menu .panel[data-name='power'][data-state='1'] .status {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
 
 
