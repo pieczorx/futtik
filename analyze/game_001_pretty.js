@@ -116,8 +116,8 @@
     var L2E = null;
     var V2E = "loadVictoryScreen";
     var s2E = 0.25;
-    var r2E = "toFixed";
-    var f2E = "push";
+    var "toFixed" = "toFixed";
+    var "push" = "push";
     var E2E = "fc2_text_bg";
     var J2E = "bold ";
     var j2E = "Arial";
@@ -192,7 +192,7 @@
     var S0E = "graphics";
     var d0E = "Shape";
     var n0E = "fc2_loading_image";
-    var y0E = "round";
+    var "round" = "round";
     var K0E = "getMeasuredFPS";
     var a0E = "Ticker";
     var i0E = "now";
@@ -222,8 +222,6 @@
     var t6E = "/fc/ip/?url=";
     var h6E = "/fc/i/";
     var c6E = true;
-    var q6E = "toString";
-    var w6E = "checkAnswer";
     var u6E = "message";
     var T6E = "setStars";
     var F6E = 'answered';
@@ -279,14 +277,14 @@
     var q7E = 13;
     var w7E = 12;
     var u7E = 11;
-    var T7E = 10;
+    var 10 = 10;
     var S7E = 8;
     var d7E = 7;
     var n7E = 6;
     var y7E = 5;
     var K7E = 4;
     var a7E = 3;
-    var i7E = 2;
+    var 2 = 2;
     var V7E = 0;
     document[K6E](y6E, O2G, n6E);
 
@@ -298,12 +296,12 @@
 
     function w0G() {
         if (S6G) {
-            parent[w6E](k7G, l1G, q5L, V7G[q6E](), L3G);
+            parent[""](k7G, l1G, q5L, V7G["toString"](), L3G);
             if (j5L == p8L - (f5L ? 1 : V7E)) {
                 N1G = c6E;
                 C7G = c6E;
             }
-        } else parent[w6E](k7G, l1G, q5L, V7G[q6E](), i3G);
+        } else parent["checkAnswer"](k7G, l1G, q5L, V7G["toString"](), i3G);
     }
     var M0G = c6E;
     var p0G = n6E;
@@ -338,7 +336,7 @@
         var g9G;
         switch (Y9G) {
             case 1:
-            case i7E:
+            case 2:
                 g9G = y0G;
                 break;
             case a7E:
@@ -356,8 +354,8 @@
         h9G[M6E](c9G);
         for (var t9G = Y9G - 1; t9G >= V7E; t9G--) {
             var q9G = I0G(J5L, T7G);
-            q9G[p6E] = q9G[U6E] / i7E | V7E;
-            q9G[k6E] = q9G[Z0E] / i7E | V7E;
+            q9G[p6E] = q9G[U6E] / 2 | V7E;
+            q9G[k6E] = q9G[Z0E] / 2 | V7E;
             switch (t9G) {
                 case V7E:
                     q9G[D0E] = V7E;
@@ -367,7 +365,7 @@
                     q9G[D0E] = -U7E;
                     q9G[X6E] = x7E;
                     break;
-                case i7E:
+                case 2:
                     q9G[D0E] = M7E;
                     q9G[X6E] = Q7E;
                     break;
@@ -458,7 +456,7 @@
                 var P8G = typeof I8G !== undefined ? !!I8G : n6E;
                 var X8G = Date[i0E]() - z6G > G8G;
                 var x8G = createjs[a0E][K0E](Y8G);
-                if (!P8G && X8G && x8G < Q8G) return Math[y0E](x8G) || 1;
+                if (!P8G && X8G && x8G < Q8G) return Math["round"](x8G) || 1;
                 return n6E;
             }
         }
@@ -477,7 +475,7 @@
             var R4G = V7E;
             W4G[S0E][w0E](1);
             W4G[S0E][q0E](E7G);
-            W4G[S0E][T0E](-R4G / i7E, -R4G / i7E, W6E, N4G + R4G);
+            W4G[S0E][T0E](-R4G / 2, -R4G / 2, W6E, N4G + R4G);
             R7G[M6E](W4G);
             R7G[M6E](B7G);
             R7G[D0E] = c0E;
@@ -507,7 +505,7 @@
     function X0G(V8G, L8G) {
         var G0E = "fc2_cross_colour";
         var s8G = new createjs[d0E]();
-        s8G[S0E][F0E](Y8L[G0E] ? Y8L[G0E] : Q0E)[P0E](Y7E, V7E)[P0E](W1E, Y7E)[P0E](A1E, V7E)[P0E](E1E, T7E)[P0E](z1E, M7E)[P0E](E1E, z1E)[P0E](A1E, A1E)[P0E](W1E, W1E)[P0E](Y7E, A1E)[P0E](T7E, z1E)[P0E](M7E, M7E)[P0E](M7E, M7E)[P0E](T7E, T7E)[X0E](Y7E, V7E);
+        s8G[S0E][F0E](Y8L[G0E] ? Y8L[G0E] : Q0E)[P0E](Y7E, V7E)[P0E](W1E, Y7E)[P0E](A1E, V7E)[P0E](E1E, 10)[P0E](z1E, M7E)[P0E](E1E, z1E)[P0E](A1E, A1E)[P0E](W1E, W1E)[P0E](Y7E, A1E)[P0E](10, z1E)[P0E](M7E, M7E)[P0E](M7E, M7E)[P0E](10, 10)[X0E](Y7E, V7E);
         s8G[D0E] = V8G ? V8G : M1E;
         s8G[X6E] = L8G ? L8G : F1E;
         s8G[M0E] = s8G[p0E] = U0E;
@@ -557,7 +555,7 @@
     function z0G(h2G) {
         var o3E = "passLoadProgress";
         if (Y8L[n0E] == undefined) {
-            var c2G = D5L[A3E] * F1E * i7E;
+            var c2G = D5L[A3E] * F1E * 2;
             r0G = c2G;
             B7G[M0E] = c2G;
         }
@@ -629,7 +627,7 @@
                 _varX = M7E;
                 q4G[D0E] = s1E;
                 break;
-            case i7E:
+            case 2:
                 _varX = I7E;
                 q4G[D0E] = s1E;
                 break;
@@ -646,17 +644,17 @@
         }
         if (f5L || p8L >= u7G) _varX += S7E;
         else if (q4G) q4G[D0E] = q4G[D0E] + w7E;
-        if (p8L < y7E) _varX += T7E;
+        if (p8L < y7E) _varX += 10;
         else _varX += a7E;
         for (var h4G = V7E; h4G <= p8L - (f5L ? 1 : V7E); h4G++)
             if (h4G < u7G) {
                 var w4G = new createjs[d0E]();
                 if (J5L === S3E) {
-                    w4G[S0E][w0E](1, i7E, i7E);
+                    w4G[S0E][w0E](1, 2, 2);
                     w4G[S0E][q0E](F3E);
                     w4G[S0E][T0E](-n7E, 1, g7E, g7E);
                 }
-                w4G[S0E][w0E](1, i7E, i7E);
+                w4G[S0E][w0E](1, 2, 2);
                 w4G[S0E][q0E](J5L);
                 w4G[S0E][T0E](-y7E, V7E, g7E, g7E);
                 w4G[T3E] = 1;
@@ -664,7 +662,7 @@
                 w4G[D0E] = _varX - u3E;
                 w4G[X6E] = w3E;
                 var c4G = new createjs[d0E]();
-                c4G[S0E][w0E](a7E, i7E)[q0E](J5L)[q3E](a7E, S7E)[P0E](n7E, w7E)[P0E](h7E, V7E);
+                c4G[S0E][w0E](a7E, 2)[q0E](J5L)[q3E](a7E, S7E)[P0E](n7E, w7E)[P0E](h7E, V7E);
                 O5L[M6E](c4G);
                 c4G[c3E] = h4G + 1;
                 c4G[D0E] = _varX - d7E;
@@ -688,8 +686,8 @@
         P5L[h3E] = n6E;
         if (j7G == n6E) O5L[I3E](V7E, V7E, g4G, Y4G);
         O5L[h3E] = n6E;
-        O5L[D0E] = v5L / i7E - J1E;
-        O5L[X6E] = H1G / i7E - G3E;
+        O5L[D0E] = v5L / 2 - J1E;
+        O5L[X6E] = H1G / 2 - G3E;
         t4G[D0E] = -a7E;
         t4G[X6E] = -a7E;
     }
@@ -809,7 +807,7 @@
         var v4G = V7E;
         e4G[S0E][w0E](1);
         e4G[S0E][q0E](E7G);
-        e4G[S0E][T0E](-v4G / i7E, -v4G / i7E, W6E, l4G + v4G);
+        e4G[S0E][T0E](-v4G / 2, -v4G / 2, W6E, l4G + v4G);
         s7G[M6E](e4G);
         s7G[M6E](L7G);
         s7G[D0E] = c0E;
@@ -830,7 +828,7 @@
     var i5L = [];
 
     function L6G() {
-        Y1G(-i7E);
+        Y1G(-2);
     }
 
     function K3G() {
@@ -838,7 +836,7 @@
         var N6E = 210;
         g1G = c6E;
         L5L = new createjs[x6E]();
-        L5L[D0E] = T7E;
+        L5L[D0E] = 10;
         L5L[X6E] = N6E;
         x8L[M6E](L5L);
         L5L[M6E](N5L([
@@ -877,7 +875,7 @@
 
     function A3G() {
         s5L = c6E;
-        V7G[f2E]((Math[y0E](Z5L * T7E) / T7E)[r2E](i7E));
+        V7G["push"]((Math["round"](Z5L * 10) / 10)["toFixed"](2));
         X8L[M6E](Q8L);
         Q8L[X6E] = Y1E;
         TweenLite[l0E](Q8L, N0E, {
@@ -906,7 +904,7 @@
         q7G += A7G;
         A7G = V7E;
         var K9G = q7G / createjs[a0E][K0E]();
-        K9G = K9G[r2E](1);
+        K9G = K9G["toFixed"](1);
         var i9G = new createjs[x6E]();
         i9G[D0E] = i1E;
         i9G[X6E] = h1E;
@@ -934,7 +932,7 @@
         u3G(S5L);
         document[R3E][N3E][e3E] = a2E;
         if (!g8L[K2E]) R2G();
-        TweenLite[l0E](this, F1G ? i7E : a7E, {
+        TweenLite[l0E](this, F1G ? 2 : a7E, {
             onComplete: Q0G
         });
     }
@@ -1002,8 +1000,8 @@
         K7G[X6E] = Y8L[c2E] !== undefined ? Y8L[c2E] - M7E : E1E;
         x5L[M6E](K7G);
         W7G = new createjs[x6E]();
-        W7G[p6E] = v5L / i7E;
-        W7G[D0E] = v5L / i7E;
+        W7G[p6E] = v5L / 2;
+        W7G[D0E] = v5L / 2;
         W7G[X6E] = A1E;
         x8L[M6E](W7G);
         R1G = new createjs[x6E]();
@@ -1019,9 +1017,9 @@
         F3G = new createjs[h2E](S3E, 1, 1, a7E);
         z5L = new createjs[x6E]();
         z5L[D0E] = E1E;
-        z5L[X6E] = Y8L[t2E] !== undefined ? Y8L[t2E] : T7E;
+        z5L[X6E] = Y8L[t2E] !== undefined ? Y8L[t2E] : 10;
         x8L[M6E](z5L);
-        var A4G = v5L - z5L[D0E] / i7E;
+        var A4G = v5L - z5L[D0E] / 2;
         var m4G = g2E;
         switch (I8L) {
             case Y2E:
@@ -1042,23 +1040,23 @@
         TweenLite[l0E](R5L, V7E, {
             alpha: V7E
         });
-        var H4G = v5L - R5L[D0E] / i7E;
+        var H4G = v5L - R5L[D0E] / 2;
         if (Y8L[Q2E] == undefined) R5L[M6E](N5L([
             [U8L[V7E], m4G + i2E + G8L, P8L],
             [U8L[1], J2E + m4G + i2E + G8L, P8L],
-            [U8L[i7E], m4G + i2E + G8L, P8L]
+            [U8L[2], m4G + i2E + G8L, P8L]
         ], H4G, E1E, n6E, d1E, C5L, Y7E, Y8L[E2E], n6E, n6E));
         else R5L[M6E](N5L([
-            [U8L[V7E] + (U8L[1] ? i2E + U8L[1] : Y6E) + (U8L[i7E] ? i2E + U8L[i7E] : Y6E), m4G + i2E + G8L, P8L]
+            [U8L[V7E] + (U8L[1] ? i2E + U8L[1] : Y6E) + (U8L[2] ? i2E + U8L[2] : Y6E), m4G + i2E + G8L, P8L]
         ], H4G, E1E, n6E, d1E, C5L, Y7E, Y8L[E2E], n6E, n6E));
-        R5L[D0E] = v5L / i7E - d1E;
+        R5L[D0E] = v5L / 2 - d1E;
         f7G = new createjs[x6E]();
         x8L[M6E](f7G);
         f1G = new createjs[d0E]();
         var C4G = V7E,
             b4G = x7E,
             z4G = g7E;
-        f1G[S0E][w0E](a7E, 1)[q3E](C4G, b4G)[q0E](e5L)[P2E](-i7E, G7E, -y7E, V7E, z4G, V7E)[w0E](V7E, Y8L[X2E])[F0E](e5L)[q3E](z4G, -K7E)[P0E](z4G + T7E, V7E)[P0E](z4G, K7E)[P0E](z4G, -K7E);
+        f1G[S0E][w0E](a7E, 1)[q3E](C4G, b4G)[q0E](e5L)[P2E](-2, G7E, -y7E, V7E, z4G, V7E)[w0E](V7E, Y8L[X2E])[F0E](e5L)[q3E](z4G, -K7E)[P0E](z4G + 10, V7E)[P0E](z4G, K7E)[P0E](z4G, -K7E);
         f1G[D0E] = V7E;
         f1G[X6E] = V7E;
         w5L = a7G([
@@ -1085,7 +1083,7 @@
         f7G[M6E](w5L);
         w5L[K6E](e4E, J0G);
         w7G = new createjs[d0E]();
-        w7G[S0E][w0E](a7E, 1)[q3E](C4G, b4G)[q0E](e5L)[P2E](-i7E, G7E, -y7E, V7E, z4G, V7E)[w0E](V7E, Y8L[X2E])[F0E](e5L)[q3E](z4G, -K7E)[P0E](z4G + T7E, V7E)[P0E](z4G, K7E)[P0E](z4G, -K7E);
+        w7G[S0E][w0E](a7E, 1)[q3E](C4G, b4G)[q0E](e5L)[P2E](-2, G7E, -y7E, V7E, z4G, V7E)[w0E](V7E, Y8L[X2E])[F0E](e5L)[q3E](z4G, -K7E)[P0E](z4G + 10, V7E)[P0E](z4G, K7E)[P0E](z4G, -K7E);
         w7G[D0E] = V7E;
         w7G[X6E] = V7E;
         w7G[M0E] = -1;
@@ -1133,7 +1131,7 @@
             [d3E, o4G === V7E ? n6E : c6E],
             [j4E, o4G],
             [J4E, E4G],
-            [E4E, Y8L[f4E] !== undefined ? i7E : 1],
+            [E4E, Y8L[f4E] !== undefined ? 2 : 1],
             [s3E, Q5L],
             [r4E, [Z6G, j4G, Y8L[s4E] ? Y8L[s4E] : O7G]],
             [K3E, z7G],
@@ -1173,7 +1171,7 @@
             if (!o5L && !s5L && L4G[c4E] > V7E && L4G[c4E] < j6E && L4G[h4E] > V7E && L4G[h4E] < o6E) {
                 Y0G = y7G[q2E];
                 A6G = c6E;
-                f0G[f2E]([V7E, L4G[c4E], L4G[h4E]]);
+                f0G["push"]([V7E, L4G[c4E], L4G[h4E]]);
                 if (!(L4G[c4E] < A1E && L4G[h4E] > w1E && L4G[h4E] < U1E || L4G[c4E] > H6E && L4G[h4E] > w1E && L4G[h4E] < U1E || L4G[c4E] > u1E && L4G[c4E] < D6E && L4G[h4E] > D6E)) o0G();
             }
         });
@@ -1203,7 +1201,7 @@
                     O1G(1);
                 }, r6E);
             } else O1G(1);
-        else Y1G(-i7E);
+        else Y1G(-2);
         createjs[a0E][K6E](C2E, u0G);
         z6G = Date[i0E]();
         if (H6G || m1G) x8L[M6E](S7G);
@@ -1222,12 +1220,12 @@
                 if (Y8L[Q2E] == undefined) R5L[M6E](N5L([
                     [b5L[V7E], x3E + G8L, P8L],
                     [b5L[1], t3E + G8L, P8L],
-                    [b5L[i7E], x3E + G8L, P8L]
+                    [b5L[2], x3E + G8L, P8L]
                 ], U1E, j1E, n6E, a1E, C5L, Y7E, Y8L[E2E], n6E, n6E));
                 else R5L[M6E](N5L([
-                    [b5L[V7E] + (b5L[1] ? i2E + b5L[1] : Y6E) + (b5L[i7E] ? i2E + b5L[i7E] : Y6E), x3E + G8L, P8L]
+                    [b5L[V7E] + (b5L[1] ? i2E + b5L[1] : Y6E) + (b5L[2] ? i2E + b5L[2] : Y6E), x3E + G8L, P8L]
                 ], B6E, j1E, n6E, a1E, C5L, Y7E, Y8L[E2E], n6E, n6E));
-                R5L[D0E] = v5L / i7E - a1E;
+                R5L[D0E] = v5L / 2 - a1E;
             }
     }
     var Z0G = n6E;
@@ -1264,7 +1262,7 @@
             l2G();
         }
         switch (o8G) {
-            case -i7E:
+            case -2:
                 h3G();
                 break;
             case -1:
@@ -1336,7 +1334,7 @@
             var Z9G = [];
             var p4G = V7E;
             for (var D9G = v9G - 1; D9G >= V7E; D9G--) {
-                for (var O9G = V7E; O9G < e9G; O9G++) Z9G[f2E]([p4G, V7E, w1E, w1E, V7E, V7E, V7E]);
+                for (var O9G = V7E; O9G < e9G; O9G++) Z9G["push"]([p4G, V7E, w1E, w1E, V7E, V7E, V7E]);
                 p4G = p4G + w1E;
             }
             var l9G = {
@@ -1346,8 +1344,8 @@
             var z9G = new createjs[O9E](l9G);
             T5L = new createjs[W9E](z9G);
             T5L[R9E](V7E);
-            T5L[p6E] = T5L[N9E][e9E](V7E)[v9E][U6E] / i7E;
-            T5L[k6E] = T5L[N9E][e9E](V7E)[v9E][Z0E] / i7E;
+            T5L[p6E] = T5L[N9E][e9E](V7E)[v9E][U6E] / 2;
+            T5L[k6E] = T5L[N9E][e9E](V7E)[v9E][Z0E] / 2;
         } else {
             T5L = new createjs[S2E](M4G);
             T5L[p6E] = H1E;
@@ -1362,7 +1360,7 @@
         if (!k6G) {
             var X4G = new createjs[d0E]();
             if (s1G == L2E) s1G = e5L;
-            X4G[S0E][w0E](i7E)[q0E](s1G)[l9E](H1E, H1E, H1E);
+            X4G[S0E][w0E](2)[q0E](s1G)[l9E](H1E, H1E, H1E);
             X4G[p6E] = H1E;
             X4G[k6E] = H1E;
             X4G[D0E] = V7E;
@@ -1444,30 +1442,30 @@
             if (A5G) e5G[S0E][m9E](V7E, V7E, O5G, W5G, K7E);
             else e5G[S0E][T0E](V7E, V7E, O5G, W5G);
             v5G[M6E](e5G);
-            e5G[p6E] = O5G / i7E;
-            e5G[k6E] = W5G / i7E;
-            e5G[D0E] = O5G / i7E;
-            e5G[X6E] = W5G / i7E;
+            e5G[p6E] = O5G / 2;
+            e5G[k6E] = W5G / 2;
+            e5G[D0E] = O5G / 2;
+            e5G[X6E] = W5G / 2;
             var N5G = new createjs[d0E]();
             if (z5G) N5G[S0E][F0E](z5G);
-            if (C5G) N5G[S0E][w0E](i7E)[q0E](H9E);
+            if (C5G) N5G[S0E][w0E](2)[q0E](H9E);
             if (A5G) N5G[S0E][m9E](V7E, V7E, O5G, W5G, K7E);
             else N5G[S0E][T0E](V7E, V7E, O5G, W5G);
             v5G[M6E](N5G);
-            N5G[p6E] = O5G / i7E | V7E;
-            N5G[k6E] = W5G / i7E | V7E;
-            N5G[D0E] = O5G / i7E;
-            N5G[X6E] = W5G / i7E;
-            v5G[p6E] = O5G / i7E;
-            v5G[k6E] = W5G / i7E;
-            v5G[D0E] = O5G / i7E;
-            v5G[X6E] = W5G / i7E;
+            N5G[p6E] = O5G / 2 | V7E;
+            N5G[k6E] = W5G / 2 | V7E;
+            N5G[D0E] = O5G / 2;
+            N5G[X6E] = W5G / 2;
+            v5G[p6E] = O5G / 2;
+            v5G[k6E] = W5G / 2;
+            v5G[D0E] = O5G / 2;
+            v5G[X6E] = W5G / 2;
             if (j7G == n6E) v5G[I3E](-(O5G * v0E), -(W5G * v0E), O5G + O5G * s2E, W5G + W5G * s2E);
         }
         if (m5G) {
             var o5G = n7E;
             for (var l5G = V7E; l5G <= m5G[H3E] - 1; l5G++) {
-                var R5G = new createjs[I6E](m5G[l5G][V7E], m5G[l5G][1], m5G[l5G][i7E]);
+                var R5G = new createjs[I6E](m5G[l5G][V7E], m5G[l5G][1], m5G[l5G][2]);
                 if (!j5G) {
                     R5G[Q6E] = P6E;
                     if (H5G) R5G[D0E] = H5G;
@@ -1507,34 +1505,34 @@
         var a9E = "_challenge_imgs";
         var S2G = [];
         var F2G = [];
-        if (Y8L[r9E] !== undefined) S2G[f2E]({
+        if (Y8L[r9E] !== undefined) S2G["push"]({
             id: s9E,
             src: Y8L[r9E],
             type: createjs[V9E][L9E]
         });
         for (var d2G = V7E; d2G < p8L + 1; d2G++)
             if (Q1G && d2G == p8L) {
-                if (!f5L) S2G[f2E]({
+                if (!f5L) S2G["push"]({
                     id: Q4E + d2G,
                     src: (M5L ? I5L : i9E) + Q1G,
                     type: createjs[V9E][L9E]
                 });
-            } else if (d2G == V7E) S2G[f2E]({
+            } else if (d2G == V7E) S2G["push"]({
             id: Q4E + d2G,
             src: (M5L ? I5L : i9E) + g8L[X3E][a9E][d2G],
             type: A1G ? createjs[V9E][K9E] : createjs[V9E][L9E]
         });
-        else F2G[f2E]({
+        else F2G["push"]({
             id: Q4E + d2G,
             src: (M5L ? I5L : i9E) + g8L[X3E][a9E][d2G],
             type: A1G ? createjs[V9E][K9E] : createjs[V9E][L9E]
         });
-        if (!u5L && !t5L) S2G[f2E]({
+        if (!u5L && !t5L) S2G["push"]({
             id: T2E,
             src: d5L ? d5L : G7G + q5L + n2E + t7G + y9E,
             type: createjs[V9E][L9E]
         });
-        if (L1G) S2G[f2E]({
+        if (L1G) S2G["push"]({
             id: n9E,
             src: L1G,
             type: createjs[V9E][L9E]
@@ -1542,7 +1540,7 @@
         if (S2G[H3E]) {
             D5L[d9E](S2G);
             f3G();
-            TweenLite[l0E](this, T7E, {
+            TweenLite[l0E](this, 10, {
                 onComplete: C0G,
                 onCompleteParams: [D5L, V7E]
             });
@@ -1628,12 +1626,12 @@
         var V5G = V7E;
         var R7E = V7E;
         var t5G = c6E;
-        var Z7E = i7E;
+        var Z7E = 2;
         var D7E = P9E;
         var q5G = 1;
         var w5G = n6E;
         var i5G;
-        var U5G = T7E;
+        var U5G = 10;
         var k5G = n7E;
         var F5G;
         var W7E;
@@ -1737,7 +1735,7 @@
                 break;
         }
         if (i5G) {
-            var a5G = new createjs[I6E](i5G[V7E], i5G[1], i5G[i7E]);
+            var a5G = new createjs[I6E](i5G[V7E], i5G[1], i5G[2]);
             if (w5G) a5G[Q6E] = P6E;
             a5G[D0E] = U5G;
             a5G[X6E] = k5G;
@@ -1748,10 +1746,10 @@
         }
         if (u5G)
             if (r5G < u5G) r5G = u5G;
-        if (i5G && w5G) a5G[D0E] = r5G / i7E;
+        if (i5G && w5G) a5G[D0E] = r5G / 2;
         var s5G = new createjs[x6E]();
         s5G[O8E] = r5G;
-        if (q5G == i7E) r5G += Y7E;
+        if (q5G == 2) r5G += Y7E;
         if (!o6G && t5G) {
             var g5G = new createjs[d0E]();
             g5G[S0E][w0E](K7E)[q0E](z9E)[m9E](V7E, V7E, r5G, V5G, y5G);
@@ -1770,13 +1768,13 @@
         s5G[M6E](K5G);
         if (!Z0G && d5G) {
             var L5G = new createjs[d0E]();
-            L5G[S0E][j3E]([P5G, d5G], [V7E, v0E], V7E, T7E, V7E, h1E)[m9E](V7E, V7E, r5G, V5G, y5G);
+            L5G[S0E][j3E]([P5G, d5G], [V7E, v0E], V7E, 10, V7E, h1E)[m9E](V7E, V7E, r5G, V5G, y5G);
             L5G[b2E] = e0E;
             s5G[M6E](L5G);
-            L5G[p6E] = r5G / i7E | V7E;
-            L5G[k6E] = V5G / i7E | V7E;
-            L5G[D0E] = r5G / i7E;
-            L5G[X6E] = V5G / i7E;
+            L5G[p6E] = r5G / 2 | V7E;
+            L5G[k6E] = V5G / 2 | V7E;
+            L5G[D0E] = r5G / 2;
+            L5G[X6E] = V5G / 2;
             L5G[M0E] = R8E;
             L5G[p0E] = N8E;
         }
@@ -1785,9 +1783,9 @@
             F5G[D0E] = W7E;
             F5G[X6E] = O7E;
         }
-        if (q5G == i7E) {
+        if (q5G == 2) {
             var T5G = new createjs[d0E]();
-            T5G[S0E][F0E](Y8L[s4E] ? Y8L[s4E] : O7G)[P0E](y7E, V7E)[P0E](y7E, -K7E)[P0E](h7E, i7E)[P0E](y7E, S7E)[P0E](y7E, K7E)[P0E](V7E, K7E)[P0E](V7E, V7E)[X0E]();
+            T5G[S0E][F0E](Y8L[s4E] ? Y8L[s4E] : O7G)[P0E](y7E, V7E)[P0E](y7E, -K7E)[P0E](h7E, 2)[P0E](y7E, S7E)[P0E](y7E, K7E)[P0E](V7E, K7E)[P0E](V7E, V7E)[X0E]();
             T5G[D0E] = r5G - h7E - S7E;
             T5G[X6E] = Y8L[e8E] !== undefined ? Y8L[e8E] : v8E;
             s5G[M6E](T5G);
@@ -1803,10 +1801,10 @@
             s5G[M6E](a5G);
         }
         if (I5G) {
-            s5G[p6E] = r5G / i7E;
-            s5G[k6E] = V5G / i7E;
+            s5G[p6E] = r5G / 2;
+            s5G[k6E] = V5G / 2;
         }
-        if (Q5G) s5G[W8E] = new createjs[h2E](m8E, i7E, i7E, y7E);
+        if (Q5G) s5G[W8E] = new createjs[h2E](m8E, 2, 2, y7E);
         if (!G5G) {
             s5G[K6E](W3E, function(N7E) {
                 document[R3E][N3E][e3E] = v3E;
@@ -1952,7 +1950,7 @@
         if (!C5L) {
             G1G = new createjs[d0E]();
             G1G[S0E][F0E](Y8L[E2E])[T0E](V7E, w7E, v6E, U7E);
-            G1G[D0E] = v5L / i7E - w1E;
+            G1G[D0E] = v5L / 2 - w1E;
             x8L[M6E](G1G);
         }
         var O8G = X0G(k1E, g1E);
@@ -1963,10 +1961,10 @@
         if (Y8L[Q2E] == undefined) m5L[M6E](N5L([
             [U8L[V7E], x3E + G8L, P8L],
             [U8L[1], t3E + G8L, P8L],
-            [U8L[i7E], x3E + G8L, P8L]
+            [U8L[2], x3E + G8L, P8L]
         ], p1E, E1E, n6E, i1E, C5L, Z8G, Y8L[E2E], n6E, n6E));
         else m5L[M6E](N5L([
-            [U8L[V7E] + (U8L[1] ? i2E + U8L[1] : Y6E) + (U8L[i7E] ? i2E + U8L[i7E] : Y6E), x3E + G8L, P8L]
+            [U8L[V7E] + (U8L[1] ? i2E + U8L[1] : Y6E) + (U8L[2] ? i2E + U8L[2] : Y6E), x3E + G8L, P8L]
         ], p1E, E1E, n6E, i1E, C5L, Z8G, Y8L[E2E], n6E, n6E));
         m5L[X6E] = K1E;
         if (!U8L[1]) {
@@ -2036,7 +2034,7 @@
         var X2G = Y8L[n8E] !== undefined ? Y8L[n8E] : W6E;
         var Q2G = y1E;
         var M2G = Y8L[H4E] !== undefined ? Y8L[H4E] : M7E;
-        var P2G = v5L / i7E - Q2G / i7E;
+        var P2G = v5L / 2 - Q2G / 2;
         switch (I8L) {
             case d8E:
                 P2G = j1E;
@@ -2053,7 +2051,7 @@
             [j4E, G2G],
             [J4E, U2G],
             [d3E, G2G === V7E ? n6E : c6E],
-            [E4E, E6G == 1 ? 1 : i7E],
+            [E4E, E6G == 1 ? 1 : 2],
             [s3E, Q5L],
             [r4E, [c7G, p2G, Y8L[s4E] ? Y8L[s4E] : O7G]],
             [L3E, Y8L[i3E] !== undefined ? Y8L[i3E] : n7E],
@@ -2223,7 +2221,7 @@
             [d3E, f8G === V7E ? n6E : c6E],
             [j4E, 1],
             [J4E, r8G],
-            [E4E, Y8L[f4E] !== undefined ? i7E : 1],
+            [E4E, Y8L[f4E] !== undefined ? 2 : 1],
             [s3E, Q5L],
             [r4E, [O6G, J8G, Y8L[s4E] ? Y8L[s4E] : e5L]],
             [K3E, z7G],
@@ -2235,7 +2233,7 @@
             [a3E, Y8L[K4E] !== undefined ? Y8L[K4E] : n6E],
             [d4E, Y8L[S4E] !== undefined ? c6E : n6E]
         ]);
-        G5L[D0E] = v5L / i7E;
+        G5L[D0E] = v5L / 2;
         G5L[X6E] = Y8L[C5E] !== undefined ? Y8L[C5E] : b5E;
         x8L[M6E](G5L);
         G5L[h3E] = n6E;
@@ -2376,11 +2374,11 @@
         r5L[Z0E] = H1G;
         D2G = r5L[F5E](T5E);
         x8L = new createjs[u5E](r5L);
-        x8L[j9E](T7E);
+        x8L[j9E](10);
         x8L[w5E] = n6E;
         if (window[q5E] && window[c5E]() > 1) {
-            r5L[U4E](h5E, Math[y0E](v5L * window[c5E]()));
-            r5L[U4E](t5E, Math[y0E](H1G * window[c5E]()));
+            r5L[U4E](h5E, Math["round"](v5L * window[c5E]()));
+            r5L[U4E](t5E, Math["round"](H1G * window[c5E]()));
             r5L[N3E][U6E] = v5L + g5E;
             r5L[N3E][Z0E] = H1G + g5E;
             x8L[M0E] = x8L[p0E] = window[c5E]();
@@ -2567,7 +2565,7 @@
             if (j5L == 1) e7G[h3E] = c6E;
             else {
                 P5L[h3E] = c6E;
-                var G4G = (A7G / createjs[a0E][K0E]())[r2E](1);
+                var G4G = (A7G / createjs[a0E][K0E]())["toFixed"](1);
                 P5L[r4E] = G4G + i2E + D6G;
                 if (j5L >= u7G) {
                     if (!H7G) {
@@ -2635,50 +2633,50 @@
         B5L[K6E](I5E, l0G);
         var g2G = [];
         if (Y8L[m7p] == undefined)
-            if (i7G) g2G[f2E]({
+            if (i7G) g2G["push"]({
                 id: H7p,
                 src: i7G,
                 type: createjs[V9E][L9E]
             });
-            else if (a6G) g2G[f2E]({
+            else if (a6G) g2G["push"]({
             id: H7p,
             src: b7G + V7p,
             type: createjs[V9E][L9E]
         });
-        else g2G[f2E]({
+        else g2G["push"]({
             id: H7p,
             src: b7G + L7p,
             type: createjs[V9E][L9E]
         });
-        if (Y8L[n0E] !== undefined) g2G[f2E]({
+        if (Y8L[n0E] !== undefined) g2G["push"]({
             id: o7p,
             src: Y8L[n0E],
             type: createjs[V9E][L9E]
         });
         if (u5L || D7G) {
-            if (D7G) g2G[f2E]({
+            if (D7G) g2G["push"]({
                 id: p5E,
                 src: i1G,
                 type: createjs[V9E][L9E]
             });
-            if (u5L && !t5L) g2G[f2E]({
+            if (u5L && !t5L) g2G["push"]({
                 id: T2E,
                 src: d5L ? d5L : G7G + q5L + n2E + t7G + y9E,
                 type: createjs[V9E][L9E]
             });
         } else if (!(t5L && Q7G))
             if (u5L || D7G) {
-                if (D7G) g2G[f2E]({
+                if (D7G) g2G["push"]({
                     id: p5E,
                     src: i1G,
                     type: createjs[V9E][L9E]
                 });
-                if (u5L) g2G[f2E]({
+                if (u5L) g2G["push"]({
                     id: T2E,
                     src: d5L ? d5L : G7G + q5L + n2E + t7G + y9E,
                     type: createjs[V9E][L9E]
                 });
-            } else g2G[f2E]({
+            } else g2G["push"]({
                 id: U5E,
                 src: b7G + i7p,
                 type: createjs[V9E][L9E]
@@ -2710,14 +2708,14 @@
         x8L[M6E](m5L);
         var m8G = Y7E;
         var b8G = p1E;
-        if (P7G) b8G = v5L - m5L[D0E] / i7E;
+        if (P7G) b8G = v5L - m5L[D0E] / 2;
         if (Y8L[Q2E] == undefined) m5L[M6E](N5L([
             [l5L[V7E], x3E + G8L, P8L],
             [l5L[1], t3E + G8L, P8L],
-            [l5L[i7E], x3E + G8L, P8L]
+            [l5L[2], x3E + G8L, P8L]
         ], b8G, E1E, n6E, i1E, C5L, m8G, Y8L[E2E], n6E, n6E));
         else m5L[M6E](N5L([
-            [l5L[V7E] + (l5L[1] ? i2E + l5L[1] : Y6E) + (l5L[i7E] ? i2E + l5L[i7E] : Y6E), x3E + G8L, P8L]
+            [l5L[V7E] + (l5L[1] ? i2E + l5L[1] : Y6E) + (l5L[2] ? i2E + l5L[2] : Y6E), x3E + G8L, P8L]
         ], b8G, E1E, n6E, i1E, C5L, m8G, Y8L[E2E], n6E, n6E));
         m5L[X6E] = K1E;
         TweenLite[R0E](m5L, N0E, {
@@ -2727,14 +2725,14 @@
         v8G[D0E] = E1E;
         v8G[X6E] = u7E;
         if (Y8L[t4E] !== undefined) v8G[X6E] = U7E;
-        var A8G = v5L - v8G[D0E] / i7E;
+        var A8G = v5L - v8G[D0E] / 2;
         x8L[M6E](v8G);
         var z8G = [
             [c5L, x3E + G8L, P8L]
         ];
         if (typeof c5L === K7p) {
             z8G = [];
-            for (var H8G = V7E; H8G < c5L[H3E]; H8G++) z8G[f2E]([c5L[H8G], x3E + G8L, P8L]);
+            for (var H8G = V7E; H8G < c5L[H3E]; H8G++) z8G["push"]([c5L[H8G], x3E + G8L, P8L]);
         }
         v8G[M6E](N5L(z8G, A8G, E1E, n6E, i1E, C5L, m8G, Y8L[E2E], n6E, n6E));
         if (!P7G) {
@@ -2797,8 +2795,8 @@
             });
             j5L++;
         }
-        V7G[f2E]((Math[y0E](Z5L * T7E) / T7E)[r2E](i7E));
-        parent[w6E](k7G, l1G, q5L, V7G[q6E](), J3G);
+        V7G.push((Math.round(Z5L * 10) / 10).toFixed(2));
+        parent["checkAnswer"](k7G, l1G, q5L, V7G.toString(), J3G);
         x7G && c0G();
     }
     var A5L = V7E;
@@ -2830,7 +2828,7 @@
     function h6G() {
         h7G = n6E;
     }
-    var B1G = T7E;
+    var B1G = 10;
     var M7G = n6E;
 
     function M1G() {
@@ -2851,9 +2849,9 @@
         if (L1G) return new createjs[S2E](D5L[F2E](n9E));
         f7E = f7E == L2E ? e5L : f7E;
         var E7E = new createjs[d0E]();
-        E7E[S0E][w0E](1, i7E, i7E);
+        E7E[S0E][w0E](1, 2, 2);
         if (r7E) E7E[S0E][q0E](r7E);
-        E7E[S0E][F0E](f7E)[q3E](S7E, V7E)[P0E](T7E, n7E)[P0E](g7E, n7E)[P0E](u7E, T7E)[P0E](c7E, g7E)[P0E](S7E, q7E)[P0E](K7E, g7E)[P0E](y7E, T7E)[P0E](V7E, n7E)[P0E](n7E, n7E)[P0E](S7E, V7E);
+        E7E[S0E][F0E](f7E)[q3E](S7E, V7E)[P0E](10, n7E)[P0E](g7E, n7E)[P0E](u7E, 10)[P0E](c7E, g7E)[P0E](S7E, q7E)[P0E](K7E, g7E)[P0E](y7E, 10)[P0E](V7E, n7E)[P0E](n7E, n7E)[P0E](S7E, V7E);
         return E7E;
     }
 
@@ -2984,14 +2982,14 @@
         var Q7p = 1.66;
         u1G = p8L * Q7p;
         B1G = p8L * P7p;
-        var F9G = Math[y0E](T7E * u1G) / T7E;
-        var T9G = Math[y0E](T7E * (u1G + B1G) / i7E) / T7E;
-        var u9G = Math[y0E](T7E * B1G) / T7E;
-        var w9G = Math[y0E](T7E * (B1G * K7E)) / T7E;
+        var F9G = Math["round"](10 * u1G) / 10;
+        var T9G = Math["round"](10 * (u1G + B1G) / 2) / 10;
+        var u9G = Math["round"](10 * B1G) / 10;
+        var w9G = Math["round"](10 * (B1G * K7E)) / 10;
         if (S9G < F9G) S5L = y7E;
         else if (S9G < T9G) S5L = K7E;
         else if (S9G < u9G) S5L = a7E;
-        else if (S9G < w9G) S5L = i7E;
+        else if (S9G < w9G) S5L = 2;
         else S5L = 1;
         if (S9G == V7E || p8L == V7E) S5L = y7E;
     }
@@ -3077,7 +3075,7 @@
 
     function v2G(H7E, m7E) {
         var k7p = "appProgress";
-        L7G[M0E] = m7E[k7p] * F1E * i7E;
+        L7G[M0E] = m7E[k7p] * F1E * 2;
     }
     var g1G = n6E;
     var P0G;
@@ -3090,7 +3088,7 @@
         I7G(Z1p, D1p);
         if (o7G === y7E) {
             t1G = c6E;
-            parent[w6E](k7G, l1G, q5L, P0G[q6E](), m3G);
+            parent["checkAnswer"](k7G, l1G, q5L, P0G["toString"](), m3G);
         }
         x8L[J3E](F5L);
         if (g8L[K2E] === 1) {
@@ -3206,7 +3204,7 @@
             if (!u2G) u2G = V7E;
             if (T2G[A3E] != 1)
                 if (T2G[A3E] == u2G) O0G(b1p);
-                else TweenLite[l0E](this, T7E, {
+                else TweenLite[l0E](this, 10, {
                     onComplete: C0G,
                     onCompleteParams: [T2G, T2G[A3E]]
                 });
@@ -3270,7 +3268,7 @@
 
     function n3G() {
         if (!X8L) return L2E;
-        var s9G = i7E;
+        var s9G = 2;
         var L9G = Math[C3E](Math[b3E]() * a7E);
         for (var V9G = V7E; V9G <= X8L[E9E]() - 1; V9G++) {
             var r9G = X8L[f9E](V9G);
@@ -3283,7 +3281,7 @@
                     r9G[x0E] = -s9G;
                     r9G[I0E] = s9G;
                     break;
-                case i7E:
+                case 2:
                     r9G[x0E] = s9G;
                     r9G[I0E] = -s9G;
                     break;
@@ -3363,7 +3361,7 @@
             if (M1G()) {
                 parent[K1p]();
                 if (j5L == p8L - (f5L ? 1 : V7E)) {
-                    $[f1p](y1p, (Math[y0E](Z5L * T7E) / T7E)[r2E](i7E));
+                    $[f1p](y1p, (Math["round"](Z5L * 10) / 10)["toFixed"](2));
                     if (f5L) q0G();
                     D1G();
                 } else {
@@ -3380,9 +3378,9 @@
                 }
             } else if (j5L == p8L - (f5L ? 1 : V7E)) {
                 if (f5L) {
-                    V7G[f2E]((Math[y0E](Z5L * T7E) / T7E)[r2E](i7E));
+                    V7G["push"]((Math["round"](Z5L * 10) / 10)["toFixed"](2));
                     w0G();
-                } else $[f1p](y1p, (Math[y0E](Z5L * T7E) / T7E)[r2E](i7E));
+                } else $[f1p](y1p, (Math["round"](Z5L * 10) / 10)["toFixed"](2));
                 I7G(n1p, d1p);
                 D1G();
             } else A3G();
