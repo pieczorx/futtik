@@ -24,7 +24,6 @@ class AsyncPages {
       options = {};
     }
     const url_new_args = this.url_to_args(url);
-    console.log('new args', url_new_args);
     this.handle_routes(url_new_args, options);
   }
   getCurrentLocale() {

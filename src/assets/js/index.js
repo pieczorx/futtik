@@ -96,6 +96,5 @@ a.get('/players', async (r, next) => {
 });
 
 a.use((r, next) => {
-  console.log('elo');
   next();
 })

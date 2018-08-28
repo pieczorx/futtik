@@ -126,7 +126,6 @@ class PagePlayers {
 
   }
   _load() {
-    console.log('load XD 1996');
     this.table.update();
     this.tableAnalyzer.update();
   }

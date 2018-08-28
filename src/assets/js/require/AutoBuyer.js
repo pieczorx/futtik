@@ -198,6 +198,7 @@ class AutoBuyer {
   toggleAccountState(id) {
     this.accounts[id].enabled = !this.accounts[id].enabled;
     this.emit('update');
+    this.saveAccounts();
   }
 
   init() {
@@ -223,7 +224,7 @@ class AutoBuyer {
     try {
       this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
       for(let i = 0; i < this.accounts.length; i++) {
-        this.accounts[i].enabled = false;
+        this.accounts[i].logged = false;
         this.accounts[i].busy = false;
       }
     } catch(e) {
