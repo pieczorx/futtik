@@ -82,7 +82,7 @@ class AutoBuyer {
 
 
     //Pricecheck co 30 minut
-    //TODO: Check if there is no other task for this player & platform
+    //TODO: Check if there is no other task for this player & platform - fixes #7
     const playersPlatform = this.players.filter(player => {
       return player.current ? player.current[platform] : false;
     })
