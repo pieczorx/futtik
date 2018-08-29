@@ -30,3 +30,6 @@ CONFIG.URL_PLAYER_AVATAR_SMALL = "https://fifa17.content.easports.com/fifa/fltOn
 
 //How much delay should be between two login requests (in ms)
 CONFIG.ACCOUNT_LOGIN_DELAY = 5000;
+
+//Players per page in tables
+CONFIG.TABLE_PLAYERS_PER_PAGE = 50;

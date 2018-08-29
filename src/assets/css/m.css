@@ -29,7 +29,7 @@ table tr:first-child th:last-child{border-top-right-radius: 5px;}
 [data-table][data-empty='1'] table {border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 
 [data-table-role='filter'][data-type='numericFromTo'] {}
-[data-table-role='filter'][data-type='numericFromTo'] input {padding: 5px 5px;width: 30px;background-color: rgba(255, 255, 255, 0.05);text-align: center;}
+[data-table-role='filter'][data-type='numericFromTo'] input {padding: 3px 0px;width: 80px;background-color: rgba(255, 255, 255, 0.05);text-align: center;border-radius: 5px;margin: 2px 2px;}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */

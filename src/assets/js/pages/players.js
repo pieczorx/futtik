@@ -35,10 +35,10 @@ class PagePlayers {
       },
       name: 'players',
       htmlEmpty: `
-      <div class="empty w100">
-        <div class="w100">There are no players</div>
-        <div class="w100"><button type="submit" class="r radius" data-role="playersUpdateDatabase">Fetch database</button></div>
-      </div>
+
+      <div class="w100">There are no players</div>
+      <div class="w100"><button type="submit" class="inline radius" data-role="playersUpdateDatabase">Fetch database</button></div>
+
       `,
       fields: [
         Fields.playerAvatar,
@@ -49,7 +49,7 @@ class PagePlayers {
         Fields.playerClub,
       ],
       filters: {
-        limit: 15
+        limit: CONFIG.TABLE_PLAYERS_PER_PAGE
       }
     });
     this.tableAnalyzer = new Table({
@@ -74,11 +74,21 @@ class PagePlayers {
         Fields.playerColor,
         Fields.playerLeague,
         Fields.playerClub,
-        {name: 'lastPriceCheckAuctionCount', search: 'text', title: 'Auctions'},
-        {name: 'lastPriceCheckPriceBuyNowAverage', search: 'text', title: 'Average price'}
+        {name: 'lastPriceCheckAuctionCount', search: {
+          type: 'numericFromTo',
+          min: 0,
+          max: 500,
+          step: 50
+        }, title: 'Auctions'},
+        {name: 'lastPriceCheckPriceBuyNowAverage', search: {
+          type: 'numericFromTo',
+          min: 250,
+          max: 15000000,
+          step: 50
+        }, title: 'Average price'}
       ],
       filters: {
-        limit: 100
+        limit: CONFIG.TABLE_PLAYERS_PER_PAGE
       }
     });
     this.tableCurrent = new Table({
@@ -105,7 +115,7 @@ class PagePlayers {
         Fields.playerClub
       ],
       filters: {
-        limit: 15
+        limit: CONFIG.TABLE_PLAYERS_PER_PAGE
       }
     });
   }
