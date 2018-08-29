@@ -74,6 +74,7 @@ class AutoBuyer {
 
 
     //Pricecheck co 30 minut
+    
 
     //Get tradepile every 2 minutes
 
@@ -161,6 +162,26 @@ class AutoBuyer {
     if(typeof(task.onComplete) === 'function') {
       task.onComplete(task.result);
     }
+    this.cleanUnusedTasks;
+  }
+
+  cleanUnusedTasks() {
+    if(this.cleaningTasks) {
+      console.warn('WTF IT HAPPENED XD')
+    }
+    this.cleaningTasks = true;
+    let removeValFromIndex = [];
+    for(let i = 0; i < this.tasks.length; i++) {
+      if(this.tasks[i].finished) {
+        removeValFromIndex[removeValFromIndex.length] = i;
+      }
+    }
+
+    for(let i = removeValFromIndex.length -1; i >= 0; i--) {
+      this.tasks.splice(removeValFromIndex[i],1);
+    }
+
+    this.cleaningTasks = false;
   }
 
   addInstance(id) {
