@@ -32,15 +32,19 @@ class PageBots {
               status = 2;
             }
           }
+          let statusText = statuses[status];
+          if(!power.state && status == 1) {
+            statusText = 'Waiting for login...';
+          }
           return `
           <div class="activeStatus l" data-status="${status}" data-role="toggleAccountState" data-account-id="${i}">
             <div class="dot l circle"></div>
-            <div class="text l">${statuses[status]}</div>
+            <div class="text l">${statusText}</div>
           </div>
           `
         }},
         {name: 'mail', title: 'Mail', format: row => row.options.mail},
-        {name: 'platform', title: 'Platform', format: row => {return row.options.platform;}},
+        {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
         {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '?';}}
       ]
     });
