@@ -13,56 +13,65 @@ class Account {
   }
   login() {
     return new Promise(async (resolve, reject) => {
-      console.log('========== Visit first page');
-      await this.visitFirstPage();
-
       console.log('========== Get web app config');
       await this.getWebAppConfig();
 
-      console.log('========== Get fid');
-      await this.getFid();
+      console.log('========== Visit first page');
+      await this.visitFirstPage();
 
-      console.log('========== Get execution');
-      await this.getExecution();
-
-      console.log('========== Visit login page');
-      await this.visitLoginPage();
-
-      console.log('========== Log in for the first time');
-      await this.firstLogin();
+      if(!this.bearer) {
 
 
-      if(this.twoStepEnabled) {
-        console.log('========== Visit answer page');
-        await this.visitAnswerPage();
+        console.log('========== Get fid');
+        await this.getFid();
 
-        console.log('========== Request two factor code');
-        await this.requestTwoFactorCode();
+        /*if(this.bearer) {
+          console.log('mamy access token, finishujemy chwilowo');
+          return;
+        }*/
+        console.log('========== Get execution');
+        await this.getExecution();
 
-        console.log('========== Visit two factor page');
-        await this.visitCodePage();
+        console.log('========== Visit login page');
+        await this.visitLoginPage();
 
-        console.log('========== Login with code');
-        await this.loginWithCode();
+        console.log('========== Log in for the first time');
+        await this.firstLogin();
+
+
+        if(this.twoStepEnabled) {
+          console.log('========== Visit answer page');
+          await this.visitAnswerPage();
+
+          console.log('========== Request two factor code');
+          await this.requestTwoFactorCode();
+
+          console.log('========== Visit two factor page');
+          await this.visitCodePage();
+
+          console.log('========== Login with code');
+          await this.loginWithCode();
+        }
+
+
+        console.log('========== Get bearer');
+        await this.getBearer();
       }
-
-      console.log('========== Get access token');
-      await this.getAccessToken();
-
       console.log('========== Get pids');
-      await this.getPids();
+      await this.getPids(); //required
+
 
       console.log('========== Get shards');
-      await this.getShards();
+      await this.getShards(); //required
 
       console.log('========== Get utas server');
-      await this.getUtasServer();
+      await this.getUtasServer(); //required
 
       console.log('========== Get FOS server code');
-      await this.getFosServerCode();
+      await this.getFosServerCode(); //required
 
       console.log('========== Get UT SID');
-      await this.getUtSid();
+      await this.getUtSid(); //required
 
       console.log('========== Get security question');
       await this.getSecurityQuestion();
@@ -73,16 +82,6 @@ class Account {
     });
   }
 
-  async solveCaptcha() {
-    const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
-      json: true
-    });
-    await this.captcha.trigger({
-      publicKey: data.body.pk,
-      blob: data.body.blob,
-      siteUrl: 'https://www.easports.com'
-    });
-  }
 
   //Login
   async visitFirstPage() {
@@ -100,11 +99,12 @@ class Account {
     this.authUrl = this.webAppConfig.authURL;
   }
   async getFid() {
-    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=null&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2/login&locale=en_US&redirect_uri=https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html&scope=basic.identity+offline+signin`;
+    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer || 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2/login&locale=en_US&redirect_uri=https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html&scope=basic.identity+offline+signin`;
 
     const data = await this.get(url, {
       follow: false
     });
+
     this.fid = data.res.headers.location.split('fid=')[1];
     this.urlGetExecution = data.res.headers.location;
     console.log('Got fid: ', this.fid);
@@ -202,13 +202,25 @@ class Account {
       follow: false
     });
   }
-  async getAccessToken() {
-    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=null&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
+  async getBearer() {
+    //const url = `https://accounts.ea.com/connect/auth?client_id=ORIGIN_JS_SDK&response_type=token&redirect_uri=nucleus:rest&prompt=none`
+    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer ? this.bearer : 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
     const data = await this.get(url, {
       follow: false
     });
-    this.accessToken = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
-    console.log('Got access token', this.accessToken);
+
+    //try {
+      this.bearer = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
+      console.log('Got access token', this.bearer);
+    //} catch(e) {
+      //console.warn('login required XDDD');
+      //const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer ? this.bearer : 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
+      //const data = await this.get(url, {
+      //  follow: false
+      //});
+      //this.bearer = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
+  //  }
+
     //2do
     //https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html#access_token=QVQwOjEuMDozLjA6NjA6ZmlnTml3azJRcTZnakNnMzZoZDdYbWVnOFZhZm1uMGh0MWY6NjgzNDM6b2IyN3U&token_type=Bearer&expires_in=3599
     //this.authorizationTokenExpiresAt =
@@ -221,8 +233,15 @@ class Account {
         'Accept': '*/*'
       }
     });
+    if(data.body.error == 'invalid_access_token') {
+      console.warn('MAMY STRASZLIWY ERROR Z FIDEM!!!!!!!!!!!!');
+      return false;
+    }
     this.pids = data.body.pid;
     this.nucleusId = this.pids.externalRefValue;
+
+    return true;
+
   }
   async getShards() {
     const url = `https://${this.authUrl}/ut/shards/v2`;
@@ -256,7 +275,7 @@ class Account {
     this.persona = finalData.body.userAccountInfo.personas[0];
   }
   async getFosServerCode() {
-    const url = `https://accounts.ea.com/connect/auth?client_id=FOS-SERVER&redirect_uri=nucleus:rest&response_type=code&access_token=${this.accessToken}`;
+    const url = `https://accounts.ea.com/connect/auth?client_id=FOS-SERVER&redirect_uri=nucleus:rest&response_type=code&access_token=${this.bearer}`;
     const data = await this.get(url, {
       json: true
     });
@@ -313,12 +332,15 @@ class Account {
     console.log('secret hash data', data);
   }
 
-
-  getCoinsFromCurrencies(currencies) {
-    currencies.forEach(currency => {
-      if(currency.name == 'COINS') {
-        this.coins = currency.finalFunds;
-      }
+  //Captcha
+  async solveCaptcha() {
+    const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
+      json: true
+    });
+    await this.captcha.trigger({
+      publicKey: data.body.pk,
+      blob: data.body.blob,
+      siteUrl: 'https://www.easports.com'
     });
   }
 
@@ -403,8 +425,30 @@ class Account {
     */
   }
 
+  //Misc
+  getCoinsFromCurrencies(currencies) {
+    currencies.forEach(currency => {
+      if(currency.name == 'COINS') {
+        this.coins = currency.finalFunds;
+      }
+    });
+  }
+  cookies(json) {
+    if(json) {
+      Object.assign(this, json);
+      this.cookies_set = true;
+    } else {
+      let final_json = {
+        jar: this.jar,
+        fid: this.fid,
+        bearer: this.bearer
+      };
+      return final_json;
+    }
 
+  }
 
+  //Requests
   put(url, options) {
     if(!options) {
       options = {};
@@ -455,8 +499,8 @@ class Account {
       }
 
       //Send bearer if defined
-      if(this.accessToken && options.useAccessToken !== false) {
-        headers['Authorization'] = `Bearer ${this.accessToken}`;
+      if(this.bearer && options.useAccessToken !== false) {
+        headers['Authorization'] = `Bearer ${this.bearer}`;
       }
 
       //Send EASW Nucleus

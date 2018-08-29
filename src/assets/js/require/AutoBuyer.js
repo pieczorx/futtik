@@ -171,12 +171,16 @@ class AutoBuyer {
     console.log('login to acc', id);
     this.busy(id);
     try {
+      if(this.accounts[id].cookies) {
+        this.instances[id].cookies(this.accounts[id].cookies)
+      }
       await this.instances[id].login();
       this.accounts[id].logged = true;
       console.log('logged in', id);
       this.emit('update');
-
+      this.accounts[id].cookies = this.instances[id].cookies();
       await this.instances[id].getMassInfo();
+      this.saveAccounts();
       this.accounts[id].coins = this.instances[id].coins;
       this.emit('update');
       console.log('Got money', this.accounts[id].coins);
