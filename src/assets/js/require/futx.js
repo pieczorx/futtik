@@ -379,7 +379,7 @@ class Account {
     this.getCoinsFromCurrencies(this.massInfo.userInfo.currencies);
   }
   async searchTransferMarket(p) {
-    const limit = 36;
+    const limit = p.limit || 36;
     const parameters = {
       start: (p.page - 1) * limit,
       num: limit,

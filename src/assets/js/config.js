@@ -42,3 +42,6 @@ CONFIG.PRICE_CHECK_PAGES = 5;
 
 //Price check cheapest items quantity
 CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY = 5;
+
+//Transfermarket search limit per page
+CONFIG.TRANSFERMARKET_LIMIT = 36;

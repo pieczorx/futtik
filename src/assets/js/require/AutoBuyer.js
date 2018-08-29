@@ -163,7 +163,8 @@ class AutoBuyer {
 
         const response = await account.instance.searchTransferMarket({
           page: task.page,
-          baseId: task.baseId
+          baseId: task.baseId,
+          limit: CONFIG.TRANSFERMARKET_LIMIT
         });
 
         if(response.auctions.length > 0) {
@@ -175,7 +176,7 @@ class AutoBuyer {
           }));
         }
 
-        if(task.page >= task.pageMax || response.auctions.length == 0) {
+        if(task.page >= task.pageMax || response.auctions.length == 0 || response.auctions.length < CONFIG.TRANSFERMARKET_LIMIT) {
           //Sort auctions by price ascending
           task.auctions.sort((a, b) => {
             return a.buyNowPrice - b.buyNowPrice;
