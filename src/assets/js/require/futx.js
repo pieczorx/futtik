@@ -1,6 +1,7 @@
 const request = require('request');
 const querystring = require('querystring');
 const gotp = require('gotp');
+
 class Account {
   constructor(data) {
     this.jar = request.jar();
@@ -13,56 +14,61 @@ class Account {
   }
   login() {
     return new Promise(async (resolve, reject) => {
-      console.log('========== Visit first page');
-      await this.visitFirstPage();
-
       console.log('========== Get web app config');
       await this.getWebAppConfig();
 
-      console.log('========== Get fid');
-      await this.getFid();
+      console.log('========== Visit first page');
+      await this.visitFirstPage();
 
-      console.log('========== Get execution');
-      await this.getExecution();
-
-      console.log('========== Visit login page');
-      await this.visitLoginPage();
-
-      console.log('========== Log in for the first time');
-      await this.firstLogin();
+      if(!this.bearer) {
 
 
-      if(this.twoStepEnabled) {
-        console.log('========== Visit answer page');
-        await this.visitAnswerPage();
+        console.log('========== Get fid');
+        await this.getFid();
 
-        console.log('========== Request two factor code');
-        await this.requestTwoFactorCode();
+        /*if(this.bearer) {
+          console.log('mamy access token, finishujemy chwilowo');
+          return;
+        }*/
+        console.log('========== Get execution');
+        await this.getExecution();
 
-        console.log('========== Visit two factor page');
-        await this.visitCodePage();
+        console.log('========== Visit login page');
+        await this.visitLoginPage();
 
-        console.log('========== Login with code');
-        await this.loginWithCode();
+        console.log('========== Log in for the first time');
+        await this.firstLogin();
+
+
+        if(this.twoStepEnabled) {
+          console.log('========== Visit answer page');
+          await this.visitAnswerPage();
+
+          console.log('========== Request two factor code');
+          await this.requestTwoFactorCode();
+
+          console.log('========== Visit two factor page');
+          await this.visitCodePage();
+
+          console.log('========== Login with code');
+          await this.loginWithCode();
+        }
       }
-
-      console.log('========== Get access token');
-      await this.getAccessToken();
-
       console.log('========== Get pids');
-      await this.getPids();
+      await this.getPids(); //required
+
 
       console.log('========== Get shards');
-      await this.getShards();
+      await this.getShards(); //required
 
       console.log('========== Get utas server');
-      await this.getUtasServer();
+      await this.getUtasServer(); //required
 
       console.log('========== Get FOS server code');
-      await this.getFosServerCode();
+      await this.getFosServerCode(); //required
 
       console.log('========== Get UT SID');
-      await this.getUtSid();
+      await this.getUtSid(); //required
 
       console.log('========== Get security question');
       await this.getSecurityQuestion();
@@ -73,22 +79,6 @@ class Account {
     });
   }
 
-  async solveCaptcha() {
-    const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
-      json: true
-    });
-
-    await funCaptcha.trigger({
-      publicKey: data.body.pk,
-      blob: data.body.blob,
-      siteUrl: 'https://www.easports.com',
-      onRequest: async (imgUrls) => {
-        imgUrls.forEach(imgUrl => {
-          pageCaptcha.requestCaptcha(imgUrl);
-        });
-      }
-    });
-  }
 
   //Login
   async visitFirstPage() {
@@ -105,17 +95,7 @@ class Account {
     this.webAppConfig = data.body;
     this.authUrl = this.webAppConfig.authURL;
   }
-  async getFid() {
-    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=null&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2/login&locale=en_US&redirect_uri=https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html&scope=basic.identity+offline+signin`;
 
-    const data = await this.get(url, {
-      follow: false
-    });
-    this.fid = data.res.headers.location.split('fid=')[1];
-    this.urlGetExecution = data.res.headers.location;
-    console.log('Got fid: ', this.fid);
-    console.log('Got execution url', this.urlGetExecution);
-  }
   async getExecution() {
     const data = await this.get(this.urlGetExecution, {
       follow: false
@@ -208,13 +188,62 @@ class Account {
       follow: false
     });
   }
-  async getAccessToken() {
-    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=null&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
+
+  async getFid() {
+    let parameters = {
+      prompt: 'login',
+      accessToken: this.bearer || 'null',
+      client_id: 'FIFA-18-WEBCLIENT',
+      response_type: 'token',
+      display: 'web2/login',
+      locale: 'en_US',
+      redirect_uri: 'https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html',
+      scope: 'basic.identity offline signin'
+    }
+    const url = `https://accounts.ea.com/connect/auth${this.createGetParameters(parameters)}`;
+
     const data = await this.get(url, {
       follow: false
     });
-    this.accessToken = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
-    console.log('Got access token', this.accessToken);
+
+    this.fid = data.res.headers.location.split('fid=')[1];
+    this.urlGetExecution = data.res.headers.location;
+    console.log('Got fid: ', this.fid);
+    console.log('Got execution url', this.urlGetExecution);
+  }
+
+  async getBearer() {
+    //const url = `https://accounts.ea.com/connect/auth?client_id=ORIGIN_JS_SDK&response_type=token&redirect_uri=nucleus:rest&prompt=none`
+    let parameters = {
+      prompt: this.cookies_set ? undefined : 'login',
+      accessToken: this.bearer || 'null',
+      client_id: 'FIFA-18-WEBCLIENT',
+      response_type: 'token',
+      display: 'web2/login',
+      locale: 'en_US',
+      redirect_uri: 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
+      scope: 'basic.identity offline signin',
+      fid: this.cookies_set ? undefined : this.fid
+    }
+
+    const url = `https://accounts.ea.com/connect/auth${this.createGetParameters(parameters)}`;
+    //const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer || 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
+    const data = await this.get(url, {
+      follow: false
+    });
+
+    //try {
+      this.bearer = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
+      console.log('Got access token', this.bearer);
+    //} catch(e) {
+      //console.warn('login required XDDD');
+      //const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer ? this.bearer : 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
+      //const data = await this.get(url, {
+      //  follow: false
+      //});
+      //this.bearer = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
+  //  }
+
     //2do
     //https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html#access_token=QVQwOjEuMDozLjA6NjA6ZmlnTml3azJRcTZnakNnMzZoZDdYbWVnOFZhZm1uMGh0MWY6NjgzNDM6b2IyN3U&token_type=Bearer&expires_in=3599
     //this.authorizationTokenExpiresAt =
@@ -227,8 +256,16 @@ class Account {
         'Accept': '*/*'
       }
     });
+    if(data.body.error) {
+      console.log('========== Get bearer');
+      await this.getBearer();
+      await this.getPids();
+      return;
+    }
     this.pids = data.body.pid;
     this.nucleusId = this.pids.externalRefValue;
+
+    return true;
   }
   async getShards() {
     const url = `https://${this.authUrl}/ut/shards/v2`;
@@ -262,7 +299,7 @@ class Account {
     this.persona = finalData.body.userAccountInfo.personas[0];
   }
   async getFosServerCode() {
-    const url = `https://accounts.ea.com/connect/auth?client_id=FOS-SERVER&redirect_uri=nucleus:rest&response_type=code&access_token=${this.accessToken}`;
+    const url = `https://accounts.ea.com/connect/auth?client_id=FOS-SERVER&redirect_uri=nucleus:rest&response_type=code&access_token=${this.bearer}`;
     const data = await this.get(url, {
       json: true
     });
@@ -319,6 +356,18 @@ class Account {
     console.log('secret hash data', data);
   }
 
+  //Captcha
+  async solveCaptcha() {
+    const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
+      json: true
+    });
+    await this.captcha.trigger({
+      publicKey: data.body.pk,
+      blob: data.body.blob,
+      siteUrl: 'https://www.easports.com'
+    });
+  }
+
   //Fifa functions
   async getMassInfo() {
     const url = `${this.utas}/ut/game/fifa18/usermassinfo`
@@ -327,14 +376,10 @@ class Account {
     });
     console.log('Fetched mass info', data);
     this.massInfo = data.body;
-    this.massInfo.userInfo.currencies.forEach(currency => {
-      if(currency.name == 'COINS') {
-        this.coins = currency.finalFunds;
-      }
-    });
+    this.getCoinsFromCurrencies(this.massInfo.userInfo.currencies);
   }
   async searchTransferMarket(p) {
-    const limit = 36;
+    const limit = p.limit || 36;
     const parameters = {
       start: (p.page - 1) * limit,
       num: limit,
@@ -355,9 +400,106 @@ class Account {
       auctions: data.body.auctionInfo
     };
   }
+  async bid(p) {
+    const url = `${this.utas}/ut/game/fifa18/trade/${p.tradeId}/bid?sku_b=FFT18`
+    const data = await this.put(url, {
+      form: {
+        bid: p.coins,
+      }
+    })
+    this.getCoinsFromCurrencies(data.body.currencies);
+    return data.body.auctionInfo;
+  }
+  async relistAuctions() {
+    const url = `${this.utas}/ut/game/fifa18/auctionhouse/relist`
+    const data = await this.put(url)
+    return data.tradeIdList;
+    /*
+    {"tradeIdList":[
+      {
+        "id":21239961928,
+        "idStr":"21239961928"
+      }
+    ]}
+    */
+  }
+  async getTradePile() {
+    const url = `${this.utas}/ut/game/fifa18/tradepile`
+    const data = await this.get(url)
+    return data.body.auctionInfo;
+    /*
+    {"credits":2629,"auctionInfo":[{"tradeId":21239961928,"itemData":{"id":126899379879,"timestamp":1534004938,"formation":"f433","untradeable":false,"assetId":215368,"rating":63,"itemType":"player","resourceId":215368,"owners":2,"discardValue":19,"itemState":"forSale","cardsubtypeid":1,"lastSalePrice":200,"morale":50,"fitness":99,"injuryType":"none","injuryGames":0,"preferredPosition":"RB","statsList":[{"value":0,"index":0},{"value":0,"index":1},{"value":0,"index":2},{"value":0,"index":3},{"value":0,"index":4}],"lifetimeStats":[{"value":0,"index":0},{"value":0,"index":1},{"value":0,"index":2},{"value":0,"index":3},{"value":0,"index":4}],"training":0,"contract":7,"suspension":0,"attributeList":[{"value":73,"index":0},{"value":44,"index":1},{"value":53,"index":2},{"value":60,"index":3},{"value":60,"index":4},{"value":59,"index":5}],"teamid":252,"rareflag":0,"playStyle":250,"leagueId":80,"assists":0,"lifetimeAssists":0,"loyaltyBonus":0,"pile":5,"nation":4,"marketDataMinPrice":150,"marketDataMaxPrice":10000,"resourceGameYear":2018},"tradeState":"active","buyNowPrice":200,"currentBid":0,"offers":0,"watched":true,"bidState":"none","startingBid":150,"confidenceValue":100,"expires":3600,"sellerName":null,"sellerEstablished":0,"sellerId":0,"tradeOwner":true,"tradeIdStr":"21239961928"}],"bidTokens":{}}
+    */
+  }
+  async sell(p) {
+    const url = `${this.utas}/ut/game/fifa18/auctionhouse?sku_b=FFT18`
+    const data = await this.put(url, {
+      form: {
+        buyNowPrice: p.priceBuyNow,
+        duration: p.duration,
+        itemData: {
+          id: p.itemId /*itemData.id */
+        },
+        startingBid: p.priceBid
+      }
+    });
 
+    /* REQUEST
+    {"itemData":{"id":121088671531},"startingBid":150,"duration":3600,"buyNowPrice":200}
+    */
+  }
 
+  //Misc
+  getCoinsFromCurrencies(currencies) {
+    currencies.forEach(currency => {
+      if(currency.name == 'COINS') {
+        console.log('Set coins here xD', currency.finalFunds);
+        console.log('a tutaj tescik', this);
+        this.coins = currency.finalFunds;
+      }
+    });
+  }
+  cookies(json) {
+    if(json) {
+      this.bearer = json.bearer;
+      this.fid = json.fid;
 
+      this.jar._jar = this.jar._jar._importCookiesSync(json.jar);
+      //this.jar._jar.cookies = json.jar._jar.cookies;
+
+      this.cookies_set = true;
+    } else {
+      let final_json = {
+        jar: this.jar._jar.serializeSync(),
+        fid: this.fid,
+        bearer: this.bearer
+      };
+      return final_json;
+    }
+
+  }
+  createGetParameters(parameters) {
+    let finalParameters = [];
+    Object.keys(parameters).forEach(key => {
+      if(typeof(parameters[key]) !== 'undefined') {
+        //finalParameters[finalParameters.length] = `${encodeURIComponent(key)}=${encodeURIComponent(parameters[key])}`;
+        finalParameters[finalParameters.length] = `${key}=${parameters[key]}`;
+      }
+    })
+    if(finalParameters.length == 0) {
+      return '';
+    }
+    return `?${finalParameters.join('&')}`;
+  }
+
+  //Requests
+  put(url, options) {
+    if(!options) {
+      options = {};
+    }
+    options.method = 'PUT';
+    return this.request(url, options);
+  }
   get(url, options) {
     if(!options) {
       options = {};
@@ -401,8 +543,8 @@ class Account {
       }
 
       //Send bearer if defined
-      if(this.accessToken && options.useAccessToken !== false) {
-        headers['Authorization'] = `Bearer ${this.accessToken}`;
+      if(this.bearer && options.useAccessToken !== false) {
+        headers['Authorization'] = `Bearer ${this.bearer}`;
       }
 
       //Send EASW Nucleus
@@ -471,6 +613,17 @@ class Account {
       //Make request
       request(request_options, async function(err, res, body) {
         if(!err) {
+
+          //458 - puzzle captcha
+          if(res.statusCode === 358) {
+            console.log('CAPTCHA DETECTED XDDD');
+            return resolve(await this.login());
+          }
+
+          //426 - upgrade required (? XD)
+          //429 - too many requests (too many actions have been taken)
+          //521 - error (unknown but it's always related with too many requests)
+
           if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
             try {
               body = await that.unzip_body(body);
@@ -481,6 +634,7 @@ class Account {
           if(options.json) {
             try {
               body = JSON.parse(body);
+              //{"message":null,"reason":"expired session","code":401}
             } catch(e) {
               return reject(e);
             }

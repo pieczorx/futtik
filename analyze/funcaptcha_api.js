@@ -3,19 +3,15 @@
     X2LL.I4R = "split";
 X2LL.i8P = "complete";
 X2LL.V4R = "replace";
-X2LL.z4R = "length";
+"length" = "length";
 X2LL.e4R = ',';
 
 function X2LL() {}
 X2LL.Q4R = "get_html";
 X2LL.C0P = "readyState";
-X2LL.q2P = "onload";
 X2LL.B4R = "refresh_session";
 X2LL.r4R = "prototype";
-X2LL.Q0P = "onreadystatechange";
-X2LL.M4R = "push";
 X2LL.C4R = "querySelectorAll";
-X2LL.c8R = 0;
 FunCaptcha[X2LL.r4R][X2LL.B4R] = function() {
     this[X2LL.Q4R]();
 };
@@ -24,7 +20,6 @@ FunCaptcha[X2LL.r4R][X2LL.B4R] = function() {
     if (document[X2LL.C4R]) return;
     r8R = document, B8R = r8R[X4R]();
     r8R[X2LL.C4R] = function(Q8R, a8R, V8R, C8R, X8R) {
-        var Z8P = X2LL;
         var J4R = "removeRule";
         var h4R = "k";
         var q4R = "currentStyle";
@@ -32,19 +27,17 @@ FunCaptcha[X2LL.r4R][X2LL.B4R] = function() {
         var u4R = "addRule";
         var c4R = '[htmlFor';
         var a4R = "all";
-        X8R = r8R[a4R], a8R = [], Q8R = Q8R[Z8P.V4R](/\[for\b/gi, c4R)[Z8P.I4R](Z8P.e4R);
-        for (V8R = Q8R[Z8P.z4R]; V8R--;) {
+        X8R = r8R[a4R], a8R = [], Q8R = Q8R[X2LL.V4R](/\[for\b/gi, c4R)[X2LL.I4R](X2LL.e4R);
+        for (V8R = Q8R["length"]; V8R--;) {
             B8R[u4R](Q8R[V8R], i4R);
-            for (C8R = X8R[Z8P.z4R]; C8R--;) X8R[C8R][q4R][h4R] && a8R[Z8P.M4R](X8R[C8R]);
-            B8R[J4R](Z8P.c8R);
+            for (C8R = X8R["length"]; C8R--;) X8R[C8R][q4R][h4R] && a8R.push(X8R[C8R]);
+            B8R[J4R](0);
         }
         return a8R;
     };
 }());
 
 function FunCaptcha(w5R) {
-    var L8P = X2LL;
-    var Y8P = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
     var U8P = "code";
     var e8P = "charAt";
     var I8P = "setup_callback";
@@ -66,20 +59,17 @@ function FunCaptcha(w5R) {
     var Y1P = "construct_html";
     var U1P = "token";
     var O1P = "f_true";
-    var A1P = "fp_vals";
+    var "fp_vals" = "fp_vals";
     var g1P = "join";
     var h1P = "value";
     var u1P = "hasOwnProperty";
-    var I1P = "fp";
     var X1P = "isFPValidForSuppress";
     var C1P = "canvasSupported";
     var Q1P = "createEvent";
     var r1P = "postMessage";
-    var b2P = "undefined";
     var W2P = "forEach";
     var d2P = "passValues";
     var T2P = "getFP";
-    var s2P = "js";
     var G2P = '';
     var o2P = ':';
     var f2P = "port";
@@ -129,9 +119,7 @@ function FunCaptcha(w5R) {
     var s4R = "documentMode";
     var G4R = "msie";
     var o4R = "simulate_rate_limit";
-    var f4R = false;
     var Y4R = "is_bootstrapped";
-    var U4R = "fp_result";
     var m4R = "onload_retry";
     var K4R = "data";
     var l4R = "language";
@@ -150,16 +138,6 @@ function FunCaptcha(w5R) {
     var x8R = 63;
     var R8R = 20;
     var E8R = 16;
-    var k8R = 12;
-    var J8R = 9;
-    var M8R = 8;
-    var h8R = 7;
-    var q8R = 6;
-    var i8R = 5;
-    var u8R = 4;
-    var z8R = 3;
-    var e8R = 2;
-    var I8R = 1;
     var o5R = g4R;
     var U5R;
     var K5R;
@@ -172,17 +150,17 @@ function FunCaptcha(w5R) {
     this[v4R] = w4R;
     this[l4R];
     this[K4R];
-    this[m4R] = L8P.c8R;
-    this[U4R] = {};
-    this[Y4R] = f4R;
-    this[o4R] = f4R;
+    this[m4R] = 0;
+    this["fp_result"] = {};
+    this[Y4R] = false;
+    this[o4R] = false;
     this[G4R] = document[s4R];
     if (!this[G4R]) {
         var T5R = navigator[T4R][L4R](Z4R);
-        if (T5R) this[G4R] = T5R[I8R];
+        if (T5R) this[G4R] = T5R[1];
     }
     try {
-        this[x4R] = parseFloat(navigator[T4R][n4R](navigator[T4R][t4R](p4R) + M8R));
+        this[x4R] = parseFloat(navigator[T4R][n4R](navigator[T4R][t4R](p4R) + 8));
     } catch (D5R) {}
     this[P4R] = function(d5R) {
         var N4R = "outerHTML";
@@ -213,37 +191,37 @@ function FunCaptcha(w5R) {
         var Q2P = '?';
         var r9R = [],
             B9R;
-        var C9R = X9R[n4R](X9R[t4R](Q2P) + I8R)[L8P.I4R](C2P);
-        for (var Q9R = L8P.c8R; Q9R < C9R[L8P.z4R]; Q9R++) {
-            B9R = C9R[Q9R][L8P.I4R](X2P);
-            r9R[L8P.M4R](B9R[L8P.c8R]);
-            r9R[B9R[L8P.c8R]] = B9R[I8R];
+        var C9R = X9R[n4R](X9R[t4R](Q2P) + 1)[X2LL.I4R](C2P);
+        for (var Q9R = 0; Q9R < C9R["length"]; Q9R++) {
+            B9R = C9R[Q9R][X2LL.I4R](X2P);
+            r9R.push(B9R[0]);
+            r9R[B9R[0]] = B9R[1];
         }
         return r9R;
     };
-    var L5R = document[L8P.C4R](a2P);
-    if (L5R[L8P.z4R] === I8R) {
-        var P5R = L5R[L8P.c8R][V2P];
+    var L5R = document[X2LL.C4R](a2P);
+    if (L5R["length"] === 1) {
+        var P5R = L5R[0][V2P];
         var x5R = c2P;
-        var s5R = x5R[I2P](P5R)[L8P.c8R];
+        var s5R = x5R[I2P](P5R)[0];
         if (s5R) this[v4R] = s5R;
     }
     if (!w5R) {
-        var G5R = document[L8P.C4R](e2P);
-        for (var f5R = G5R[L8P.z4R] - I8R; f5R >= L8P.c8R; f5R--)
-            if (this[P4R](G5R[f5R])[t4R](this[H4R]) != -I8R) {
+        var G5R = document[X2LL.C4R](e2P);
+        for (var f5R = G5R["length"] - 1; f5R >= 0; f5R--)
+            if (this[P4R](G5R[f5R])[t4R](this[H4R]) != -1) {
                 this[z2P] = this[B2P](G5R[f5R][V2P]);
                 if (this[z2P][F4R]) this[F4R] = this[z2P][F4R];
                 if (this[z2P][u2P]) this[A4R] = this[z2P][u2P];
                 if (this[z2P][l4R]) this[l4R] = this[z2P][l4R];
                 if (this[z2P][i2P]) this[v4R] = this[z2P][i2P];
-                if (this[z2P][L8P.q2P]) o5R = this[z2P][L8P.q2P];
+                if (this[z2P]["onload"]) o5R = this[z2P]["onload"];
                 if (this[z2P][h2P]) U5R = this[z2P][h2P];
                 if (this[z2P][M2P]) K5R = this[z2P][M2P];
                 if (this[z2P][K4R]) this[K4R] = this[z2P][K4R];
                 if (this[z2P][J2P]) this[Y4R] = b4R;
                 if (this[z2P][o4R]) this[o4R] = b4R;
-                if (this[z2P][g2P]) document[L8P.C4R](S2P)[L8P.c8R][k2P]();
+                if (this[z2P][g2P]) document[X2LL.C4R](S2P)[0][k2P]();
             }
         if (o5R) {
             this[r2P]();
@@ -271,8 +249,8 @@ function FunCaptcha(w5R) {
     if (!window[l2P][K2P]) window[l2P][K2P] = window[l2P][m2P] + U2P + window[l2P][Y2P] + (window[l2P][f2P] ? o2P + window[l2P][f2P] : G2P);
     var n5R = window[l2P][K2P];
     var t5R = navigator[T4R];
-    var N5R = s2P;
-    this[L8P.Q4R] = function() {
+    var N5R = "js";
+    this[X2LL.Q4R] = function() {
         var c0P = "application/x-www-form-urlencoded; charset=UTF-8";
         var V0P = "Content-Type";
         var a0P = "setRequestHeader";
@@ -293,24 +271,13 @@ function FunCaptcha(w5R) {
         var K1P = "]";
         var l1P = "data[";
         var w1P = "random";
-        var v1P = "rnd";
-        var E1P = "stringify";
-        var F1P = "fb";
-        var k1P = "cs";
-        var S1P = "fe";
         var J1P = '::';
         var M1P = 'P';
         var q1P = 'CFP';
         var i1P = "key";
         var z1P = "vals";
-        var e1P = "f";
-        var c1P = "p";
         var V1P = "fc_nosuppress=1";
         var a1P = "href";
-        var B1P = 'function';
-        var j2P = "JSON";
-        var y2P = "keys";
-        var D2P = "api_type";
         var N2P = "userbrowser";
         var P2P = "site";
         var p2P = "public_key/";
@@ -336,80 +303,90 @@ function FunCaptcha(w5R) {
             value: t5R
         }, {
             key: o4R,
-            value: !this[Y4R] && this[o4R] ? I8R : L8P.c8R
+            value: !this[Y4R] && this[o4R] ? 1 : 0
         }];
+
+        //torobie 222
         var u9R = [{
-            key: D2P,
-            value: s2P
+            key: "api_type",
+            value: "js"
         }];
-        if (a9R[l4R]) I9R[L8P.M4R]({
+
+        if (a9R[l4R]) I9R.push({
             key: l4R,
             value: a9R[l4R]
         });
-        if (a9R[d2P]) Object[y2P](a9R[d2P])[W2P](function(E9R) {
-            I9R[L8P.M4R]({
+        if (a9R[d2P]) Object["keys"](a9R[d2P])[W2P](function(E9R) {
+            I9R.push({
                 key: E9R,
                 value: a9R[d2P][E9R]
             });
         });
-        if (typeof FunCaptchaBootstrap != b2P)
-            for (var A9R in FunCaptchaBootstrap) I9R[L8P.M4R]({
+        if (typeof FunCaptchaBootstrap != "undefined")
+            for (var A9R in FunCaptchaBootstrap) I9R.push({
                 key: A9R,
                 value: FunCaptchaBootstrap[A9R]
             });
-        if (window[j2P]) {
-            if (window[r1P] && B1P === typeof document[Q1P] && this[C1P]() && !(a9R[G4R] < J8R) && !(a9R[x4R] < z8R) && this[X1P]() && window[l2P][a1P][t4R](V1P) == -I8R) u9R[L8P.M4R]({
-                key: c1P,
-                value: I8R
+        if (window["JSON"]) {
+            if (window[r1P] && "function" === typeof document[Q1P] && this[C1P]() && !(a9R[G4R] < 9) && !(a9R[x4R] < 3) && this[X1P]() && window[l2P][a1P][t4R](V1P) == -1) u9R.push({
+                key: "p",
+                value: 1
             });
-            if (this[U4R][I1P][I1P]) {
-                u9R[L8P.M4R]({
-                    key: e1P,
-                    value: this[U4R][I1P][I1P]
+            if (this["fp_result"]["fp"]["fp"]) {
+                u9R.push({
+                    key: "f",
+                    value: this["fp_result"]["fp"]["fp"]
                 });
                 var i9R = [];
-                for (var z9R in this[U4R][I1P][z1P]) {
-                    if (!this[U4R][I1P][z1P][u1P](z9R)) continue;
-                    var c9R = this[U4R][I1P][z1P][z9R];
+                for (var z9R in this["fp_result"]["fp"][z1P]) {
+                    if (!this["fp_result"]["fp"][z1P][u1P](z9R)) continue;
+                    var c9R = this["fp_result"]["fp"][z1P][z9R];
                     switch (c9R[i1P]) {
                         case q1P:
-                            i9R[L8P.M4R](c9R[i1P] + o2P + p5R(c9R[h1P]));
+                            i9R.push(c9R[i1P] + o2P + p5R(c9R[h1P]));
                             break;
                         case M1P:
                             var M9R = [];
                             for (var J9R in c9R[h1P]) {
                                 if (!c9R[h1P][u1P](J9R)) continue;
                                 var g9R = c9R[h1P][J9R];
-                                g9R && M9R[L8P.M4R](g9R[L8P.I4R](J1P)[L8P.c8R]);
+                                g9R && M9R.push(g9R[X2LL.I4R](J1P)[0]);
                             }
-                            i9R[L8P.M4R](c9R[i1P] + o2P + M9R[g1P](L8P.e4R));
+                            i9R.push(c9R[i1P] + o2P + M9R[g1P](X2LL.e4R));
                             break;
                         default:
-                            i9R[L8P.M4R](c9R[i1P] + o2P + c9R[h1P]);
+                            i9R.push(c9R[i1P] + o2P + c9R[h1P]);
                             break;
                     }
                 }
-                u9R[L8P.M4R]({
-                    key: S1P,
+                u9R.push({
+                    key: "fe",
                     value: i9R
                 });
             }
-            if (this[C1P]()) u9R[L8P.M4R]({
-                key: k1P,
-                value: I8R
-            });
-            if (this[U4R][A1P][O1P]) u9R[L8P.M4R]({
-                key: F1P,
-                value: I8R
-            });
-            var F9R = JSON[E1P](u9R);
-            e9R["bda"] = m5R["encode"](F9R);
-        } else if (this[U4R][I1P][I1P]) I9R[L8P.M4R]({
-            key: e1P,
-            value: this[U4R][I1P][I1P]
+
+            if (this[C1P]()) {
+              u9R.push({
+                  key: "cs",
+                  value: 1
+              });
+            }
+
+            if (this["fp_result"]["fp_vals"][O1P]) {
+              u9R.push({
+                  key: "fb",
+                  value: 1
+              });
+            }
+
+            var F9R = JSON.stringify(u9R);
+            e9R.bda = m5R.encode(F9R);
+        } else if (this["fp_result"]["fp"]["fp"]) I9R.push({
+            key: "f",
+            value: this["fp_result"]["fp"]["fp"]
         });
-        I9R[L8P.M4R]({
-            key: v1P,
+        I9R.push({
+            key: "rnd",
             value: Math[w1P]()
         });
         for (var k9R in I9R) e9R[I9R[k9R][i1P]] = I9R[k9R][h1P];
@@ -422,10 +399,10 @@ function FunCaptcha(w5R) {
         var q9R = [];
         for (var h9R in e9R) {
             if (!e9R[u1P](h9R)) continue;
-            q9R[L8P.M4R](h9R + X2P + encodeURIComponent(e9R[h9R]));
+            q9R.push(h9R + X2P + encodeURIComponent(e9R[h9R]));
         }
         try {
-            if (this[G4R] && this[G4R] <= h8R) {
+            if (this[G4R] && this[G4R] <= 7) {
                 window[m1P] = function(H9R) {
                     if (H9R && H9R[U1P]) a9R[Y1P](H9R);
                     else if (H9R[f1P] && H9R[f1P] === o1P) this[G1P](H9R);
@@ -440,9 +417,9 @@ function FunCaptcha(w5R) {
                 return;
             }
         } catch (R9R) {}
-        if (this[G4R] && this[G4R] <= J8R && window[P1P]) {
+        if (this[G4R] && this[G4R] <= 9 && window[P1P]) {
             var V9R = new XDomainRequest();
-            V9R[L8P.q2P] = function() {
+            V9R["onload"] = function() {
                 a9R[N1P](V9R);
             };
             V9R[D1P] = function() {};
@@ -455,9 +432,9 @@ function FunCaptcha(w5R) {
         }
         var V9R;
         if (window[B0P]) V9R = new XMLHttpRequest();
-        V9R[L8P.Q0P] = function() {
+        V9R["onreadystatechange"] = function() {
             var X0P = "status";
-            if (this[L8P.C0P] == u8R && this[X0P] == d8R) a9R[N1P](V9R);
+            if (this[X2LL.C0P] == 4 && this[X0P] == d8R) a9R[N1P](V9R);
         };
         V9R[b1P](j1P, O9R, b4R);
         V9R[a0P](V0P, c0P);
@@ -514,14 +491,14 @@ function FunCaptcha(w5R) {
             var G9R = document[O2P](F2P + this[A4R]);
             if (!G9R) G9R = document[O2P](E2P + this[A4R]);
         }
-        if (!G9R) return f4R;
+        if (!G9R) return false;
         G9R[j4R] = x9R;
         var s9R = document[D4R](L1P);
         s9R[J0P] = g0P;
         s9R[S0P] = k0P;
         s9R[A0P] = b4R;
         s9R[V2P] = T9R[O0P] ? T9R[O0P] : Z9R[v4R] + T9R[F0P];
-        var L9R = document[E0P](L1P)[L8P.c8R];
+        var L9R = document[E0P](L1P)[0];
         L9R[H0P][R0P](s9R, L9R);
     };
     this[T2P] = function() {
@@ -529,11 +506,11 @@ function FunCaptcha(w5R) {
         var l0P = "hasFakeResolution";
         var w0P = "hasFakeOS";
         var v0P = "hasFakeBrowser";
-        if (!this[U4R][I1P]) {
+        if (!this["fp_result"]["fp"]) {
             var n9R = new t9R();
-            this[U4R][I1P] = n9R[T2P]();
-            this[U4R][A1P] = {
-                f_true: n9R[v0P]() || n9R[w0P]() || n9R[l0P]() ? b4R : n9R[K0P]() ? f4R : b4R
+            this["fp_result"]["fp"] = n9R[T2P]();
+            this["fp_result"]["fp_vals"] = {
+                f_true: n9R[v0P]() || n9R[w0P]() || n9R[l0P]() ? b4R : n9R[K0P]() ? false : b4R
             };
         }
 
@@ -618,95 +595,95 @@ function FunCaptcha(w5R) {
                 var Y0P = "L";
                 var m0P = "DNT";
                 var p9R = [];
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: m0P,
                     value: this[U0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: Y0P,
                     value: this[f0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: o0P,
                     value: this[G0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: s0P,
                     value: this[T0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: L0P,
                     value: this[K0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: Z0P,
                     value: this[x0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: n0P,
                     value: this[t0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: p0P,
                     value: this[P0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: N0P,
                     value: this[D0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: d0P,
                     value: this[y0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: W0P,
                     value: this[b0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: j0P,
                     value: this[r5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: B5P,
                     value: this[Q5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: C5P,
                     value: this[X5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: a5P,
                     value: this[V5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: c5P,
                     value: this[l0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: I5P,
                     value: this[w0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: e5P,
                     value: this[v0P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: z5P,
                     value: this[u5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: i5P,
                     value: this[q5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: h5P,
                     value: this[M5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: J5P,
                     value: this[g5P]()
                 });
-                p9R[L8P.M4R]({
+                p9R.push({
                     key: S5P,
                     value: this[k5P]()
                 });
@@ -714,8 +691,8 @@ function FunCaptcha(w5R) {
                 this[A5P](p9R, function(D9R) {
                     var O5P = ";";
                     var d9R = D9R[h1P];
-                    if (typeof D9R[h1P][g1P] !== b2P) d9R = D9R[h1P][g1P](O5P);
-                    P9R[L8P.M4R](d9R);
+                    if (typeof D9R[h1P][g1P] !== "undefined") d9R = D9R[h1P][g1P](O5P);
+                    P9R.push(d9R);
                 });
                 var N9R = this[F5P](P9R[g1P](E5P), K8R);
                 return {
@@ -724,13 +701,13 @@ function FunCaptcha(w5R) {
                 };
             };
             this[H5P] = function() {
-                var y9R = L8P.c8R,
+                var y9R = 0,
                     W9R, b9R;
-                if (this[L8P.z4R] === L8P.c8R) return y9R;
-                for (W9R = L8P.c8R; W9R < this[L8P.z4R]; W9R++) {
+                if (this["length"] === 0) return y9R;
+                for (W9R = 0; W9R < this["length"]; W9R++) {
                     b9R = this[R5P](W9R);
-                    y9R = (y9R << i8R) - y9R + b9R;
-                    y9R |= L8P.c8R;
+                    y9R = (y9R << 5) - y9R + b9R;
+                    y9R |= 0;
                 }
                 return y9R;
             };
@@ -750,7 +727,7 @@ function FunCaptcha(w5R) {
             };
             this[G0P] = function() {
                 var Y5P = "colorDepth";
-                return screen[Y5P] || -I8R;
+                return screen[Y5P] || -1;
             };
             this[T0P] = function() {
                 var f5P = "devicePixelRatio";
@@ -758,14 +735,14 @@ function FunCaptcha(w5R) {
             };
             this[K0P] = function() {
                 var j9R = screen[o5P] > screen[G5P] ? [screen[o5P], screen[G5P]] : [screen[G5P], screen[o5P]];
-                if (typeof j9R !== b2P) return j9R;
-                return f4R;
+                if (typeof j9R !== "undefined") return j9R;
+                return false;
             };
             this[x0P] = function() {
                 var r3R;
                 if (screen[s5P] && screen[T5P]) r3R = screen[T5P] > screen[s5P] ? [screen[T5P], screen[s5P]] : [screen[s5P], screen[T5P]];
-                if (typeof r3R !== b2P) return r3R;
-                return f4R;
+                if (typeof r3R !== "undefined") return r3R;
+                return false;
             };
             this[t0P] = function() {
                 var L5P = "getTimezoneOffset";
@@ -798,11 +775,11 @@ function FunCaptcha(w5R) {
             this[b0P] = function() {
                 var t5P = "addBehavior";
                 if (document[p1P] && document[p1P][t5P]) return b4R;
-                else return f4R;
+                else return false;
             };
             this[r5P] = function() {
                 var p5P = "openDatabase";
-                return window[p5P] ? b4R : f4R;
+                return window[p5P] ? b4R : false;
             };
             this[Q5P] = function() {
                 var P5P = "cpuClass";
@@ -864,46 +841,46 @@ function FunCaptcha(w5R) {
                     V3R[o5P] = d8R;
                     V3R[W5P][b5P] = j5P;
                     var a3R = V3R[d5P](y5P);
-                    a3R[r9P](L8P.c8R, L8P.c8R, g8R, g8R);
-                    a3R[r9P](e8R, e8R, q8R, q8R);
-                    c3R[L8P.M4R](a3R[B9P](i8R, i8R, Q9P) === f4R ? C9P : X9P);
+                    a3R[r9P](0, 0, g8R, g8R);
+                    a3R[r9P](2, 2, 6, 6);
+                    c3R.push(a3R[B9P](5, 5, Q9P) === false ? C9P : X9P);
                     a3R[a9P] = V9P;
                     a3R[c9P] = I9P;
-                    a3R[e9P](P8R, I8R, Z8R, R8R);
+                    a3R[e9P](P8R, 1, Z8R, R8R);
                     a3R[c9P] = z9P;
                     a3R[u9P] = i9P;
-                    a3R[q9P](h9P, e8R, F8R);
+                    a3R[q9P](h9P, 2, F8R);
                     a3R[c9P] = M9P;
                     a3R[u9P] = J9P;
-                    a3R[q9P](h9P, u8R, G8R);
+                    a3R[q9P](h9P, 4, G8R);
                     a3R[g9P] = S9P;
                     a3R[c9P] = k9P;
                     a3R[A9P]();
-                    a3R[O9P](T8R, T8R, T8R, L8P.c8R, Math[F9P] * e8R, b4R);
+                    a3R[O9P](T8R, T8R, T8R, 0, Math[F9P] * 2, b4R);
                     a3R[E9P]();
                     a3R[H9P]();
                     a3R[c9P] = R9P;
                     a3R[A9P]();
-                    a3R[O9P](p8R, T8R, T8R, L8P.c8R, Math[F9P] * e8R, b4R);
+                    a3R[O9P](p8R, T8R, T8R, 0, Math[F9P] * 2, b4R);
                     a3R[E9P]();
                     a3R[H9P]();
                     a3R[c9P] = v9P;
                     a3R[A9P]();
-                    a3R[O9P](t8R, p8R, T8R, L8P.c8R, Math[F9P] * e8R, b4R);
+                    a3R[O9P](t8R, p8R, T8R, 0, Math[F9P] * 2, b4R);
                     a3R[E9P]();
                     a3R[H9P]();
                     a3R[c9P] = k9P;
-                    a3R[O9P](t8R, t8R, t8R, L8P.c8R, Math[F9P] * e8R, b4R);
-                    a3R[O9P](t8R, t8R, w8R, L8P.c8R, Math[F9P] * e8R, b4R);
+                    a3R[O9P](t8R, t8R, t8R, 0, Math[F9P] * 2, b4R);
+                    a3R[O9P](t8R, t8R, w8R, 0, Math[F9P] * 2, b4R);
                     a3R[H9P](Q9P);
-                    c3R[L8P.M4R](w9P + V3R[l9P]());
+                    c3R.push(w9P + V3R[l9P]());
                     return c3R[g1P](K9P);
-                } else return f4R;
+                } else return false;
             };
             this[l0P] = function() {
                 if (screen[G5P] < screen[s5P]) return b4R;
                 if (screen[o5P] < screen[T5P]) return b4R;
-                return f4R;
+                return false;
             };
             this[w0P] = function() {
                 var b9P = "ipod";
@@ -926,30 +903,30 @@ function FunCaptcha(w5R) {
                 var z3R = navigator[U9P];
                 var e3R = navigator[N5P][m9P]();
                 var I3R;
-                if (u3R[t4R](Y9P) >= L8P.c8R) I3R = f9P;
-                else if (u3R[t4R](o9P) >= L8P.c8R) I3R = G9P;
-                else if (u3R[t4R](s9P) >= L8P.c8R) I3R = p4R;
-                else if (u3R[t4R](T9P) >= L8P.c8R) I3R = L9P;
-                else if (u3R[t4R](Z9P) >= L8P.c8R || u3R[t4R](x9P) >= L8P.c8R) I3R = n9P;
-                else if (u3R[t4R](t9P) >= L8P.c8R) I3R = p9P;
+                if (u3R[t4R](Y9P) >= 0) I3R = f9P;
+                else if (u3R[t4R](o9P) >= 0) I3R = G9P;
+                else if (u3R[t4R](s9P) >= 0) I3R = p4R;
+                else if (u3R[t4R](T9P) >= 0) I3R = L9P;
+                else if (u3R[t4R](Z9P) >= 0 || u3R[t4R](x9P) >= 0) I3R = n9P;
+                else if (u3R[t4R](t9P) >= 0) I3R = p9P;
                 else I3R = P9P;
                 var i3R;
-                if (N9P in window || navigator[D9P] > L8P.c8R || navigator[d9P] > L8P.c8R) i3R = b4R;
-                else i3R = f4R;
+                if (N9P in window || navigator[D9P] > 0 || navigator[d9P] > 0) i3R = b4R;
+                else i3R = false;
                 if (i3R && I3R !== f9P && I3R !== p4R && I3R !== n9P && I3R !== P9P && I3R !== G9P) return b4R;
-                if (typeof z3R !== b2P) {
+                if (typeof z3R !== "undefined") {
                     z3R = z3R[m9P]();
-                    if (z3R[t4R](o9P) >= L8P.c8R && I3R !== G9P && I3R !== f9P) return b4R;
-                    if (z3R[t4R](T9P) >= L8P.c8R && I3R !== L9P && I3R !== p4R) return b4R;
-                    if (z3R[t4R](t9P) >= L8P.c8R && I3R !== p9P && I3R !== n9P) return b4R;
-                    if (z3R[t4R](o9P) === L8P.c8R && z3R[t4R](T9P) === L8P.c8R && z3R[t4R](t9P) >= L8P.c8R && I3R !== y9P) return b4R;
+                    if (z3R[t4R](o9P) >= 0 && I3R !== G9P && I3R !== f9P) return b4R;
+                    if (z3R[t4R](T9P) >= 0 && I3R !== L9P && I3R !== p4R) return b4R;
+                    if (z3R[t4R](t9P) >= 0 && I3R !== p9P && I3R !== n9P) return b4R;
+                    if (z3R[t4R](o9P) === 0 && z3R[t4R](T9P) === 0 && z3R[t4R](t9P) >= 0 && I3R !== y9P) return b4R;
                 }
-                if (e3R[t4R](o9P) >= L8P.c8R && I3R !== G9P && I3R !== f9P) return b4R;
-                if ((e3R[t4R](T9P) >= L8P.c8R || e3R[t4R](s9P) >= L8P.c8R || e3R[t4R](W9P) >= L8P.c8R) && I3R !== L9P && I3R !== p4R) return b4R;
-                if ((e3R[t4R](t9P) >= L8P.c8R || e3R[t4R](x9P) >= L8P.c8R || e3R[t4R](b9P) >= L8P.c8R || e3R[t4R](Z9P) >= L8P.c8R) && I3R !== p9P && I3R !== n9P) return b4R;
-                if (e3R[t4R](o9P) === L8P.c8R && e3R[t4R](T9P) === L8P.c8R && e3R[t4R](t9P) >= L8P.c8R && I3R !== y9P) return b4R;
-                if (typeof navigator[j9P] === b2P && I3R !== G9P && I3R !== f9P) return b4R;
-                return f4R;
+                if (e3R[t4R](o9P) >= 0 && I3R !== G9P && I3R !== f9P) return b4R;
+                if ((e3R[t4R](T9P) >= 0 || e3R[t4R](s9P) >= 0 || e3R[t4R](W9P) >= 0) && I3R !== L9P && I3R !== p4R) return b4R;
+                if ((e3R[t4R](t9P) >= 0 || e3R[t4R](x9P) >= 0 || e3R[t4R](b9P) >= 0 || e3R[t4R](Z9P) >= 0) && I3R !== p9P && I3R !== n9P) return b4R;
+                if (e3R[t4R](o9P) === 0 && e3R[t4R](T9P) === 0 && e3R[t4R](t9P) >= 0 && I3R !== y9P) return b4R;
+                if (typeof navigator[j9P] === "undefined" && I3R !== G9P && I3R !== f9P) return b4R;
+                return false;
             };
             this[v0P] = function() {
                 var h3P = "a";
@@ -971,14 +948,14 @@ function FunCaptcha(w5R) {
                 var h3R = navigator[T4R][m9P]();
                 var g3R = navigator[r3P];
                 var q3R;
-                if (h3R[t4R](B3P) >= L8P.c8R) q3R = Q3P;
-                else if (h3R[t4R](C3P) >= L8P.c8R || h3R[t4R](X3P) >= L8P.c8R) q3R = a3P;
-                else if (h3R[t4R](V3P) >= L8P.c8R) q3R = c3P;
-                else if (h3R[t4R](I3P) >= L8P.c8R) q3R = e3P;
-                else if (h3R[t4R](z3P) >= L8P.c8R) q3R = u3P;
+                if (h3R[t4R](B3P) >= 0) q3R = Q3P;
+                else if (h3R[t4R](C3P) >= 0 || h3R[t4R](X3P) >= 0) q3R = a3P;
+                else if (h3R[t4R](V3P) >= 0) q3R = c3P;
+                else if (h3R[t4R](I3P) >= 0) q3R = e3P;
+                else if (h3R[t4R](z3P) >= 0) q3R = u3P;
                 else q3R = P9P;
                 if ((q3R === c3P || q3R === e3P || q3R === a3P) && g3R !== i3P) return b4R;
-                var M3R = eval[q3P]()[L8P.z4R];
+                var M3R = eval[q3P]()["length"];
                 if (M3R === Y8R && q3R !== e3P && q3R !== Q3P && q3R !== P9P) return b4R;
                 if (M3R === f8R && q3R !== u3P && q3R !== P9P) return b4R;
                 if (M3R === U8R && q3R !== c3P && q3R !== a3P && q3R !== P9P) return b4R;
@@ -991,11 +968,11 @@ function FunCaptcha(w5R) {
                         S3R[M3P]();
                         J3R = b4R;
                     } catch (k3R) {
-                        J3R = f4R;
+                        J3R = false;
                     }
                 }
                 if (J3R && q3R !== Q3P && q3R !== P9P) return b4R;
-                return f4R;
+                return false;
             };
             this[u5P] = function(n3R) {
                 var y7P = "removeChild";
@@ -1077,8 +1054,8 @@ function FunCaptcha(w5R) {
                 var O3R = [k3P, A3P, O3P, F3P, E3P, H3P, R3P, v3P, w3P, l3P, K3P, m3P, U3P, Y3P, f3P, o3P, G3P, s3P, T3P, L3P, Z3P, x3P, n3P, t3P, p3P, P3P, N3P, D3P, d3P, y3P, W3P, b3P, j3P, r7P, B7P, Q7P, C7P, X7P, a7P, V7P, c7P, I7P, e7P, z7P, u7P, i7P, q7P, h7P, M7P, J7P, g7P, S7P, k7P, A7P, O7P, F7P, E7P, H7P, R7P, v7P, w7P, l7P, K7P, m7P, U7P];
                 var T3R = Y7P;
                 var x3R = f7P;
-                if (!document[E0P](p1P)[L8P.c8R]) return f4R;
-                var E3R = document[E0P](p1P)[L8P.c8R];
+                if (!document[E0P](p1P)[0]) return false;
+                var E3R = document[E0P](p1P)[0];
                 var R3R = document[D4R](o7P);
                 var v3R = document[D4R](o7P);
                 var w3R = {};
@@ -1109,30 +1086,30 @@ function FunCaptcha(w5R) {
                 };
                 var f3R = function() {
                     var y3R = [];
-                    for (var D3R = L8P.c8R, W3R = A3R[L8P.z4R]; D3R < W3R; D3R++) {
+                    for (var D3R = 0, W3R = A3R["length"]; D3R < W3R; D3R++) {
                         var d3R = l3R();
                         d3R[W5P][p7P] = A3R[D3R];
                         R3R[y4R](d3R);
-                        y3R[L8P.M4R](d3R);
+                        y3R.push(d3R);
                     }
                     return y3R;
                 };
                 var o3R = function() {
                     var r7R = {};
-                    for (var b3R = L8P.c8R, C7R = O3R[L8P.z4R]; b3R < C7R; b3R++) {
+                    for (var b3R = 0, C7R = O3R["length"]; b3R < C7R; b3R++) {
                         var B7R = [];
-                        for (var j3R = L8P.c8R, X7R = A3R[L8P.z4R]; j3R < X7R; j3R++) {
+                        for (var j3R = 0, X7R = A3R["length"]; j3R < X7R; j3R++) {
                             var Q7R = Y3R(O3R[b3R], A3R[j3R]);
                             v3R[y4R](Q7R);
-                            B7R[L8P.M4R](Q7R);
+                            B7R.push(Q7R);
                         }
                         r7R[O3R[b3R]] = B7R;
                     }
                     return r7R;
                 };
                 var G3R = function(c7R) {
-                    var V7R = f4R;
-                    for (var a7R = L8P.c8R; a7R < A3R[L8P.z4R]; a7R++) {
+                    var V7R = false;
+                    for (var a7R = 0; a7R < A3R["length"]; a7R++) {
                         V7R = c7R[a7R][D7P] !== w3R[A3R[a7R]] || c7R[a7R][d7P] !== m3R[A3R[a7R]];
                         if (V7R) return V7R;
                     }
@@ -1140,15 +1117,15 @@ function FunCaptcha(w5R) {
                 };
                 var K3R = f3R();
                 E3R[y4R](R3R);
-                for (var F3R = L8P.c8R, L3R = A3R[L8P.z4R]; F3R < L3R; F3R++) {
+                for (var F3R = 0, L3R = A3R["length"]; F3R < L3R; F3R++) {
                     w3R[A3R[F3R]] = K3R[F3R][D7P];
                     m3R[A3R[F3R]] = K3R[F3R][d7P];
                 }
                 var Z3R = o3R();
                 E3R[y4R](v3R);
                 var U3R = [];
-                for (var H3R = L8P.c8R, s3R = O3R[L8P.z4R]; H3R < s3R; H3R++)
-                    if (G3R(Z3R[O3R[H3R]])) U3R[L8P.M4R](O3R[H3R]);
+                for (var H3R = 0, s3R = O3R["length"]; H3R < s3R; H3R++)
+                    if (G3R(Z3R[O3R[H3R]])) U3R.push(O3R[H3R]);
                 E3R[y7P](v3R);
                 E3R[y7P](R3R);
                 return U3R;
@@ -1161,17 +1138,17 @@ function FunCaptcha(w5R) {
                 var b7P = "appName";
                 if (navigator[b7P] === j7P) return b4R;
                 if (navigator[b7P] === r6P && B6P[Q6P](navigator[T4R])) return b4R;
-                return f4R;
+                return false;
             };
             this[C6P] = function() {
-                return I8R;
+                return 1;
             };
             this[A5P] = function(I7R, u7R, i7R) {
                 var X6P = "nativeForEach";
                 if (I7R === E4R) return;
                 if (this[X6P] && I7R[W2P] === this[X6P]) I7R[W2P](u7R, i7R);
-                else if (I7R[L8P.z4R] === +I7R[L8P.z4R]) {
-                    for (var e7R = L8P.c8R, q7R = I7R[L8P.z4R]; e7R < q7R; e7R++)
+                else if (I7R["length"] === +I7R["length"]) {
+                    for (var e7R = 0, q7R = I7R["length"]; e7R < q7R; e7R++)
                         if (u7R[a6P](i7R, I7R[e7R], e7R, I7R) === {}) return;
                 } else
                     for (var z7R in I7R)
@@ -1184,7 +1161,7 @@ function FunCaptcha(w5R) {
                 if (M7R == E4R) return h7R;
                 if (this[c6P] && M7R[V6P] === this[c6P]) return M7R[V6P](J7R, g7R);
                 this[A5P](M7R, function(S7R, k7R, A7R) {
-                    h7R[h7R[L8P.z4R]] = J7R[a6P](g7R, S7R, k7R, A7R);
+                    h7R[h7R["length"]] = J7R[a6P](g7R, S7R, k7R, A7R);
                 });
                 return h7R;
             };
@@ -1231,11 +1208,11 @@ function FunCaptcha(w5R) {
                     return E7R;
                 } else {
                     var O7R = [];
-                    for (var F7R = L8P.c8R, R7R = navigator[j9P][L8P.z4R]; F7R < R7R; F7R++) O7R[L8P.M4R](navigator[j9P][F7R]);
+                    for (var F7R = 0, R7R = navigator[j9P]["length"]; F7R < R7R; F7R++) O7R.push(navigator[j9P][F7R]);
                     if (this[C6P]()) O7R = O7R[Y6P](function(l7R, K7R) {
-                        if (l7R[f6P] > K7R[f6P]) return I8R;
-                        if (l7R[f6P] < K7R[f6P]) return -I8R;
-                        return L8P.c8R;
+                        if (l7R[f6P] > K7R[f6P]) return 1;
+                        if (l7R[f6P] < K7R[f6P]) return -1;
+                        return 0;
                     });
                     return this[V6P](O7R, function(m7R) {
                         var T6P = "::";
@@ -1251,10 +1228,10 @@ function FunCaptcha(w5R) {
             };
             this[M5P] = function() {
                 var L6P = "TouchEvent";
-                var f7R = L8P.c8R;
-                var o7R = f4R;
-                if (typeof navigator[D9P] !== b2P) f7R = navigator[D9P];
-                else if (typeof navigator[d9P] !== b2P) f7R = navigator[d9P];
+                var f7R = 0;
+                var o7R = false;
+                if (typeof navigator[D9P] !== "undefined") f7R = navigator[D9P];
+                else if (typeof navigator[d9P] !== "undefined") f7R = navigator[d9P];
                 try {
                     document[Q1P](L6P);
                     o7R = b4R;
@@ -1269,74 +1246,74 @@ function FunCaptcha(w5R) {
             };
             this[k5P] = function() {
                 var x6P = "swfobject";
-                return typeof window[x6P] !== b2P;
+                return typeof window[x6P] !== "undefined";
             };
             this[n6P] = function(L7R, Z7R) {
-                L7R = [L7R[L8P.c8R] >>> E8R, L7R[L8P.c8R] & t6P, L7R[I8R] >>> E8R, L7R[I8R] & t6P];
-                Z7R = [Z7R[L8P.c8R] >>> E8R, Z7R[L8P.c8R] & t6P, Z7R[I8R] >>> E8R, Z7R[I8R] & t6P];
-                var T7R = [L8P.c8R, L8P.c8R, L8P.c8R, L8P.c8R];
-                T7R[z8R] += L7R[z8R] + Z7R[z8R];
-                T7R[e8R] += T7R[z8R] >>> E8R;
-                T7R[z8R] &= t6P;
-                T7R[e8R] += L7R[e8R] + Z7R[e8R];
-                T7R[I8R] += T7R[e8R] >>> E8R;
-                T7R[e8R] &= t6P;
-                T7R[I8R] += L7R[I8R] + Z7R[I8R];
-                T7R[L8P.c8R] += T7R[I8R] >>> E8R;
-                T7R[I8R] &= t6P;
-                T7R[L8P.c8R] += L7R[L8P.c8R] + Z7R[L8P.c8R];
-                T7R[L8P.c8R] &= t6P;
-                return [T7R[L8P.c8R] << E8R | T7R[I8R], T7R[e8R] << E8R | T7R[z8R]];
+                L7R = [L7R[0] >>> E8R, L7R[0] & t6P, L7R[1] >>> E8R, L7R[1] & t6P];
+                Z7R = [Z7R[0] >>> E8R, Z7R[0] & t6P, Z7R[1] >>> E8R, Z7R[1] & t6P];
+                var T7R = [0, 0, 0, 0];
+                T7R[3] += L7R[3] + Z7R[3];
+                T7R[2] += T7R[3] >>> E8R;
+                T7R[3] &= t6P;
+                T7R[2] += L7R[2] + Z7R[2];
+                T7R[1] += T7R[2] >>> E8R;
+                T7R[2] &= t6P;
+                T7R[1] += L7R[1] + Z7R[1];
+                T7R[0] += T7R[1] >>> E8R;
+                T7R[1] &= t6P;
+                T7R[0] += L7R[0] + Z7R[0];
+                T7R[0] &= t6P;
+                return [T7R[0] << E8R | T7R[1], T7R[2] << E8R | T7R[3]];
             }, this[p6P] = function(n7R, t7R) {
-                n7R = [n7R[L8P.c8R] >>> E8R, n7R[L8P.c8R] & t6P, n7R[I8R] >>> E8R, n7R[I8R] & t6P];
-                t7R = [t7R[L8P.c8R] >>> E8R, t7R[L8P.c8R] & t6P, t7R[I8R] >>> E8R, t7R[I8R] & t6P];
-                var x7R = [L8P.c8R, L8P.c8R, L8P.c8R, L8P.c8R];
-                x7R[z8R] += n7R[z8R] * t7R[z8R];
-                x7R[e8R] += x7R[z8R] >>> E8R;
-                x7R[z8R] &= t6P;
-                x7R[e8R] += n7R[e8R] * t7R[z8R];
-                x7R[I8R] += x7R[e8R] >>> E8R;
-                x7R[e8R] &= t6P;
-                x7R[e8R] += n7R[z8R] * t7R[e8R];
-                x7R[I8R] += x7R[e8R] >>> E8R;
-                x7R[e8R] &= t6P;
-                x7R[I8R] += n7R[I8R] * t7R[z8R];
-                x7R[L8P.c8R] += x7R[I8R] >>> E8R;
-                x7R[I8R] &= t6P;
-                x7R[I8R] += n7R[e8R] * t7R[e8R];
-                x7R[L8P.c8R] += x7R[I8R] >>> E8R;
-                x7R[I8R] &= t6P;
-                x7R[I8R] += n7R[z8R] * t7R[I8R];
-                x7R[L8P.c8R] += x7R[I8R] >>> E8R;
-                x7R[I8R] &= t6P;
-                x7R[L8P.c8R] += n7R[L8P.c8R] * t7R[z8R] + n7R[I8R] * t7R[e8R] + n7R[e8R] * t7R[I8R] + n7R[z8R] * t7R[L8P.c8R];
-                x7R[L8P.c8R] &= t6P;
-                return [x7R[L8P.c8R] << E8R | x7R[I8R], x7R[e8R] << E8R | x7R[z8R]];
+                n7R = [n7R[0] >>> E8R, n7R[0] & t6P, n7R[1] >>> E8R, n7R[1] & t6P];
+                t7R = [t7R[0] >>> E8R, t7R[0] & t6P, t7R[1] >>> E8R, t7R[1] & t6P];
+                var x7R = [0, 0, 0, 0];
+                x7R[3] += n7R[3] * t7R[3];
+                x7R[2] += x7R[3] >>> E8R;
+                x7R[3] &= t6P;
+                x7R[2] += n7R[2] * t7R[3];
+                x7R[1] += x7R[2] >>> E8R;
+                x7R[2] &= t6P;
+                x7R[2] += n7R[3] * t7R[2];
+                x7R[1] += x7R[2] >>> E8R;
+                x7R[2] &= t6P;
+                x7R[1] += n7R[1] * t7R[3];
+                x7R[0] += x7R[1] >>> E8R;
+                x7R[1] &= t6P;
+                x7R[1] += n7R[2] * t7R[2];
+                x7R[0] += x7R[1] >>> E8R;
+                x7R[1] &= t6P;
+                x7R[1] += n7R[3] * t7R[1];
+                x7R[0] += x7R[1] >>> E8R;
+                x7R[1] &= t6P;
+                x7R[0] += n7R[0] * t7R[3] + n7R[1] * t7R[2] + n7R[2] * t7R[1] + n7R[3] * t7R[0];
+                x7R[0] &= t6P;
+                return [x7R[0] << E8R | x7R[1], x7R[2] << E8R | x7R[3]];
             }, this[P6P] = function(P7R, p7R) {
                 p7R %= n8R;
-                if (p7R === m8R) return [P7R[I8R], P7R[L8P.c8R]];
-                else if (p7R < m8R) return [P7R[L8P.c8R] << p7R | P7R[I8R] >>> m8R - p7R, P7R[I8R] << p7R | P7R[L8P.c8R] >>> m8R - p7R];
+                if (p7R === m8R) return [P7R[1], P7R[0]];
+                else if (p7R < m8R) return [P7R[0] << p7R | P7R[1] >>> m8R - p7R, P7R[1] << p7R | P7R[0] >>> m8R - p7R];
                 else {
                     p7R -= m8R;
-                    return [P7R[I8R] << p7R | P7R[L8P.c8R] >>> m8R - p7R, P7R[L8P.c8R] << p7R | P7R[I8R] >>> m8R - p7R];
+                    return [P7R[1] << p7R | P7R[0] >>> m8R - p7R, P7R[0] << p7R | P7R[1] >>> m8R - p7R];
                 }
             }, this[N6P] = function(D7R, N7R) {
                 N7R %= n8R;
-                if (N7R === L8P.c8R) return D7R;
-                else if (N7R < m8R) return [D7R[L8P.c8R] << N7R | D7R[I8R] >>> m8R - N7R, D7R[I8R] << N7R];
-                else return [D7R[I8R] << N7R - m8R, L8P.c8R];
+                if (N7R === 0) return D7R;
+                else if (N7R < m8R) return [D7R[0] << N7R | D7R[1] >>> m8R - N7R, D7R[1] << N7R];
+                else return [D7R[1] << N7R - m8R, 0];
             }, this[D6P] = function(d7R, y7R) {
-                return [d7R[L8P.c8R] ^ y7R[L8P.c8R], d7R[I8R] ^ y7R[I8R]];
+                return [d7R[0] ^ y7R[0], d7R[1] ^ y7R[1]];
             }, this[d6P] = function(W7R) {
                 var j6P = 0x1a85ec53;
                 var b6P = 0xc4ceb9fe;
                 var W6P = 0xed558ccd;
                 var y6P = 0xff51afd7;
-                W7R = this[D6P](W7R, [L8P.c8R, W7R[L8P.c8R] >>> I8R]);
+                W7R = this[D6P](W7R, [0, W7R[0] >>> 1]);
                 W7R = this[p6P](W7R, [y6P, W6P]);
-                W7R = this[D6P](W7R, [L8P.c8R, W7R[L8P.c8R] >>> I8R]);
+                W7R = this[D6P](W7R, [0, W7R[0] >>> 1]);
                 W7R = this[p6P](W7R, [b6P, j6P]);
-                W7R = this[D6P](W7R, [L8P.c8R, W7R[L8P.c8R] >>> I8R]);
+                W7R = this[D6P](W7R, [0, W7R[0] >>> 1]);
                 return W7R;
             }, this[F5P] = function(b7R, V6R) {
                 var c8P = "00000000";
@@ -1356,90 +1333,90 @@ function FunCaptcha(w5R) {
                 var A8R = 13;
                 var S8R = 11;
                 b7R = b7R || g4R;
-                V6R = V6R || L8P.c8R;
-                var c6R = b7R[L8P.z4R] % E8R;
-                var I6R = b7R[L8P.z4R] - c6R;
-                var C6R = [L8P.c8R, V6R];
-                var Q6R = [L8P.c8R, V6R];
-                var r6R = [L8P.c8R, L8P.c8R];
-                var B6R = [L8P.c8R, L8P.c8R];
+                V6R = V6R || 0;
+                var c6R = b7R["length"] % E8R;
+                var I6R = b7R["length"] - c6R;
+                var C6R = [0, V6R];
+                var Q6R = [0, V6R];
+                var r6R = [0, 0];
+                var B6R = [0, 0];
                 var X6R = [r8P, B8P];
                 var a6R = [Q8P, C8P];
-                for (var j7R = L8P.c8R; j7R < I6R; j7R = j7R + E8R) {
-                    r6R = [b7R[R5P](j7R + u8R) & X8P | (b7R[R5P](j7R + i8R) & X8P) << M8R | (b7R[R5P](j7R + q8R) & X8P) << E8R | (b7R[R5P](j7R + h8R) & X8P) << v8R, b7R[R5P](j7R) & X8P | (b7R[R5P](j7R + I8R) & X8P) << M8R | (b7R[R5P](j7R + e8R) & X8P) << E8R | (b7R[R5P](j7R + z8R) & X8P) << v8R];
-                    B6R = [b7R[R5P](j7R + k8R) & X8P | (b7R[R5P](j7R + A8R) & X8P) << M8R | (b7R[R5P](j7R + O8R) & X8P) << E8R | (b7R[R5P](j7R + F8R) & X8P) << v8R, b7R[R5P](j7R + M8R) & X8P | (b7R[R5P](j7R + J8R) & X8P) << M8R | (b7R[R5P](j7R + g8R) & X8P) << E8R | (b7R[R5P](j7R + S8R) & X8P) << v8R];
+                for (var j7R = 0; j7R < I6R; j7R = j7R + E8R) {
+                    r6R = [b7R[R5P](j7R + 4) & X8P | (b7R[R5P](j7R + 5) & X8P) << 8 | (b7R[R5P](j7R + 6) & X8P) << E8R | (b7R[R5P](j7R + 7) & X8P) << v8R, b7R[R5P](j7R) & X8P | (b7R[R5P](j7R + 1) & X8P) << 8 | (b7R[R5P](j7R + 2) & X8P) << E8R | (b7R[R5P](j7R + 3) & X8P) << v8R];
+                    B6R = [b7R[R5P](j7R + 12) & X8P | (b7R[R5P](j7R + A8R) & X8P) << 8 | (b7R[R5P](j7R + O8R) & X8P) << E8R | (b7R[R5P](j7R + F8R) & X8P) << v8R, b7R[R5P](j7R + 8) & X8P | (b7R[R5P](j7R + 9) & X8P) << 8 | (b7R[R5P](j7R + g8R) & X8P) << E8R | (b7R[R5P](j7R + S8R) & X8P) << v8R];
                     r6R = this[p6P](r6R, X6R);
                     r6R = this[P6P](r6R, K8R);
                     r6R = this[p6P](r6R, a6R);
                     C6R = this[D6P](C6R, r6R);
                     C6R = this[P6P](C6R, l8R);
                     C6R = this[n6P](C6R, Q6R);
-                    C6R = this[n6P](this[p6P](C6R, [L8P.c8R, i8R]), [L8P.c8R, a8P]);
+                    C6R = this[n6P](this[p6P](C6R, [0, 5]), [0, a8P]);
                     B6R = this[p6P](B6R, a6R);
                     B6R = this[P6P](B6R, U8R);
                     B6R = this[p6P](B6R, X6R);
                     Q6R = this[D6P](Q6R, B6R);
                     Q6R = this[P6P](Q6R, K8R);
                     Q6R = this[n6P](Q6R, C6R);
-                    Q6R = this[n6P](this[p6P](Q6R, [L8P.c8R, i8R]), [L8P.c8R, V8P]);
+                    Q6R = this[n6P](this[p6P](Q6R, [0, 5]), [0, V8P]);
                 }
-                r6R = [L8P.c8R, L8P.c8R];
-                B6R = [L8P.c8R, L8P.c8R];
+                r6R = [0, 0];
+                B6R = [0, 0];
                 switch (c6R) {
                     case F8R:
-                        B6R = this[D6P](B6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + O8R)], s8R));
+                        B6R = this[D6P](B6R, this[N6P]([0, b7R[R5P](j7R + O8R)], s8R));
                     case O8R:
-                        B6R = this[D6P](B6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + A8R)], o8R));
+                        B6R = this[D6P](B6R, this[N6P]([0, b7R[R5P](j7R + A8R)], o8R));
                     case A8R:
-                        B6R = this[D6P](B6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + k8R)], m8R));
-                    case k8R:
-                        B6R = this[D6P](B6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + S8R)], v8R));
+                        B6R = this[D6P](B6R, this[N6P]([0, b7R[R5P](j7R + 12)], m8R));
+                    case 12:
+                        B6R = this[D6P](B6R, this[N6P]([0, b7R[R5P](j7R + S8R)], v8R));
                     case S8R:
-                        B6R = this[D6P](B6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + g8R)], E8R));
+                        B6R = this[D6P](B6R, this[N6P]([0, b7R[R5P](j7R + g8R)], E8R));
                     case g8R:
-                        B6R = this[D6P](B6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + J8R)], M8R));
-                    case J8R:
-                        B6R = this[D6P](B6R, [L8P.c8R, b7R[R5P](j7R + M8R)]);
+                        B6R = this[D6P](B6R, this[N6P]([0, b7R[R5P](j7R + 9)], 8));
+                    case 9:
+                        B6R = this[D6P](B6R, [0, b7R[R5P](j7R + 8)]);
                         B6R = this[p6P](B6R, a6R);
                         B6R = this[P6P](B6R, U8R);
                         B6R = this[p6P](B6R, X6R);
                         Q6R = this[D6P](Q6R, B6R);
-                    case M8R:
-                        r6R = this[D6P](r6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + h8R)], L8R));
-                    case h8R:
-                        r6R = this[D6P](r6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + q8R)], s8R));
-                    case q8R:
-                        r6R = this[D6P](r6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + i8R)], o8R));
-                    case i8R:
-                        r6R = this[D6P](r6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + u8R)], m8R));
-                    case u8R:
-                        r6R = this[D6P](r6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + z8R)], v8R));
-                    case z8R:
-                        r6R = this[D6P](r6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + e8R)], E8R));
-                    case e8R:
-                        r6R = this[D6P](r6R, this[N6P]([L8P.c8R, b7R[R5P](j7R + I8R)], M8R));
-                    case I8R:
-                        r6R = this[D6P](r6R, [L8P.c8R, b7R[R5P](j7R)]);
+                    case 8:
+                        r6R = this[D6P](r6R, this[N6P]([0, b7R[R5P](j7R + 7)], L8R));
+                    case 7:
+                        r6R = this[D6P](r6R, this[N6P]([0, b7R[R5P](j7R + 6)], s8R));
+                    case 6:
+                        r6R = this[D6P](r6R, this[N6P]([0, b7R[R5P](j7R + 5)], o8R));
+                    case 5:
+                        r6R = this[D6P](r6R, this[N6P]([0, b7R[R5P](j7R + 4)], m8R));
+                    case 4:
+                        r6R = this[D6P](r6R, this[N6P]([0, b7R[R5P](j7R + 3)], v8R));
+                    case 3:
+                        r6R = this[D6P](r6R, this[N6P]([0, b7R[R5P](j7R + 2)], E8R));
+                    case 2:
+                        r6R = this[D6P](r6R, this[N6P]([0, b7R[R5P](j7R + 1)], 8));
+                    case 1:
+                        r6R = this[D6P](r6R, [0, b7R[R5P](j7R)]);
                         r6R = this[p6P](r6R, X6R);
                         r6R = this[P6P](r6R, K8R);
                         r6R = this[p6P](r6R, a6R);
                         C6R = this[D6P](C6R, r6R);
                 }
-                C6R = this[D6P](C6R, [L8P.c8R, b7R[L8P.z4R]]);
-                Q6R = this[D6P](Q6R, [L8P.c8R, b7R[L8P.z4R]]);
+                C6R = this[D6P](C6R, [0, b7R["length"]]);
+                Q6R = this[D6P](Q6R, [0, b7R["length"]]);
                 C6R = this[n6P](C6R, Q6R);
                 Q6R = this[n6P](Q6R, C6R);
                 C6R = this[d6P](C6R);
                 Q6R = this[d6P](Q6R);
                 C6R = this[n6P](C6R, Q6R);
                 Q6R = this[n6P](Q6R, C6R);
-                return (c8P + (C6R[L8P.c8R] >>> L8P.c8R)[q3P](E8R))[n4R](-M8R) + (c8P + (C6R[I8R] >>> L8P.c8R)[q3P](E8R))[n4R](-M8R) + (c8P + (Q6R[L8P.c8R] >>> L8P.c8R)[q3P](E8R))[n4R](-M8R) + (c8P + (Q6R[I8R] >>> L8P.c8R)[q3P](E8R))[n4R](-M8R);
+                return (c8P + (C6R[0] >>> 0)[q3P](E8R))[n4R](-8) + (c8P + (C6R[1] >>> 0)[q3P](E8R))[n4R](-8) + (c8P + (Q6R[0] >>> 0)[q3P](E8R))[n4R](-8) + (c8P + (Q6R[1] >>> 0)[q3P](E8R))[n4R](-8);
             };
         }
-        return this[U4R];
+        return this["fp_result"];
     };
     this[X1P] = function(e6R) {
-        return this[U4R][A1P] && !this[U4R][A1P][O1P] && this[U4R][I1P] && this[U4R][I1P][I1P];
+        return this["fp_result"]["fp_vals"] && !this["fp_result"]["fp_vals"][O1P] && this["fp_result"]["fp"] && this["fp_result"]["fp"]["fp"];
     };
     this[I8P] = function(u6R, i6R) {
         var w8P = 'fc_shown';
@@ -1464,20 +1441,20 @@ function FunCaptcha(w5R) {
             if (A6R[K2P] == z6R[v4R]) {
                 var k6R;
                 var S6R = A6R[K4R];
-                if (S6R[e8P](L8P.c8R) === z8P) try {
+                if (S6R[e8P](0) === z8P) try {
                     k6R = JSON[e0P](S6R);
                     S6R = k6R[u8P];
                 } catch (O6R) {}
                 if (u6R)
-                    if (S6R == L8P.i8P) u6R();
+                    if (S6R == X2LL.i8P) u6R();
                 if (S6R == q8P)
-                    if (Y5R[L8P.Q4R]) Y5R[L8P.Q4R]();
+                    if (Y5R[X2LL.Q4R]) Y5R[X2LL.Q4R]();
                 if (S6R == h8P) {
                     z6R[d2P] = z6R[d2P] || {};
                     z6R[d2P][M8P] = k6R[J8P];
                     z6R[d2P][g8P] = k6R[U1P];
                     z6R[d2P][S8P] = k6R[k8P];
-                    if (Y5R[L8P.Q4R]) Y5R[L8P.Q4R]();
+                    if (Y5R[X2LL.Q4R]) Y5R[X2LL.Q4R]();
                 }
                 if (i6R)
                     if (S6R == A8P) i6R();
@@ -1485,9 +1462,9 @@ function FunCaptcha(w5R) {
         }
         var z6R = this;
         if (window[r1P]) {
-            if (window[O8P]) window[O8P](F8P, q6R, f4R);
+            if (window[O8P]) window[O8P](F8P, q6R, false);
             else if (window[E8P]) window[E8P](H8P, q6R);
-            if (!(z6R[G4R] < J8R) && !(z6R[x4R] < z8R)) {
+            if (!(z6R[G4R] < 9) && !(z6R[x4R] < 3)) {
                 window[O8P](R8P, function(h6R) {
                     if (u6R) u6R();
                     try {
@@ -1515,66 +1492,69 @@ function FunCaptcha(w5R) {
     var p5R = function(R6R) {
         var K8P = "reduce";
         if (!R6R) return G2P;
-        if (Array[L8P.r4R][K8P]) return R6R[L8P.I4R](g4R)[K8P](function(l6R, K6R) {
-            l6R = (l6R << i8R) - l6R + K6R[R5P](L8P.c8R);
+        if (Array[X2LL.r4R][K8P]) return R6R[X2LL.I4R](g4R)[K8P](function(l6R, K6R) {
+            l6R = (l6R << 5) - l6R + K6R[R5P](0);
             return l6R & l6R;
-        }, L8P.c8R);
-        var H6R = L8P.c8R;
-        if (R6R[L8P.z4R] === L8P.c8R) return H6R;
-        for (var v6R = L8P.c8R; v6R < R6R[L8P.z4R]; v6R++) {
+        }, 0);
+        var H6R = 0;
+        if (R6R["length"] === 0) return H6R;
+        for (var v6R = 0; v6R < R6R["length"]; v6R++) {
             var w6R = R6R[R5P](v6R);
-            H6R = (H6R << i8R) - H6R + w6R;
+            H6R = (H6R << 5) - H6R + w6R;
             H6R = H6R & H6R;
         }
         return H6R;
     };
     var Z5R = {};
-    Z5R["encode"] = function(U6R) {
+
+    Z5R.encode = function(U6R) {
         var m8P = "fromCharCode";
         var N8R = 128;
-        var m6R = U6R[L8P.V4R](/[\u0080-\u07ff]/g, function(f6R) {
+        var m6R = U6R[X2LL.V4R](/[\u0080-\u07ff]/g, function(f6R) {
             var D8R = 192;
-            var Y6R = f6R[R5P](L8P.c8R);
-            return String[m8P](D8R | Y6R >> q8R, N8R | Y6R & x8R);
+            var Y6R = f6R[R5P](0);
+            return String[m8P](D8R | Y6R >> 6, N8R | Y6R & x8R);
         });
-        m6R = m6R[L8P.V4R](/[\u0800-\uffff]/g, function(G6R) {
+        m6R = m6R[X2LL.V4R](/[\u0800-\uffff]/g, function(G6R) {
             var y8R = 224;
-            var o6R = G6R[R5P](L8P.c8R);
-            return String[m8P](y8R | o6R >> k8R, N8R | o6R >> q8R & x8R, N8R | o6R & x8R);
+            var o6R = G6R[R5P](0);
+            return String[m8P](y8R | o6R >> 12, N8R | o6R >> 6 & x8R, N8R | o6R & x8R);
         });
         return m6R;
     };
+
     var m5R = {};
-    m5R[U8P] = Y8P;
-    m5R["encode"] = function(P6R, n6R) {
-        var o8P = "\x00";
-        var f8P = "=";
-        var H8R = 18;
-        n6R = typeof n6R == b2P ? f4R : n6R;
+
+    //torobie
+    m5R.encode = function(P6R, n6R) {
+        n6R = typeof n6R == "undefined" ? false : n6R;
         var d6R, y6R, W6R, Z6R, j6R, b6R, N6R, D6R, p6R = [],
             t6R = g4R,
             s6R, T6R, x6R;
-        var L6R = m5R[U8P];
-        T6R = n6R ? Z5R["encode"](P6R) : P6R;
-        s6R = T6R[L8P.z4R] % z8R;
-        if (s6R > L8P.c8R)
-            while (s6R++ < z8R) {
-                t6R += f8P;
-                T6R += o8P;
+
+        var L6R = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+        T6R = n6R ? Z5R.encode(P6R) : P6R;
+
+        s6R = T6R.length % 3;
+        if (s6R > 0)
+            while (s6R++ < 3) {
+                t6R += "=";
+                T6R += "\x00";
             }
-        for (s6R = L8P.c8R; s6R < T6R[L8P.z4R]; s6R += z8R) {
+        for (s6R = 0; s6R < T6R.length; s6R += 3) {
             d6R = T6R[R5P](s6R);
-            y6R = T6R[R5P](s6R + I8R);
-            W6R = T6R[R5P](s6R + e8R);
-            Z6R = d6R << E8R | y6R << M8R | W6R;
-            j6R = Z6R >> H8R & x8R;
-            b6R = Z6R >> k8R & x8R;
-            N6R = Z6R >> q8R & x8R;
+            y6R = T6R[R5P](s6R + 1);
+            W6R = T6R[R5P](s6R + 2);
+            Z6R = d6R << E8R | y6R << 8 | W6R;
+            j6R = Z6R >> 18 & x8R;
+            b6R = Z6R >> 12 & x8R;
+            N6R = Z6R >> 6 & x8R;
             D6R = Z6R & x8R;
-            p6R[s6R / z8R] = L6R[e8P](j6R) + L6R[e8P](b6R) + L6R[e8P](N6R) + L6R[e8P](D6R);
+            p6R[s6R / 3] = L6R[e8P](j6R) + L6R[e8P](b6R) + L6R[e8P](N6R) + L6R[e8P](D6R);
         }
         x6R = p6R[g1P](g4R);
-        x6R = x6R[n4R](L8P.c8R, x6R[L8P.z4R] - t6R[L8P.z4R]) + t6R;
+        x6R = x6R[n4R](0, x6R["length"] - t6R["length"]) + t6R;
         return x6R;
     };
     if (w5R && w5R[S4R]) {
@@ -1582,12 +1562,12 @@ function FunCaptcha(w5R) {
         if (w5R[k4R]) this[k4R] = w5R[k4R];
         this[I8P](this[S4R], this[k4R]);
     } else this[I8P]();
-    this[L8P.Q4R]();
+    this[X2LL.Q4R]();
 }
 if (document[X2LL.C0P] === X2LL.i8P) FunCaptcha();
-else if (window[X2LL.q2P]) window[X2LL.q2P] = function() {
+else if (window["onload"]) window["onload"] = function() {
     FunCaptcha();
 };
-else document[X2LL.Q0P] = function() {
+else document["onreadystatechange"] = function() {
     if (document[X2LL.C0P] == X2LL.i8P) FunCaptcha();
 };

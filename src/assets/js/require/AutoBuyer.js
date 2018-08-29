@@ -1,16 +1,15 @@
 class AutoBuyer {
   constructor() {
     this.accounts = [];
-    this.instances = [];
     this.listeners = [];
-
+    this.players = [];
     this.tasks = [];
     let that = this;
 
     //Toggle account state
     $(document).on('click', `[data-role='toggleAccountState']`, function() {
       const id = $(this).attr('data-account-id');
-      that.toggleAccountState(id);
+      that.toggleAccountState(that.accounts[id]);
     });
 
     this.work();
@@ -30,46 +29,86 @@ class AutoBuyer {
 
   work() {
     clearTimeout(this.timeoutWork);
-    for(let i = 0; i < this.accounts.length; i++) {
-      this.workSingle(i);
-    }
+    this.accounts.forEach(account => {
+      this.workSingle(account);
+    });
+
     this.timeoutWork = setTimeout(() => {
       this.work();
     }, CONFIG.AUTOBUYER_TICK);
   }
 
-  async workSingle(id) {
+  async workSingle(account) {
+    let platform = account.options.platform;
+    //Check if accounts are on globally
+    if(!power.state) {
+      return;
+    }
+
     //Check if account is not busy
-    if(this.accounts[id].busy) {
+    if(account.busy) {
       return;
     }
 
     //Check if account is enabled
-    if(!this.accounts[id].enabled) {
+    if(!account.enabled) {
       return;
     }
 
     //Check if instance was added
-    if(!this.instances[id]) {
-      this.addInstance(id);
+    if(!account.instance) {
+      this.addInstance(account);
     }
 
     //Check if account is logged
-    if(this.accounts[id].enabled && !this.accounts[id].logged) {
-      return this.login(id);
+    if(account.enabled && !account.logged) {
+      //But make sure no other account on this proxy was logged less than X seconds before
+      if(this.lastLoginDate) {
+        if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
+          return;
+        }
+      }
+      this.lastLoginDate = new Date();
+      return this.login(account);
     }
 
     //Check for custom tasks
-    for(let i = 0; i < this.tasks.length; i++) {
-      const handledTask = await this.handleTask(id, this.tasks[i]);
-      console.log(`try to handle task with id ${i}`, handledTask);
+    for(let task of this.tasks) {
+      const handledTask = await this.handleTask(account, task);
       if(handledTask) {
         return handledTask;
       }
     }
-    
+
 
     //Pricecheck co 30 minut
+    //TODO: Check if there is no other task for this player & platform - fixes #7
+    const playersPlatform = this.players.filter(player => {
+      return player.current ? player.current[platform] : false;
+    })
+    for(let player of playersPlatform) {
+      if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= CONFIG.PRICE_CHECK_INTERVAL) {
+        this.addTask({
+          type: 'priceCheck',
+          baseId: player.id,
+          pageMax: CONFIG.PRICE_CHECK_PAGES,
+          cheapestItemsQuantity: CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY,
+          platform: platform,
+          account: account,
+          onComplete: (res) => {
+            if(!player.lastPriceCheck) {
+              player.lastPriceCheck = {};
+            }
+            player.lastPriceCheck[platform] = {
+              priceBuyNowAverage: res.buyNowPriceAverage,
+              date: new Date()
+            }
+          },
+          //priority: -1
+        });
+        return this.workSingle(account);
+      }
+    };
 
     //Get tradepile every 2 minutes
 
@@ -91,22 +130,28 @@ class AutoBuyer {
 
   }
 
-  async handleTask(botId, task) {
+  async handleTask(account, task) {
     if(task.finished) {
       return false;
     }
 
-    if(typeof(task.botId) !== 'undefined' && task.botId != botId) {
+    if(typeof(task.account) !== 'undefined' && task.account !== account) {
       return false;
+    }
+
+    if(task.platform) {
+      if(task.platform != account.options.platform) {
+        return false;
+      }
     }
 
 
     switch(task.type) {
       case "priceCheck": {
 
-        task.botId = botId;
+        task.account = account;
 
-        this.busy(botId);
+        this.busy(account);
 
         if(!task.page) {
           task.page = 1;
@@ -116,9 +161,10 @@ class AutoBuyer {
           task.auctions = [];
         }
 
-        const response = await this.instances[botId].searchTransferMarket({
+        const response = await account.instance.searchTransferMarket({
           page: task.page,
-          baseId: task.baseId
+          baseId: task.baseId,
+          limit: CONFIG.TRANSFERMARKET_LIMIT
         });
 
         if(response.auctions.length > 0) {
@@ -130,7 +176,7 @@ class AutoBuyer {
           }));
         }
 
-        if(task.page >= task.pageMax || response.auctions.length == 0) {
+        if(task.page >= task.pageMax || response.auctions.length == 0 || response.auctions.length < CONFIG.TRANSFERMARKET_LIMIT) {
           //Sort auctions by price ascending
           task.auctions.sort((a, b) => {
             return a.buyNowPrice - b.buyNowPrice;
@@ -144,7 +190,7 @@ class AutoBuyer {
           task.page++;
         }
 
-        this.free(botId);
+        this.free(account);
 
         return true;
       }
@@ -157,43 +203,68 @@ class AutoBuyer {
     if(typeof(task.onComplete) === 'function') {
       task.onComplete(task.result);
     }
+    this.cleanUnusedTasks();
   }
 
-  addInstance(id) {
-    this.instances[id] = new Account(this.accounts[id].options);
-  }
-
-  async login(id) {
-    console.log('login to acc', id);
-    this.busy(id);
-    try {
-      await this.instances[id].login();
-      this.accounts[id].logged = true;
-      console.log('logged in', id);
-      this.emit('update');
-
-      await this.instances[id].getMassInfo();
-      this.accounts[id].coins = this.instances[id].coins;
-      this.emit('update');
-      console.log('Got money', this.accounts[id].coins);
-    } catch(e) {
-      console.log('Error with login', id, e);
+  cleanUnusedTasks() {
+    if(this.cleaningTasks) {
+      console.warn('WTF IT HAPPENED XD')
     }
-    this.free(id);
+    this.cleaningTasks = true;
+    let removeValFromIndex = [];
+    for(let i = 0; i < this.tasks.length; i++) {
+      if(this.tasks[i].finished) {
+        removeValFromIndex[removeValFromIndex.length] = i;
+      }
+    }
+
+    for(let i = removeValFromIndex.length -1; i >= 0; i--) {
+      this.tasks.splice(removeValFromIndex[i],1);
+    }
+
+    this.cleaningTasks = false;
   }
 
-  busy(id) {
-    this.accounts[id].busy = true;
+  addInstance(account) {
+    account.instance = new Account(account.options);
   }
 
-  async free(id) {
+  async login(account) {
+    console.log('logging in to account', account);
+    this.busy(account);
+    try {
+      if(account.cookies) {
+        account.instance.cookies(account.cookies)
+      }
+      await account.instance.login();
+      account.logged = true;
+      console.log('logged in', account.options.mail);
+      this.emit('update');
+      account.cookies = account.instance.cookies();
+      await account.instance.getMassInfo();
+      this.saveAccounts();
+      account.coins = account.instance.coins;
+      this.emit('update');
+      console.log('Got money', account.coins);
+    } catch(e) {
+      console.log('Error with login', account, e);
+    }
+    this.free(account);
+  }
+
+  busy(account) {
+    account.busy = true;
+  }
+
+  async free(account) {
     await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
-    this.accounts[id].busy = false;
+    account.busy = false;
   }
 
-  toggleAccountState(id) {
-    this.accounts[id].enabled = !this.accounts[id].enabled;
+  toggleAccountState(account) {
+    account.enabled = !account.enabled;
     this.emit('update');
+    this.saveAccounts();
   }
 
   init() {
@@ -219,7 +290,7 @@ class AutoBuyer {
     try {
       this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
       for(let i = 0; i < this.accounts.length; i++) {
-        this.accounts[i].enabled = false;
+        this.accounts[i].logged = false;
         this.accounts[i].busy = false;
       }
     } catch(e) {
@@ -227,7 +298,13 @@ class AutoBuyer {
     }
   }
   async saveAccounts() {
-    await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts);
+    await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts.map(account => {
+      return {
+        options: account.options,
+        cookies: account.cookies,
+        enabled: account.enabled,
+      };
+    }));
     console.log('save accounts', this.accounts);
   }
 

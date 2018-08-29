@@ -28,16 +28,24 @@ table tr:first-child th:last-child{border-top-right-radius: 5px;}
 [data-table] .empty button {margin-top: 8px;}
 [data-table][data-empty='1'] table {border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 
-[data-table='accounts'] .activeStatus {cursor: pointer;position:relative;}
+[data-table-role='filter'][data-type='numericFromTo'] {}
+[data-table-role='filter'][data-type='numericFromTo'] input {padding: 3px 0px;width: 80px;background-color: rgba(255, 255, 255, 0.05);text-align: center;border-radius: 5px;margin: 2px 2px;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+[data-table='accounts'] .activeStatus {cursor: pointer;position:relative;font-weight: 600;}
 [data-table='accounts'] .activeStatus::after {display: none;border-radius: 20px;position: absolute; content: ''; left: 0; top: 0; border: 2px solid hsl(176, 50%, 45%); width: 16px; height: 16px;}
 [data-table='accounts'] .activeStatus[data-status='0'] {color: rgba(255, 255, 255, 0.33);}
-[data-table='accounts'] .activeStatus[data-status='1'] {color: hsl(176, 50%, 45%);}
+[data-table='accounts'] .activeStatus[data-status='1'] {color: hsl(178, 83%, 66%);}
 [data-table='accounts'] .activeStatus[data-status='1']::after {opacity: 1; visibility: visible;}
-[data-table='accounts'] .activeStatus[data-status='2'] {color: hsl(121, 50%, 45%);}
-[data-table='accounts'] .activeStatus .dot {margin-right: 5px;width: 10px;height: 10px;margin-top: 3px;}
+[data-table='accounts'] .activeStatus[data-status='2'] {color: hsl(216, 83%, 66%);}
+[data-table='accounts'] .activeStatus .dot {margin-right: 4px;width: 6px;height: 6px;margin-top: 5px;}
 [data-table='accounts'] .activeStatus[data-status='0'] .dot {background-color: rgba(255, 255, 255, 0.33);}
-[data-table='accounts'] .activeStatus[data-status='1'] .dot {background-color: hsl(176, 50%, 45%);}
-[data-table='accounts'] .activeStatus[data-status='2'] .dot {background-color: hsl(121, 50%, 45%);}
+[data-table='accounts'] .activeStatus[data-status='1'] .dot {background-color: hsl(178, 83%, 66%);}
+[data-table='accounts'] .activeStatus[data-status='2'] .dot {background-color: hsl(216, 83%, 66%);}
 
 [data-table-design='players'] td:first-child, [data-table-design='players'] th:first-child {width: 16px;padding: 0px 0px 0px 12px;}
 [data-table-design='players'] img {height: 24px;}
@@ -79,13 +87,33 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 
 body[data-loaded='1'] .a {transform: scale(1);}
 .menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
-.menu .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
-.menu .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
-.menu .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */color: hsla(0, 0%, 100%, 0.9);}
-.menu .e:hover {background-color: rgba(0, 0, 0, 0.33);}
-.menu .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}
+.menu .links .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
+.menu .links .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
+.menu .links .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */color: hsla(0, 0%, 100%, 0.9);}
+.menu .links .e:hover {background-color: rgba(0, 0, 0, 0.33);}
+.menu .links .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}
 .menu .title {margin-left: 5px;}
-.menu .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
+.menu .links .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
+
+.menu .panelWrapper {width: calc(100% - 30px); position: absolute; bottom: 15px; left: 15px;}
+.menu .panel {width: 100%;margin-top: 5px;}
+.menu .panelHalf {width: calc((100% - 10px) / 2);}
+.menu .panelTop {margin-top: 0px;}
+.menu .panelBg {background-color: rgba(255, 255, 255, 0.05);}
+.menu .panelBgHover:hover {background-color: rgba(255, 255, 255, 0.1);}
+
+.menu .panel[data-name='platformChanger'] {}
+.menu .panel[data-name='platformChanger'] .e {margin-right: 1px;width: calc((100% - 2px) / 3);padding: 0px;}
+.menu .panel[data-name='platformChanger'] .e:last-child {margin-right: 0px;}
+.menu .panel[data-name='platformChanger'] .e[data-current='1'] {background-color: rgba(255, 255, 255, 0.95);color: black;}
+
+.menu .panel[data-name='power'] {}
+.menu .panel[data-name='power'] .power {width: 31px;padding: 0;}
+.menu .panel[data-name='power'][data-state='1'] .power {background-color: rgba(255, 255, 255, 0.95); color: black;}
+.menu .panel[data-name='power'] .status {width: calc(100% - 33px);margin-left: 2px;height: 31px;box-sizing: border-box;padding-top: 8px;text-transform: uppercase;color: rgba(255, 255, 255, 0.5);}
+.menu .panel[data-name='power'][data-state='1'] .status {
+    color: rgba(255, 255, 255, 0.9);
+}
 
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
 
@@ -130,7 +158,7 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .s[data-name='players'] .paging {}
 .s[data-name='players'] button {margin-right: 5px;}
 .s[data-name='players'] button:last-child {margin-right: 0px;}
-.s[data-name='players'] [data-table] .paging {display: none;}
+[data-table] .paging {display: none;}
 
 .s[data-name='bots'] [data-table] {margin-top: 10px;}
 .s[data-name='players'] .sSub[data-name='analyzer'] .options > * {margin-bottom: 5px;}
