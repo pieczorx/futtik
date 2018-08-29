@@ -2,7 +2,9 @@ class TableConverter {
   constructor() {
 
   }
-
+  isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
   convert(data, options) {
     if(!options) {
       options = {};
@@ -18,14 +20,36 @@ class TableConverter {
       //Search for fields
       data.fields.forEach(field => {
         if(field.search) {
+          let fieldType = field.search;
+
+          if(typeof(field.search) == 'object'){
+            fieldType = field.search.type;
+          }
           if(data.filters[field.name]) {
             let value = row[field.name];
-            value = value.toString();
-            value = value.toLowerCase();
-            const search = data.filters[field.name].toLowerCase();
-            if(value.indexOf(search) < 0) {
-              matches = false;
+            let filter = data.filters[field.name]
+            switch(fieldType) {
+              case 'text': {
+                value = value.toString();
+                value = value.toLowerCase();
+                const search = filter.toLowerCase();
+                if(value.indexOf(search) < 0) {
+                  matches = false;
+                }
+                break;
+              }
+              case 'numericFromTo': {
+                value = parseInt(value);
+                if(this.isNumber(filter[0]) && value < parseInt(filter[0])) {
+                  matches = false;
+                }
+                if(this.isNumber(filter[1]) && value > parseInt(filter[1])) {
+                  matches = false;
+                }
+                break;
+              }
             }
+
           }
         }
 

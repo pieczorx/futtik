@@ -33,6 +33,17 @@ class Table {
       that.filters[name] = value;
       that.changeFilters();
     });
+
+    $(document).on(`keyup mouseup change`, `[data-table='${this.name}'] [data-table-role='filter'][data-type='numericFromTo'] input`, function() {
+      const name = $(this).closest(`[data-table-role='filter']`).attr('data-name');
+      const valueFrom = $(this).closest(`[data-table-role='filter']`).find(`input[data-type='from']`).val();
+      const valueTo = $(this).closest(`[data-table-role='filter']`).find(`input[data-type='to']`).val();
+
+      const value = [valueFrom, valueTo];
+      console.log(value)
+      that.filters[name] = value;
+      that.changeFilters();
+    });
   }
 
   getParamsFromFilters() {
@@ -162,21 +173,31 @@ class Table {
       if(typeof(field.search) == 'object'){
         fieldType = field.search.type;
       }
-
+      console.log(field)
       switch(fieldType){
         case 'text':
           inputHTML = `<input placeholder="Search ${field.title}"/>`
           break;
-        case 'date':
+        case 'numericFromTo': {
+          inputHTML = `
+          <input type="number" placeholder="From" data-type="from" value="${field.search.min}" min="${field.search.min}" max="${field.search.max}"/>
+          <input type="number" placeholder="To" data-type="to" value="${field.search.max}" min="${field.search.min}" max="${field.search.max}"/>
+          `;
+          break;
+        }
+        case 'date': {
           inputHTML = `<input type="date" id="start"/> <input type="date" id="end"/>`
           break;
-        case 'select':
+        }
+
+        case 'select': {
           let fieldsHTML = ``;
           for (var i = 0; i < field.search.fields.length; i++) {
             fieldsHTML += `<option>${field.search.fields[i]}</option>`
           }
           inputHTML = `<select>${fieldsHTML}</select>`
           break;
+        }
         default: {
           return '';
         }

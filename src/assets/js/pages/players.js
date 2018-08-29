@@ -46,7 +46,11 @@ class PagePlayers {
           return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.baseId)}">`
         }},
         {name: 'name', search: 'text', title: 'Name'},
-        {name: 'rating', search: 'text', title: 'Rating'},
+        {name: 'rating', search: {
+          type: 'numericFromTo',
+          min: 0,
+          max: 100
+        }, title: 'Rating'},
         {name: 'color', search: 'text', title: 'Color'},
         {
           name: 'league',
