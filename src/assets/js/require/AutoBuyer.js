@@ -61,6 +61,13 @@ class AutoBuyer {
 
     //Check if account is logged
     if(this.accounts[id].enabled && !this.accounts[id].logged) {
+      //But make sure no other account on this proxy was logged less than X seconds before
+      if(this.lastLoginDate) {
+        if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
+          return;
+        }
+      }
+      this.lastLoginDate = new Date();
       return this.login(id);
     }
 
@@ -74,7 +81,7 @@ class AutoBuyer {
 
 
     //Pricecheck co 30 minut
-    
+
 
     //Get tradepile every 2 minutes
 
