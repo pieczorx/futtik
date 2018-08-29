@@ -169,7 +169,7 @@ class AutoBuyer {
     if(typeof(task.onComplete) === 'function') {
       task.onComplete(task.result);
     }
-    this.cleanUnusedTasks;
+    this.cleanUnusedTasks();
   }
 
   cleanUnusedTasks() {
