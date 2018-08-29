@@ -7,8 +7,10 @@ const readFile = util.promisify(fs.readFile);
 
 //Add pages
 
-const platform = new Platform();
-
+const pltfrm = new Platform();
+const currentPlatform = () => {
+  return pltfrm.current;
+}
 
 const funCaptcha = new FunCaptcha({
   onRequest: async () => {
@@ -62,7 +64,7 @@ const start = async () => {
 
   await pages.players.loadPlayers();
 
-  platform.changePlatform('xone');
+  pltfrm.changePlatform('xone');
 
   await wait(1500);
   popupLoadingInitial.hide();

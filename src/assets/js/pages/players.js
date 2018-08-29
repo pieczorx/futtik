@@ -74,18 +74,43 @@ class PagePlayers {
         Fields.playerColor,
         Fields.playerLeague,
         Fields.playerClub,
-        {name: 'lastPriceCheckAuctionCount', search: {
-          type: 'numericFromTo',
-          min: 0,
-          max: 500,
-          step: 50
-        }, title: 'Auctions'},
-        {name: 'lastPriceCheckPriceBuyNowAverage', search: {
-          type: 'numericFromTo',
-          min: 250,
-          max: 15000000,
-          step: 50
-        }, title: 'Average price'}
+        {
+          title: 'Auctions',
+          name: 'lastAnalyzerPriceCheckAuctionCount',
+          search: {
+            type: 'numericFromTo',
+            min: 0,
+            max: 500,
+            step: 50
+          },
+          format: (row) => {
+            if(row.lastAnalyzerPriceCheck) {
+              if(row.lastAnalyzerPriceCheck[currentPlatform()]) {
+                return row.lastAnalyzerPriceCheck[currentPlatform()].auctionCount
+              }
+            }
+            return '-';
+          }
+        },
+        {
+          title: 'Average price',
+          name: 'lastAnalyzerPriceCheckPriceBuyNowAverage',
+          search: {
+            type: 'numericFromTo',
+            min: 250,
+            max: 15000000,
+            step: 50
+          },
+
+          format: (row) => {
+            if(row.lastAnalyzerPriceCheck) {
+              if(row.lastAnalyzerPriceCheck[currentPlatform()]) {
+                return row.lastAnalyzerPriceCheck[currentPlatform()].priceBuyNowAverage.toFixed(2)
+              }
+            }
+            return '-';
+          }
+        }
       ],
       filters: {
         limit: CONFIG.TABLE_PLAYERS_PER_PAGE
@@ -125,11 +150,11 @@ class PagePlayers {
     this.tableCurrent.update();
   }
   getAnalyzerPlayers() {
-    return this.players.filter(row => {return row.analyzer ? !!row.analyzer[platform.current] : false;});
+    return this.players.filter(row => {return row.analyzer ? !!row.analyzer[currentPlatform()] : false;});
   }
 
   getCurrentPlayers() {
-    return this.players.filter(row => {return row.current ? row.current[platform.current] : false});
+    return this.players.filter(row => {return row.current ? row.current[currentPlatform()] : false});
   }
 
   addToAnalyzer() {
@@ -147,7 +172,7 @@ class PagePlayers {
       if(!player.analyzer) {
         player.analyzer = {};
       }
-      player.analyzer[platform.current] = true;
+      player.analyzer[currentPlatform()] = true;
     });
 
     this.tableAnalyzer.update();
@@ -165,7 +190,7 @@ class PagePlayers {
       if(!player.current) {
         player.current = {};
       }
-      player.current[platform.current] = true;
+      player.current[currentPlatform()] = true;
     });
 
     this.tableCurrent.update();
@@ -174,18 +199,26 @@ class PagePlayers {
     this.savePlayers();
   }
   async analyze(data) {
-    /*this.playersAnalyzer.forEach(async (player) => {
+    const playersToAnalyze = this.getAnalyzerPlayers();
+
+    playersToAnalyze.forEach(async (player) => {
       const res = await autoBuyer.performTask({
         type: 'priceCheck',
         baseId: player.id,
         pageMax: parseInt(data.pagesMax),
-        cheapestItemsQuantity: data.cheapestItemsQuantity
+        cheapestItemsQuantity: data.cheapestItemsQuantity,
+        platform: currentPlatform()
       });
-
-      player.lastPriceCheckAuctionCount = res.auctions.length;
-      player.lastPriceCheckPriceBuyNowAverage = res.buyNowPriceAverage;
+      if(!player.lastAnalyzerPriceCheck) {
+        player.lastAnalyzerPriceCheck = {};
+      }
+      player.lastAnalyzerPriceCheck[currentPlatform()] = {
+        auctionCount: res.auctions.length,
+        priceBuyNowAverage: res.buyNowPriceAverage,
+        //date: new Date()
+      }
       this.tableAnalyzer.update();
-    });*/
+    });
   }
 
   async updateDatabase() {

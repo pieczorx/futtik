@@ -180,8 +180,8 @@ class Table {
           break;
         case 'numericFromTo': {
           inputHTML = `
-          <input type="number" placeholder="From" data-type="from" min="${field.search.min}" max="${field.search.max}"/>
-          <input type="number" placeholder="To" data-type="to" min="${field.search.min}" max="${field.search.max}"/>
+          <input type="number" placeholder="Min" data-type="from" min="${field.search.min}" max="${field.search.max}"/>
+          <input type="number" placeholder="Max" data-type="to" min="${field.search.min}" max="${field.search.max}"/>
           `;
           break;
         }

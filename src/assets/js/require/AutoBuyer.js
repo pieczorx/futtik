@@ -112,6 +112,12 @@ class AutoBuyer {
       return false;
     }
 
+    if(task.platform) {
+      if(task.platform != this.accounts[botId].options.platform) {
+        return false;
+      }
+    }
+
 
     switch(task.type) {
       case "priceCheck": {
