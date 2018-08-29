@@ -27,6 +27,7 @@
   <script src="assets/js/require/Emitter.js"></script>
   <script src="assets/js/require/Platform.js"></script>
   <script src="assets/js/require/Power.js"></script>
+  <script src="assets/js/require/Fields.js"></script>
 
   <script src="assets/js/pages/bots.js"></script>
   <script src="assets/js/pages/captcha.js"></script>
@@ -97,7 +98,7 @@
         <div class="s" data-name="bots" data-a-args="bots">
           <div class="center">
             <div class="w100">
-              <button type="submit" class="r radius" data-role="showPopup" data-popup-name="addAccount">Add account</button>
+              <button type="submit" class="r radius" data-role="showPopup" data-popup-name="addAccount"><i class="far fa-plus"></i> Add account</button>
             </div>
             <div data-table="accounts" class="w100"></div>
           </div>
@@ -106,7 +107,7 @@
           <div class="subMenu w100">
             <a class="e" href="/players" data-a-args="players,"><i class="fas fa-database"></i> Database (<span data-table-role="countAll" data-table-name="players">0</span>)</a>
             <a class="e" href="/players/analyzer" data-a-args="players,analyzer"><i class="fas fa-crosshairs"></i> Analyzer (<span data-table-role="countAll" data-table-name="playersAnalyzer">0</span>)</a>
-            <a class="e" href="/players/current" data-a-args="players,current"><i class="fas fa-user-tie"></i> Current</a>
+            <a class="e" href="/players/current" data-a-args="players,current"><i class="fas fa-user-tie"></i> Current (<span data-table-role="countAll" data-table-name="playersCurrent">0</span>)</a>
           </div>
 
           <div class="sSub" data-a-args="players,">
@@ -161,12 +162,29 @@
                     </div>
                   </div>
                   <div class="r">
-                    <button type="submit" class="l radius" data-role="playersAddToList"><i class="far fa-user-plus"></i> Add to list (<span data-table-role="countAllSelected" data-table-name="playersAnalyzer">0</span>)</button>
+                    <button type="submit" class="l radius" data-role="playersAddToCurrent"><i class="far fa-user-plus"></i> Add to list (<span data-table-role="countAllSelected" data-table-name="playersAnalyzer">0</span>)</button>
                   </div>
                 </div>
                 <div data-table="playersAnalyzer" data-table-design="players" class="w100"></div>
               </div>
 
+            </div>
+          </div>
+
+          <div class="sSub" data-a-args="players,current">
+            <div class="center">
+              <div class="w100">
+                <div class="l">
+                  <div class="paging l">
+                    <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="playersCurrent"><i class="far fa-angle-left iconBig"></i></button>
+                    <button class="b2 radius l" data-table-role="pagingNext" data-table-name="playersCurrent"><i class="far fa-angle-right iconBig"></i></button>
+                  </div>
+                </div>
+                <div class="r">
+
+                </div>
+              </div>
+              <div data-table="playersCurrent" data-table-design="players" class="w100"></div>
             </div>
           </div>
 

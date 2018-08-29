@@ -17,7 +17,7 @@ class PageBots {
       <div class="empty w100 center">
         <div class="middle">
           <div class="w100">No account added yet</div>
-          <button class="radius" data-role="showPopup" data-popup-name="addAccount">Add new account</button>
+          <button class="radius" data-role="showPopup" data-popup-name="addAccount"><i class="far fa-plus"></i> Add new account</button>
         </div>
       </div>
       `,
@@ -45,7 +45,7 @@ class PageBots {
         }},
         {name: 'mail', title: 'Mail', format: row => row.options.mail},
         {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
-        {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '?';}}
+        {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '-';}}
       ]
     });
 

@@ -94,7 +94,10 @@ a.get('/players', async (r, next) => {
   await pageHandler.load('players');
   next();
 });
-
+a.get('/players/*', async (r, next) => {
+  await pageHandler.load('players');
+  next();
+});
 a.use((r, next) => {
   next();
 })

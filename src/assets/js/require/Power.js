@@ -19,6 +19,7 @@ class Power {
     }
     this.updateTime();
     $(`[data-role='power']`).attr('data-state', this.state << false);
+    a.reload();
   }
 
   updateTime() {

@@ -9,7 +9,9 @@ class PagePlayers {
     $(document).on('click', `[data-role='playersAddToAnalyzer']`, function() {
       that.addToAnalyzer();
     });
-
+    $(document).on('click', `[data-role='playersAddToCurrent']`, function() {
+      that.addToCurrent();
+    });
     $(document).on('submit', `form[name='playersAnalyzer']`, function() {
       const data = $(this).serializeJSON();
       that.analyze(data);
@@ -17,7 +19,6 @@ class PagePlayers {
     });
 
     this.players = [];
-    this.playersAnalyzer = [];
 
     this.fetchUrl = ``;
 
@@ -40,44 +41,12 @@ class PagePlayers {
       </div>
       `,
       fields: [
-        {name: 'avatar', title: '', format: (row) => {
-          //return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.id)}">`
-          //row.headshot.smallImgUrl
-          return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.baseId)}">`
-        }},
-        {name: 'name', search: 'text', title: 'Name'},
-        {name: 'rating', search: {
-          type: 'numericFromTo',
-          min: 0,
-          max: 100
-        }, title: 'Rating'},
-        {name: 'color', search: 'text', title: 'Color'},
-        {
-          name: 'league',
-          search: {
-            type: 'text',
-            retrieve: (row) => {
-              return row.league.name;
-            }
-          },
-          title: 'League',
-          format: (row) => {
-            return row.league.name;
-          }
-        },
-        {
-          name: 'club',
-          search: {
-            type: 'text',
-            retrieve: (row) => {
-              return row.club.name;
-            }
-          },
-          title: 'Club',
-          format: (row) => {
-            return row.club.name;
-          }
-        },
+        Fields.playerAvatar,
+        Fields.playerName,
+        Fields.playerRating,
+        Fields.playerColor,
+        Fields.playerLeague,
+        Fields.playerClub,
       ],
       filters: {
         limit: 15
@@ -86,7 +55,7 @@ class PagePlayers {
     this.tableAnalyzer = new Table({
       getData: () => {
         return tableConverter.convert({
-          rows: this.playersAnalyzer,
+          rows: this.getAnalyzerPlayers(),
           filters: this.tableAnalyzer.filters,
           fields: this.tableAnalyzer.fields
         })
@@ -96,58 +65,106 @@ class PagePlayers {
       },
       name: 'playersAnalyzer',
       htmlEmpty: `
-
       <div class="w100">There are no players, add them from <a href="/players/">database tab</a>.</div>
-
       `,
       fields: [
-        {name: 'avatar', title: '', format: (row) => {
-          return `<img src="${util.format(CONFIG.URL_PLAYER_AVATAR_SMALL, row.baseId)}">`
-        }},
-        {name: 'name', search: 'text', title: 'Name'},
-        {name: 'rating', search: 'text', title: 'Rating'},
-        {name: 'color', search: 'text', title: 'Color'},
-        {
-          name: 'league',
-          search: {
-            type: 'text',
-            retrieve: (row) => {
-              return row.league.name;
-            }
-          },
-          title: 'League',
-          format: (row) => {
-            return row.league.name;
-          }
-        },
+        Fields.playerAvatar,
+        Fields.playerName,
+        Fields.playerRating,
+        Fields.playerColor,
+        Fields.playerLeague,
+        Fields.playerClub,
         {name: 'lastPriceCheckAuctionCount', search: 'text', title: 'Auctions'},
         {name: 'lastPriceCheckPriceBuyNowAverage', search: 'text', title: 'Average price'}
+      ],
+      filters: {
+        limit: 100
+      }
+    });
+    this.tableCurrent = new Table({
+      getData: () => {
+        return tableConverter.convert({
+          rows: this.getCurrentPlayers(),
+          filters: this.tableCurrent.filters,
+          fields: this.tableCurrent.fields
+        })
+      },
+      onFilterChange: () => {
+        this.tableCurrent.update();
+      },
+      name: 'playersCurrent',
+      htmlEmpty: `
+      <div class="w100">There are no players, add them from <a href="/players/analyzer/">analyzer tab</a>.</div>
+      `,
+      fields: [
+        Fields.playerAvatar,
+        Fields.playerName,
+        Fields.playerRating,
+        Fields.playerColor,
+        Fields.playerLeague,
+        Fields.playerClub
       ],
       filters: {
         limit: 15
       }
     });
-
   }
   _load() {
     this.table.update();
     this.tableAnalyzer.update();
+    this.tableCurrent.update();
   }
+  getAnalyzerPlayers() {
+    return this.players.filter(row => {return row.analyzer ? !!row.analyzer[platform.current] : false;});
+  }
+
+  getCurrentPlayers() {
+    return this.players.filter(row => {return row.current ? row.current[platform.current] : false});
+  }
+
   addToAnalyzer() {
-    this.playersAnalyzer = tableConverter.getAllData({
+    /*this.playersAnalyzer = tableConverter.getAllData({
       filters: this.table.filters,
       rows: this.players,
       fields: this.table.fields
+    });*/
+    let playersToAdd = tableConverter.getAllData({
+      filters: this.table.filters,
+      rows: this.players,
+      fields: this.table.fields
+    });
+    playersToAdd.forEach(player => {
+      if(!player.analyzer) {
+        player.analyzer = {};
+      }
+      player.analyzer[platform.current] = true;
     });
 
     this.tableAnalyzer.update();
 
     a.go('/players/analyzer')
-
+    this.savePlayers();
   }
+  addToCurrent() {
+    let playersToAdd = tableConverter.getAllData({
+      filters: this.tableAnalyzer.filters,
+      rows: this.getAnalyzerPlayers(),
+      fields: this.tableAnalyzer.fields
+    });
+    playersToAdd.forEach(player => {
+      if(!player.current) {
+        player.current = {};
+      }
+      player.current[platform.current] = true;
+    });
 
+    this.tableCurrent.update();
+
+    a.go('/players/current')
+    this.savePlayers();
+  }
   async analyze(data) {
-    this.playersAnalyzer.forEach(async (player) => {
+    /*this.playersAnalyzer.forEach(async (player) => {
       const res = await autoBuyer.performTask({
         type: 'priceCheck',
         baseId: player.id,
@@ -158,9 +175,7 @@ class PagePlayers {
       player.lastPriceCheckAuctionCount = res.auctions.length;
       player.lastPriceCheckPriceBuyNowAverage = res.buyNowPriceAverage;
       this.tableAnalyzer.update();
-    });
-
-
+    });*/
   }
 
   async updateDatabase() {
