@@ -1,6 +1,7 @@
 const request = require('request');
 const querystring = require('querystring');
 const gotp = require('gotp');
+
 class Account {
   constructor(data) {
     this.jar = request.jar();
@@ -52,10 +53,6 @@ class Account {
           console.log('========== Login with code');
           await this.loginWithCode();
         }
-
-
-        console.log('========== Get bearer');
-        await this.getBearer();
       }
       console.log('========== Get pids');
       await this.getPids(); //required
@@ -98,18 +95,7 @@ class Account {
     this.webAppConfig = data.body;
     this.authUrl = this.webAppConfig.authURL;
   }
-  async getFid() {
-    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer || 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2/login&locale=en_US&redirect_uri=https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html&scope=basic.identity+offline+signin`;
 
-    const data = await this.get(url, {
-      follow: false
-    });
-
-    this.fid = data.res.headers.location.split('fid=')[1];
-    this.urlGetExecution = data.res.headers.location;
-    console.log('Got fid: ', this.fid);
-    console.log('Got execution url', this.urlGetExecution);
-  }
   async getExecution() {
     const data = await this.get(this.urlGetExecution, {
       follow: false
@@ -202,9 +188,46 @@ class Account {
       follow: false
     });
   }
+
+  async getFid() {
+    let parameters = {
+      prompt: 'login',
+      accessToken: this.bearer || 'null',
+      client_id: 'FIFA-18-WEBCLIENT',
+      response_type: 'token',
+      display: 'web2/login',
+      locale: 'en_US',
+      redirect_uri: 'https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html',
+      scope: 'basic.identity offline signin'
+    }
+    const url = `https://accounts.ea.com/connect/auth${this.createGetParameters(parameters)}`;
+
+    const data = await this.get(url, {
+      follow: false
+    });
+
+    this.fid = data.res.headers.location.split('fid=')[1];
+    this.urlGetExecution = data.res.headers.location;
+    console.log('Got fid: ', this.fid);
+    console.log('Got execution url', this.urlGetExecution);
+  }
+
   async getBearer() {
     //const url = `https://accounts.ea.com/connect/auth?client_id=ORIGIN_JS_SDK&response_type=token&redirect_uri=nucleus:rest&prompt=none`
-    const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer ? this.bearer : 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
+    let parameters = {
+      prompt: this.cookies_set ? undefined : 'login',
+      accessToken: this.bearer || 'null',
+      client_id: 'FIFA-18-WEBCLIENT',
+      response_type: 'token',
+      display: 'web2/login',
+      locale: 'en_US',
+      redirect_uri: 'https://www.easports.com/fifa/ultimate-team/web-app/auth.html',
+      scope: 'basic.identity offline signin',
+      fid: this.cookies_set ? undefined : this.fid
+    }
+
+    const url = `https://accounts.ea.com/connect/auth${this.createGetParameters(parameters)}`;
+    //const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer || 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
     const data = await this.get(url, {
       follow: false
     });
@@ -233,15 +256,16 @@ class Account {
         'Accept': '*/*'
       }
     });
-    if(data.body.error == 'invalid_access_token') {
-      console.warn('MAMY STRASZLIWY ERROR Z FIDEM!!!!!!!!!!!!');
-      return false;
+    if(data.body.error) {
+      console.log('========== Get bearer');
+      await this.getBearer();
+      await this.getPids();
+      return;
     }
     this.pids = data.body.pid;
     this.nucleusId = this.pids.externalRefValue;
 
     return true;
-
   }
   async getShards() {
     const url = `https://${this.authUrl}/ut/shards/v2`;
@@ -435,17 +459,35 @@ class Account {
   }
   cookies(json) {
     if(json) {
-      Object.assign(this, json);
+      this.bearer = json.bearer;
+      this.fid = json.fid;
+
+      this.jar._jar = this.jar._jar._importCookiesSync(json.jar);
+      //this.jar._jar.cookies = json.jar._jar.cookies;
+
       this.cookies_set = true;
     } else {
       let final_json = {
-        jar: this.jar,
+        jar: this.jar._jar.serializeSync(),
         fid: this.fid,
         bearer: this.bearer
       };
       return final_json;
     }
 
+  }
+  createGetParameters(parameters) {
+    let finalParameters = [];
+    Object.keys(parameters).forEach(key => {
+      if(typeof(parameters[key]) !== 'undefined') {
+        //finalParameters[finalParameters.length] = `${encodeURIComponent(key)}=${encodeURIComponent(parameters[key])}`;
+        finalParameters[finalParameters.length] = `${key}=${parameters[key]}`;
+      }
+    })
+    if(finalParameters.length == 0) {
+      return '';
+    }
+    return `?${finalParameters.join('&')}`;
   }
 
   //Requests
@@ -590,6 +632,7 @@ class Account {
           if(options.json) {
             try {
               body = JSON.parse(body);
+              //{"message":null,"reason":"expired session","code":401}
             } catch(e) {
               return reject(e);
             }
