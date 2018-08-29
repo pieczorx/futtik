@@ -453,6 +453,8 @@ class Account {
   getCoinsFromCurrencies(currencies) {
     currencies.forEach(currency => {
       if(currency.name == 'COINS') {
+        console.log('Set coins here xD', currency.finalFunds);
+        console.log('a tutaj tescik', this);
         this.coins = currency.finalFunds;
       }
     });

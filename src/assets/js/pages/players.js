@@ -154,7 +154,12 @@ class PagePlayers {
   }
 
   getCurrentPlayers() {
+    this.setAutoBuyerPlayers();
     return this.players.filter(row => {return row.current ? row.current[currentPlatform()] : false});
+  }
+
+  setAutoBuyerPlayers() {
+    autoBuyer.players = this.players;
   }
 
   addToAnalyzer() {

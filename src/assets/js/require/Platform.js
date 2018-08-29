@@ -15,4 +15,7 @@ class Platform extends Emitter {
     this.current = platform;
     a.reload();
   }
+  get list() {
+    return ['ps4', 'xone', 'pc'];
+  }
 }

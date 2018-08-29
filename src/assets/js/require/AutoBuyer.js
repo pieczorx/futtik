@@ -1,16 +1,15 @@
 class AutoBuyer {
   constructor() {
     this.accounts = [];
-    this.instances = [];
     this.listeners = [];
-
+    this.players = [];
     this.tasks = [];
     let that = this;
 
     //Toggle account state
     $(document).on('click', `[data-role='toggleAccountState']`, function() {
       const id = $(this).attr('data-account-id');
-      that.toggleAccountState(id);
+      that.toggleAccountState(that.accounts[id]);
     });
 
     this.work();
@@ -30,37 +29,39 @@ class AutoBuyer {
 
   work() {
     clearTimeout(this.timeoutWork);
-    for(let i = 0; i < this.accounts.length; i++) {
-      this.workSingle(i);
-    }
+    this.accounts.forEach(account => {
+      this.workSingle(account);
+    });
+
     this.timeoutWork = setTimeout(() => {
       this.work();
     }, CONFIG.AUTOBUYER_TICK);
   }
 
-  async workSingle(id) {
+  async workSingle(account) {
+    let platform = account.options.platform;
     //Check if accounts are on globally
     if(!power.state) {
       return;
     }
 
     //Check if account is not busy
-    if(this.accounts[id].busy) {
+    if(account.busy) {
       return;
     }
 
     //Check if account is enabled
-    if(!this.accounts[id].enabled) {
+    if(!account.enabled) {
       return;
     }
 
     //Check if instance was added
-    if(!this.instances[id]) {
-      this.addInstance(id);
+    if(!account.instance) {
+      this.addInstance(account);
     }
 
     //Check if account is logged
-    if(this.accounts[id].enabled && !this.accounts[id].logged) {
+    if(account.enabled && !account.logged) {
       //But make sure no other account on this proxy was logged less than X seconds before
       if(this.lastLoginDate) {
         if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
@@ -68,12 +69,12 @@ class AutoBuyer {
         }
       }
       this.lastLoginDate = new Date();
-      return this.login(id);
+      return this.login(account);
     }
 
     //Check for custom tasks
-    for(let i = 0; i < this.tasks.length; i++) {
-      const handledTask = await this.handleTask(id, this.tasks[i]);
+    for(let task of this.tasks) {
+      const handledTask = await this.handleTask(account, task);
       if(handledTask) {
         return handledTask;
       }
@@ -81,7 +82,33 @@ class AutoBuyer {
 
 
     //Pricecheck co 30 minut
-
+    //TODO: Check if there is no other task for this player & platform
+    const playersPlatform = this.players.filter(player => {
+      return player.current ? player.current[platform] : false;
+    })
+    for(let player of playersPlatform) {
+      if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= CONFIG.PRICE_CHECK_INTERVAL) {
+        this.addTask({
+          type: 'priceCheck',
+          baseId: player.id,
+          pageMax: CONFIG.PRICE_CHECK_PAGES,
+          cheapestItemsQuantity: CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY,
+          platform: platform,
+          account: account,
+          onComplete: (res) => {
+            if(!player.lastPriceCheck) {
+              player.lastPriceCheck = {};
+            }
+            player.lastPriceCheck[platform] = {
+              priceBuyNowAverage: res.buyNowPriceAverage,
+              date: new Date()
+            }
+          },
+          //priority: -1
+        });
+        return this.workSingle(account);
+      }
+    };
 
     //Get tradepile every 2 minutes
 
@@ -103,17 +130,17 @@ class AutoBuyer {
 
   }
 
-  async handleTask(botId, task) {
+  async handleTask(account, task) {
     if(task.finished) {
       return false;
     }
 
-    if(typeof(task.botId) !== 'undefined' && task.botId != botId) {
+    if(typeof(task.account) !== 'undefined' && task.account !== account) {
       return false;
     }
 
     if(task.platform) {
-      if(task.platform != this.accounts[botId].options.platform) {
+      if(task.platform != account.options.platform) {
         return false;
       }
     }
@@ -122,9 +149,9 @@ class AutoBuyer {
     switch(task.type) {
       case "priceCheck": {
 
-        task.botId = botId;
+        task.account = account;
 
-        this.busy(botId);
+        this.busy(account);
 
         if(!task.page) {
           task.page = 1;
@@ -134,7 +161,7 @@ class AutoBuyer {
           task.auctions = [];
         }
 
-        const response = await this.instances[botId].searchTransferMarket({
+        const response = await account.instance.searchTransferMarket({
           page: task.page,
           baseId: task.baseId
         });
@@ -162,7 +189,7 @@ class AutoBuyer {
           task.page++;
         }
 
-        this.free(botId);
+        this.free(account);
 
         return true;
       }
@@ -197,44 +224,44 @@ class AutoBuyer {
     this.cleaningTasks = false;
   }
 
-  addInstance(id) {
-    this.instances[id] = new Account(this.accounts[id].options);
+  addInstance(account) {
+    account.instance = new Account(account.options);
   }
 
-  async login(id) {
-    console.log('login to acc', id);
-    this.busy(id);
+  async login(account) {
+    console.log('logging in to account', account);
+    this.busy(account);
     try {
-      if(this.accounts[id].cookies) {
-        this.instances[id].cookies(this.accounts[id].cookies)
+      if(account.cookies) {
+        account.instance.cookies(account.cookies)
       }
-      await this.instances[id].login();
-      this.accounts[id].logged = true;
-      console.log('logged in', id);
+      await account.instance.login();
+      account.logged = true;
+      console.log('logged in', account.options.mail);
       this.emit('update');
-      this.accounts[id].cookies = this.instances[id].cookies();
-      await this.instances[id].getMassInfo();
+      account.cookies = account.instance.cookies();
+      await account.instance.getMassInfo();
       this.saveAccounts();
-      this.accounts[id].coins = this.instances[id].coins;
+      account.coins = account.instance.coins;
       this.emit('update');
-      console.log('Got money', this.accounts[id].coins);
+      console.log('Got money', account.coins);
     } catch(e) {
-      console.log('Error with login', id, e);
+      console.log('Error with login', account, e);
     }
-    this.free(id);
+    this.free(account);
   }
 
-  busy(id) {
-    this.accounts[id].busy = true;
+  busy(account) {
+    account.busy = true;
   }
 
-  async free(id) {
+  async free(account) {
     await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
-    this.accounts[id].busy = false;
+    account.busy = false;
   }
 
-  toggleAccountState(id) {
-    this.accounts[id].enabled = !this.accounts[id].enabled;
+  toggleAccountState(account) {
+    account.enabled = !account.enabled;
     this.emit('update');
     this.saveAccounts();
   }
@@ -270,7 +297,13 @@ class AutoBuyer {
     }
   }
   async saveAccounts() {
-    await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts);
+    await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts.map(account => {
+      return {
+        options: account.options,
+        cookies: account.cookies,
+        enabled: account.enabled,
+      };
+    }));
     console.log('save accounts', this.accounts);
   }
 

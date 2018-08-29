@@ -23,7 +23,6 @@ class PageBots {
       `,
       fields: [
         {name: 'enabled', title: 'Enabled?', format: (row, i) => {
-          console.log('dodajemy z takim i', i);
           let statuses = ['Disabled', 'Logging in...', 'Logged']
           let status = 0;
           if(row.enabled) {
