@@ -8,7 +8,7 @@ class Utils {
     if(coins < 100000) return coins - (coins % 500);
     return coins - (coins % 1000);
   }
-  calculateNextLowerPrice(coins) {
+  static calculateNextLowerPrice(coins) {
       coins = this.calculateValidPrice(coins);
       if(coins <= 150) return 150;
       if(coins <= 1000) return coins - 50;

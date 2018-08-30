@@ -47,9 +47,26 @@ class PagePlayers {
         Fields.playerColor,
         Fields.playerLeague,
         Fields.playerClub,
+        {
+          title: '',
+          name: 'add',
+          type: 'action',
+          format: (row) => {
+            return `<button class="radius"><i class="far fa-user-plus"></i></button>`;
+          }
+        }
       ],
+      getId: (row) => {return row.id},
       filters: {
         limit: CONFIG.TABLE_PLAYERS_PER_PAGE
+      },
+      actions: {
+        add: (id) => {
+          let player = this.getPlayerFromId(id);
+          player.analyzer[currentPlatform()] = true;
+          this.tableAnalyzer.update();
+          this.savePlayers();
+        }
       }
     });
     this.tableAnalyzer = new Table({
@@ -287,7 +304,7 @@ class PagePlayers {
         players = players.concat(result.items);
 
         el.text(`Updating database... (${currentPage}/${allPages})`)
-        if(currentPage >= allPages || currentPage == 20) { //TODO: TEMPORARY
+        if(currentPage >= allPages) { //TODO: TEMPORARY
           fetchedAllPages = true;
         } else {
           currentPage++;

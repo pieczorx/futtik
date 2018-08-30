@@ -116,6 +116,9 @@ class AutoBuyer {
     };
 
 
+    //Clear sold cards
+
+
     //1. search
     //2. buy cheapest (INSTANT)
     //3. Send to tradepile
@@ -135,14 +138,12 @@ class AutoBuyer {
       }
       return lastBuyCheckDate.a - lastBuyCheckDate.b;
     });
-    console.log('tacy plajerzy som', playersPlatform);
     for(let player of playersPlatform) {
       if(!player.buyCheckBusy && player.lastPriceCheck && player.lastPriceCheck[platform]) {
         player.buyCheckBusy = true;
         try {
-          const priceBuyNowMax = Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage);
+          const priceBuyNowMax = Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
 
-          console.log('szukamy graczy z nizsza cena', priceBuyNowMax);
           this.busy(account)
           const playersFound = await account.instance.searchTransferMarket({
             baseId: player.id,
@@ -150,7 +151,6 @@ class AutoBuyer {
             page: 1,
             priceBuyNowMax: priceBuyNowMax
           });
-          console.log('udalo sie znalezc graczy?', playersFound);
           if(playersFound.auctions.length > 0) {
             playersFound.auctions.sort((a, b) => {
               return a.buyNowPrice - b.buyNowPrice;
@@ -158,17 +158,43 @@ class AutoBuyer {
             const cheapestTrade = playersFound.auctions[0];
 
             console.warn('kupujemy najtanszego gracza', cheapestTrade);
-            const playerMoved = await account.instance.bid({
+
+
+            //Buy player
+            const playerBought = await account.instance.bid({
               coins: cheapestTrade.buyNowPrice,
               tradeId: cheapestTrade.tradeId
             });
-            if(!playerMoved) {
-              console.warn('Player was not moved');
+            if(!playerBought) {
+              console.warn('Player already bought');
               return this.free(account);
             }
 
+            if(playerBought.length != 1) {
+              throw new Error('Invalid player length');
+            }
+            console.log('Player bought');
+
+            //await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+
+
+            //Put to tradepile
+            const playerMoved = await account.instance.putToTradepile({
+              itemId: playerBought[0].itemData.id
+            });
+
+            if(!playerMoved) {
+              console.warn('Player was not moved to tradepile');
+              return this.free(account);
+            }
+
+            console.log('OK PLAYER WAS MOVED TO TRADEPILE, WAIT 5 SECONDS');
+            //await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+
+
+            //Sell player
             const playerSold = await account.instance.sell({
-              itemId: cheapestTrade.tradeId, //Here we can put id from playerMoved info
+              itemId: playerBought[0].itemData.id, //Here we can put id from playerMoved info
               priceBuyNow: Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage),
               priceBid: Utils.calculateNextLowerPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage),
               duration: 3600
@@ -190,27 +216,6 @@ class AutoBuyer {
         return this.free(account);
       }
     }
-
-
-
-
-
-
-
-
-    //Get tradepile every 2 minutes
-
-    //Clear sold cards
-
-
-
-
-
-    //Check for automatic tasks
-
-    //Price check every 10 seconds for example
-
-
 
   }
   findTask(parameters) {
