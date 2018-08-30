@@ -240,7 +240,7 @@ class PagePlayers {
         players = players.concat(result.items);
 
         el.text(`Updating database... (${currentPage}/${allPages})`)
-        if(currentPage >= allPages) {
+        if(currentPage >= allPages || currentPage == 20) { //TODO: TEMPORARY
           fetchedAllPages = true;
         } else {
           currentPage++;
@@ -263,7 +263,39 @@ class PagePlayers {
   }
 
   async savePlayers() {
-    await fse.outputJson(CONFIG.PATH_PLAYERS, this.players)
+    let newPlayers = [];
+    this.players.forEach(player => {
+      newPlayers.push({
+        //Important
+        baseId: player.baseId,
+        color: player.color,
+        commonName: player.commonName,
+        firstName: player.firstName,
+        headshot: player.headshot,
+        headshotImgUrl: player.headshotImgUrl,
+        id: player.id,
+        lastName: player.lastName,
+        league: player.league,
+        name: player.name,
+        nation: player.nation,
+        rating: player.rating,
+        club: player.club,
+
+        //Can be useful
+        specialImages: player.specialImages,
+        fitness: player.fitness,
+        position: player.position,
+        quality: player.quality,
+        isSpecialType: player.isSpecialType,
+        itemType: player.itemType,
+        playerType: player.playerType,
+
+        //Custom
+        analyzer: player.analyzer,
+        current: player.current,
+      })
+    });
+    await fse.outputJson(CONFIG.PATH_PLAYERS, newPlayers)
   }
 
   async loadPlayers() {

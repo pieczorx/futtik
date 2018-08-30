@@ -390,9 +390,10 @@ class Account {
       //lev: 'bronze',
       //micr: 150,
       //macr: 350,
-      //minb: 200,
-      //maxb: 450
+      minb: p.priceBuyNowMin || undefined,
+      maxb: p.priceBuyNowMax || undefined
     }
+
     const url = `${this.utas}/ut/game/fifa18/transfermarket?${querystring.stringify(parameters)}`
     const data = await this.get(url, {
       json: true

@@ -80,22 +80,20 @@ class AutoBuyer {
       }
     }
 
-
-    //Pricecheck co 30 minut
-
     const playersPlatform = this.players.filter(player => {
       return player.current ? player.current[platform] : false;
     })
+
+    //Pricecheck co 30 minut
     for(let player of playersPlatform) {
       if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= CONFIG.PRICE_CHECK_INTERVAL) {
-        //TODO: Check if there is no other task for this player & platform - fixes #7
-        const canAddTask = this.findTask({
+        const taskAlreadyAdded = this.findTask({
           type: 'priceCheck',
           baseId: player.id,
           platform: platform,
           taskSource: 'defaultPriceCheck',
         })
-        if(canAddTask) {
+        if(!taskAlreadyAdded) {
           this.addTask({
             type: 'priceCheck',
             baseId: player.id,
@@ -121,13 +119,62 @@ class AutoBuyer {
     };
 
 
-
     //1. search
     //2. buy cheapest (INSTANT)
     //3. Send to tradepile
     //4. List on market
     //5. WAIT 5 SECONDS
     //6. Lecimy do kolejnego zawodnika
+    playersPlatform.sort((a, b) => {
+      let lastBuyCheckDate = {
+        a: new Date(0),
+        b: new Date(0)
+      }
+      if(a.lastBuyCheckDate) {
+        lastBuyCheckDate.a = a.lastBuyCheckDate
+      }
+      if(b.lastBuyCheckDate) {
+        lastBuyCheckDate.b = b.lastBuyCheckDate
+      }
+      return lastBuyCheckDate.a - lastBuyCheckDate.b;
+    });
+    console.log('tacy plajerzy som', playersPlatform);
+    for(let player of playersPlatform) {
+      if(!player.buyCheckBusy && player.lastPriceCheck && player.lastPriceCheck[platform]) {
+        player.buyCheckBusy = true;
+        try {
+          const priceBuyNowMax = Utils.calculateValidPrice(9/10 * player.lastPriceCheck[platform].priceBuyNowAverage);
+
+          console.log('szukamy graczy z nizsza cena', priceBuyNowMax);
+          this.busy(account)
+          const playersFound = await account.instance.searchTransferMarket({
+            baseId: player.id,
+            num: CONFIG.TRANSFERMARKET_LIMIT,
+            page: 1,
+            priceBuyNowMax: priceBuyNowMax
+          });
+          console.log('udalo sie znalezc graczy?', playersFound);
+          if(playersFound.length > 0) {
+            playersFound.sort((a, b) => {
+              return a.buyNowPrice - b.buyNowPrice;
+            });
+            console.warn('kupujemy najtanszego gracza', playersFound[0]);
+          }
+        } catch(e) {
+          player.lastBuyCheckDate = new Date();
+          player.buyCheckBusy = false;
+          console.warn(e);
+        }
+        player.lastBuyCheckDate = new Date();
+        player.buyCheckBusy = false;
+        return this.free(account);
+      }
+    }
+
+
+
+
+
 
 
 
@@ -150,7 +197,7 @@ class AutoBuyer {
     for(let task of this.tasks) {
       let parametersOk = true;
       Object.keys(parameters).forEach(key => {
-        if(task[key] !== parameters[ley]) {
+        if(task[key] !== parameters[key]) {
           parametersOk = false;
         }
       });
