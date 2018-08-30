@@ -1,0 +1,1 @@
+jak jest wiecej niz 5 kart podczas zwyklego szukania to znaczy zeby nie kupowal zadnej bo to znaczy ze cos jest nie tak z cena i pricecheck robimy (może)
