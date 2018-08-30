@@ -27,7 +27,7 @@ class PageBots {
           let status = 0;
           if(row.enabled) {
             status = 1;
-            if(row.logged) {
+            if(row.instance && row.instance.logged) {
               status = 2;
             }
           }

@@ -6,6 +6,7 @@ class Account {
   constructor(data) {
     this.jar = request.jar();
     Object.assign(this, data);
+    this.logged = false;
     this.listeners = [];
     let platforms = {
       xone: 'FFA18XBO'
@@ -75,6 +76,7 @@ class Account {
 
       console.log('========== Answer security question');
       await this.answerSecurityQuestion();
+      this.logged = true;
       resolve();
     });
   }
@@ -634,6 +636,10 @@ class Account {
           if(options.json) {
             try {
               body = JSON.parse(body);
+              if(body.code == 401) {
+                this.logged = false;
+                return reject('Account logged off');
+              }
               //{"message":null,"reason":"expired session","code":401}
             } catch(e) {
               return reject(e);

@@ -16,9 +16,9 @@ table {border-spacing: 0px 1px;width: 100%;font-size:13px;border-radius: 5px;ove
 table tr{background-color: hsla(0, 0%, 100%, 0.04);border: none;}
 table tr:hover {background-color: hsla(0, 0%, 100%, 0.06);}
 table thead tr:first-child {background-color: hsla(0, 0%, 100%, 0.08);}
-table thead tr:nth-child(2) {background-color: hsla(0, 0%, 100%, 0.06);}
+table thead tr:nth-child(2) {background-color: hsla(0, 0%, 100%, 0.04);}
 table thead tr:nth-child(2) th {padding: 0;}
-table thead tr:nth-child(2) th input {padding: 8px 12px;}
+table thead tr:nth-child(2) th input {padding: 5px 8px;}
 table th, table td{padding: 8px 12px; text-align: left}
 table tr:first-child th:first-child{border-top-left-radius: 5px;}
 table tr:first-child th:last-child{border-top-right-radius: 5px;}
@@ -29,7 +29,9 @@ table tr:first-child th:last-child{border-top-right-radius: 5px;}
 [data-table][data-empty='1'] table {border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 
 [data-table-role='filter'][data-type='numericFromTo'] {}
-[data-table-role='filter'][data-type='numericFromTo'] input {padding: 3px 0px;width: 80px;background-color: rgba(255, 255, 255, 0.05);text-align: center;border-radius: 5px;margin: 2px 2px;}
+[data-table-role='filter'][data-type='numericFromTo'] input {padding: 5px 0px;width: calc(50% - 3px);text-align: center;border-radius: 5px;margin: 5px 2px;box-sizing: border-box;}
+[data-table-role='filter'][data-type='numericFromTo'] input:first-child {margin-right: 0px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
+[data-table-role='filter'][data-type='numericFromTo'] input:last-child {margin-left: -2px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
@@ -51,8 +53,8 @@ input::-webkit-inner-spin-button {
 [data-table-design='players'] img {height: 24px;}
 
 input, select {border: none;padding: 0px 8px;outline: none;font-size: 13px;}
-table input {background-color: transparent;box-sizing: border-box;margin: 0;padding: 0;width: 100%;color: white;}
-
+table input {background-color: rgba(255, 255, 255, 0.05);box-sizing: border-box;margin: 7px 2px;padding: 0px;width: calc(100% - 4px);color: white;border-radius: 5px;/* background-color: transparent !important; */transition: all .1s ease;}
+table input:focus {background-color: rgba(255, 255, 255, 0.08);}
 button {transition: all .1s ease;background-color: hsl(216, 83%, 55%);padding: 0px 12px;border: none;color: white;cursor: pointer;font-size: 13px;font-weight: 600;outline: none;height: 31px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 button:hover, button:active {background-color: hsl(216, 83%, 60%)}
 button:active {opacity: 0.75;}

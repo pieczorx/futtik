@@ -61,7 +61,7 @@ class AutoBuyer {
     }
 
     //Check if account is logged
-    if(account.enabled && !account.logged) {
+    if(account.enabled && !account.instance.logged) {
       //But make sure no other account on this proxy was logged less than X seconds before
       if(this.lastLoginDate) {
         if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
@@ -82,43 +82,60 @@ class AutoBuyer {
 
 
     //Pricecheck co 30 minut
-    //TODO: Check if there is no other task for this player & platform - fixes #7
+
     const playersPlatform = this.players.filter(player => {
       return player.current ? player.current[platform] : false;
     })
     for(let player of playersPlatform) {
       if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= CONFIG.PRICE_CHECK_INTERVAL) {
-        this.addTask({
+        //TODO: Check if there is no other task for this player & platform - fixes #7
+        const canAddTask = this.findTask({
           type: 'priceCheck',
           baseId: player.id,
-          pageMax: CONFIG.PRICE_CHECK_PAGES,
-          cheapestItemsQuantity: CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY,
           platform: platform,
-          account: account,
-          onComplete: (res) => {
-            if(!player.lastPriceCheck) {
-              player.lastPriceCheck = {};
-            }
-            player.lastPriceCheck[platform] = {
-              priceBuyNowAverage: res.buyNowPriceAverage,
-              date: new Date()
-            }
-          },
-          //priority: -1
-        });
-        return this.workSingle(account);
+          taskSource: 'defaultPriceCheck',
+        })
+        if(canAddTask) {
+          this.addTask({
+            type: 'priceCheck',
+            baseId: player.id,
+            pageMax: CONFIG.PRICE_CHECK_PAGES,
+            cheapestItemsQuantity: CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY,
+            platform: platform,
+            account: account,
+            taskSource: 'defaultPriceCheck',
+            onComplete: (res) => {
+              if(!player.lastPriceCheck) {
+                player.lastPriceCheck = {};
+              }
+              player.lastPriceCheck[platform] = {
+                priceBuyNowAverage: res.buyNowPriceAverage,
+                date: new Date()
+              }
+            },
+            //priority: -1
+          });
+          return this.workSingle(account);
+        }
       }
     };
 
+
+
+    //1. search
+    //2. buy cheapest (INSTANT)
+    //3. Send to tradepile
+    //4. List on market
+    //5. WAIT 5 SECONDS
+    //6. Lecimy do kolejnego zawodnika
+
+
+
     //Get tradepile every 2 minutes
-
-
 
     //Clear sold cards
 
 
-
-    //Buy cards --> //Move card to tradepile --> //Sell cards
 
 
 
@@ -128,6 +145,19 @@ class AutoBuyer {
 
 
 
+  }
+  findTask(parameters) {
+    for(let task of this.tasks) {
+      let parametersOk = true;
+      Object.keys(parameters).forEach(key => {
+        if(task[key] !== parameters[ley]) {
+          parametersOk = false;
+        }
+      });
+      if(parametersOk) {
+        return true;
+      }
+    }
   }
 
   async handleTask(account, task) {
@@ -237,7 +267,7 @@ class AutoBuyer {
         account.instance.cookies(account.cookies)
       }
       await account.instance.login();
-      account.logged = true;
+      //account.logged = true;
       console.log('logged in', account.options.mail);
       this.emit('update');
       account.cookies = account.instance.cookies();
@@ -290,7 +320,6 @@ class AutoBuyer {
     try {
       this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
       for(let i = 0; i < this.accounts.length; i++) {
-        this.accounts[i].logged = false;
         this.accounts[i].busy = false;
       }
     } catch(e) {

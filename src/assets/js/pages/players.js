@@ -71,9 +71,6 @@ class PagePlayers {
         Fields.playerAvatar,
         Fields.playerName,
         Fields.playerRating,
-        Fields.playerColor,
-        Fields.playerLeague,
-        Fields.playerClub,
         {
           title: 'Auctions',
           name: 'lastAnalyzerPriceCheckAuctionCount',
