@@ -1,4 +1,4 @@
-# loaderx
+# Futtik
 Fifa Ultimate Team Auto Buyer & more soon
 
 ## How to install
