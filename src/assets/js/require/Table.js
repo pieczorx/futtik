@@ -44,6 +44,15 @@ class Table {
       that.filters[name] = value;
       that.changeFilters();
     });
+
+    for(let field of this.fields) {
+      if(field.type == 'action') {
+        $(document).on('click', `[data-table='${this.name}'] [data-table-role='action'] button`, function() {
+          const id = $(this).closest(`[data-table-role='action']`).attr('data-id');
+          that.actions[field.name](id);
+        });
+      }
+    }
   }
 
   getParamsFromFilters() {
@@ -81,7 +90,7 @@ class Table {
       options = {}
     }
 
-    let params = this.getParamsFromFilters();
+  //  let params = this.getParamsFromFilters();
 
     if(!options.dontChangeURL){
       //a.go(`/users/${params}/`);
@@ -233,6 +242,9 @@ class Table {
       }
       if(typeof(field.format) === 'function') {
         value = field.format(row, id);
+      }
+      if(field.type == 'action') {
+        value = `<div data-table-role="action" data-id="${this.getId(row)}">${value}</div>`;
       }
       values[values.length] = value;
     });
