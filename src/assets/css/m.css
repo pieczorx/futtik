@@ -22,7 +22,7 @@ table thead tr:nth-child(2) th input {padding: 5px 8px;}
 table th, table td{padding: 8px 12px; text-align: left}
 table tr:first-child th:first-child{border-top-left-radius: 5px;}
 table tr:first-child th:last-child{border-top-right-radius: 5px;}
-
+table button {padding: 5px 5px;height: auto;}
 [data-table] .empty {font-size: 15px;display:none;background-color: rgba(255, 255, 255, 0.04);padding: 30px 0px;float: left;width: 100%;border-radius: 5px;border-top-left-radius: 0px;border-top-right-radius: 0px;}
 [data-table][data-empty='1'] .empty {display: block;}
 [data-table] .empty button {margin-top: 8px;}
@@ -32,12 +32,8 @@ table tr:first-child th:last-child{border-top-right-radius: 5px;}
 [data-table-role='filter'][data-type='numericFromTo'] input {padding: 5px 0px;width: calc(50% - 3px);text-align: center;border-radius: 5px;margin: 5px 2px;box-sizing: border-box;}
 [data-table-role='filter'][data-type='numericFromTo'] input:first-child {margin-right: 0px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
 [data-table-role='filter'][data-type='numericFromTo'] input:last-child {margin-left: -2px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
+table input::-webkit-outer-spin-button,
+table input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0; /* <-- Apparently some margin are still there even though it's hidden */}
 [data-table='accounts'] .activeStatus {cursor: pointer;position:relative;font-weight: 600;}
 [data-table='accounts'] .activeStatus::after {display: none;border-radius: 20px;position: absolute; content: ''; left: 0; top: 0; border: 2px solid hsl(176, 50%, 45%); width: 16px; height: 16px;}
 [data-table='accounts'] .activeStatus[data-status='0'] {color: rgba(255, 255, 255, 0.33);}
@@ -65,7 +61,8 @@ button.b3:hover {background-color: hsla(0, 0%, 100%, 0.1);}
 button[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
 button i {margin-right: 2px;}
 button i.iconBig {font-size: 17px;margin-right: 0px;}
-
+button.buttonRed {background-color: hsl(4, 83%, 55%);}
+button.buttonRed:hover, button.buttonRed:active {background-color: hsl(4, 83%, 60%);}
 
 *::-webkit-scrollbar {width: 10px;height:10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .1s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}

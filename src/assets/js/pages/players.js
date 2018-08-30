@@ -64,9 +64,7 @@ class PagePlayers {
         this.tableAnalyzer.update();
       },
       name: 'playersAnalyzer',
-      htmlEmpty: `
-      <div class="w100">There are no players, add them from <a href="/players/">database tab</a>.</div>
-      `,
+      htmlEmpty: `<div class="w100">There are no players, add them from <a href="/players/">database tab</a>.</div>`,
       fields: [
         Fields.playerAvatar,
         Fields.playerName,
@@ -107,10 +105,28 @@ class PagePlayers {
             }
             return '-';
           }
+        },
+        {
+          title: '<i class="far fa-user-minus"></i>',
+          name: 'remove',
+          type: 'action',
+          format: (row) => {
+            return `<button class="radius buttonRed"><i class="far fa-user-minus"></i></button>`;
+          }
         }
       ],
+      getId: (row) => {return row.id},
       filters: {
         limit: CONFIG.TABLE_PLAYERS_PER_PAGE
+      },
+      actions: {
+        remove: (id) => {
+          console.warn('remove this id', id);
+          let player = this.getPlayerFromId(id);
+          player.analyzer[currentPlatform()] = false;
+          this.tableAnalyzer.update();
+          this.savePlayers();
+        }
       }
     });
     this.tableCurrent = new Table({
@@ -124,10 +140,9 @@ class PagePlayers {
       onFilterChange: () => {
         this.tableCurrent.update();
       },
+      getId: (row) => {return row.id},
       name: 'playersCurrent',
-      htmlEmpty: `
-      <div class="w100">There are no players, add them from <a href="/players/analyzer/">analyzer tab</a>.</div>
-      `,
+      htmlEmpty: `<div class="w100">There are no players, add them from <a href="/players/analyzer/">analyzer tab</a>.</div>`,
       fields: [
         Fields.playerAvatar,
         Fields.playerName,
@@ -150,9 +165,26 @@ class PagePlayers {
             return '-';
           }
         },
+        {
+          title: '',
+          name: 'remove',
+          type: 'action',
+          format: (row) => {
+            return `<button class="radius buttonRed"><i class="far fa-user-minus"></i></button>`;
+          }
+        }
       ],
       filters: {
         limit: CONFIG.TABLE_PLAYERS_PER_PAGE
+      },
+      actions: {
+        remove: (id) => {
+          console.warn('remove this id', id);
+          let player = this.getPlayerFromId(id);
+          player.current[currentPlatform()] = false;
+          this.tableCurrent.update();
+          this.savePlayers();
+        }
       }
     });
   }
@@ -173,7 +205,13 @@ class PagePlayers {
   setAutoBuyerPlayers() {
     autoBuyer.players = this.players;
   }
-
+  getPlayerFromId(id) {
+    for(let player of this.players) {
+      if(player.id == id) {
+        return player;
+      }
+    }
+  }
   addToAnalyzer() {
     /*this.playersAnalyzer = tableConverter.getAllData({
       filters: this.table.filters,
@@ -186,9 +224,6 @@ class PagePlayers {
       fields: this.table.fields
     });
     playersToAdd.forEach(player => {
-      if(!player.analyzer) {
-        player.analyzer = {};
-      }
       player.analyzer[currentPlatform()] = true;
     });
 
@@ -204,9 +239,6 @@ class PagePlayers {
       fields: this.tableAnalyzer.fields
     });
     playersToAdd.forEach(player => {
-      if(!player.current) {
-        player.current = {};
-      }
       player.current[currentPlatform()] = true;
     });
 
@@ -317,6 +349,18 @@ class PagePlayers {
     try {
       console.log('getting players')
       this.players = await fse.readJson(CONFIG.PATH_PLAYERS)
+      this.players.map(player => {
+        if(!player.current) {
+          player.current = {};
+        }
+        if(!player.analyzer) {
+          player.analyzer = {};
+        }
+        if(!player.lastPriceCheck) {
+          player.lastPriceCheck = {};
+        }
+
+      });
       console.log('got', this.players)
       this.table.update();
     } catch(e) {

@@ -103,9 +103,6 @@ class AutoBuyer {
             account: account,
             taskSource: 'defaultPriceCheck',
             onComplete: (res) => {
-              if(!player.lastPriceCheck) {
-                player.lastPriceCheck = {};
-              }
               player.lastPriceCheck[platform] = {
                 priceBuyNowAverage: res.buyNowPriceAverage,
                 date: new Date()
@@ -143,7 +140,7 @@ class AutoBuyer {
       if(!player.buyCheckBusy && player.lastPriceCheck && player.lastPriceCheck[platform]) {
         player.buyCheckBusy = true;
         try {
-          const priceBuyNowMax = Utils.calculateValidPrice(9/10 * player.lastPriceCheck[platform].priceBuyNowAverage);
+          const priceBuyNowMax = Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage);
 
           console.log('szukamy graczy z nizsza cena', priceBuyNowMax);
           this.busy(account)
@@ -154,11 +151,34 @@ class AutoBuyer {
             priceBuyNowMax: priceBuyNowMax
           });
           console.log('udalo sie znalezc graczy?', playersFound);
-          if(playersFound.length > 0) {
-            playersFound.sort((a, b) => {
+          if(playersFound.auctions.length > 0) {
+            playersFound.auctions.sort((a, b) => {
               return a.buyNowPrice - b.buyNowPrice;
             });
-            console.warn('kupujemy najtanszego gracza', playersFound[0]);
+            const cheapestTrade = playersFound.auctions[0];
+
+            console.warn('kupujemy najtanszego gracza', cheapestTrade);
+            const playerMoved = await account.instance.bid({
+              coins: cheapestTrade.buyNowPrice,
+              tradeId: cheapestTrade.tradeId
+            });
+            if(!playerMoved) {
+              console.warn('Player was not moved');
+              return this.free(account);
+            }
+
+            const playerSold = await account.instance.sell({
+              itemId: cheapestTrade.tradeId, //Here we can put id from playerMoved info
+              priceBuyNow: Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage),
+              priceBid: Utils.calculateNextLowerPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage),
+              duration: 3600
+            });
+            if(playerSold) {
+              console.log('player sold');
+            } else {
+              console.log('could not sell player');
+            }
+            return this.free(account);
           }
         } catch(e) {
           player.lastBuyCheckDate = new Date();

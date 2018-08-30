@@ -403,6 +403,23 @@ class Account {
       auctions: data.body.auctionInfo
     };
   }
+  async putToTradepile(p) {
+    const url = `${this.utas}/ut/game/fifa18/item`;
+    const data = await this.put(url, {
+      form: {
+        itemData: [
+          {
+            id: p.itemId,
+            pile: 'trade'
+          }
+        ]
+      }
+    });
+    if(res.statusCode == 200) {
+      return true;
+    }
+    return false;
+  }
   async bid(p) {
     const url = `${this.utas}/ut/game/fifa18/trade/${p.tradeId}/bid?sku_b=FFT18`
     const data = await this.put(url, {
@@ -446,7 +463,10 @@ class Account {
         startingBid: p.priceBid
       }
     });
-
+    if(res.statusCode == 200) {
+      return true;
+    }
+    return false;
     /* REQUEST
     {"itemData":{"id":121088671531},"startingBid":150,"duration":3600,"buyNowPrice":200}
     */
