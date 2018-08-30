@@ -134,7 +134,22 @@ class PagePlayers {
         Fields.playerRating,
         Fields.playerColor,
         Fields.playerLeague,
-        Fields.playerClub
+        Fields.playerClub,
+        {
+          title: 'Price',
+          name: 'lastPriceCheck',
+          search: 'text',
+          format: (row) => {
+            if(row.lastPriceCheck) {
+              if(row.lastPriceCheck[currentPlatform()]) {
+                return `
+                <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${row.lastPriceCheck[currentPlatform()].priceBuyNowAverage.toFixed(0)}</span>
+                `
+              }
+            }
+            return '-';
+          }
+        },
       ],
       filters: {
         limit: CONFIG.TABLE_PLAYERS_PER_PAGE
