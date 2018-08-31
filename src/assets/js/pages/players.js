@@ -204,6 +204,9 @@ class PagePlayers {
         }
       }
     });
+    autoBuyer.on('playersUpdate', () => {
+      this.tableCurrent.update();
+    });
   }
   _load() {
     this.table.update();

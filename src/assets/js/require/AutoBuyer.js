@@ -1,5 +1,6 @@
-class AutoBuyer {
+class AutoBuyer extends Emitter {
   constructor() {
+    super();
     this.accounts = [];
     this.listeners = [];
     this.players = [];
@@ -107,6 +108,7 @@ class AutoBuyer {
                 priceBuyNowAverage: res.buyNowPriceAverage,
                 date: new Date()
               }
+              this.emit('playersUpdate');
             },
             //priority: -1
           });
@@ -115,16 +117,63 @@ class AutoBuyer {
       }
     };
 
+    //Get tradepile every 2 minutes
+    if(!account.tradepile || (new Date() - account.tradepile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
+      this.busy(account)
+      console.log('get tradePile');
+      let tradePile = await account.instance.getTradePile();
+      console.log('Got tradepile', tradePile);
+      for(let auction of tradePile) {
+        switch(auction.tradeState) {
+          case 'closed': { //SOLD ITEMS
+            //DO NOTHING HERE
 
-    //Clear sold cards
+            break
+          }
+          case 'active': { //ACTIVE TRANSFERS
 
+            break;
+          }
+          case 'expired': { //UNSOLD ITEMS
+
+            break;
+          }
+          default: { //AVAILIBLE ITEMS
+
+            break;
+          }
+        }
+      };
+
+      //Clear sold cards
+      const activeAuctions = tradePile.filter(auction => {
+        return auction.tradeState === 'closed';
+      });
+      if(activeAuctions.length > 0) {
+        console.log('Delete sold auctions');
+        const resDeleteAuctions = await account.instance.deleteSoldAuctions()
+        if(resDeleteAuctions) {
+          console.log('Auctions deleted');
+        } else {
+          console.log('Auctions not deleted :o');
+        }
+      }
+      //Update tradepile to show real results
+      tradePile = await account.instance.getTradePile();
+      account.tradepile = {
+        auctions: tradePile,
+        date: new Date()
+      }
+      this.free(account);
+      this.emit('playersUpdate');
+      return;
+    }
 
     //1. search
     //2. buy cheapest (INSTANT)
     //3. Send to tradepile
     //4. List on market
     //5. WAIT 5 SECONDS
-    //6. Lecimy do kolejnego zawodnika
     playersPlatform.sort((a, b) => {
       let lastBuyCheckDate = {
         a: new Date(0),
@@ -141,10 +190,11 @@ class AutoBuyer {
     for(let player of playersPlatform) {
       if(!player.buyCheckBusy && player.lastPriceCheck && player.lastPriceCheck[platform]) {
         player.buyCheckBusy = true;
+        this.busy(account)
         try {
           const priceBuyNowMax = Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
 
-          this.busy(account)
+
           const playersFound = await account.instance.searchTransferMarket({
             baseId: player.id,
             num: CONFIG.TRANSFERMARKET_LIMIT,
@@ -329,6 +379,9 @@ class AutoBuyer {
 
   addInstance(account) {
     account.instance = new Account(account.options);
+    account.instance.on('coinsUpdate', coins => {
+      this.emit('playersUpdate');
+    });
   }
 
   async login(account) {

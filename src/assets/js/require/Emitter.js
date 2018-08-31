@@ -4,7 +4,7 @@ class Emitter {
   }
 
   on(t, f) {
-    this.emitListeners.push({t, d});
+    this.emitListeners.push({t, f});
   }
 
   emit(t, d) {

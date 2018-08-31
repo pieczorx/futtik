@@ -2,8 +2,9 @@ const request = require('request');
 const querystring = require('querystring');
 const gotp = require('gotp');
 
-class Account {
+class Account extends Emitter {
   constructor(data) {
+    super();
     this.jar = request.jar();
     Object.assign(this, data);
     this.logged = false;
@@ -457,6 +458,8 @@ class Account {
     const data = await this.get(url, {
       json: true
     })
+
+    this.updateCoins(data.body.credits);
     return data.body.auctionInfo;
     /*
     {"credits":2629,"auctionInfo":[{"tradeId":21239961928,"itemData":{"id":126899379879,"timestamp":1534004938,"formation":"f433","untradeable":false,"assetId":215368,"rating":63,"itemType":"player","resourceId":215368,"owners":2,"discardValue":19,"itemState":"forSale","cardsubtypeid":1,"lastSalePrice":200,"morale":50,"fitness":99,"injuryType":"none","injuryGames":0,"preferredPosition":"RB","statsList":[{"value":0,"index":0},{"value":0,"index":1},{"value":0,"index":2},{"value":0,"index":3},{"value":0,"index":4}],"lifetimeStats":[{"value":0,"index":0},{"value":0,"index":1},{"value":0,"index":2},{"value":0,"index":3},{"value":0,"index":4}],"training":0,"contract":7,"suspension":0,"attributeList":[{"value":73,"index":0},{"value":44,"index":1},{"value":53,"index":2},{"value":60,"index":3},{"value":60,"index":4},{"value":59,"index":5}],"teamid":252,"rareflag":0,"playStyle":250,"leagueId":80,"assists":0,"lifetimeAssists":0,"loyaltyBonus":0,"pile":5,"nation":4,"marketDataMinPrice":150,"marketDataMaxPrice":10000,"resourceGameYear":2018},"tradeState":"active","buyNowPrice":200,"currentBid":0,"offers":0,"watched":true,"bidState":"none","startingBid":150,"confidenceValue":100,"expires":3600,"sellerName":null,"sellerEstablished":0,"sellerId":0,"tradeOwner":true,"tradeIdStr":"21239961928"}],"bidTokens":{}}
@@ -485,13 +488,29 @@ class Account {
     */
   }
 
+  async deleteSoldAuctions() {
+    const url = `${this.utas}/ut/game/fifa18/trade/sold`
+    const data = await this.delete(url, {
+      json: true
+    });
+    if(data.res.statusCode == 200) {
+      return true;
+    }
+    return false;
+  }
+
   //Misc
   getCoinsFromCurrencies(currencies) {
     currencies.forEach(currency => {
       if(currency.name == 'COINS') {
-        this.coins = currency.finalFunds;
+        this.updateCoins(currency.finalFunds);
       }
     });
+  }
+
+  updateCoins(coins) {
+    this.coins = coins;
+    this.emit('coinsUpdate', coins);
   }
   cookies(json) {
     if(json) {
@@ -527,6 +546,13 @@ class Account {
   }
 
   //Requests
+  delete(url, options) {
+    if(!options) {
+      options = {};
+    }
+    options.method = 'DELETE';
+    return this.request(url, options);
+  }
   put(url, options) {
     if(!options) {
       options = {};
