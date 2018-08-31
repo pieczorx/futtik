@@ -491,10 +491,9 @@ class Account extends Emitter {
   async deleteSoldAuctions() {
     const url = `${this.utas}/ut/game/fifa18/trade/sold`
     const data = await this.delete(url);
-    if(data.res.statusCode == 200) {
-      return true;
+    if(data.res.statusCode != 200) {
+      throw new Error('Could not delete sold auctions');
     }
-    return false;
   }
 
   //Misc

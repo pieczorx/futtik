@@ -2,9 +2,9 @@ class AutoBuyer extends Emitter {
   constructor() {
     super();
     this.accounts = [];
-    this.listeners = [];
     this.players = [];
     this.tasks = [];
+
     let that = this;
 
     //Toggle account state
@@ -12,40 +12,28 @@ class AutoBuyer extends Emitter {
       const id = $(this).attr('data-account-id');
       that.toggleAccountState(that.accounts[id]);
     });
-
-    this.work();
-  }
-
-  //Tasks
-  performTask(task) {
-    return new Promise((resolve, reject) => {
-      task.onComplete = resolve;
-      this.addTask(task);
-    });
-  }
-
-  addTask(task) {
-    this.tasks[this.tasks.length] = task;
-  }
-
-  work() {
-    clearTimeout(this.timeoutWork);
-    this.accounts.forEach(account => {
-      this.workSingle(account);
-    });
-
-    this.timeoutWork = setTimeout(() => {
+    setInterval(() => {
       this.work();
-    }, CONFIG.AUTOBUYER_TICK);
+    }, CONFIG.AUTOBUYER_TICK)
   }
 
-  async workSingle(account) {
-    let platform = account.options.platform;
+  //Works
+  work() {
     //Check if accounts are on globally
     if(!power.state) {
       return;
     }
 
+    this.accounts.forEach(account => {
+      try {
+        this.workSingle(account);
+      } catch(e) {
+        console.warn('Account could not work');
+        console.log(e);
+      }
+    });
+  }
+  async workSingle(account) {
     //Check if account is not busy
     if(account.busy) {
       return;
@@ -62,30 +50,51 @@ class AutoBuyer extends Emitter {
     }
 
     //Check if account is logged
+    if(await this.workTaskEnsureLogged(account)) {return;}
+
+    //Check for custom tasks
+    if(await this.workTaskCheckCustomTasks(account)) {return;}
+
+    //Pricecheck co 30 minut
+    if(await this.workTaskPriceCheck(account)) {return;}
+
+    //Get tradepile every 2 minutes
+    if(await this.workTaskGetTradePile(account)) {return;}
+
+    //Search for players, buy them and relist them
+    if(await this.workTaskGetTradePile(account)) {return;}
+
+    //No tasks :)
+  }
+
+  async workTaskEnsureLogged(account) {
     if(account.enabled && !account.instance.logged) {
       //But make sure no other account on this proxy was logged less than X seconds before
       if(this.lastLoginDate) {
         if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
-          return;
+          return true;
         }
       }
       this.lastLoginDate = new Date();
-      return this.login(account);
+      this.login(account);
+      return true;
     }
-
-    //Check for custom tasks
+    return false;
+  }
+  async workTaskCheckCustomTasks(account) {
     for(let task of this.tasks) {
       const handledTask = await this.handleTask(account, task);
       if(handledTask) {
-        return handledTask;
+        return true;
       }
     }
-
+    return false;
+  }
+  async workTaskPriceCheck(account) {
+    const platform = account.options.platform;
     const playersPlatform = this.players.filter(player => {
       return player.current ? player.current[platform] : false;
     })
-
-    //Pricecheck co 30 minut
     for(let player of playersPlatform) {
       if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= CONFIG.PRICE_CHECK_INTERVAL) {
         const taskAlreadyAdded = this.findTask({
@@ -112,15 +121,15 @@ class AutoBuyer extends Emitter {
             },
             //priority: -1
           });
-          return this.workSingle(account);
+          return true;
         }
       }
-    };
-
-    //Get tradepile every 2 minutes
+    }
+    return false;
+  }
+  async workTaskGetTradePile(account) {
     if(!account.tradepile || (new Date() - account.tradepile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
       this.busy(account)
-      console.log('get tradePile');
       let tradePile = await account.instance.getTradePile();
       console.log('Got tradepile', tradePile);
       for(let auction of tradePile) {
@@ -151,13 +160,10 @@ class AutoBuyer extends Emitter {
       });
       if(activeAuctions.length > 0) {
         console.log('Delete sold auctions');
-        const resDeleteAuctions = await account.instance.deleteSoldAuctions()
-        if(resDeleteAuctions) {
-          console.log('Auctions deleted');
-        } else {
-          console.log('Auctions not deleted :o');
-        }
+        const resDeleteAuctions = await account.instance.deleteSoldAuctions();
+        console.log('Auctions deleted');
       }
+
       //Update tradepile to show real results
       tradePile = await account.instance.getTradePile();
       account.tradepile = {
@@ -166,14 +172,15 @@ class AutoBuyer extends Emitter {
       }
       this.free(account);
       this.emit('playersUpdate');
-      return;
+      return true;
     }
-
-    //1. search
-    //2. buy cheapest (INSTANT)
-    //3. Send to tradepile
-    //4. List on market
-    //5. WAIT 5 SECONDS
+    return false;
+  }
+  async taskSearchAndBuy(account) {
+    const platform = account.options.platform;
+    const playersPlatform = this.players.filter(player => {
+      return player.current ? player.current[platform] : false;
+    })
     playersPlatform.sort((a, b) => {
       let lastBuyCheckDate = {
         a: new Date(0),
@@ -239,8 +246,6 @@ class AutoBuyer extends Emitter {
             }
 
             console.log('OK PLAYER WAS MOVED TO TRADEPILE, WAIT 5 SECONDS');
-            //await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
-
 
             //Sell player
             const playerSold = await account.instance.sell({
@@ -263,10 +268,22 @@ class AutoBuyer extends Emitter {
         }
         player.lastBuyCheckDate = new Date();
         player.buyCheckBusy = false;
-        return this.free(account);
+        this.free(account)
+        return true;
       }
     }
+    return false;
+  }
 
+  //Tasks
+  performTask(task) {
+    return new Promise((resolve, reject) => {
+      task.onComplete = resolve;
+      this.addTask(task);
+    });
+  }
+  addTask(task) {
+    this.tasks[this.tasks.length] = task;
   }
   findTask(parameters) {
     for(let task of this.tasks) {
@@ -281,75 +298,6 @@ class AutoBuyer extends Emitter {
       }
     }
   }
-
-  async handleTask(account, task) {
-    if(task.finished) {
-      return false;
-    }
-
-    if(typeof(task.account) !== 'undefined' && task.account !== account) {
-      return false;
-    }
-
-    if(task.platform) {
-      if(task.platform != account.options.platform) {
-        return false;
-      }
-    }
-
-
-    switch(task.type) {
-      case "priceCheck": {
-
-        task.account = account;
-
-        this.busy(account);
-
-        if(!task.page) {
-          task.page = 1;
-        }
-
-        if(!task.auctions) {
-          task.auctions = [];
-        }
-
-        const response = await account.instance.searchTransferMarket({
-          page: task.page,
-          baseId: task.baseId,
-          limit: CONFIG.TRANSFERMARKET_LIMIT
-        });
-
-        if(response.auctions.length > 0) {
-          task.auctions.push(...response.auctions.map(e => {
-            return {
-              buyNowPrice: e.buyNowPrice,
-              startingBid: e.startingBid
-            }
-          }));
-        }
-
-        if(task.page >= task.pageMax || response.auctions.length == 0 || response.auctions.length < CONFIG.TRANSFERMARKET_LIMIT) {
-          //Sort auctions by price ascending
-          task.auctions.sort((a, b) => {
-            return a.buyNowPrice - b.buyNowPrice;
-          })
-          task.result = {
-            auctions: task.auctions,
-            buyNowPriceAverage: (task.auctions.slice(0, task.cheapestItemsQuantity)).reduce((p, c) => p + c.buyNowPrice, 0) / task.cheapestItemsQuantity
-          }
-          this.finishTask(task);
-        } else {
-          task.page++;
-        }
-
-        this.free(account);
-
-        return true;
-      }
-    }
-    return false;
-  }
-
   finishTask(task) {
     task.finished = true;
     if(typeof(task.onComplete) === 'function') {
@@ -357,7 +305,6 @@ class AutoBuyer extends Emitter {
     }
     this.cleanUnusedTasks();
   }
-
   cleanUnusedTasks() {
     if(this.cleaningTasks) {
       console.warn('WTF IT HAPPENED XD')
@@ -376,6 +323,80 @@ class AutoBuyer extends Emitter {
 
     this.cleaningTasks = false;
   }
+  async handleTask(account, task) {
+    //Check if task is not finished
+    if(task.finished) {
+      return false;
+    }
+
+    //Check if account is good
+    if(typeof(task.account) !== 'undefined' && task.account !== account) {
+      return false;
+    }
+
+    //Check if platform is good
+    if(task.platform && task.platform != account.options.platform) {
+      return false;
+    }
+
+    //Handle different tasks
+
+    switch(task.type) {
+      case "priceCheck": {
+        if(await this.handleTaskPriceCheck(task, account)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+  async handleTaskPriceCheck(task, account) {
+    task.account = account;
+    this.busy(account);
+
+
+    if(!task.page) {
+      task.page = 1;
+    }
+
+    if(!task.auctions) {
+      task.auctions = [];
+    }
+
+    const response = await account.instance.searchTransferMarket({
+      page: task.page,
+      baseId: task.baseId,
+      limit: CONFIG.TRANSFERMARKET_LIMIT
+    });
+
+    if(response.auctions.length > 0) {
+      task.auctions.push(...response.auctions.map(e => {
+        return {
+          buyNowPrice: e.buyNowPrice,
+          startingBid: e.startingBid
+        }
+      }));
+    }
+
+    if(task.page >= task.pageMax || response.auctions.length == 0 || response.auctions.length < CONFIG.TRANSFERMARKET_LIMIT) {
+      //Sort auctions by price ascending
+      task.auctions.sort((a, b) => {
+        return a.buyNowPrice - b.buyNowPrice;
+      })
+      task.result = {
+        auctions: task.auctions,
+        buyNowPriceAverage: (task.auctions.slice(0, task.cheapestItemsQuantity)).reduce((p, c) => p + c.buyNowPrice, 0) / task.cheapestItemsQuantity
+      }
+      this.finishTask(task);
+    } else {
+      task.page++;
+    }
+
+    this.free(account);
+    return true;
+  }
+
+
 
   addInstance(account) {
     account.instance = new Account(account.options);
@@ -408,9 +429,9 @@ class AutoBuyer extends Emitter {
   }
 
   busy(account) {
+    console.log(`[${account.options.mail}] >>>> Busy`);
     account.busy = true;
   }
-
   async free(account) {
     await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
     account.busy = false;
@@ -441,6 +462,7 @@ class AutoBuyer extends Emitter {
 
 
   }
+
   async loadAccounts() {
     try {
       this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
@@ -460,21 +482,5 @@ class AutoBuyer extends Emitter {
       };
     }));
     console.log('save accounts', this.accounts);
-  }
-
-
-
-  emit(type, data) {
-    this.listeners.forEach(listener => {
-      if(listener.type == type) {
-        listener.f(data);
-      }
-    });
-  }
-  on(type, f) {
-    this.listeners.push({
-      type,
-      f
-    })
   }
 }
