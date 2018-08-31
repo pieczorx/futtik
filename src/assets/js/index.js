@@ -6,6 +6,7 @@ const fs = require('fs');
 const readFile = util.promisify(fs.readFile);
 
 //Add pages
+const memHeap = new MemHeap();
 
 const pltfrm = new Platform();
 const currentPlatform = () => {
