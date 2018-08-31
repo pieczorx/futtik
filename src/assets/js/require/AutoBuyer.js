@@ -128,7 +128,7 @@ class AutoBuyer extends Emitter {
     return false;
   }
   async workTaskGetTradePile(account) {
-    if(!account.tradepile || (new Date() - account.tradepile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
+    if(!account.tradePile || (new Date() - account.tradePile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
       this.busy(account)
       let tradePile = await account.instance.getTradePile();
       console.log('Got tradepile', tradePile);
@@ -147,7 +147,7 @@ class AutoBuyer extends Emitter {
 
             break;
           }
-          default: { //AVAILIBLE ITEMS
+          default: { //AVAILABLE ITEMS
 
             break;
           }
@@ -166,12 +166,12 @@ class AutoBuyer extends Emitter {
 
       //Update tradepile to show real results
       tradePile = await account.instance.getTradePile();
-      account.tradepile = {
+      account.tradePile = {
         auctions: tradePile,
         date: new Date()
       }
+      this.emit('accountUpdate');
       this.free(account);
-      this.emit('playersUpdate');
       return true;
     }
     return false;
@@ -415,12 +415,12 @@ class AutoBuyer extends Emitter {
       await account.instance.login();
       //account.logged = true;
       console.log('logged in', account.options.mail);
-      this.emit('update');
+      this.emit('accountUpdate');
       account.cookies = account.instance.cookies();
       await account.instance.getMassInfo();
       this.saveAccounts();
       account.coins = account.instance.coins;
-      this.emit('update');
+      this.emit('accountUpdate');
       console.log('Got money', account.coins);
     } catch(e) {
       console.log('Error with login', account, e);
@@ -439,7 +439,7 @@ class AutoBuyer extends Emitter {
 
   toggleAccountState(account) {
     account.enabled = !account.enabled;
-    this.emit('update');
+    this.emit('accountUpdate');
     this.saveAccounts();
   }
 

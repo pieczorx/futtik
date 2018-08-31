@@ -21,7 +21,14 @@ class PagePlayers {
     this.players = [];
 
     this.fetchUrl = ``;
+    this.initTables();
 
+    autoBuyer.on('playersUpdate', () => {
+      this.tableCurrent.update();
+    });
+  }
+
+  initTables() {
     this.table = new Table({
       getData: () => {
         return tableConverter.convert({
@@ -204,9 +211,7 @@ class PagePlayers {
         }
       }
     });
-    autoBuyer.on('playersUpdate', () => {
-      this.tableCurrent.update();
-    });
+
   }
   _load() {
     this.table.update();

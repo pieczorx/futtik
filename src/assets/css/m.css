@@ -48,6 +48,12 @@ table input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0; /* <
 [data-table-design='players'] td:first-child, [data-table-design='players'] th:first-child {width: 16px;padding: 0px 0px 0px 12px;}
 [data-table-design='players'] img {height: 24px;}
 
+[data-table] .tradePileValues {color: rgba(255, 255, 255, 0.2);}
+[data-table] .tradePileValues span:nth-child(1) {color: hsl(216, 83%, 66%);}
+[data-table] .tradePileValues span:nth-child(2) {color: hsl(119, 83%, 66%);}
+[data-table] .tradePileValues span:nth-child(3) {color: hsl(0, 83%, 66%);}
+[data-table] .tradePileValues span:nth-child(4) {color: rgba(255, 255, 255, 0.66);}
+
 input, select {border: none;padding: 0px 8px;outline: none;font-size: 13px;}
 table input {background-color: rgba(255, 255, 255, 0.05);box-sizing: border-box;margin: 7px 2px;padding: 0px;width: calc(100% - 4px);color: white;border-radius: 5px;/* background-color: transparent !important; */transition: all .1s ease;}
 table input:focus {background-color: rgba(255, 255, 255, 0.08);}
@@ -86,10 +92,7 @@ body[data-blur='1'] .a {filter: blur(15px);opacity: 0.15;}
 
 body[data-loaded='1'] .a {transform: scale(1);}
 
-.memoryHeap {color: rgba(255, 255, 255, 0.5);margin-top: 15px;}
-.memoryHeap span {
-    color: rgba(255, 255, 255, 0.9);
-}
+
 .menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
 .menu .links .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
 .menu .links .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
@@ -98,31 +101,26 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .menu .links .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}
 .menu .title {margin-left: 5px;}
 .menu .links .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
-
 .menu .panelWrapper {width: calc(100% - 30px); position: absolute; bottom: 15px; left: 15px;}
 .menu .panel {width: 100%;margin-top: 5px;}
 .menu .panelHalf {width: calc((100% - 10px) / 2);}
 .menu .panelTop {margin-top: 0px;}
 .menu .panelBg {background-color: rgba(255, 255, 255, 0.05);}
 .menu .panelBgHover:hover {background-color: rgba(255, 255, 255, 0.1);}
-
 .menu .panel[data-name='platformChanger'] {}
 .menu .panel[data-name='platformChanger'] .e {margin-right: 1px;width: calc((100% - 2px) / 3);padding: 0px;}
 .menu .panel[data-name='platformChanger'] .e:last-child {margin-right: 0px;}
 .menu .panel[data-name='platformChanger'] .e[data-current='1'] {background-color: rgba(255, 255, 255, 0.95);color: black;}
-
 .menu .panel[data-name='power'] {}
 .menu .panel[data-name='power'] .power {width: 31px;padding: 0;}
 .menu .panel[data-name='power'][data-state='1'] .power {background-color: rgba(255, 255, 255, 0.95); color: black;}
 .menu .panel[data-name='power'] .status {width: calc(100% - 33px);margin-left: 2px;height: 31px;box-sizing: border-box;padding-top: 8px;text-transform: uppercase;color: rgba(255, 255, 255, 0.5);}
-.menu .panel[data-name='power'][data-state='1'] .status {
-    color: rgba(255, 255, 255, 0.9);
-}
+.menu .panel[data-name='power'][data-state='1'] .status {color: rgba(255, 255, 255, 0.9);}
+.menu .memoryHeap {color: rgba(255, 255, 255, 0.5);margin-top: 15px;}
+.menu .memoryHeap span {color: rgba(255, 255, 255, 0.9);}
+
 
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
-
-
-
 
 
 .popup {position: absolute;left: 0;top: 0;width: 100%;height: 100%;/* background-color: hsla(0, 0%, 15%, 0.85); */z-index: 100;opacity: 0;visibility: hidden;transition: all .15s ease-in-out;transform: scale(0.95);}

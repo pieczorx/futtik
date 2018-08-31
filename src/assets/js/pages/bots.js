@@ -43,6 +43,31 @@ class PageBots {
           `
         }},
         {name: 'mail', title: 'Mail', format: row => row.options.mail},
+        {name: 'tradepile', title: '<span title="active | closed | expired | available">Tradepile</span>', format: row => {
+          if(!row.tradePile) {
+            return '-';
+          }
+          const tradePileTypes = ['active', 'closed', 'expired', 'available'];
+          let tradePileCount = {};
+          tradePileTypes.forEach(type => {
+            tradePileCount[type] = 0;
+          });
+          row.tradePile.auctions.forEach(auction => {
+            if(typeof(tradePileCount[auction.tradeState]) != 'undefined') {
+              tradePileCount[auction.tradeState]++;
+            } else {
+              tradePileCount['available']++;
+            }
+          });
+          let finalArray = [];
+          tradePileTypes.forEach(type => {
+            finalArray[finalArray.length] = tradePileCount[type];
+          });
+          finalArray = finalArray.map((value, i) => {
+            return `<span title="${tradePileTypes[i]}">${value}</span>`;
+          })
+          return `<span class="tradePileValues">${finalArray.join(' · ')}</span>`;
+        }},
         {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
         {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '-';}}
       ]
@@ -58,7 +83,7 @@ class PageBots {
       return false;
     });
 
-    autoBuyer.on('update', () => {
+    autoBuyer.on('accountUpdate', () => {
       this.tableAccounts.update();
     });
 
