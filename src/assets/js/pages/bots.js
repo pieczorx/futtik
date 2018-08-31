@@ -22,7 +22,7 @@ class PageBots {
       </div>
       `,
       fields: [
-        {name: 'enabled', title: 'Enabled?', format: (row, i) => {
+        {name: 'enabled', title: 'Status', format: (row, i) => {
           let statuses = ['Disabled', 'Logging in...', 'Logged']
           let status = 0;
           if(row.enabled) {
@@ -33,7 +33,7 @@ class PageBots {
           }
           let statusText = statuses[status];
           if(!power.state && status == 1) {
-            statusText = 'Waiting for login...';
+            statusText = 'Enabled';
           }
           return `
           <div class="activeStatus l" data-status="${status}" data-role="toggleAccountState" data-account-id="${i}">

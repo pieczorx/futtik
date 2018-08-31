@@ -37,12 +37,12 @@ table input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0; /* <
 [data-table='accounts'] .activeStatus {cursor: pointer;position:relative;font-weight: 600;}
 [data-table='accounts'] .activeStatus::after {display: none;border-radius: 20px;position: absolute; content: ''; left: 0; top: 0; border: 2px solid hsl(176, 50%, 45%); width: 16px; height: 16px;}
 [data-table='accounts'] .activeStatus[data-status='0'] {color: rgba(255, 255, 255, 0.33);}
-[data-table='accounts'] .activeStatus[data-status='1'] {color: hsl(178, 83%, 66%);}
+[data-table='accounts'] .activeStatus[data-status='1'] {color: rgba(255, 255, 255, 0.66);}
 [data-table='accounts'] .activeStatus[data-status='1']::after {opacity: 1; visibility: visible;}
 [data-table='accounts'] .activeStatus[data-status='2'] {color: hsl(216, 83%, 66%);}
 [data-table='accounts'] .activeStatus .dot {margin-right: 4px;width: 6px;height: 6px;margin-top: 5px;}
 [data-table='accounts'] .activeStatus[data-status='0'] .dot {background-color: rgba(255, 255, 255, 0.33);}
-[data-table='accounts'] .activeStatus[data-status='1'] .dot {background-color: hsl(178, 83%, 66%);}
+[data-table='accounts'] .activeStatus[data-status='1'] .dot {background-color: rgba(255, 255, 255, 0.66);}
 [data-table='accounts'] .activeStatus[data-status='2'] .dot {background-color: hsl(216, 83%, 66%);}
 
 [data-table-design='players'] td:first-child, [data-table-design='players'] th:first-child {width: 16px;padding: 0px 0px 0px 12px;}
