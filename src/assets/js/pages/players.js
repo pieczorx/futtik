@@ -372,7 +372,6 @@ class PagePlayers {
 
   async loadPlayers() {
     try {
-      console.log('getting players')
       this.players = await fse.readJson(CONFIG.PATH_PLAYERS)
       this.players.map(player => {
         if(!player.current) {
@@ -386,7 +385,7 @@ class PagePlayers {
         }
 
       });
-      console.log('got', this.players)
+      console.log(`Loaded ${this.players.length} players`)
       this.table.update();
     } catch(e) {
       console.log(e)

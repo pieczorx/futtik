@@ -3,7 +3,6 @@ class Table {
     this.filters = {}
     Object.assign(this, info);
     this.filters.page = 1;
-    console.log('filterxds', this.filters)
     let that = this;
 
     $(document).on(`click`, `[data-table='${this.name}'] [data-table-role='loadMore']`, () => {
@@ -182,7 +181,6 @@ class Table {
       if(typeof(field.search) == 'object'){
         fieldType = field.search.type;
       }
-      console.log(field)
       switch(fieldType){
         case 'text':
           inputHTML = `<input placeholder="Search ${field.title}"/>`

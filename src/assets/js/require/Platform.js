@@ -10,7 +10,6 @@ class Platform extends Emitter {
 
   changePlatform(platform) {
     $(`[data-role='platformChanger'] .e`).attr('data-current', 0);
-    console.log(`[data-role='platformChanger'] .e[data-platform='${platform}']`)
     $(`[data-role='platformChanger'] .e[data-platform='${platform}']`).attr('data-current', 1);
     this.current = platform;
     a.reload();

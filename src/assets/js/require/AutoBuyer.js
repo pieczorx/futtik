@@ -465,7 +465,30 @@ class AutoBuyer extends Emitter {
 
   async loadAccounts() {
     try {
-      this.accounts = await fse.readJson(CONFIG.PATH_ACCOUNTS);
+      const accountsFile = await fse.readJson(CONFIG.PATH_ACCOUNTS);
+      console.log(accountsFile);
+      this.accounts = accountsFile.map(account => {
+        const newAccount = {
+          options: account.options,
+          cookies: account.cookies,
+        };
+
+        if(account.coins) {
+          newAccount.coins = account.coins;
+        }
+        if(account.enabled) {
+          newAccount.enabled = true;
+        }
+
+        if(account.tradePile) {
+          newAccount.tradePile = {
+            auctions: account.tradePile.auctions,
+            date: new Date(account.tradePile.date)
+          }
+        }
+
+        return newAccount;
+      });
       for(let i = 0; i < this.accounts.length; i++) {
         this.accounts[i].busy = false;
       }
@@ -479,8 +502,9 @@ class AutoBuyer extends Emitter {
         options: account.options,
         cookies: account.cookies,
         enabled: account.enabled,
+        tradePile: account.tradePile,
+        coins: account.coins
       };
     }));
-    console.log('save accounts', this.accounts);
   }
 }

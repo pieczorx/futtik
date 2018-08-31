@@ -15,7 +15,6 @@ class PagesHandler {
     }
   }
   load(pages, options) {
-    console.log('load pages', pages);
     this.currentPages = pages;
     return new Promise(async (resolve, reject) => {
       if(typeof(pages) == 'string') {
