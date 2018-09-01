@@ -25,46 +25,51 @@ class AutoBuyer extends Emitter {
     }
 
     this.accounts.forEach(account => {
-      try {
-        this.workSingle(account);
-      } catch(e) {
-        console.warn('Account could not work');
-        console.log(e);
-      }
+      this.workSingle(account);
     });
   }
   async workSingle(account) {
-    //Check if account is not busy
-    if(account.busy) {
-      return;
+    try {
+      //Check if account is not busy
+      if(account.busy) {
+        return;
+      }
+
+      //Check if account is enabled
+      if(!account.enabled) {
+        return;
+      }
+
+      //Check if instance was added
+      if(!account.instance) {
+        this.addInstance(account);
+      }
+
+      //Check if account is logged
+      if(await this.workTaskEnsureLogged(account)) {return;}
+
+      //Check for custom tasks
+      if(await this.workTaskCheckCustomTasks(account)) {return;}
+
+      //Pricecheck co 30 minut
+      if(await this.workTaskPriceCheck(account)) {return;}
+
+      //Get tradepile every 2 minutes
+      if(await this.workTaskGetTradePile(account)) {return;}
+
+      //Search for players, buy them and relist them
+      if(await this.workTaskGetTradePile(account)) {return;}
+
+      //No tasks :)
+
+    } catch(e) {
+      logger.logAccount('Account unexpected error', account, {
+        error: e
+      });
+      account.enabled = false;
+      this.free(account, 0);
+      this.emit('accountUpdate');
     }
-
-    //Check if account is enabled
-    if(!account.enabled) {
-      return;
-    }
-
-    //Check if instance was added
-    if(!account.instance) {
-      this.addInstance(account);
-    }
-
-    //Check if account is logged
-    if(await this.workTaskEnsureLogged(account)) {return;}
-
-    //Check for custom tasks
-    if(await this.workTaskCheckCustomTasks(account)) {return;}
-
-    //Pricecheck co 30 minut
-    if(await this.workTaskPriceCheck(account)) {return;}
-
-    //Get tradepile every 2 minutes
-    if(await this.workTaskGetTradePile(account)) {return;}
-
-    //Search for players, buy them and relist them
-    if(await this.workTaskGetTradePile(account)) {return;}
-
-    //No tasks :)
   }
 
   async workTaskEnsureLogged(account) {
@@ -76,7 +81,7 @@ class AutoBuyer extends Emitter {
         }
       }
       this.lastLoginDate = new Date();
-      this.login(account);
+      await this.login(account);
       return true;
     }
     return false;
@@ -131,7 +136,7 @@ class AutoBuyer extends Emitter {
     if(!account.tradePile || (new Date() - account.tradePile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
       this.busy(account)
       let tradePile = await account.instance.getTradePile();
-      console.log('Got tradepile', tradePile);
+      logger.logAccount('Got tradepile', account, {tradePile: tradePile});
       for(let auction of tradePile) {
         switch(auction.tradeState) {
           case 'closed': { //SOLD ITEMS
@@ -159,9 +164,8 @@ class AutoBuyer extends Emitter {
         return auction.tradeState === 'closed';
       });
       if(activeAuctions.length > 0) {
-        console.log('Delete sold auctions');
         const resDeleteAuctions = await account.instance.deleteSoldAuctions();
-        console.log('Auctions deleted');
+        logger.logAccount('Deleted sold auctions');
       }
 
       //Update tradepile to show real results
@@ -200,74 +204,56 @@ class AutoBuyer extends Emitter {
         this.busy(account)
         try {
           const priceBuyNowMax = Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
-
-
           const playersFound = await account.instance.searchTransferMarket({
             baseId: player.id,
             num: CONFIG.TRANSFERMARKET_LIMIT,
             page: 1,
             priceBuyNowMax: priceBuyNowMax
           });
-          if(playersFound.auctions.length > 0) {
-            playersFound.auctions.sort((a, b) => {
-              return a.buyNowPrice - b.buyNowPrice;
-            });
-            const cheapestTrade = playersFound.auctions[0];
-
-            console.warn('kupujemy najtanszego gracza', cheapestTrade);
-
-
-            //Buy player
-            const playerBought = await account.instance.bid({
-              coins: cheapestTrade.buyNowPrice,
-              tradeId: cheapestTrade.tradeId
-            });
-            if(!playerBought) {
-              console.warn('Player already bought');
-              return this.free(account);
-            }
-
-            if(playerBought.length != 1) {
-              throw new Error('Invalid player length');
-            }
-            console.log('Player bought');
-
-            //await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
-
-
-            //Put to tradepile
-            const playerMoved = await account.instance.putToTradepile({
-              itemId: playerBought[0].itemData.id
-            });
-
-            if(!playerMoved) {
-              console.warn('Player was not moved to tradepile');
-              return this.free(account);
-            }
-
-            console.log('OK PLAYER WAS MOVED TO TRADEPILE, WAIT 5 SECONDS');
-
-            //Sell player
-            const playerSold = await account.instance.sell({
-              itemId: playerBought[0].itemData.id, //Here we can put id from playerMoved info
-              priceBuyNow: Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage),
-              priceBid: Utils.calculateNextLowerPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage),
-              duration: 3600
-            });
-            if(playerSold) {
-              console.log('player sold');
-            } else {
-              console.log('could not sell player');
-            }
+          if(playersFound.auctions.length === 0) {
             return this.free(account);
           }
+
+          //Buy player
+          playersFound.auctions.sort((a, b) => {
+            return a.buyNowPrice - b.buyNowPrice;
+          });
+
+          const cheapestTrade = playersFound.auctions[0];
+          await account.instance.bid({
+            coins: cheapestTrade.buyNowPrice,
+            tradeId: cheapestTrade.tradeId
+          });
+          logger.logAccount(`Bought ${player.commonName} for ${formatCoins(priceBuyNow)}`, account);
+
+
+          //Put to tradepile
+          await account.instance.putToTradepile({
+            itemId: playerBought[0].itemData.id
+          });
+          logger.logAccount(`Moved ${player.commonName} to trade pile`, account);
+
+          //Sell player
+          const priceBuyNow = Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage);
+          const priceBid = Utils.calculateNextLowerPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage);
+          await account.instance.sell({
+            itemId: playerBought[0].itemData.id,
+            priceBuyNow: priceBuyNow,
+            priceBid: priceBid,
+            duration: 3600
+          });
+          logger.logAccount(`Listed ${player.commonName} for ${formatCoins(priceBuyNow)}`, account);
+
+          player.lastBuyCheckDate = new Date();
+          player.buyCheckBusy = false;
+
+          return this.free(account);
+
         } catch(e) {
           player.lastBuyCheckDate = new Date();
           player.buyCheckBusy = false;
-          console.warn(e);
         }
-        player.lastBuyCheckDate = new Date();
-        player.buyCheckBusy = false;
+
         this.free(account)
         return true;
       }
@@ -308,6 +294,7 @@ class AutoBuyer extends Emitter {
   cleanUnusedTasks() {
     if(this.cleaningTasks) {
       console.warn('WTF IT HAPPENED XD')
+      return;
     }
     this.cleaningTasks = true;
     let removeValFromIndex = [];
@@ -323,6 +310,7 @@ class AutoBuyer extends Emitter {
 
     this.cleaningTasks = false;
   }
+
   async handleTask(account, task) {
     //Check if task is not finished
     if(task.finished) {
@@ -396,44 +384,36 @@ class AutoBuyer extends Emitter {
     return true;
   }
 
-
-
   addInstance(account) {
     account.instance = new Account(account.options);
     account.instance.on('coinsUpdate', coins => {
-      this.emit('playersUpdate');
+      account.coins = account.instance.coins;
+      this.emit('accountUpdate');
     });
   }
 
   async login(account) {
-    console.log('logging in to account', account);
     this.busy(account);
-    try {
-      if(account.cookies) {
-        account.instance.cookies(account.cookies)
-      }
-      await account.instance.login();
-      //account.logged = true;
-      console.log('logged in', account.options.mail);
-      this.emit('accountUpdate');
-      account.cookies = account.instance.cookies();
-      await account.instance.getMassInfo();
-      this.saveAccounts();
-      account.coins = account.instance.coins;
-      this.emit('accountUpdate');
-      console.log('Got money', account.coins);
-    } catch(e) {
-      console.log('Error with login', account, e);
+
+    if(account.cookies) {
+      account.instance.cookies(account.cookies)
     }
+    await account.instance.login();
+    //account.logged = true;
+    logger.logAccount('Logged in to an account', account);
+    this.emit('accountUpdate');
+    account.cookies = account.instance.cookies();
+    await account.instance.getMassInfo();
+    this.saveAccounts();
+
     this.free(account);
   }
 
   busy(account) {
-    console.log(`[${account.options.mail}] >>>> Busy`);
     account.busy = true;
   }
-  async free(account) {
-    await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+  async free(account, time) {
+    await wait(time || CONFIG.AUTOBUYER_REQUEST_DELAY);
     account.busy = false;
   }
 
@@ -466,7 +446,6 @@ class AutoBuyer extends Emitter {
   async loadAccounts() {
     try {
       const accountsFile = await fse.readJson(CONFIG.PATH_ACCOUNTS);
-      console.log(accountsFile);
       this.accounts = accountsFile.map(account => {
         const newAccount = {
           options: account.options,

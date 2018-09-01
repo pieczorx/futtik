@@ -5,6 +5,9 @@ const fs = require('fs');
 
 const readFile = util.promisify(fs.readFile);
 
+
+const logger = new Logger();
+
 //Add pages
 const memHeap = new MemHeap();
 

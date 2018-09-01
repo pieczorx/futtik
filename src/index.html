@@ -32,6 +32,8 @@
   <script src="assets/js/require/Utils.js"></script>
   <script src="assets/js/require/MemHeap.js"></script>
   <script src="assets/js/require/Exception.js"></script>
+  <script src="assets/js/require/Logger.js"></script>
+  <script src="assets/js/require/formatCoins.js"></script>
 
   <script src="assets/js/pages/bots.js"></script>
   <script src="assets/js/pages/captcha.js"></script>
@@ -49,41 +51,42 @@
   <div class="body">
     <div class="popups">
       <div class="popup" data-popup="addAccount">
-        <form name="addAccount">
-          <div class="w100">
-            <div class="title">Mail:</div>
-            <input type="text" name="mail" placeholder="account@gmail.com" class="radius" value="zpmzhc@cxxz.pl"/>
-          </div>
-          <div class="w100">
-            <div class="title">Password:</div>
-            <input type="text" name="password" placeholder="enter password" class="radius" value="toHFIgPoH4"/>
-          </div>
-          <div class="w100">
-            <div class="title">Secret answer:</div>
-            <input type="text" name="answer" placeholder="enter secret" class="radius" value="aaaa"/>
-          </div>
-          <div class="w100">
-            <div class="title l">Platform:</div>
-            <select name="platform" class="radius">
-              <option value="" disabled selected hidden>Choose platform...</option>
-              <option value="ps3">Playstation 3</option>
-              <option value="ps4">Playstation 4</option>
-              <option value="pc">PC</option>
-              <option value="xone">Xbox One</option>
-              <option value="x360">Xbox 360</option>
+        <div class="center2">
+          <form name="addAccount" class="w100">
+            <div class="w100">
+              <div class="title w100">Mail:</div>
+              <input type="text" name="mail" placeholder="account@gmail.com" class="radius w100" value="zpmzhc@cxxz.pl"/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Password:</div>
+              <input type="text" name="password" placeholder="enter password" class="radius w100" value="toHFIgPoH4"/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Secret answer:</div>
+              <input type="text" name="answer" placeholder="enter secret" class="radius w100" value="aaaa"/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Platform:</div>
+              <select name="platform" class="radius w100">
+                <option value="" disabled selected hidden>Choose platform...</option>
+                <option value="ps3">Playstation 3</option>
+                <option value="ps4">Playstation 4</option>
+                <option value="pc">PC</option>
+                <option value="xone">Xbox One</option>
+                <option value="x360">Xbox 360</option>
 
-            </select>
-          </div>
-          <div class="w100">
-            <div class="title">Two factor secret key:</div>
-            <input type="text" name="twoFactorToken" placeholder="12345678abc" class="radius" value="ajbcy2dyhomge4za"/>
-          </div>
-          <div class="r">
-            <button type="button" class="l radius b3" data-role="hidePopup" data-popup-name="addAccount">Cancel</button>
-            <button type="submit" class="l radius"><i class="fas fa-plus l"></i> Add account</button>
-          </div>
-        </form>
-
+              </select>
+            </div>
+            <div class="w100">
+              <div class="title w100">Two factor secret key:</div>
+              <input type="text" name="twoFactorToken" placeholder="12345678abc" class="radius w100" value="ajbcy2dyhomge4za"/>
+            </div>
+            <div class="w100">
+              <button type="button" class="l radius b3" data-role="hidePopup" data-popup-name="addAccount">Cancel</button>
+              <button type="submit" class="r radius"><i class="fas fa-plus l"></i> Add account</button>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="popup" data-popup="loadingInitial" data-show="1">
         <div class="middle">
