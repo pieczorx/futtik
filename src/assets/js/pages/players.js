@@ -24,10 +24,15 @@ class PagePlayers {
     this.initTables();
 
     autoBuyer.on('playersUpdate', () => {
-      this.tableCurrent.update();
+      this.players = autoBuyer.players;
+      this.updateTables();
     });
   }
-
+  updateTables() {
+    this.table.update();
+    this.tableCurrent.update();
+    this.tableAnalyzer.update();
+  }
   initTables() {
     this.table = new Table({
       getData: () => {
@@ -72,7 +77,7 @@ class PagePlayers {
           let player = this.getPlayerFromId(id);
           player.analyzer[currentPlatform()] = true;
           this.tableAnalyzer.update();
-          this.savePlayers();
+          autoBuyer.savePlayers();
         }
       }
     });
@@ -149,7 +154,7 @@ class PagePlayers {
           let player = this.getPlayerFromId(id);
           player.analyzer[currentPlatform()] = false;
           this.tableAnalyzer.update();
-          this.savePlayers();
+          autoBuyer.savePlayers();
         }
       }
     });
@@ -207,29 +212,23 @@ class PagePlayers {
           let player = this.getPlayerFromId(id);
           player.current[currentPlatform()] = false;
           this.tableCurrent.update();
-          this.savePlayers();
+          autoBuyer.savePlayers();
         }
       }
     });
 
   }
   _load() {
-    this.table.update();
-    this.tableAnalyzer.update();
-    this.tableCurrent.update();
+    this.updateTables();
   }
   getAnalyzerPlayers() {
     return this.players.filter(row => {return row.analyzer ? !!row.analyzer[currentPlatform()] : false;});
   }
 
   getCurrentPlayers() {
-    this.setAutoBuyerPlayers();
     return this.players.filter(row => {return row.current ? row.current[currentPlatform()] : false});
   }
 
-  setAutoBuyerPlayers() {
-    autoBuyer.players = this.players;
-  }
   getPlayerFromId(id) {
     for(let player of this.players) {
       if(player.id == id) {
@@ -238,11 +237,6 @@ class PagePlayers {
     }
   }
   addToAnalyzer() {
-    /*this.playersAnalyzer = tableConverter.getAllData({
-      filters: this.table.filters,
-      rows: this.players,
-      fields: this.table.fields
-    });*/
     let playersToAdd = tableConverter.getAllData({
       filters: this.table.filters,
       rows: this.players,
@@ -255,7 +249,7 @@ class PagePlayers {
     this.tableAnalyzer.update();
 
     a.go('/players/analyzer')
-    this.savePlayers();
+    autoBuyer.savePlayers();
   }
   addToCurrent() {
     let playersToAdd = tableConverter.getAllData({
@@ -270,7 +264,7 @@ class PagePlayers {
     this.tableCurrent.update();
 
     a.go('/players/current')
-    this.savePlayers();
+    autoBuyer.savePlayers();
   }
   async analyze(data) {
     const playersToAnalyze = this.getAnalyzerPlayers();
@@ -295,128 +289,11 @@ class PagePlayers {
     });
   }
 
-  async updateDatabase() {
-    let fetchedAllPages = false;
-    let allPages;
-    let currentPage = 1;
-    let players = [];
-
-    let el = $(`[data-role='playersUpdateDatabase']`);
-    el.attr('data-disabled', 1);
-    el.text('Updating database...')
-    try {
-      while(!fetchedAllPages) {
-
-        const result = await this.fetchSinglePage(currentPage);
-        allPages = result.totalPages;
-        players = players.concat(result.items);
-
-        el.text(`Updating database... (${currentPage}/${allPages})`)
-        if(currentPage >= allPages) { //TODO: TEMPORARY
-          fetchedAllPages = true;
-        } else {
-          currentPage++;
-          await this.wait(500);
-        }
-      }
-      console.log('fetched all players', players)
-      this.players = players;
-      el.text('Database updated!')
-    } catch(e) {
-      el.text('Error')
-    }
-    await this.savePlayers();
-    this.table.update();
-    await this.wait(3000);
-    el.text('Update database')
-    el.attr('data-disabled', 0);
-
-
-  }
-
-  async savePlayers() {
-    let newPlayers = [];
-    this.players.forEach(player => {
-      newPlayers.push({
-        //Important
-        baseId: player.baseId,
-        color: player.color,
-        commonName: player.commonName,
-        firstName: player.firstName,
-        headshot: player.headshot,
-        headshotImgUrl: player.headshotImgUrl,
-        id: player.id,
-        lastName: player.lastName,
-        league: player.league,
-        name: player.name,
-        nation: player.nation,
-        rating: player.rating,
-        club: player.club,
-
-        //Can be useful
-        specialImages: player.specialImages,
-        fitness: player.fitness,
-        position: player.position,
-        quality: player.quality,
-        isSpecialType: player.isSpecialType,
-        itemType: player.itemType,
-        playerType: player.playerType,
-
-        //Custom
-        analyzer: player.analyzer,
-        current: player.current,
-      })
-    });
-    await fse.outputJson(CONFIG.PATH_PLAYERS, newPlayers)
-  }
-
-  async loadPlayers() {
-    try {
-      this.players = await fse.readJson(CONFIG.PATH_PLAYERS)
-      this.players.map(player => {
-        if(!player.current) {
-          player.current = {};
-        }
-        if(!player.analyzer) {
-          player.analyzer = {};
-        }
-        if(!player.lastPriceCheck) {
-          player.lastPriceCheck = {};
-        }
-
-      });
-      console.log(`Loaded ${this.players.length} players`)
-      this.table.update();
-    } catch(e) {
-      console.log(e)
-    }
-  }
-
   wait(time) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve();
       }, time);
     });
-  }
-
-  fetchSinglePage(page) {
-    return new Promise((resolve, reject) => {
-      const url = util.format(CONFIG.URL_DATABASE, page);
-      request({
-        url,
-        json: true
-      }, (err, res, body) => {
-        if(!err) {
-          console.log('fetched page ', page);
-          resolve(body)
-        } else {
-          console.log('wystapil blad', err);
-          reject(err)
-        }
-
-      })
-    });
-
   }
 }

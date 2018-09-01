@@ -33,13 +33,12 @@ class Table {
       that.changeFilters();
     });
 
-    $(document).on(`keyup mouseup change`, `[data-table='${this.name}'] [data-table-role='filter'][data-type='numericFromTo'] input`, function() {
+    $(document).on(`keyup change`, `[data-table='${this.name}'] [data-table-role='filter'][data-type='numericFromTo'] input`, function() {
       const name = $(this).closest(`[data-table-role='filter']`).attr('data-name');
       const valueFrom = $(this).closest(`[data-table-role='filter']`).find(`input[data-type='from']`).val();
       const valueTo = $(this).closest(`[data-table-role='filter']`).find(`input[data-type='to']`).val();
 
       const value = [valueFrom, valueTo];
-      console.log(value)
       that.filters[name] = value;
       that.changeFilters();
     });

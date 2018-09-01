@@ -122,7 +122,10 @@ class AutoBuyer extends Emitter {
                 priceBuyNowAverage: res.buyNowPriceAverage,
                 date: new Date()
               }
-              logger.logAccount(`Price check complete for ${player.commonName}. Average price: ${res.buyNowPriceAverage}`);
+
+              logger.logAccount(`Price check complete for ${player.name}. Average price: ${res.buyNowPriceAverage}` {
+                player: player
+              });
               this.emit('playersUpdate');
             },
             //priority: -1
@@ -212,7 +215,10 @@ class AutoBuyer extends Emitter {
             priceBuyNowMax: priceBuyNowMax
           });
           if(playersFound.auctions.length === 0) {
-            return this.free(account);
+            player.lastBuyCheckDate = new Date();
+            player.buyCheckBusy = false;
+            this.free(account)
+            return true;
           }
 
           //Buy player
@@ -221,18 +227,18 @@ class AutoBuyer extends Emitter {
           });
 
           const cheapestTrade = playersFound.auctions[0];
-          await account.instance.bid({
+          const playerBought = await account.instance.bid({
             coins: cheapestTrade.buyNowPrice,
             tradeId: cheapestTrade.tradeId
           });
-          logger.logAccount(`Bought ${player.commonName} for ${formatCoins(priceBuyNow)}`, account);
+          logger.logAccount(`Bought ${player.name} for ${formatCoins(cheapestTrade.buyNowPrice)}`, account);
 
 
           //Put to tradepile
           await account.instance.putToTradepile({
             itemId: playerBought[0].itemData.id
           });
-          logger.logAccount(`Moved ${player.commonName} to trade pile`, account);
+          logger.logAccount(`Moved ${player.name} to trade pile`, account);
 
           //Sell player
           const priceBuyNow = Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage);
@@ -243,19 +249,18 @@ class AutoBuyer extends Emitter {
             priceBid: priceBid,
             duration: 3600
           });
-          logger.logAccount(`Listed ${player.commonName} for ${formatCoins(priceBuyNow)}`, account);
-
-          player.lastBuyCheckDate = new Date();
-          player.buyCheckBusy = false;
-
-          return this.free(account);
-
+          logger.logAccount(`Listed ${player.name} for ${formatCoins(priceBuyNow)}`, account);
         } catch(e) {
           player.lastBuyCheckDate = new Date();
           player.buyCheckBusy = false;
+          this.free(account)
+          throw e;
         }
 
+        player.lastBuyCheckDate = new Date();
+        player.buyCheckBusy = false;
         this.free(account)
+        this.emit('playersUpdate');
         return true;
       }
     }
@@ -427,6 +432,7 @@ class AutoBuyer extends Emitter {
   init() {
     return new Promise(async (resolve, reject) => {
       await this.loadAccounts();
+      await this.loadPlayers();
       resolve();
     });
   }
@@ -486,5 +492,117 @@ class AutoBuyer extends Emitter {
         coins: account.coins
       };
     }));
+  }
+
+  async loadPlayers() {
+    try {
+      this.players = await fse.readJson(CONFIG.PATH_PLAYERS)
+      this.players.map(player => {
+        if(!player.current) {
+          player.current = {};
+        }
+        if(!player.analyzer) {
+          player.analyzer = {};
+        }
+        if(!player.lastPriceCheck) {
+          player.lastPriceCheck = {};
+        }
+
+      });
+      console.log(`Loaded ${this.players.length} players`)
+      this.emit('playersUpdate');
+    } catch(e) {
+      console.log(e)
+    }
+  }
+
+  async savePlayers() {
+    let newPlayers = [];
+    this.players.forEach(player => {
+      newPlayers.push({
+        //Important
+        baseId: player.baseId,
+        color: player.color,
+        commonName: player.commonName,
+        firstName: player.firstName,
+        headshot: player.headshot,
+        headshotImgUrl: player.headshotImgUrl,
+        id: player.id,
+        lastName: player.lastName,
+        league: player.league,
+        name: player.name,
+        nation: player.nation,
+        rating: player.rating,
+        club: player.club,
+
+        //Can be useful
+        specialImages: player.specialImages,
+        fitness: player.fitness,
+        position: player.position,
+        quality: player.quality,
+        isSpecialType: player.isSpecialType,
+        itemType: player.itemType,
+        playerType: player.playerType,
+
+        //Custom
+        analyzer: player.analyzer,
+        current: player.current,
+      })
+    });
+    await fse.outputJson(CONFIG.PATH_PLAYERS, newPlayers)
+  }
+
+  async updateDatabase() {
+    let fetchedAllPages = false;
+    let allPages;
+    let currentPage = 1;
+    let players = [];
+
+    let el = $(`[data-role='playersUpdateDatabase']`);
+    el.attr('data-disabled', 1);
+    el.text('Updating database...')
+    try {
+      while(!fetchedAllPages) {
+
+        const result = await this.fetchSinglePage(currentPage);
+        allPages = result.totalPages;
+        players = players.concat(result.items);
+
+        el.text(`Updating database... (${currentPage}/${allPages})`)
+        if(currentPage >= allPages) { //TODO: TEMPORARY
+          fetchedAllPages = true;
+        } else {
+          currentPage++;
+          await this.wait(500);
+        }
+      }
+      console.log('fetched all players', players)
+      this.players = players;
+      el.text('Database updated!')
+    } catch(e) {
+      el.text('Error')
+    }
+    await this.savePlayers();
+    this.table.update();
+    await this.wait(3000);
+    el.text('Update database')
+    el.attr('data-disabled', 0);
+  }
+  fetchSinglePage(page) {
+    return new Promise((resolve, reject) => {
+      const url = util.format(CONFIG.URL_DATABASE, page);
+      request({
+        url,
+        json: true
+      }, (err, res, body) => {
+        if(!err) {
+          resolve(body)
+        } else {
+          reject(err)
+        }
+
+      })
+    });
+
   }
 }

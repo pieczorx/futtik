@@ -66,8 +66,6 @@ const start = async () => {
   await autoBuyer.init();
   await a.go('/bots');
 
-  await pages.players.loadPlayers();
-
   pltfrm.changePlatform('xone');
 
   await wait(1500);
