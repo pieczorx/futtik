@@ -58,7 +58,7 @@ class AutoBuyer extends Emitter {
       if(await this.workTaskGetTradePile(account)) {return;}
 
       //Search for players, buy them and relist them
-      if(await this.workTaskGetTradePile(account)) {return;}
+      if(await this.workTaskSearchAndBuy(account)) {return;}
 
       //No tasks :)
 
@@ -122,6 +122,7 @@ class AutoBuyer extends Emitter {
                 priceBuyNowAverage: res.buyNowPriceAverage,
                 date: new Date()
               }
+              logger.logAccount(`Price check complete for ${player.commonName}. Average price: ${res.buyNowPriceAverage}`);
               this.emit('playersUpdate');
             },
             //priority: -1
@@ -165,7 +166,7 @@ class AutoBuyer extends Emitter {
       });
       if(activeAuctions.length > 0) {
         const resDeleteAuctions = await account.instance.deleteSoldAuctions();
-        logger.logAccount('Deleted sold auctions');
+        logger.logAccount('Deleted sold auctions', account);
       }
 
       //Update tradepile to show real results
@@ -180,7 +181,7 @@ class AutoBuyer extends Emitter {
     }
     return false;
   }
-  async taskSearchAndBuy(account) {
+  async workTaskSearchAndBuy(account) {
     const platform = account.options.platform;
     const playersPlatform = this.players.filter(player => {
       return player.current ? player.current[platform] : false;
