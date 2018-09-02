@@ -386,6 +386,9 @@ class Account extends Emitter {
         json: true,
         ut: true
       })
+      this.getCoinsFromCurrencies(data.body.currencies);
+      return data.body.auctionInfo;
+
     } catch(e) {
       if(e.message === 'PERMISSION_DENIED') {
         throw new Error('PLAYER_ALREADY_BOUGHT');
@@ -394,8 +397,7 @@ class Account extends Emitter {
       }
     }
 
-    this.getCoinsFromCurrencies(data.body.currencies);
-    return data.body.auctionInfo;
+
   }
   async relistAuctions() {
     const url = `${this.utas}/ut/game/fifa18/auctionhouse/relist`

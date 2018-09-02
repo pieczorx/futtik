@@ -254,6 +254,27 @@ class PagePlayers {
           }
         },
         {
+          title: 'Profit',
+          name: 'profit',
+          search: {
+            type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+                return autoBuyer.getPlayerProfit(row, currentPlatform());
+              }
+              return false;
+            }
+          },
+          format: (row) => {
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerProfit(row, currentPlatform()))}</span>
+              `
+            }
+            return '-';
+          }
+        },
+        {
           title: '',
           name: 'remove',
           type: 'action',
@@ -329,7 +350,7 @@ class PagePlayers {
     playersToAnalyze.forEach(async (player) => {
       const res = await autoBuyer.performTask({
         type: 'priceCheck',
-        baseId: player.id,
+        player: player,
         pageMax: parseInt(data.pagesMax),
         cheapestItemsQuantity: data.cheapestItemsQuantity,
         platform: currentPlatform()

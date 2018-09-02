@@ -20,6 +20,16 @@ class AutoBuyer extends Emitter {
     return Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
   }
 
+  getPlayerProfit(player, platform) {
+    const buyPrice = this.getPlayerBuyPrice(player, platform)
+    const sellPrice = this.getPlayerSellPrice(player, platform)
+    return this.getProfit(buyPrice, sellPrice);
+  }
+
+  getProfit(buyPrice, sellPrice) {
+    return sellPrice * (1 - CONFIG.EA_COMMISSION) - buyPrice;
+  }
+
   //Works
   work() {
     //Check if accounts are on globally
@@ -100,8 +110,7 @@ class AutoBuyer extends Emitter {
         logger.logAccount(`Account unexpected error ${e.message}`, account, {
           error: e
         });
-
-        account.enabled = false;
+        power.updateState(false);
         this.emit('accountUpdate');
         this.free(account, 0)
       }
@@ -242,68 +251,74 @@ class AutoBuyer extends Emitter {
       return lastBuyCheckDate.a - lastBuyCheckDate.b;
     });
     for(let player of playersPlatform) {
+
       if(!player.buyCheckBusy && player.lastPriceCheck && player.lastPriceCheck[platform]) {
-        player.buyCheckBusy = true;
-        this.busyMessage(account, 'Searching...');
-        this.busy(account)
-        try {
-          const priceBuyNowMax = this.getPlayerBuyPrice(player, platform);
-          const playersFound = await account.instance.searchTransferMarket({
-            baseId: player.id,
-            num: CONFIG.TRANSFERMARKET_LIMIT,
-            page: 1,
-            priceBuyNowMax: priceBuyNowMax
-          });
-          if(playersFound.auctions.length === 0) {
+        const priceBuyNowMax = this.getPlayerBuyPrice(player, platform);
+        const priceSell = this.getPlayerSellPrice(player, platform);
+        const profit = this.getProfit(priceBuyNowMax, priceSell);
+        
+        if(account.coins >= priceBuyNowMax) {
+          player.buyCheckBusy = true;
+          this.busyMessage(account, 'Searching...');
+          this.busy(account)
+          try {
+
+            const playersFound = await account.instance.searchTransferMarket({
+              baseId: player.id,
+              num: CONFIG.TRANSFERMARKET_LIMIT,
+              page: 1,
+              priceBuyNowMax: priceBuyNowMax
+            });
+            if(playersFound.auctions.length === 0) {
+              player.lastBuyCheckDate = new Date();
+              player.buyCheckBusy = false;
+              this.free(account)
+              return true;
+            }
+
+            //Buy player
+            playersFound.auctions.sort((a, b) => {
+              return a.buyNowPrice - b.buyNowPrice;
+            });
+
+            const cheapestTrade = playersFound.auctions[0];
+            this.busyMessage(account, 'Buying');
+            const playerBought = await account.instance.bid({
+              coins: cheapestTrade.buyNowPrice,
+              tradeId: cheapestTrade.tradeId
+            });
+            logger.logAccount(`Bought ${player.name} for ${formatCoins(cheapestTrade.buyNowPrice)}`, account);
+
+
+            //Put to tradepile
+            await account.instance.putToTradepile({
+              itemId: playerBought[0].itemData.id
+            });
+            logger.logAccount(`Moved ${player.name} to trade pile`, account);
+
+            //List player for sell
+            const priceBid = Utils.calculateNextLowerPrice(priceSell);
+            this.busyMessage(account, 'Selling');
+            await account.instance.sell({
+              itemId: playerBought[0].itemData.id,
+              priceBuyNow: priceSell,
+              priceBid: priceBid,
+              duration: 3600
+            });
+            logger.logAccount(`Listed ${player.name} for ${formatCoins(priceSell)}`, account);
+          } catch(e) {
             player.lastBuyCheckDate = new Date();
             player.buyCheckBusy = false;
             this.free(account)
-            return true;
+            throw e;
           }
 
-          //Buy player
-          playersFound.auctions.sort((a, b) => {
-            return a.buyNowPrice - b.buyNowPrice;
-          });
-
-          const cheapestTrade = playersFound.auctions[0];
-          this.busyMessage(account, 'Buying');
-          const playerBought = await account.instance.bid({
-            coins: cheapestTrade.buyNowPrice,
-            tradeId: cheapestTrade.tradeId
-          });
-          logger.logAccount(`Bought ${player.name} for ${formatCoins(cheapestTrade.buyNowPrice)}`, account);
-
-
-          //Put to tradepile
-          await account.instance.putToTradepile({
-            itemId: playerBought[0].itemData.id
-          });
-          logger.logAccount(`Moved ${player.name} to trade pile`, account);
-
-          //List player for sell
-          const priceBuyNow = this.getPlayerSellPrice(player, platform);
-          const priceBid = Utils.calculateNextLowerPrice(priceBuyNow);
-          this.busyMessage(account, 'Selling');
-          await account.instance.sell({
-            itemId: playerBought[0].itemData.id,
-            priceBuyNow: priceBuyNow,
-            priceBid: priceBid,
-            duration: 3600
-          });
-          logger.logAccount(`Listed ${player.name} for ${formatCoins(priceBuyNow)}`, account);
-        } catch(e) {
           player.lastBuyCheckDate = new Date();
           player.buyCheckBusy = false;
           this.free(account)
-          throw e;
+          this.emit('playersUpdate');
+          return true;
         }
-
-        player.lastBuyCheckDate = new Date();
-        player.buyCheckBusy = false;
-        this.free(account)
-        this.emit('playersUpdate');
-        return true;
       }
     }
     return false;
@@ -398,7 +413,7 @@ class AutoBuyer extends Emitter {
     if(!task.auctions) {
       task.auctions = [];
     }
-    this.busyMessage(account, `Price checking (${task.page / task.pageMax})`);
+    this.busyMessage(account, `Price checking (${task.page} / ${task.pageMax})`);
     const response = await account.instance.searchTransferMarket({
       page: task.page,
       baseId: task.player.id,
@@ -478,7 +493,6 @@ class AutoBuyer extends Emitter {
     this.emit('accountUpdate');
   }
   toggleAccountState(account, state) {
-    console.log('tg1', account, state);
     if(typeof(state) === 'undefined') {
       state = !account.enabled;
     }
@@ -488,7 +502,6 @@ class AutoBuyer extends Emitter {
   }
 
   toggleAccountBuyState(account, state) {
-    console.log('tg2', account, state);
     if(typeof(state) === 'undefined') {
       state = !account.buy;
     }
