@@ -140,8 +140,8 @@ body[data-loaded='1'] .a {transform: scale(1);}
 [data-small-menu='1'] .menu .memoryHeap {display: none;}
 .menu .memoryHeap span {color: rgba(255, 255, 255, 0.9);}
 
-.smallMenuSwitch {position: absolute;color: white;position: absolute;height: 100%;right: 0px;width: 20px;top: 0;overflow: hidden;}
-.smallMenuSwitch .wrapper {cursor: pointer;background-color: hsl(216, 83%, 55%);border-radius: 100px;width: 16px;height: 32px;top: 50%;position: absolute;font-size: 12px;right: -16px;transition: right .25s ease;}
+.smallMenuSwitch {position: absolute;color: white;position: absolute;height: 64px;right: 0px;width: 20px;top: 0;overflow: hidden;top: 50%;transform: translateY(-50%);}
+.smallMenuSwitch .wrapper {cursor: pointer;background-color: hsl(216, 83%, 55%);border-radius: 100px;width: 16px;height: 32px;position: absolute;font-size: 12px;right: -16px;transition: right .25s ease;top: 50%;transform: translateY(-50%);}
 .smallMenuSwitch .wrapper:hover {background-color: hsl(216, 83%, 60%);}
 .smallMenuSwitch:hover .wrapper {right: 0px;}
 [data-small-menu='1'] .smallMenuSwitch {right: -20px;}
