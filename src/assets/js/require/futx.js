@@ -383,7 +383,8 @@ class Account extends Emitter {
           bid: p.coins,
         },
         sendJson: true,
-        json: true
+        json: true,
+        ut: true
       })
     } catch(e) {
       if(e.message === 'PERMISSION_DENIED') {
@@ -399,7 +400,8 @@ class Account extends Emitter {
   async relistAuctions() {
     const url = `${this.utas}/ut/game/fifa18/auctionhouse/relist`
     const data = await this.put(url, {
-      json: true
+      json: true,
+      ut: true
     })
     return data.tradeIdList;
     /*
@@ -414,7 +416,8 @@ class Account extends Emitter {
   async getTradePile() {
     const url = `${this.utas}/ut/game/fifa18/tradepile`
     const data = await this.get(url, {
-      json: true
+      json: true,
+      ut: true
     })
 
     this.updateCoins(data.body.credits);
@@ -650,9 +653,9 @@ class Account extends Emitter {
             //521 - error (unknown but it's always related with too many requests)
 
             if(futxErrors[res.statusCode]) {
-              throw new Error(futxErrors[res.statusCode]);
+              return reject(futxErrors[res.statusCode]);
             }
-            throw new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`);
+            return reject(`INVALID_RESPONSE_CODE_${res.statusCode}`);
           }
 
           if(options.json) {

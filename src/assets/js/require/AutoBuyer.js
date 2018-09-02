@@ -145,28 +145,24 @@ class AutoBuyer extends Emitter {
       if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= CONFIG.PRICE_CHECK_INTERVAL) {
         const taskAlreadyAdded = this.findTask({
           type: 'priceCheck',
-          baseId: player.id,
+          player: player,
           platform: platform,
           taskSource: 'defaultPriceCheck',
         })
         if(!taskAlreadyAdded) {
           this.addTask({
             type: 'priceCheck',
-            baseId: player.id,
+            player: player,
             pageMax: CONFIG.PRICE_CHECK_PAGES,
             cheapestItemsQuantity: CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY,
             platform: platform,
             account: account,
             taskSource: 'defaultPriceCheck',
-            onComplete: (res) => {
+            onComplete: (res, account) => {
               player.lastPriceCheck[platform] = {
                 priceBuyNowAverage: res.buyNowPriceAverage,
                 date: new Date()
               }
-
-              logger.log(`Price check complete for ${player.name}. Average price: ${res.buyNowPriceAverage}`, {
-                player: player
-              });
               this.emit('playersUpdate');
             },
             //priority: -1
@@ -400,7 +396,7 @@ class AutoBuyer extends Emitter {
 
     const response = await account.instance.searchTransferMarket({
       page: task.page,
-      baseId: task.baseId,
+      baseId: task.player.id,
       limit: CONFIG.TRANSFERMARKET_LIMIT
     });
 
@@ -422,6 +418,9 @@ class AutoBuyer extends Emitter {
         auctions: task.auctions,
         buyNowPriceAverage: (task.auctions.slice(0, task.cheapestItemsQuantity)).reduce((p, c) => p + c.buyNowPrice, 0) / task.cheapestItemsQuantity
       }
+      logger.logAccount(`Price check complete for ${task.player.name}. Average price: ${task.result.buyNowPriceAverage}`, account, {
+        player: task.player
+      });
       this.finishTask(task);
     } else {
       task.page++;
