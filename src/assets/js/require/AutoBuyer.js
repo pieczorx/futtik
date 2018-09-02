@@ -88,11 +88,11 @@ class AutoBuyer extends Emitter {
           this.emit('accountUpdate');
           break;
         }
-        /*case 'NOT_ENOUGH_CREDIT': {
-
+        case 'NOT_ENOUGH_CREDIT': {
+          console.error('wszystko jest ok xD');
 
           break;
-        }*/
+        }
         default: {
           errorSolved = false;
           break;
