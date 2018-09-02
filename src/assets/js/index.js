@@ -7,6 +7,7 @@ const readFile = util.promisify(fs.readFile);
 
 const checkbox = new Checkbox();
 const logger = new Logger();
+const smallMenu = new SmallMenu();
 
 //Add pages
 const memHeap = new MemHeap();

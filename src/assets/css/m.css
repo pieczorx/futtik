@@ -104,7 +104,7 @@ button.buttonRed:hover, button.buttonRed:active {background-color: hsl(4, 83%, 6
 body[data-loaded='1'] .a {transform: scale(1);}
 
 
-.menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
+.menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;/* overflow: hidden; *//* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
 [data-small-menu='1'] .menu {width: 40px}
 .menu .links .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
 [data-small-menu='1'] .menu .links .e {padding: 10px 0px; text-align: center;}
@@ -139,6 +139,21 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .menu .memoryHeap {color: rgba(255, 255, 255, 0.5);margin-top: 15px;}
 [data-small-menu='1'] .menu .memoryHeap {display: none;}
 .menu .memoryHeap span {color: rgba(255, 255, 255, 0.9);}
+
+.smallMenuSwitch {position: absolute;color: white;position: absolute;height: 100%;right: 0px;width: 20px;top: 0;overflow: hidden;}
+.smallMenuSwitch .wrapper {cursor: pointer;background-color: hsl(216, 83%, 55%);border-radius: 100px;width: 16px;height: 32px;top: 50%;position: absolute;font-size: 12px;right: -16px;transition: right .25s ease;}
+.smallMenuSwitch .wrapper:hover {background-color: hsl(216, 83%, 60%);}
+.smallMenuSwitch:hover .wrapper {right: 0px;}
+[data-small-menu='1'] .smallMenuSwitch {right: -20px;}
+
+[data-small-menu='0'] .smallMenuSwitch .wrapper {border-top-right-radius:0px;border-bottom-right-radius:0px;}
+[data-small-menu='1'] .smallMenuSwitch .wrapper {right: 20px;border-top-left-radius:0px;border-bottom-left-radius:0px;}
+[data-small-menu='1'] .smallMenuSwitch:hover .wrapper {right: 4px;}
+
+.smallMenuSwitch i {position: absolute;top: 10px;left: 6px;}
+.smallMenuSwitch i[data-status='1'] {opacity: 0;left: 4px;}
+[data-small-menu='1'] .smallMenuSwitch i[data-status='1'] {opacity: 1;}
+[data-small-menu='1'] .smallMenuSwitch i[data-status='0'] {opacity: 0;}
 
 
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
