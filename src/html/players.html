@@ -1,0 +1,79 @@
+<div class="subMenu w100">
+  <a class="e" href="/players/current" data-a-args="players,current"><i class="fas fa-user-tie"></i> Current list (<span data-table-role="countAll" data-table-name="playersCurrent">0</span>)</a>
+  <a class="e" href="/players" data-a-args="players,"><i class="fas fa-database"></i> Database (<span data-table-role="countAll" data-table-name="players">0</span>)</a>
+  <a class="e" href="/players/analyzer" data-a-args="players,analyzer"><i class="fas fa-crosshairs"></i> Analyzer (<span data-table-role="countAll" data-table-name="playersAnalyzer">0</span>)</a>
+</div>
+
+<div class="sSub" data-a-args="players,">
+  <div class="center">
+    <div class="w100">
+      <div class="l">
+        <div class="paging l">
+          <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="players"><i class="far fa-angle-left iconBig"></i></button>
+          <button class="b2 radius l" data-table-role="pagingNext" data-table-name="players"><i class="far fa-angle-right iconBig"></i></button>
+        </div>
+      </div>
+      <div class="r">
+        <button type="submit" class="l radius" data-role="playersAddToAnalyzer"><i class="far fa-user-plus"></i> Add to analyzer (<span data-table-role="countAllSelected" data-table-name="players">0</span>)</button>
+        <button type="submit" class="l radius" data-role="playersUpdateDatabase"><i class="far fa-sync-alt"></i> Update database</button>
+
+      </div>
+    </div>
+    <div data-table="players" data-table-design="players" class="w100"></div>
+  </div>
+</div>
+<div class="sSub" data-name="analyzer" data-a-args="players,analyzer">
+  <div class="center">
+    <div class="lay layAnalyzer l">
+      <form name="playersAnalyzer">
+        <div class="options w100">
+          <div class="w100">
+            <div class="title w100">Pages to check:</div>
+            <input type="number" name="pagesMax" class="radius w100" value="6"/>
+          </div>
+          <div class="w100">
+            <div class="title w100">Cheapest items quantity:</div>
+            <input type="number" name="cheapestItemsQuantity" class="radius w100" value="3"/>
+          </div>
+
+        </div>
+
+        <div class="r">
+          <button type="submit" class="l radius"><i class="fas fa-search"></i> Analyze</button>
+        </div>
+      </form>
+    </div>
+    <div class="lay layAnalyzer l">
+      <div class="w100">
+        <div class="l">
+          <div class="paging l">
+            <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="playersAnalyzer"><i class="far fa-angle-left iconBig"></i></button>
+            <button class="b2 radius l" data-table-role="pagingNext" data-table-name="playersAnalyzer"><i class="far fa-angle-right iconBig"></i></button>
+          </div>
+        </div>
+        <div class="r">
+          <button type="submit" class="l radius" data-role="playersAddToCurrent"><i class="far fa-user-plus"></i> Add to list (<span data-table-role="countAllSelected" data-table-name="playersAnalyzer">0</span>)</button>
+        </div>
+      </div>
+      <div data-table="playersAnalyzer" data-table-design="players" class="w100"></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sSub" data-a-args="players,current">
+  <div class="center">
+    <div class="w100">
+      <div class="l">
+        <div class="paging l">
+          <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="playersCurrent"><i class="far fa-angle-left iconBig"></i></button>
+          <button class="b2 radius l" data-table-role="pagingNext" data-table-name="playersCurrent"><i class="far fa-angle-right iconBig"></i></button>
+        </div>
+      </div>
+      <div class="r">
+
+      </div>
+    </div>
+    <div data-table="playersCurrent" data-table-design="players" class="w100"></div>
+  </div>
+</div>

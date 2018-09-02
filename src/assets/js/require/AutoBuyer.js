@@ -123,7 +123,7 @@ class AutoBuyer extends Emitter {
                 date: new Date()
               }
 
-              logger.logAccount(`Price check complete for ${player.name}. Average price: ${res.buyNowPriceAverage}` {
+              logger.log(`Price check complete for ${player.name}. Average price: ${res.buyNowPriceAverage}`, {
                 player: player
               });
               this.emit('playersUpdate');

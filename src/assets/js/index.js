@@ -75,13 +75,24 @@ const start = async () => {
 
 $(document).ready(start);
 
-
-
-
-a.use((r, next) => {
-  r.set_data_args();
+let currentPageFirstArg;
+let timeoutClearPreviousPageContent;
+a.use(async (r, next) => {
+  clearTimeout(timeoutClearPreviousPageContent);
+  if(currentPageFirstArg != r.args[0]) {
+    if(currentPageFirstArg) {
+      r.removePreviousContentArg = r.args[0];
+    }
+    currentPageFirstArg = r.args[0]
+    if($(`.s[data-name='${r.args[0]}']`).length == 0) {
+      let content = await readFile(`${__dirname}/html/${currentPageFirstArg}.html`)
+      console.log('Loaded ' + currentPageFirstArg);
+      content = `<div class="s" data-name="${currentPageFirstArg}" data-a-args="${currentPageFirstArg}">${content}</div>`
+      $(".c").append(content);
+    }
+  }
   next();
-})
+});
 
 
 a.get('/bots', async (r, next) => {
@@ -102,6 +113,17 @@ a.get('/players/*', async (r, next) => {
   await pageHandler.load('players');
   next();
 });
+a.use(async(r, next) => {
+  await wait(15);
+  r.set_data_args();
+  if(r.removePreviousContentArg) {
+    console.log('Remove pls ' + r.removePreviousContentArg);
+    timeoutClearPreviousPageContent = setTimeout(() => {
+      $(".s").not(`[data-name='${r.removePreviousContentArg}']`).remove();
+    }, 1000);
+  }
+  next();
+})
 a.use((r, next) => {
   next();
 })
