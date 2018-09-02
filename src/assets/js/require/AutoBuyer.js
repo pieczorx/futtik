@@ -83,7 +83,7 @@ class AutoBuyer extends Emitter {
           console.log('CAPTCHA DETECTED XDDD');
           break;
         }
-        case 'LOGGED_OFF': {
+        case 'UNAUTHORIZED': {
           account.logged = false;
           this.emit('accountUpdate');
           break;
@@ -102,9 +102,10 @@ class AutoBuyer extends Emitter {
         this.free(account);
 
       } else {
-        logger.logAccount('Account unexpected error', account, {
+        logger.logAccount(`Account unexpected error ${e.message}`, account, {
           error: e
         });
+
         account.enabled = false;
         this.emit('accountUpdate');
         this.free(account, 0)

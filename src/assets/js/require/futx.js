@@ -378,7 +378,7 @@ class Account extends Emitter {
   async bid(p) {
     const url = `${this.utas}/ut/game/fifa18/trade/${p.tradeId}/bid?sku_b=FFT18`
     try {
-      const body = await this.put(url, {
+      const data = await this.put(url, {
         form: {
           bid: p.coins,
         },
@@ -394,8 +394,8 @@ class Account extends Emitter {
       }
     }
 
-    this.getCoinsFromCurrencies(body.currencies);
-    return body.auctionInfo;
+    this.getCoinsFromCurrencies(data.body.currencies);
+    return data.body.auctionInfo;
   }
   async relistAuctions() {
     const url = `${this.utas}/ut/game/fifa18/auctionhouse/relist`
@@ -642,10 +642,12 @@ class Account extends Emitter {
             }
           }
 
+
+
           if(options.ut && res.statusCode !== 200) {
             //458 - puzzle captcha
             if(res.statusCode === 358) {
-              return reject('FUN_CAPTCHA_REQUIRED');
+              return reject(new Error('FUN_CAPTCHA_REQUIRED'));
             }
 
             //426 - upgrade required (? XD)
@@ -653,9 +655,9 @@ class Account extends Emitter {
             //521 - error (unknown but it's always related with too many requests)
 
             if(futxErrors[res.statusCode]) {
-              return reject(futxErrors[res.statusCode]);
+              return reject(new Error(futxErrors[res.statusCode]));
             }
-            return reject(`INVALID_RESPONSE_CODE_${res.statusCode}`);
+            return reject(new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`));
           }
 
           if(options.json) {
@@ -663,7 +665,7 @@ class Account extends Emitter {
               body = JSON.parse(body);
               if(body.code == 401) {
                 this.logged = false;
-                return reject('LOGGED_OFF');
+                return reject(new Error('UNAUTHORIZED'));
               }
               //{"message":null,"reason":"expired session","code":401}
             } catch(e) {
