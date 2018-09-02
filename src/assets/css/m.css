@@ -11,7 +11,7 @@ body, button, input {font-family: 'Roboto', sans-serif;}
 
 a {color: hsl(216, 83%, 66%);text-decoration: none;}
 a:hover {text-decoration: underline;}
-table {border-spacing: 0px 1px;width: 100%;font-size:13px;border-radius: 5px;overflow: hidden;}
+table {border-spacing: 0px 1px;width: 100%;font-size:13px;border-radius: 4px;overflow: hidden;}
 
 table tr{background-color: hsla(0, 0%, 100%, 0.04);border: none;}
 table tr:hover {background-color: hsla(0, 0%, 100%, 0.06);}
@@ -23,13 +23,13 @@ table th, table td{padding: 8px 12px; text-align: left}
 table tr:first-child th:first-child{border-top-left-radius: 5px;}
 table tr:first-child th:last-child{border-top-right-radius: 5px;}
 table button {padding: 5px 5px;height: auto;}
-[data-table] .empty {font-size: 15px;display:none;background-color: rgba(255, 255, 255, 0.04);padding: 30px 0px;float: left;width: 100%;border-radius: 5px;border-top-left-radius: 0px;border-top-right-radius: 0px;}
+[data-table] .empty {font-size: 15px;display:none;background-color: rgba(255, 255, 255, 0.04);padding: 30px 0px;float: left;width: 100%;border-radius: 4px;border-top-left-radius: 0px;border-top-right-radius: 0px;}
 [data-table][data-empty='1'] .empty {display: block;}
 [data-table] .empty button {margin-top: 8px;}
 [data-table][data-empty='1'] table {border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;}
 
 [data-table-role='filter'][data-type='numericFromTo'] {}
-[data-table-role='filter'][data-type='numericFromTo'] input {padding: 5px 0px;width: calc(50% - 3px);text-align: center;border-radius: 5px;margin: 5px 2px;box-sizing: border-box;}
+[data-table-role='filter'][data-type='numericFromTo'] input {padding: 5px 0px;width: calc(50% - 3px);text-align: center;border-radius: 4px;margin: 5px 2px;box-sizing: border-box;}
 [data-table-role='filter'][data-type='numericFromTo'] input:first-child {margin-right: 0px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
 [data-table-role='filter'][data-type='numericFromTo'] input:last-child {margin-left: -2px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
 table input::-webkit-outer-spin-button,
@@ -55,7 +55,7 @@ table input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0; /* <
 [data-table] .tradePileValues span:nth-child(4) {color: rgba(255, 255, 255, 0.66);}
 
 input, select {border: none;padding: 0px 8px;outline: none;font-size: 13px;}
-table input {background-color: rgba(255, 255, 255, 0.05);box-sizing: border-box;margin: 7px 2px;padding: 0px;width: calc(100% - 4px);color: white;border-radius: 5px;/* background-color: transparent !important; */transition: all .1s ease;}
+table input {background-color: rgba(255, 255, 255, 0.05);box-sizing: border-box;margin: 7px 2px;padding: 0px;width: calc(100% - 4px);color: white;border-radius: 4px;/* background-color: transparent !important; */transition: all .1s ease;}
 table input:focus {background-color: rgba(255, 255, 255, 0.08);}
 button {transition: all .1s ease;background-color: hsl(216, 83%, 55%);padding: 0px 12px;border: none;color: white;cursor: pointer;font-size: 13px;font-weight: 600;outline: none;height: 31px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 button:hover, button:active {background-color: hsl(216, 83%, 60%)}
@@ -94,14 +94,19 @@ body[data-loaded='1'] .a {transform: scale(1);}
 
 
 .menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;overflow: hidden;/* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
+[data-small-menu='1'] .menu {width: 40px}
 .menu .links .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
+[data-small-menu='1'] .menu .links .e {padding: 10px 0px; text-align: center;}
 .menu .links .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
 .menu .links .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */color: hsla(0, 0%, 100%, 0.9);}
 .menu .links .e:hover {background-color: rgba(0, 0, 0, 0.33);}
 .menu .links .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}
+[data-small-menu='1'] .menu .links .e i {width: 100%;}
 .menu .title {margin-left: 5px;}
+[data-small-menu='1'] .menu .title {display: none;}
 .menu .links .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
 .menu .panelWrapper {width: calc(100% - 30px); position: absolute; bottom: 15px; left: 15px;}
+[data-small-menu='1'] .menu .panelWrapper {width: 100%;left: 0;bottom: 0;}
 .menu .panel {width: 100%;margin-top: 5px;}
 .menu .panelHalf {width: calc((100% - 10px) / 2);}
 .menu .panelTop {margin-top: 0px;}
@@ -109,19 +114,24 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .menu .panelBgHover:hover {background-color: rgba(255, 255, 255, 0.1);}
 .menu .panel[data-name='platformChanger'] {}
 .menu .panel[data-name='platformChanger'] .e {margin-right: 1px;width: calc((100% - 2px) / 3);padding: 0px;}
+[data-small-menu='1'] .menu .panel[data-name='platformChanger'] .e {width: 100%;}
 .menu .panel[data-name='platformChanger'] .e:last-child {margin-right: 0px;}
 .menu .panel[data-name='platformChanger'] .e[data-current='1'] {background-color: rgba(255, 255, 255, 0.95);color: black;}
 .menu .panel[data-name='power'] {}
+[data-small-menu='1'] .menu .radius {border-radius: 0px;}
 .menu .panel[data-name='power'] .power {width: 31px;padding: 0;}
+[data-small-menu='1'] .menu .panel[data-name='power'] .power {width: 100%;}
 .menu .panel[data-name='power'][data-state='1'] .power {background-color: rgba(255, 255, 255, 0.95); color: black;}
 .menu .panel[data-name='power'] .status {width: calc(100% - 33px);margin-left: 2px;height: 31px;box-sizing: border-box;padding-top: 8px;text-transform: uppercase;color: rgba(255, 255, 255, 0.5);}
+[data-small-menu='1'] .menu .panel[data-name='power'] .status {display: none;}
 .menu .panel[data-name='power'][data-state='1'] .status {color: rgba(255, 255, 255, 0.9);}
 .menu .memoryHeap {color: rgba(255, 255, 255, 0.5);margin-top: 15px;}
+[data-small-menu='1'] .menu .memoryHeap {display: none;}
 .menu .memoryHeap span {color: rgba(255, 255, 255, 0.9);}
 
 
 .c {float: left;width: calc(100% - 200px);font-size: 13px;height: 100%;position: relative;margin-left: 200px;box-sizing: border-box;overflow: hidden;}
-
+[data-small-menu='1'] .c {width: calc(100% - 40px);margin-left: 40px;}
 
 .popup {position: absolute;left: 0;top: 0;width: 100%;height: 100%;background-color: hsl(0, 0%, 15%);z-index: 100;opacity: 0;visibility: hidden;transition: all .15s ease-in-out;transform: scale(0.95);}
 .popup[data-show='1'] {opacity: 1;visibility: visible;transform: scale(1) translateX(0);}
