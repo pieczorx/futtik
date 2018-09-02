@@ -172,6 +172,7 @@ class AutoBuyer extends Emitter {
   async workTaskGetTradePile(account) {
     if(!account.tradePile || (new Date() - account.tradePile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
       this.busy(account)
+      this.busyMessage(account, 'Getting tradepile');
       let tradePile = await account.instance.getTradePile();
       logger.logAccount('Got tradepile', account, {tradePile: tradePile});
       for(let auction of tradePile) {
@@ -201,11 +202,13 @@ class AutoBuyer extends Emitter {
         return auction.tradeState === 'closed';
       });
       if(activeAuctions.length > 0) {
+        this.busyMessage(account, 'Deleting sold auctions');
         const resDeleteAuctions = await account.instance.deleteSoldAuctions();
         logger.logAccount('Deleted sold auctions', account);
       }
 
       //Update tradepile to show real results
+      this.busyMessage(account, 'Getting tradepile');
       tradePile = await account.instance.getTradePile();
       account.tradePile = {
         auctions: tradePile,
@@ -218,6 +221,9 @@ class AutoBuyer extends Emitter {
     return false;
   }
   async workTaskSearchAndBuy(account) {
+    if(!account.buy) {
+      return false;
+    }
     const platform = account.options.platform;
     const playersPlatform = this.players.filter(player => {
       return player.current ? player.current[platform] : false;
@@ -238,6 +244,7 @@ class AutoBuyer extends Emitter {
     for(let player of playersPlatform) {
       if(!player.buyCheckBusy && player.lastPriceCheck && player.lastPriceCheck[platform]) {
         player.buyCheckBusy = true;
+        this.busyMessage(account, 'Searching...');
         this.busy(account)
         try {
           const priceBuyNowMax = this.getPlayerBuyPrice(player, platform);
@@ -260,6 +267,7 @@ class AutoBuyer extends Emitter {
           });
 
           const cheapestTrade = playersFound.auctions[0];
+          this.busyMessage(account, 'Buying');
           const playerBought = await account.instance.bid({
             coins: cheapestTrade.buyNowPrice,
             tradeId: cheapestTrade.tradeId
@@ -276,6 +284,7 @@ class AutoBuyer extends Emitter {
           //List player for sell
           const priceBuyNow = this.getPlayerSellPrice(player, platform);
           const priceBid = Utils.calculateNextLowerPrice(priceBuyNow);
+          this.busyMessage(account, 'Selling');
           await account.instance.sell({
             itemId: playerBought[0].itemData.id,
             priceBuyNow: priceBuyNow,
@@ -389,7 +398,7 @@ class AutoBuyer extends Emitter {
     if(!task.auctions) {
       task.auctions = [];
     }
-
+    this.busyMessage(account, `Price checking (${task.page / task.pageMax})`);
     const response = await account.instance.searchTransferMarket({
       page: task.page,
       baseId: task.player.id,
@@ -440,11 +449,13 @@ class AutoBuyer extends Emitter {
     if(account.cookies) {
       account.instance.cookies(account.cookies)
     }
+    this.busyMessage(account, 'Logging in');
     await account.instance.login();
     //account.logged = true;
     logger.logAccount('Logged in to an account', account);
     this.emit('accountUpdate');
     account.cookies = account.instance.cookies();
+    this.busyMessage(account, 'Getting mass info');
     await account.instance.getMassInfo();
     this.saveAccounts();
 
@@ -455,10 +466,17 @@ class AutoBuyer extends Emitter {
     account.busy = true;
   }
   async free(account, time) {
+
     await wait(time || CONFIG.AUTOBUYER_REQUEST_DELAY);
+    this.busyMessage(account, '-');
     account.busy = false;
+
   }
 
+  busyMessage(account, message) {
+    account.message = message;
+    this.emit('accountUpdate');
+  }
   toggleAccountState(account, state) {
     console.log('tg1', account, state);
     if(typeof(state) === 'undefined') {
