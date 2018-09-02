@@ -94,7 +94,6 @@ a.use(async (r, next) => {
     currentPageFirstArg = r.args[0]
     if($(`.s[data-name='${r.args[0]}']`).length == 0) {
       let content = await readFile(`${__dirname}/html/${currentPageFirstArg}.html`)
-      console.log('Loaded ' + currentPageFirstArg);
       content = `<div class="s" data-name="${currentPageFirstArg}" data-a-args="${currentPageFirstArg}">${content}</div>`
       $(".c").append(content);
     }
@@ -126,7 +125,6 @@ a.use(async(r, next) => {
   $("body").attr('data-a-loading', 0)
   r.set_data_args();
   if(r.removePreviousContentArg) {
-    console.log('Remove pls ' + r.removePreviousContentArg);
     timeoutClearPreviousPageContent = setTimeout(() => {
       $(".s").not(`[data-name='${r.removePreviousContentArg}']`).remove();
     }, 1000);
