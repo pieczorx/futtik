@@ -85,7 +85,7 @@ class PagePlayers {
       },
       actions: {
         add: (id) => {
-          let player = this.getPlayerFromId(id);
+          let player = autoBuyer.getPlayerFromId(id);
           player.analyzer[currentPlatform()] = true;
           this.tableAnalyzer.update();
           autoBuyer.savePlayers();
@@ -170,7 +170,7 @@ class PagePlayers {
       actions: {
         remove: (id) => {
           console.warn('remove this id', id);
-          let player = this.getPlayerFromId(id);
+          let player = autoBuyer.getPlayerFromId(id);
           player.analyzer[currentPlatform()] = false;
           this.tableAnalyzer.update();
           autoBuyer.savePlayers();
@@ -268,7 +268,7 @@ class PagePlayers {
       actions: {
         remove: (id) => {
           console.warn('remove this id', id);
-          let player = this.getPlayerFromId(id);
+          let player = autoBuyer.getPlayerFromId(id);
           player.current[currentPlatform()] = false;
           this.tableCurrent.update();
           autoBuyer.savePlayers();
@@ -292,13 +292,7 @@ class PagePlayers {
     return this.players.filter(row => {return row.current ? row.current[currentPlatform()] : false});
   }
 
-  getPlayerFromId(id) {
-    for(let player of this.players) {
-      if(player.id == id) {
-        return player;
-      }
-    }
-  }
+
   addToAnalyzer() {
     let playersToAdd = tableConverter.getAllData({
       filters: this.table.filters,

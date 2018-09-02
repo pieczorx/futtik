@@ -70,6 +70,14 @@ button i.iconBig {font-size: 17px;margin-right: 0px;}
 button.buttonRed {background-color: hsl(4, 83%, 55%);}
 button.buttonRed:hover, button.buttonRed:active {background-color: hsl(4, 83%, 60%);}
 
+.checkbox {}
+.checkbox input {display: none;}
+.checkbox .box {cursor: pointer;background-color: rgba(255, 255, 255, 0.1);width: 16px; height: 16px;display: inline-block;}
+.checkbox .box:hover {background-color: rgba(255, 255, 255, 0.15);}
+.checkbox i {display: none;margin: 3px 0px 0px 3px;font-size: 11px;float: left;}
+.checkbox input:checked + .box {background-color: hsl(216, 83%, 55%);}
+.checkbox input:checked + .box:hover {background-color: hsl(216, 83%, 60%);}
+.checkbox input:checked + .box i {display: block;}
 *::-webkit-scrollbar {width: 10px;height:10px;border-radius: 50px;background-color: rgba(255, 255, 255, 0);transition: all .1s ease-in-out;}
 *::-webkit-scrollbar:hover {background-color: rgba(255, 255, 255, 0);}
 *::-webkit-scrollbar-track {width: 8px;height:8px;border-radius: 0px;background-color: rgb(29, 30, 35);}

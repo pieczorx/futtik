@@ -21,6 +21,7 @@ class PageBots {
         </div>
       </div>
       `,
+      getId: (row) => {return row.options.mail;},
       fields: [
         {name: 'enabled', title: 'Status', format: (row, i) => {
           let statuses = ['Disabled', 'Logging in...', 'Logged']
@@ -42,6 +43,34 @@ class PageBots {
           </div>
           `
         }},
+        {
+          title: 'Enabled',
+          name: 'enabledState',
+          type: 'checkbox',
+          format: (row) => {
+
+            return `
+            <div class="checkbox">
+              <input type="checkbox"${row.enabled ? ` checked="checked"` : ''}>
+              <span class="box radius"><i class="far fa-check"></i></span>
+            </div>
+            `
+          }
+        },
+        {
+          title: 'Buy',
+          name: 'buyState',
+          type: 'checkbox',
+          format: (row) => {
+
+            return `
+            <div class="checkbox">
+              <input type="checkbox"${row.buy ? ` checked="checked"` : ''}>
+              <span class="box radius"><i class="far fa-check"></i></span>
+            </div>
+            `
+          }
+        },
         {name: 'mail', title: 'Mail', format: row => row.options.mail},
         {name: 'tradepile', title: '<span title="active | closed | expired | available">Tradepile</span>', format: row => {
           if(!row.tradePile) {
@@ -70,7 +99,17 @@ class PageBots {
         }},
         {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
         {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? formatCoins(row.coins) : '-';}}
-      ]
+      ],
+      actions: {
+        buyState: (id, state) => {
+          const account = autoBuyer.getAccountFromId(id);
+          autoBuyer.toggleAccountBuyState(account, state);
+        },
+        enabledState: (id, state) => {
+          const account = autoBuyer.getAccountFromId(id);
+          autoBuyer.toggleAccountState(account, state);
+        }
+      }
     });
 
     $(document).on('submit', `form[name='addAccount']`, function() {

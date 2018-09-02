@@ -464,8 +464,23 @@ class AutoBuyer extends Emitter {
     account.busy = false;
   }
 
-  toggleAccountState(account) {
-    account.enabled = !account.enabled;
+  toggleAccountState(account, state) {
+    console.log('tg1', account, state);
+    if(typeof(state) === 'undefined') {
+      state = !account.enabled;
+    }
+    account.enabled = state;
+    this.emit('accountUpdate');
+    this.saveAccounts();
+  }
+
+  toggleAccountBuyState(account, state) {
+    console.log('tg2', account, state);
+    if(typeof(state) === 'undefined') {
+      state = !account.buy;
+    }
+
+    account.buy = state;
     this.emit('accountUpdate');
     this.saveAccounts();
   }
@@ -514,6 +529,8 @@ class AutoBuyer extends Emitter {
           }
         }
 
+        newAccount.buy = account.buy ? true : false;
+
         return newAccount;
       });
       for(let i = 0; i < this.accounts.length; i++) {
@@ -530,7 +547,8 @@ class AutoBuyer extends Emitter {
         cookies: account.cookies,
         enabled: account.enabled,
         tradePile: account.tradePile,
-        coins: account.coins
+        coins: account.coins,
+        buy: account.buy ? true : false
       };
     }));
   }
@@ -592,7 +610,20 @@ class AutoBuyer extends Emitter {
     });
     await fse.outputJson(CONFIG.PATH_PLAYERS, newPlayers)
   }
-
+  getPlayerFromId(id) {
+    for(let player of this.players) {
+      if(player.id == id) {
+        return player;
+      }
+    }
+  }
+  getAccountFromId(id) {
+    for(let account of this.accounts) {
+      if(account.options.mail == id) {
+        return account;
+      }
+    }
+  }
   async updateDatabase() {
     let fetchedAllPages = false;
     let allPages;

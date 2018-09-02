@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const readFile = util.promisify(fs.readFile);
 
-
+const checkbox = new Checkbox();
 const logger = new Logger();
 
 //Add pages

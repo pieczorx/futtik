@@ -44,10 +44,15 @@ class Table {
     });
 
     for(let field of this.fields) {
-      if(field.type == 'action') {
-        $(document).on('click', `[data-table='${this.name}'] [data-table-role='action'] button`, function() {
+      if(field.type == 'action' || field.type == 'checkbox') {
+        $(document).on('click', `[data-table='${this.name}'] [data-table-role='action'][data-field-name='${field.name}'] button`, function() {
           const id = $(this).closest(`[data-table-role='action']`).attr('data-id');
           that.actions[field.name](id);
+        });
+        $(document).on('change', `[data-table='${this.name}'] [data-table-role='action'][data-field-name='${field.name}'] input[type='checkbox']`, function() {
+          const id = $(this).closest(`[data-table-role='action']`).attr('data-id');
+          const state = $(this).prop('checked');
+          that.actions[field.name](id, state);
         });
       }
     }
@@ -240,8 +245,8 @@ class Table {
       if(typeof(field.format) === 'function') {
         value = field.format(row, id);
       }
-      if(field.type == 'action') {
-        value = `<div data-table-role="action" data-id="${this.getId(row)}">${value}</div>`;
+      if(field.type == 'action' || field.type == 'checkbox') {
+        value = `<div data-table-role="action" data-field-name="${field.name}" data-id="${this.getId(row)}">${value}</div>`;
       }
       values[values.length] = value;
     });
