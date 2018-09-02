@@ -77,7 +77,15 @@ $(document).ready(start);
 
 let currentPageFirstArg;
 let timeoutClearPreviousPageContent;
+let aBusy = false;
+
 a.use(async (r, next) => {
+  if(aBusy) {
+    return;
+  }
+  aBusy = true;
+  pageHandler.stop();
+  $("body").attr('data-a-loading', 1)
   clearTimeout(timeoutClearPreviousPageContent);
   if(currentPageFirstArg != r.args[0]) {
     if(currentPageFirstArg) {
@@ -114,7 +122,8 @@ a.get('/players/*', async (r, next) => {
   next();
 });
 a.use(async(r, next) => {
-  await wait(15);
+  await wait(200);
+  $("body").attr('data-a-loading', 0)
   r.set_data_args();
   if(r.removePreviousContentArg) {
     console.log('Remove pls ' + r.removePreviousContentArg);
@@ -125,5 +134,6 @@ a.use(async(r, next) => {
   next();
 })
 a.use((r, next) => {
+  aBusy = false;
   next();
 })

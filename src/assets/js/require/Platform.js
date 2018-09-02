@@ -12,7 +12,7 @@ class Platform extends Emitter {
     $(`[data-role='platformChanger'] .e`).attr('data-current', 0);
     $(`[data-role='platformChanger'] .e[data-platform='${platform}']`).attr('data-current', 1);
     this.current = platform;
-    a.reload();
+    this.emit('change');
   }
   get list() {
     return ['ps4', 'xone', 'pc'];

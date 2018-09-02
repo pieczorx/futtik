@@ -20,12 +20,19 @@ class AsyncPages {
     window.addEventListener('popstate', function(e) {that.go(window.location.pathname, {popstate: true}); e.preventDefault();}, false); //Previous page or next page
   }
   go(url, options) {
-    if(!options) {
-      options = {};
-    }
-    const url_new_args = this.url_to_args(url);
-    this.lastArgs = url_new_args;
-    this.handle_routes(url_new_args, options);
+    return new Promise((resolve, reject) => {
+      if(!options) {
+        options = {};
+      }
+      options.callback = () => {
+        resolve();
+      }
+      const url_new_args = this.url_to_args(url);
+      this.lastArgs = url_new_args;
+      this.handle_routes(url_new_args, options);
+    });
+
+
   }
   getCurrentLocale() {
     const args = this.url_to_args(window.location.href);

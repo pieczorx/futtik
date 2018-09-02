@@ -27,8 +27,16 @@ class PagePlayers {
       this.players = autoBuyer.players;
       this.updateTables();
     });
+
+    pltfrm.on('change', () => {
+      this.updateTables();
+    });
+
   }
   updateTables() {
+    if(!this.active) {
+      return;
+    }
     this.table.update();
     this.tableCurrent.update();
     this.tableAnalyzer.update();
@@ -219,7 +227,11 @@ class PagePlayers {
 
   }
   _load() {
+    this.active = true;
     this.updateTables();
+  }
+  _stop() {
+    this.active = false;
   }
   getAnalyzerPlayers() {
     return this.players.filter(row => {return row.analyzer ? !!row.analyzer[currentPlatform()] : false;});

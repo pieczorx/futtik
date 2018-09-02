@@ -84,11 +84,18 @@ class PageBots {
     });
 
     autoBuyer.on('accountUpdate', () => {
+      if(!this.active) {
+        return;
+      }
       this.tableAccounts.update();
     });
 
   }
   _load() {
+    this.active = true;
     this.tableAccounts.update();
+  }
+  _stop() {
+    this.active = false;
   }
 }

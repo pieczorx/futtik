@@ -11,7 +11,9 @@ class PagesHandler {
   }
   stop() {
     for(let instance of this.instances) {
-      instance.instance._stop();
+      if(instance.instance._stop) {
+        instance.instance._stop();
+      }
     }
   }
   load(pages, options) {
@@ -20,6 +22,7 @@ class PagesHandler {
       if(typeof(pages) == 'string') {
         pages = [pages];
       }
+
       for(let instance of this.instances) {
         if(pages.includes(instance.name)) {
 
