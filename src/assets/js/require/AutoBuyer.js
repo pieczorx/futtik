@@ -17,6 +17,14 @@ class AutoBuyer extends Emitter {
     }, CONFIG.AUTOBUYER_TICK)
   }
 
+  getPlayerBuyPrice(player, platform) {
+    return Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
+  }
+
+  getPlayerSellPrice(player, platform) {
+    return Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
+  }
+
   //Works
   work() {
     //Check if accounts are on globally
@@ -207,7 +215,7 @@ class AutoBuyer extends Emitter {
         player.buyCheckBusy = true;
         this.busy(account)
         try {
-          const priceBuyNowMax = Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
+          const priceBuyNowMax = this.getPlayerBuyPrice(player, platform);
           const playersFound = await account.instance.searchTransferMarket({
             baseId: player.id,
             num: CONFIG.TRANSFERMARKET_LIMIT,
@@ -240,9 +248,9 @@ class AutoBuyer extends Emitter {
           });
           logger.logAccount(`Moved ${player.name} to trade pile`, account);
 
-          //Sell player
-          const priceBuyNow = Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage);
-          const priceBid = Utils.calculateNextLowerPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage);
+          //List player for sell
+          const priceBuyNow = this.getPlayerSellPrice(player, platform);
+          const priceBid = Utils.calculateNextLowerPrice(priceBuyNow);
           await account.instance.sell({
             itemId: playerBought[0].itemData.id,
             priceBuyNow: priceBuyNow,

@@ -211,6 +211,48 @@ class PagePlayers {
           }
         },
         {
+          title: 'Buy price',
+          name: 'buyPrice',
+          search: {
+            type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+                return autoBuyer.getPlayerBuyPrice(row, currentPlatform());
+              }
+              return false;
+            }
+          },
+          format: (row) => {
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerBuyPrice(row, currentPlatform()))}</span>
+              `
+            }
+            return '-';
+          }
+        },
+        {
+          title: 'Sell price',
+          name: 'sellPrice',
+          search: {
+            type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+                return autoBuyer.getPlayerSellPrice(row, currentPlatform());
+              }
+              return false;
+            }
+          },
+          format: (row) => {
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerSellPrice(row, currentPlatform()))}</span>
+              `
+            }
+            return '-';
+          }
+        },
+        {
           title: '',
           name: 'remove',
           type: 'action',
