@@ -182,7 +182,7 @@ class Table {
       }
       switch(fieldType){
         case 'text':
-          inputHTML = `<input placeholder="Search ${field.title}"/>`
+          inputHTML = `<input placeholder="${field.title}"/>`
           break;
         case 'numericFromTo': {
           inputHTML = `
