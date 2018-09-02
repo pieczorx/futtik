@@ -632,18 +632,7 @@ class Account extends Emitter {
               body = body.toString();
             }
           }
-          if(options.json) {
-            try {
-              body = JSON.parse(body);
-              if(body.code == 401) {
-                this.logged = false;
-                return reject('LOGGED_OFF');
-              }
-              //{"message":null,"reason":"expired session","code":401}
-            } catch(e) {
-              return reject(e);
-            }
-          }
+
           if(options.ut && res.statusCode !== 200) {
             //458 - puzzle captcha
             if(res.statusCode === 358) {
@@ -659,6 +648,20 @@ class Account extends Emitter {
             }
             throw new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`);
           }
+
+          if(options.json) {
+            try {
+              body = JSON.parse(body);
+              if(body.code == 401) {
+                this.logged = false;
+                return reject('LOGGED_OFF');
+              }
+              //{"message":null,"reason":"expired session","code":401}
+            } catch(e) {
+              return reject(e);
+            }
+          }
+
           resolve({res: res, body: body});
         } else {
           reject(err);
