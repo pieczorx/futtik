@@ -71,12 +71,45 @@ class AutoBuyer extends Emitter {
       //No tasks :)
 
     } catch(e) {
-      logger.logAccount('Account unexpected error', account, {
-        error: e
-      });
-      account.enabled = false;
-      this.free(account, 0);
-      this.emit('accountUpdate');
+      let errorSolved = true;
+      switch(e.message) {
+        case 'PLAYER_ALREADY_BOUGHT': {
+
+          break;
+        }
+        case 'FUN_CAPTCHA_REQUIRED': {
+          account.logged = false;
+          this.emit('accountUpdate');
+          console.log('CAPTCHA DETECTED XDDD');
+          break;
+        }
+        case 'LOGGED_OFF': {
+          account.logged = false;
+          this.emit('accountUpdate');
+          break;
+        }
+        /*case 'NOT_ENOUGH_CREDIT': {
+
+
+          break;
+        }*/
+        default: {
+          errorSolved = false;
+          break;
+        }
+      }
+      if(errorSolved) {
+        this.free(account);
+
+      } else {
+        logger.logAccount('Account unexpected error', account, {
+          error: e
+        });
+        account.enabled = false;
+        this.emit('accountUpdate');
+        this.free(account, 0)
+      }
+
     }
   }
 

@@ -38,9 +38,9 @@ class Account extends Emitter {
       await this.getUtasServer(); //required
       await this.getFosServerCode(); //required
       await this.getUtSid(); //required
-      await this.getSecurityQuestion();
-      await this.answerSecurityQuestion();
-      
+      await this.getSecurityQuestion(); //required
+      await this.answerSecurityQuestion(); //required
+
       this.logged = true;
       resolve();
     });
@@ -332,8 +332,8 @@ class Account extends Emitter {
       ut: true
     });
     //console.log('Fetched mass info', data);
-    this.massInfo = data.body;
-    this.getCoinsFromCurrencies(this.massInfo.userInfo.currencies);
+    this.getCoinsFromCurrencies(data.body.userInfo.currencies);
+    return data.body;
   }
   async searchTransferMarket(p) {
     const limit = p.limit || 36;
@@ -384,7 +384,7 @@ class Account extends Emitter {
       sendJson: true
     })
     if(data.res.statusCode === 461) {
-      throw new Error('Player already bought');
+      throw new Error('PLAYER_ALREADY_BOUGHT');
     }
     const body = JSON.parse(data.body);
     this.getCoinsFromCurrencies(body.currencies);
@@ -623,15 +623,7 @@ class Account extends Emitter {
       request(request_options, async function(err, res, body) {
         if(!err) {
 
-          //458 - puzzle captcha
-          if(res.statusCode === 358) {
-            console.log('CAPTCHA DETECTED XDDD');
-            return resolve(await this.login());
-          }
 
-          //426 - upgrade required (? XD)
-          //429 - too many requests (too many actions have been taken)
-          //521 - error (unknown but it's always related with too many requests)
 
           if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
             try {
@@ -645,7 +637,7 @@ class Account extends Emitter {
               body = JSON.parse(body);
               if(body.code == 401) {
                 this.logged = false;
-                return reject('Account logged off');
+                return reject('LOGGED_OFF');
               }
               //{"message":null,"reason":"expired session","code":401}
             } catch(e) {
@@ -653,7 +645,19 @@ class Account extends Emitter {
             }
           }
           if(options.ut && res.statusCode !== 200) {
-            throw new Error(`Invalid response code (${res.statusCode})`);
+            //458 - puzzle captcha
+            if(res.statusCode === 358) {
+              return reject('FUN_CAPTCHA_REQUIRED');
+            }
+
+            //426 - upgrade required (? XD)
+            //429 - too many requests (too many actions have been taken)
+            //521 - error (unknown but it's always related with too many requests)
+
+            if(futxErrors[res.statusCode]) {
+              throw new Error(futxErrors[res.statusCode]);
+            }
+            throw new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`);
           }
           resolve({res: res, body: body});
         } else {
