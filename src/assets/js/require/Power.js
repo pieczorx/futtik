@@ -22,13 +22,31 @@ class Power {
     a.reload();
   }
 
+  convertTimeToString(diff) {
+    diff = Math.floor(diff / 1000);
+    const data = [
+      //['MS', 1000, 1],
+      ['s', 60],
+      ['m', 60],
+      ['h', 60],
+      ['d', 24]
+    ]
+    const vals = data.reduce((acc, x) => {
+      const val = Math.floor(acc.diff % x[1]);
+      if(acc.diff >= 1 || acc.string == '') {
+        acc.string = `${val.toFixed(x[2] || 0)}${x[0]} ${acc.string}`
+      }
+      acc.diff = acc.diff / x[1];
+      return acc;
+    }, {string: '', diff: diff});
+    return vals.string;
+  }
+
   updateTime() {
     if(this.state) {
       const currentTime = new Date();
-      let timeString = currentTime - this.startTime
-      timeString = timeString / 1000;
-      timeString = timeString.toFixed(1) + 's';
-      $(`[data-role='powerText']`).text(timeString)
+      let diff = currentTime - this.startTime
+      $(`[data-role='powerText']`).text(this.convertTimeToString(diff))
     } else {
       $(`[data-role='powerText']`).text('Bots off')
     }
