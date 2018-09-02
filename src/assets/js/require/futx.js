@@ -377,16 +377,22 @@ class Account extends Emitter {
   }
   async bid(p) {
     const url = `${this.utas}/ut/game/fifa18/trade/${p.tradeId}/bid?sku_b=FFT18`
-    const data = await this.put(url, {
-      form: {
-        bid: p.coins,
-      },
-      sendJson: true
-    })
-    if(data.res.statusCode === 461) {
-      throw new Error('PLAYER_ALREADY_BOUGHT');
+    try {
+      const body = await this.put(url, {
+        form: {
+          bid: p.coins,
+        },
+        sendJson: true,
+        json: true
+      })
+    } catch(e) {
+      if(e.message === 'PERMISSION_DENIED') {
+        throw new Error('PLAYER_ALREADY_BOUGHT');
+      } else {
+        throw e;
+      }
     }
-    const body = JSON.parse(data.body);
+
     this.getCoinsFromCurrencies(body.currencies);
     return body.auctionInfo;
   }
