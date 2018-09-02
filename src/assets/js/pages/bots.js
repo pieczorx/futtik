@@ -23,28 +23,8 @@ class PageBots {
       `,
       getId: (row) => {return row.options.mail;},
       fields: [
-        {name: 'enabled', title: 'Status', format: (row, i) => {
-          let statuses = ['Disabled', 'Logging in...', 'Logged']
-          let status = 0;
-          if(row.enabled) {
-            status = 1;
-            if(row.instance && row.instance.logged) {
-              status = 2;
-            }
-          }
-          let statusText = statuses[status];
-          if(!power.state && status == 1) {
-            statusText = 'Enabled';
-          }
-          return `
-          <div class="activeStatus l" data-status="${status}" data-role="toggleAccountState" data-account-id="${i}">
-            <div class="dot l circle"></div>
-            <div class="text l">${statusText}</div>
-          </div>
-          `
-        }},
         {
-          title: 'Enabled',
+          title: 'Enable',
           name: 'enabledState',
           type: 'checkbox',
           format: (row) => {
@@ -55,7 +35,9 @@ class PageBots {
               <span class="box radius"><i class="far fa-check"></i></span>
             </div>
             `
-          }
+          },
+          align: 'center',
+          width: 40
         },
         {
           title: 'Buy',
@@ -69,7 +51,9 @@ class PageBots {
               <span class="box radius"><i class="far fa-check"></i></span>
             </div>
             `
-          }
+          },
+          align: 'center',
+          width: 40
         },
         {name: 'mail', title: 'Mail', format: row => row.options.mail},
         {name: 'tradepile', title: '<span title="active | closed | expired | available">Tradepile</span>', format: row => {

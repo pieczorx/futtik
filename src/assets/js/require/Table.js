@@ -147,7 +147,13 @@ class Table {
 
       $(`[data-table='${this.name}'] > table > tbody`).remove();
       if(!el.has("table:has(thead)").length){
-        this.appendRow(this.fields.map(field => field.title), true);
+        this.appendRow(this.fields.map(field => {
+          return {
+            value: field.title,
+            width: field.width,
+            align: field.align
+          }
+        }), true);
         this.appendSearchRow();
         $(`[data-table='${this.name}'] tr:has(th)`).wrapAll('<thead></thead>');
       }
@@ -161,7 +167,13 @@ class Table {
       //TODO
       $(`[data-table='${this.name}'] > table > tbody`).remove();
       if(!el.has("table:has(thead)").length){
-        this.appendRow(this.fields.map(field => field.title), true);
+        this.appendRow(this.fields.map(field => {
+          return {
+            value: field.title,
+            width: field.width,
+            align: field.align
+          }
+        }), true);
         this.appendSearchRow();
         $(`[data-table='${this.name}'] tr:has(th)`).wrapAll('<thead></thead>');
       }
@@ -248,18 +260,30 @@ class Table {
       if(field.type == 'action' || field.type == 'checkbox') {
         value = `<div data-table-role="action" data-field-name="${field.name}" data-id="${this.getId(row)}">${value}</div>`;
       }
-      values[values.length] = value;
+      values[values.length] = {value: value, width: field.width, align: field.align};
     });
     return values;
   }
 
-  appendRow(values, isHeader) {
+  appendRow(fields, isHeader) {
     let el = $(`[data-table='${this.name}']`);
     let elTable = $(`[data-table='${this.name}'] table`);
     let htmlValues = '';
     const divTag = isHeader ? 'th' : 'td';
-    values.forEach(value => {
-      htmlValues += `<${divTag}>${value}</${divTag}>`
+
+
+    fields.forEach(value => {
+      if(typeof(value) != 'object') {
+        value = {value: value};
+      }
+      let styles = '';
+      if(value.width) {
+        styles += `width:${value.width}px;`
+      }
+      if(value.align) {
+        styles += `text-align:${value.align};`
+      }
+      htmlValues += `<${divTag}${styles ? ` style="${styles}"` : ''}>${value.value}</${divTag}>`
     });
 
     elTable.append(`

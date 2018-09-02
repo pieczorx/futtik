@@ -7,11 +7,6 @@ class AutoBuyer extends Emitter {
 
     let that = this;
 
-    //Toggle account state
-    $(document).on('click', `[data-role='toggleAccountState']`, function() {
-      const id = $(this).attr('data-account-id');
-      that.toggleAccountState(that.accounts[id]);
-    });
     setInterval(() => {
       this.work();
     }, CONFIG.AUTOBUYER_TICK)
