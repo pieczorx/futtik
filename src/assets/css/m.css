@@ -72,6 +72,8 @@ button i {margin-right: 2px;}
 button i.iconBig {font-size: 17px;margin-right: 0px;}
 button.buttonRed {background-color: hsl(4, 83%, 55%);}
 button.buttonRed:hover, button.buttonRed:active {background-color: hsl(4, 83%, 60%);}
+button.buttonGreen {background-color: hsl(118, 34%, 55%);}
+button.buttonGreen:hover, button.buttonGreen:active {background-color: hsl(118, 34%, 60%);}
 
 .checkbox {}
 .checkbox input {display: none;}

@@ -72,10 +72,10 @@ class PagePlayers {
         Fields.playerClub,
         {
           title: '',
-          name: 'add',
+          name: 'toggleAnalyzer',
           type: 'action',
           format: (row) => {
-            return `<button class="radius"><i class="far fa-user-plus"></i></button>`;
+            return `<button class="radius${row.analyzer[currentPlatform()] ? ` buttonGreen` : ''}">${row.analyzer[currentPlatform()] ? `<i class="far fa-user-check"></i>` : `<i class="far fa-user-plus"></i>`}</button>`;
           }
         }
       ],
@@ -84,10 +84,11 @@ class PagePlayers {
         limit: CONFIG.TABLE_PLAYERS_PER_PAGE
       },
       actions: {
-        add: (id) => {
+        toggleAnalyzer: (id) => {
           let player = autoBuyer.getPlayerFromId(id);
-          player.analyzer[currentPlatform()] = true;
+          player.analyzer[currentPlatform()] = !player.analyzer[currentPlatform()];
           this.tableAnalyzer.update();
+          this.table.update();
           autoBuyer.savePlayers();
         }
       }
@@ -325,7 +326,7 @@ class PagePlayers {
     });
 
     this.tableAnalyzer.update();
-
+    this.table.update();
     a.go('/players/analyzer')
     autoBuyer.savePlayers();
   }
@@ -339,6 +340,7 @@ class PagePlayers {
       player.current[currentPlatform()] = true;
     });
 
+    this.tableAnalyzer.update();
     this.tableCurrent.update();
 
     a.go('/players/current')
