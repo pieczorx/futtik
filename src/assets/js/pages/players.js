@@ -31,6 +31,9 @@ class PagePlayers {
     pltfrm.on('change', () => {
       this.updateTables();
     });
+    power.on('update', () => {
+      this.updateTables();
+    })
 
   }
   updateTables() {

@@ -1,5 +1,6 @@
-class Power {
+class Power extends Emitter {
   constructor() {
+    super();
     this.state = false;
     $(document).on('click', `[data-role='powerToggle']`, () => {
       this.updateState(!this.state)
@@ -19,7 +20,7 @@ class Power {
     }
     this.updateTime();
     $(`[data-role='power']`).attr('data-state', this.state << false);
-    a.reload();
+    this.emit('update');
   }
 
   convertTimeToString(diff) {

@@ -89,6 +89,9 @@ class PageBots {
       }
       this.tableAccounts.update();
     });
+    power.on('update', () => {
+      this.tableAccounts.update();
+    })
 
   }
   _load() {
