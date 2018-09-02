@@ -69,7 +69,7 @@ class PageBots {
           return `<span class="tradePileValues">${finalArray.join(' · ')}</span>`;
         }},
         {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
-        {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '-';}}
+        {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? formatCoins(row.coins) : '-';}}
       ]
     });
 

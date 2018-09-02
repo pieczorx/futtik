@@ -111,15 +111,19 @@ class PagePlayers {
           name: 'lastAnalyzerPriceCheckAuctionCount',
           search: {
             type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+                return row.lastAnalyzerPriceCheck[currentPlatform()].auctionCount
+              }
+              return false;
+            },
             min: 0,
             max: 500,
             step: 50
           },
           format: (row) => {
-            if(row.lastAnalyzerPriceCheck) {
-              if(row.lastAnalyzerPriceCheck[currentPlatform()]) {
-                return row.lastAnalyzerPriceCheck[currentPlatform()].auctionCount
-              }
+            if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+              return row.lastAnalyzerPriceCheck[currentPlatform()].auctionCount
             }
             return '-';
           }
@@ -129,16 +133,20 @@ class PagePlayers {
           name: 'lastAnalyzerPriceCheckPriceBuyNowAverage',
           search: {
             type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+                return row.lastAnalyzerPriceCheck[currentPlatform()].priceBuyNowAverage;
+              }
+              return false;
+            },
             min: 250,
             max: 15000000,
             step: 50
           },
 
           format: (row) => {
-            if(row.lastAnalyzerPriceCheck) {
-              if(row.lastAnalyzerPriceCheck[currentPlatform()]) {
-                return row.lastAnalyzerPriceCheck[currentPlatform()].priceBuyNowAverage.toFixed(2)
-              }
+            if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+              return formatCoins(Math.round(row.lastAnalyzerPriceCheck[currentPlatform()].priceBuyNowAverage))
             }
             return '-';
           }
