@@ -196,16 +196,14 @@ class PagePlayers {
         Fields.playerLeague,
         Fields.playerClub,
         {
-          title: 'Price',
+          title: 'Average price',
           name: 'lastPriceCheck',
           search: 'text',
           format: (row) => {
-            if(row.lastPriceCheck) {
-              if(row.lastPriceCheck[currentPlatform()]) {
-                return `
-                <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${row.lastPriceCheck[currentPlatform()].priceBuyNowAverage.toFixed(0)}</span>
-                `
-              }
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(Math.round(row.lastPriceCheck[currentPlatform()].priceBuyNowAverage))}</span>
+              `
             }
             return '-';
           }
