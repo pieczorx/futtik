@@ -331,7 +331,6 @@ class Account extends Emitter {
       json: true,
       ut: true
     });
-    //console.log('Fetched mass info', data);
     this.getCoinsFromCurrencies(data.body.userInfo.currencies);
     return data.body;
   }
@@ -447,7 +446,6 @@ class Account extends Emitter {
     {"itemData":{"id":121088671531},"startingBid":150,"duration":3600,"buyNowPrice":200}
     */
   }
-
   async deleteSoldAuctions() {
     const url = `${this.utas}/ut/game/fifa18/trade/sold`
     try {
@@ -458,7 +456,10 @@ class Account extends Emitter {
       throw new Error('Could not delete sold auctions');
     }
   }
-
+  async getUnassignedItems() {
+    const body = await this.getMassInfo();
+    return body.purchasedItems.itemData;
+  }
   //Misc
   getCoinsFromCurrencies(currencies) {
     currencies.forEach(currency => {

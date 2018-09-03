@@ -67,8 +67,11 @@ class AutoBuyer extends Emitter {
       //Pricecheck co 30 minut
       if(await this.workTaskPriceCheck(account)) {return;}
 
-      //Get tradepile every 2 minutes
+      //Get tradepile every X minutes
       if(await this.workTaskGetTradePile(account)) {return;}
+
+      //Get unassigned items every X minutes
+      if(await this.workTaskMoveUnassigned(account)) {return;}
 
       //Search for players, buy them and relist them
       if(await this.workTaskSearchAndBuy(account)) {return;}
@@ -179,32 +182,35 @@ class AutoBuyer extends Emitter {
     return false;
   }
   async workTaskGetTradePile(account) {
+    const platform = account.options.platform;
     if(!account.tradePile || (new Date() - account.tradePile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
       this.busy(account)
       this.busyMessage(account, 'Getting tradepile');
       let tradePile = await account.instance.getTradePile();
       logger.logAccount('Got tradepile', account, {tradePile: tradePile});
-      for(let auction of tradePile) {
-        switch(auction.tradeState) {
-          case 'closed': { //SOLD ITEMS
-            //DO NOTHING HERE
 
-            break
-          }
-          case 'active': { //ACTIVE TRANSFERS
+      //Sell inactive cards
+      const auctionsInactive = tradePile.filter(auction => {return auction.tradeState !== 'closed' && auction.tradeState !== 'active';});
+      for(let i = 0; i < auctionsInactive.length; i++) {
+        let auction = auctionsInactive[i];
+        const player = this.getPlayerFromId(auction.itemData.resourceId);
+        if(player.lastPriceCheck[platform] && (new Date() - player.lastPriceCheck[platform].date) < CONFIG.PRICE_CHECK_INTERVAL) {
+          await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+          const priceSell = this.getPlayerSellPrice(player, platform);
+          const priceBid = Utils.calculateNextLowerPrice(priceSell);
+          this.busyMessage(account, `Selling player from tradepile (${i + 1} / ${auctionsInactive.length})`);
+          await account.instance.sell({
+            itemId: auction.itemData.id,
+            priceBuyNow: priceSell,
+            priceBid: priceBid,
+            duration: 3600
+          });
+          logger.logAccount(`Listed ${player.name} for ${formatCoins(priceSell)}`, account);
 
-            break;
-          }
-          case 'expired': { //UNSOLD ITEMS
-
-            break;
-          }
-          default: { //AVAILABLE ITEMS
-
-            break;
-          }
         }
       };
+
+      await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
 
       //Clear sold cards
       const activeAuctions = tradePile.filter(auction => {
@@ -215,6 +221,7 @@ class AutoBuyer extends Emitter {
         const resDeleteAuctions = await account.instance.deleteSoldAuctions();
         logger.logAccount('Deleted sold auctions', account);
       }
+
 
       //Update tradepile to show real results
       this.busyMessage(account, 'Getting tradepile');
@@ -256,7 +263,7 @@ class AutoBuyer extends Emitter {
         const priceBuyNowMax = this.getPlayerBuyPrice(player, platform);
         const priceSell = this.getPlayerSellPrice(player, platform);
         const profit = this.getProfit(priceBuyNowMax, priceSell);
-        
+
         if(account.coins >= priceBuyNowMax) {
           player.buyCheckBusy = true;
           this.busyMessage(account, 'Searching...');
@@ -289,8 +296,9 @@ class AutoBuyer extends Emitter {
             });
             logger.logAccount(`Bought ${player.name} for ${formatCoins(cheapestTrade.buyNowPrice)}`, account);
 
-
+            await wait()
             //Put to tradepile
+            this.busyMessage(account, `Putting to trade pile`)
             await account.instance.putToTradepile({
               itemId: playerBought[0].itemData.id
             });
@@ -323,6 +331,39 @@ class AutoBuyer extends Emitter {
     }
     return false;
   }
+  async workTaskMoveUnassigned(account) {
+    if(account.unassignedPlayers) {
+      if((new Date() - account.unassignedPlayers.date) < CONFIG.UNASSIGNED_CHECK_INTERVAL) {
+        return false;
+      }
+    }
+    this.busyMessage(account, `Getting unassigned players`)
+    this.busy(account)
+    const items = await account.instance.getUnassignedItems();
+    const unassignedPlayers = items.filter(item => {return item.type === 'player';});
+    logger.logAccount(`Got ${unassignedPlayers.length} unassigned players`, account);
+
+    if(unassignedPlayers.length > 0) {
+      for(let player of unassignedPlayers) {
+        await this.wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+        this.busyMessage(account, `Putting to trade pile`)
+        await account.instance.putToTradepile({
+          itemId: player.id
+        });
+        logger.logAccount(`Moved ${player.name} to trade pile`, account, {player: player});
+        //await this.sellPlayerFromTradePile(); //TODO
+      }
+    }
+
+    account.unassignedPlayers = {date: new Date()};
+    this.free(account);
+    return true;
+  }
+
+  /*async sellPlayerFromTradePile(player, platform) {
+
+  }*/
+
 
   //Tasks
   performTask(task) {
