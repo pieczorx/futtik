@@ -340,7 +340,7 @@ class AutoBuyer extends Emitter {
     this.busyMessage(account, `Getting unassigned players`)
     this.busy(account)
     const items = await account.instance.getUnassignedItems();
-    const unassignedPlayers = items.filter(item => {return item.type === 'player';});
+    const unassignedPlayers = items.filter(item => {return item.itemType === 'player';});
     logger.logAccount(`Got ${unassignedPlayers.length} unassigned players`, account);
 
     if(unassignedPlayers.length > 0) {
