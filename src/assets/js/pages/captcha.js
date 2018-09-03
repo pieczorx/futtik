@@ -1,6 +1,6 @@
 class PageCaptcha {
   constructor() {
-
+    funCaptcha.on('');
   }
 
 
@@ -10,5 +10,9 @@ class PageCaptcha {
     funCaptcha.captchas.forEach(captcha => {
       eList.append(html.captchaListElement(captcha))
     });
+  }
+
+  appendImageDiv(p) {
+    $(`[data-role='captchaList']`).append(html.captchaListElement(p))
   }
 }

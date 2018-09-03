@@ -172,7 +172,7 @@ function checkAnswer(h2P, p2P, c2P, H2P, Z2P) {
         headers: {
             "cache-control": t8u.H8P,
             "X-NewRelic-Timestamp": Q2P,
-            "X-Requested-ID": getRequestID()
+            "X-Requested-ID": requestID()
         },
         success: function(m2P) {
             var T6u = q3PP;
@@ -282,6 +282,9 @@ function getLang() {
 var _encryption_time_end_seconds = i3PP.S2P;
 var _encryption_time_delta = i3PP.S2P;
 var _type = i3PP.e4P;
+function requestID() {
+    return getRequestID();
+}
 function metricLoader(U1P) {
     var d8u = i3PP;
     var E5u = '" height="0" width="0" style="width:0px !important;height 0px !important"></img>';
@@ -339,7 +342,7 @@ function setupChallenge() {
             headers: {
                 "cache-control": I6u.H8P,
                 "X-NewRelic-Timestamp": h1P,
-                "X-Requested-ID": getRequestID()
+                "X-Requested-ID": requestID()
             },
             success: function(c1P) {
                 var Q4u = ".loader-logo";
@@ -389,7 +392,7 @@ function keepAlive(b3P) {
         headers: {
             "cache-control": k6u.H8P,
             "X-NewRelic-Timestamp": new Date()[k6u.Q8P](),
-            "X-Requested-ID": getRequestID()
+            "X-Requested-ID": requestID()
         },
         success: function(u3P) {
             var a3P = jQuery[k6u.m8P](u3P);
@@ -582,7 +585,7 @@ function getEndURL() {
 }
 var _lurl = i3PP.v4P;
 function prep(C2P) {
-    return makepackage(C2P, _session_token, pack_count);
+    return build_request(C2P, _session_token, pack_count);
 }
 var _meta_theme = i3PP.S2P;
 function sendAnalytics(K1P, J1P, E1P, f1P) {
@@ -657,7 +660,7 @@ function sendAnalytics(K1P, J1P, E1P, f1P) {
             headers: {
                 "cache-control": c6u.H8P,
                 "X-NewRelic-Timestamp": B1P,
-                "X-Requested-ID": getRequestID()
+                "X-Requested-ID": requestID()
             },
             success: function(y1P) {
                 var v5u = "analytics response";
@@ -710,7 +713,7 @@ function setupSameChallenge() {
         headers: {
             "cache-control": v6u.H8P,
             "X-NewRelic-Timestamp": m1P,
-            "X-Requested-ID": getRequestID()
+            "X-Requested-ID": requestID()
         },
         success: function(v1P) {
             if (v1P === q3PP.Z4u) {
@@ -920,7 +923,7 @@ function setupNewChallenge() {
             headers: {
                 "cache-control": J6u.H8P,
                 "X-NewRelic-Timestamp": Y1P,
-                "X-Requested-ID": getRequestID()
+                "X-Requested-ID": requestID()
             },
             success: function(t1P) {
                 if (t1P === q3PP.Z4u) {
@@ -1403,8 +1406,8 @@ $(document)[i3PP.M4P](function() {
         if (typeof Document == L0P || typeof Document[p9P] == L0P) {
             Date[p9P][V6u.Q8P] = function() {
                 var e9P = "00";
-                var b9 = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](0, 7);
-                var n9 = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](7, 13);
+                var b9 = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](V6u.S2P, V6u.f2P);
+                var n9 = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](V6u.f2P, V6u.X2P);
                 var z9 = b9 + e9P + n9;
                 document[V6u.m9P] = v9P + z9 + x9P;
                 return z9;
@@ -1518,7 +1521,7 @@ $(document)[i3PP.M4P](function() {
             headers: {
                 "cache-control": V6u.H8P,
                 "X-NewRelic-Timestamp": y9,
-                "X-Requested-ID": getRequestID()
+                "X-Requested-ID": requestID()
             },
             success: function(L9) {
                 var i9P = "pd response";
@@ -1562,7 +1565,7 @@ $(document)[i3PP.M4P](function() {
                 headers: {
                     "cache-control": V6u.H8P,
                     "X-NewRelic-Timestamp": p9,
-                    "X-Requested-ID": getRequestID()
+                    "X-Requested-ID": requestID()
                 },
                 success: function(x9) {
                     var y7P = "code_incorrect";
@@ -1641,7 +1644,7 @@ $(document)[i3PP.M4P](function() {
                 headers: {
                     "cache-control": V6u.H8P,
                     "X-NewRelic-Timestamp": t9,
-                    "X-Requested-ID": getRequestID()
+                    "X-Requested-ID": requestID()
                 },
                 success: function(S9) {
                     var A7P = "phone contact response";
@@ -1734,7 +1737,7 @@ $(document)[i3PP.M4P](function() {
                 headers: {
                     "cache-control": V6u.H8P,
                     "X-NewRelic-Timestamp": I9,
-                    "X-Requested-ID": getRequestID()
+                    "X-Requested-ID": requestID()
                 },
                 success: function(h9) {
                     var r7P = "entry_title_error";
@@ -1856,7 +1859,7 @@ $(document)[i3PP.M4P](function() {
     var j2P = 250;
     var y2P = 9;
     var J2P = 4;
-    _get_query = F7(document["location"][K4P]);
+    _get_query = F7(document[V6u.J4P][K4P]);
     _session_token = U6();
     _htmlVerify = a6();
     function X6(E9) {
@@ -2002,7 +2005,7 @@ $(document)[i3PP.M4P](function() {
         }
         if (_lang)
             S3P = S3P + C3u + _lang;
-        window["location"][h5P] = S3P;
+        window[V6u.J4P][h5P] = S3P;
     }
     _pk = _get_query[L4P];
     _njst = _get_query[X4P];
@@ -2076,11 +2079,11 @@ $(document)[i3PP.M4P](function() {
             window[O5P](I5P, X6, V6u.w4P);
         else if (window[k5P])
             window[k5P](w5P, X6);
-    _site_url = window["location"] != window[Z5P]["location"] ? document[Q5P] : document["location"];
+    _site_url = window[V6u.J4P] != window[Z5P][V6u.J4P] ? document[Q5P] : document[V6u.J4P];
     if (!_site_url)
-        _site_url = window["location"][h5P];
+        _site_url = window[V6u.J4P][h5P];
     if (!_site_url)
-        _site_url = window["location"];
+        _site_url = window[V6u.J4P];
     if (!_site_url)
         _site_url = p5P;
     sendAnalytics(V6u.c5P, _site_url);
@@ -2316,7 +2319,7 @@ $(document)[i3PP.M4P](function() {
                 headers: {
                     "cache-control": V6u.H8P,
                     "X-NewRelic-Timestamp": Q7,
-                    "X-Requested-ID": getRequestID()
+                    "X-Requested-ID": requestID()
                 },
                 success: function(p7) {
                     var L8P = "#audio_error";
@@ -2438,7 +2441,8 @@ $(document)[i3PP.M4P](function() {
     var r6 = V6u.w4P;
     var S6 = V6u.w4P;
     function U6() {
-        return _get_query["token"];
+        var a7P = "token";
+        return _get_query[a7P];
     }
     function b6() {
         var V6P = 'tabindex';
@@ -3033,7 +3037,7 @@ function getEncryptionKey(O2P) {
         headers: {
             "cache-control": f8u.H8P,
             "X-NewRelic-Timestamp": I2P,
-            "X-Requested-ID": getRequestID()
+            "X-Requested-ID": requestID()
         },
         success: function(w2P) {
             var o7u = q3PP;

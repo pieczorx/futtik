@@ -493,6 +493,7 @@ class AutoBuyer extends Emitter {
 
   addInstance(account) {
     account.instance = new Account(account.options);
+    account.instance.captcha = funCaptcha;
     account.instance.on('coinsUpdate', coins => {
       account.coins = account.instance.coins;
       this.emit('accountUpdate');

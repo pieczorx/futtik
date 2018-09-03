@@ -357,7 +357,8 @@
     function l0K(G2K) {
         l8L();
         x6L(G2K);
-
+        if (G2K[x5A])
+            C8L[C7L] = G2K[x5A];
         x8L();
     }
     var l7A = "getNumChildren";
@@ -544,7 +545,8 @@
     var i5A = "time_end";
     var x5A = "decryption_key";
     var y5A = "removeAllChildren";
-    var "toString" = "toString";
+    var E5A = "toString";
+    var J5A = "checkAnswer";
     var V5A = "setClip";
     var g5A = "rawY";
     function W1K() {
@@ -871,7 +873,7 @@
             e5L++;
         }
         O9L[k3A]((Math[A6K](k5L * Q7K) / Q7K)[Q7A](F7K));
-        parent["checkAnswer"](u7L, Z7L, p9L, O9L["toString"](), R0K);
+        parent[J5A](u7L, Z7L, p9L, O9L[E5A](), R0K);
         I7L && a0K();
     }
     var k3A = "push";
@@ -914,8 +916,8 @@
             b0K();
         }
         if (y3K && y3K[x5A]) {
-            S7K++;
-
+            C7L++;
+            C8L[C7L] = y3K[x5A];
         }
         if (y3K && y3K[W8A] == s8A) {
             parent[L8A]();
@@ -1361,13 +1363,13 @@
     var b6K = "#FFFFFF";
     function p0K() {
         if (B6L) {
-            parent["checkAnswer"](u7L, Z7L, p9L, O9L["toString"](), S1K);
+            parent[J5A](u7L, Z7L, p9L, O9L[E5A](), S1K);
             if (e5L == j5L - (T5L ? S7K : o9K)) {
                 V7L = q6K;
                 y9L = q6K;
             }
         } else
-            parent["checkAnswer"](u7L, Z7L, p9L, O9L["toString"](), F1K);
+            parent[J5A](u7L, Z7L, p9L, O9L[E5A](), F1K);
     }
     var a6K = "#ffbb36";
     var w6K = "#ffd33a";
@@ -1851,7 +1853,7 @@
     var b7L;
     var c5L;
     var B9L = s6K;
-    var S7K = S7K;
+    var C7L = S7K;
     function C1K() {
         TweenLite[y3A](o9L, B7K, {
             scaleX: g8K
@@ -2191,8 +2193,8 @@
         var d7A = 'src';
         var i7A = "IMG";
         var x7A = "createElement";
-
-        var "decryptImg" = "decryptImg";
+        var U7A = "data:image/jpeg;base64,";
+        var y7A = "decryptImg";
         var R8K = 320;
         U7L = s6K;
         if (x5L == j5L && T5L)
@@ -2218,8 +2220,8 @@
                 u3K = D5L[p4A](n3A + (x5L - S7K));
             else
                 u3K = t9L[p4A](n3A + (x5L - S7K));
-            var V3K = parent.decryptImg(u3K, y3K[x5A]);
-            var f3K = "data:image/jpeg;base64," + V3K;
+            var V3K = parent[y7A](u3K, C8L[C7L]);
+            var f3K = U7A + V3K;
             var k3K = document[x7A](i7A);
             k3K[d6K](d7A, f3K);
             j3K = k3K;
@@ -2778,7 +2780,7 @@
         H7L(Z5A, C5A);
         if (i9L === t7K) {
             r8L = q6K;
-            parent["checkAnswer"](u7L, Z7L, p9L, v0K["toString"](), E0K);
+            parent[J5A](u7L, Z7L, p9L, v0K[E5A](), E0K);
         }
         I5L[J4A](q9L);
         if (c5L[D5A] === S7K) {
