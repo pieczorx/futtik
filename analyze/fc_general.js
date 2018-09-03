@@ -1,904 +1,700 @@
 /*Want to help? We have a bug bounty program you can join at https://www.funcaptcha.com/whitehat/ or contact us at whitehat@funcaptcha.com*/
-S9vv.F0v = null;
-a9vv.C5v = 'load';
-S9vv.k0v = "static-fc.s3.amazonaws.com";
-S9vv.H7v = 12;
-S9vv.H0v = "";
-S9vv.b6v = "2";
-S9vv.k6v = "9";
-S9vv.p6v = "SOLVED!";
-a9vv.N3v = "match";
-S9vv.A7v = 10000;
-a9vv.i61 = 'keyup.fallback_click';
-S9vv.O6v = "css";
-S9vv.B6v = "Get collected data";
-a9vv.k8v = "getElementById";
-S9vv.W7v = 6;
-a9vv.U3v = "toLowerCase";
-S9vv.V6v = "fadeIn";
-a9vv.s5v = "slice";
-S9vv.U6v = "animate";
-S9vv.Y0v = "stringify";
-S9vv.X3v = "text";
-a9vv.t11 = "Site URL";
-a9vv.P5v = "#victoryScreen";
-S9vv.f0v = "about:blank";
-a9vv.E91 = "get_data";
-S9vv.X6v = ".reloadBtn";
-a9vv.s61 = "focusout";
-S9vv.Q0v = "#ctn-2";
-S9vv.Z0v = "ajax";
-S9vv.f3v = "remove";
-S9vv.R6v = ".logo";
-S9vv.c6v = "10";
-S9vv.q6v = ".helpBtn";
-S9vv.X0v = "length";
-S9vv.s0v = "error";
-S9vv.L6v = '230';
-S9vv.j6v = ".timer";
-S9vv.R7v = 1;
-S9vv.N0v = "ps";
-S9vv.o6v = true;
-S9vv.d6v = "meta solve";
-S9vv.l6v = '.phoneBtn';
-S9vv.Z7v = false;
-a9vv.f8v = "contentWindow";
-a9vv.w5v = "fc_click_macro";
-a9vv.q5v = "customGUI";
-S9vv.a6v = "fadeOut";
-a9vv.j5v = '<img src="';
-a9vv.l11 = "href";
-S9vv.m7v = 2;
-a9vv.z3v = "loaded";
-S9vv.v6v = 'get_col_data';
-S9vv.m3v = "#recaptcha_widget";
-S9vv.N7v = 30;
-S9vv.V7v = 8;
-S9vv.H3v = "color";
-a9vv.B3v = 'showTab';
-S9vv.q7v = 1000;
-S9vv.c7v = 3;
-S9vv.u0v = '*';
-S9vv.A6v = "show";
-S9vv.a7v = 0;
-a9vv.j2v = "keyCode";
-S9vv.z7v = "trigger";
-S9vv.k3v = '#extra-container';
-a9vv.W8v = "replace";
-S9vv.M6v = ".meta_text";
-S9vv.E7v = 7;
-a9vv.B5v = "attr";
-S9vv.z6v = "html";
-S9vv.O0v = "getTimestamp";
-S9vv.E0v = "/fc/ekey/";
-S9vv.u7v = 20000;
-S9vv.Y6v = '.starCont';
-
-function S9vv() {}
-a9vv.K3v = ".loader-logo, .load-txt";
-S9vv.s6v = "#html-verify";
-
-function a9vv() {}
-a9vv.z5v = "addClass";
-S9vv.F6v = '.helpBtn';
-S9vv.i7v = "#ctn-1";
-S9vv.R0v = "https://cdn.funcaptcha.com/fc";
-S9vv.r0v = "no-cache";
-S9vv.B0v = "response";
-a9vv.q3v = '{"error":"DENIED ACCESS"}';
-S9vv.x0v = "begin_timeout";
-a9vv.r5v = "bind";
-S9vv.J6v = ".starCount";
-a9vv.I61 = "focusin";
-a9vv.o2v = "which";
-a9vv.Y11 = "********";
-S9vv.C0v = "parseJSON";
-a9vv.S5v = "low fps";
-S9vv.W0v = "/fc/ca/";
-a9vv.g01 = "unbind";
-a9vv.t3v = "indexOf";
-a9vv.D2v = 'firefox';
-a9vv.a61 = "black";
-S9vv.r6v = 'complete';
-S9vv.x7v = "front";
-S9vv.G6v = ".phoneBtn";
-a9vv.x5v = "Android";
-S9vv.f6v = "7";
-a9vv.y3v = "getTime";
-S9vv.H6v = "5";
-S9vv.e6v = ".gameBtn";
-S9vv.o0v = "location";
-S9vv.E3v = "fc";
-S9vv.R3v = "#audio";
-S9vv.E6v = ".audioBtn";
-S9vv.v0v = "reload";
-S9vv.F3v = "0.0";
-a9vv.N5v = "body";
-a9vv.g8v = 'base';
-S9vv.g6v = '.audioBtn';
-a9vv.g3v = "split";
-S9vv.f7v = 5;
-a9vv.Y5v = "extra";
-S9vv.K6v = '.success';
-a9vv.K5v = "inject";
-S9vv.P0v = "host";
-S9vv.M3v = ".timer p";
-a9vv.w3v = ".main-ctn";
-S9vv.D0v = "postMessage";
-a9vv.n5v = "append";
-a9vv.R5v = "show phoneBtn";
-S9vv.l7v = 13;
-a9vv.W5v = "toString";
-S9vv.W6v = "3";
-S9vv.y7v = 3000;
-S9vv.m6v = "hide";
-S9vv.U7v = 15;
-a9vv.G3v = "../gfct/";
-a9vv.v01 = "red";
-S9vv.p7v = 256;
-S9vv.C6v = "col";
-a9vv.l3v = "userAgent";
-a9vv.i5v = "android";
-a9vv.h3v = ".loader-ctn";
-S9vv.U0v = "clearTimeout";
-S9vv.I6v = "_fc_player_stars";
-S9vv.K7v = 2000;
-S9vv.X7v = 10;
-a9vv.L3v = "cookie";
-a9vv.P3v = "get fc";
-S9vv.a0v = "CaptchaFrame";
-a9vv.V5v = "join";
-S9vv.Q6v = 'hiddenTimedTimeout';
-a9vv.P8v = "ready";
-S9vv.S0v = "CaptchaFrame2";
-a9vv.v5v = 'src';
-S9vv.C7v = "style";
-S9vv.i0v = 'string';
-S9vv.r7v = "canvas";
-S9vv.w0v = 'post';
-
-function hasExtraData() {
-    if (_extra_victory_data) return S9vv.R7v;
-    else if (_extra_data) return S9vv.R7v;
-    else return S9vv.a7v;
-}
-var _debug = S9vv.Z7v;
-
-function destroyLastCaptcha() {
-    var F31 = S9vv;
-    var s7v = "toggleClass";
-    var I7v = 'startupClick';
-    var J7v = "visible";
-    var v7v = "hidden";
-    var B7v = "visibility";
-    var w7v = "***Destroying FC***";
-    if (_is_timed_mode) hideTimedModeTimer();
-    log(w7v);
-    if (!(_type == F31.r7v)) {
-        oldTarget[F31.C7v][B7v] = v7v;
-        currentTarget[F31.C7v][B7v] = J7v;
-    }
-    if (_is_timed_mode) currentTarget[F31.z7v](I7v, {});
-    if (_currentFrame == F31.m7v) {
-        $(F31.i7v)[s7v](F31.x7v);
-        $(F31.Q0v)[s7v](F31.x7v);
-        setiFrameURL(F31.S0v, _blank_url);
-    } else {
-        $(F31.i7v)[s7v](F31.x7v);
-        $(F31.Q0v)[s7v](F31.x7v);
-        setiFrameURL(F31.a0v, _blank_url);
-    }
-}
-var _cache = S9vv.H7v;
-var _primary_cdn_url = S9vv.R0v;
-
-function passLoadProgress(o1v) {
-    var c0v = "LoadProgress";
-    var m0v = 'loadProgress';
-    if (_type == S9vv.r7v) oldTarget[S9vv.z7v](m0v, {
-        appProgress: o1v
-    });
-    else oldTarget[c0v](o1v);
-}
-var _backup_cdn_url = S9vv.k0v;
-var _blank_url = S9vv.f0v;
-var _answerURL = S9vv.W0v;
-var _keyURL = S9vv.E0v;
-
-function getSessionToken() {
-    return _session_token;
-}
-
-function getEndURL() {
-    var j31 = S9vv;
-    var M0v = "get app url";
-    var V0v = "get url";
-    sendAnalytics(V0v, M0v, _end_url);
-    if (_end_url) return _end_url[j31.X0v] > j31.a7v ? _end_url : j31.F0v;
-    else return j31.F0v;
-}
-var _cdn_url = S9vv.H0v;
-
-function getLang() {
-    return _lang;
-}
-
-function startSlowLoadTracker() {
-    var l0v = "setTimeout";
-    if (!isFF()) _slow_load = window[l0v](function() {
-        var F7v = 11;
-        setupNoJS(S9vv.Z7v, F7v);
-    }, _timeout_fallback);
-}
-
-function setTime(X4v) {
-    _time = X4v;
-}
-var _cdn_backup = S9vv.Z7v;
-
-function pauseTimedModeTimer() {
-    window[S9vv.U0v](_timedout_loop);
-}
-
-function setupNoJS(h1v, q1v) {
-    var d31 = S9vv;
-    var A0v = "replace_fc";
-    var y0v = '<input type="hidden" id="FunCaptcha-Token" name="fc-token" placeholder="Copy verification code in here" >';
-    var h0v = '" frameborder="0" scrolling="no" style="width: 308px; height:408px; border-style: none;" id="fc-iframe-wrap"></iframe>';
-    var K0v = '&lang=';
-    var q0v = '&r=';
-    var e0v = '&session=';
-    var G0v = '&litejs=1';
-    var p0v = '/fc/api/nojs/?pkey=';
-    var T0v = '//';
-    var d0v = "protocol";
-    var j0v = '<iframe src="';
-    var n0v = "&ps=";
-    var L0v = "hasOwnProperty";
-    var g0v = "&fb_type=1";
-    var b0v = "&fb_type=";
-    var t0v = "&fb_type=2";
-    var G1v = d31.H0v;
-    var e1v = d31.H0v;
-    if (h1v) G1v = t0v;
-    else if (q1v) G1v = b0v + q1v;
-    else G1v = g0v;
-    if (_get_query[L0v](d31.N0v)) e1v += n0v + _get_query[d31.N0v];
-    var K1v = j0v + window[d31.o0v][d0v] + T0v + window[d31.o0v][d31.P0v] + p0v + _pk + G0v + G1v + e0v + _session_token + q0v + _sid + K0v + _lang + e1v + h0v + y0v;
-    if (window[d31.D0v]) parent[d31.D0v](JSON[d31.Y0v]({
-        "msg": A0v,
-        "data": K1v
-    }), d31.u0v);
-}
-
-function getEncryptionKey(A4v) {
-    var T31 = S9vv;
-    var u4v = new Date()[T31.O0v]();
-    $[T31.Z0v]({
-        url: _keyURL,
-        type: T31.w0v,
-        timeout: T31.A7v,
+q3PP.x5u = ".loader-logo, .load-txt";
+i3PP.z9P = "unbind";
+i3PP.u8P = ".phoneBtn";
+i3PP.S8P = 'complete';
+q3PP.u1u = "host";
+i3PP.Z4P = "https://cdn.funcaptcha.com/fc";
+i3PP.A2P = 15;
+i3PP.i8P = "front";
+i3PP.Q4P = "static-fc.s3.amazonaws.com";
+q3PP.m1u = "fadeOut";
+i3PP.W4P = "Android";
+i3PP.L5P = "#ctn-2";
+i3PP.X5P = "#html-verify";
+i3PP.H9P = "toString";
+q3PP.W1u = ".meta_text";
+i3PP.S2P = 0;
+q3PP.p1u = "low fps";
+q3PP.O4u = "get fc";
+q3PP.m8u = 'keyup.fallback_click';
+q3PP.i1u = 'showTab';
+q3PP.k2u = "meta solve";
+i3PP.Q8P = "getTimestamp";
+q3PP.n5u = "0.0";
+i3PP.V8P = "keyCode";
+q3PP.B1u = '230';
+i3PP.z5P = ".reloadBtn";
+i3PP.c4P = "/fc/ekey/";
+i3PP.C4P = 3000;
+q3PP.O1u = "error";
+q3PP.t1u = "7";
+i3PP.m5P = 'firefox';
+i3PP.L2P = 12;
+i3PP.X2P = 13;
+i3PP.i5P = "show";
+i3PP.q8P = "reload";
+i3PP.t6P = "length";
+i3PP.S4P = "android";
+i3PP.y8P = "#recaptcha_widget";
+q3PP.s1u = "game loaded";
+i3PP.W8P = "Get collected data";
+i3PP.T8P = "which";
+q3PP.T3u = ".main-ctn";
+i3PP.H4P = "";
+q3PP.Z4u = '{"error":"DENIED ACCESS"}';
+q3PP.k4u = "../gfct/";
+q3PP.h2u = ".helpBtn";
+i3PP.H8P = "no-cache";
+i3PP.o5P = '.phoneBtn';
+i3PP.I4P = 20000;
+i3PP.c5P = "Site URL";
+i3PP.G9P = "CaptchaFrame";
+i3PP.s0P = "trigger";
+q3PP.u5u = "black";
+i3PP.v8P = "response";
+i3PP.U5P = "#victoryScreen";
+i3PP.I8P = "#audio";
+i3PP.t4P = "indexOf";
+i3PP.M2P = 3;
+i3PP.q9P = "fc_click_macro";
+i3PP.e4P = "canvas";
+i3PP.T4P = '*';
+q3PP.H1u = "stringify";
+i3PP.E6P = '#extra-container';
+q3PP.y2u = "extra";
+i3PP.C6P = "text";
+q3PP.M1u = '.helpBtn';
+i3PP.u3u = 'load';
+q3PP.F1u = "loaded";
+q3PP.P1u = "ps";
+q3PP.J1u = "5";
+q3PP.p8u = 'string';
+q3PP.U5u = "clearTimeout";
+i3PP.t0P = "append";
+q3PP.r1u = "fadeIn";
+i3PP.z8P = ".audioBtn";
+q3PP.S1u = "3";
+function q3PP() {}
+i3PP.f6P = "remove";
+i3PP.E2P = 6;
+q3PP.g1u = "show phoneBtn";
+q3PP.H8u = 'hiddenTimedTimeout';
+i3PP.h8P = "ajax";
+q3PP.p2u = '.success';
+i3PP.B2P = 8;
+i3PP.M4P = "ready";
+q3PP.Q2u = "SOLVED!";
+i3PP.f8P = "html";
+q3PP.v4u = "replace";
+i3PP.O4P = 10000;
+i3PP.g4P = true;
+i3PP.p4P = "/fc/ca/";
+i3PP.I0P = "getElementById";
+q3PP.m2u = "css";
+i3PP.w4P = false;
+i3PP.n8P = "bind";
+i3PP.m0P = "get_data";
+q3PP.K1u = "animate";
+q3PP.z5u = "red";
+q3PP.e8u = "focusin";
+i3PP.p7P = "split";
+q3PP.f1u = "2";
+q3PP.x1u = "10";
+q3PP.v8u = "focusout";
+function i3PP() {}
+i3PP.h4P = "about:blank";
+q3PP.v1u = ".logo";
+i3PP.r2P = 1;
+i3PP.M8P = 'get_col_data';
+i3PP.V7P = ".starCount";
+i3PP.c8P = 'post';
+i3PP.D5P = "hide";
+i3PP.m8P = "parseJSON";
+q3PP.b5u = ".timer p";
+i3PP.y9P = "match";
+i3PP.x4P = "userAgent";
+i3PP.c9P = "getTime";
+q3PP.a5u = "color";
+i3PP.v4P = null;
+i3PP.m9P = "cookie";
+i3PP.U7P = "join";
+i3PP.r8P = "col";
+i3PP.a2P = 30;
+i3PP.G4P = "postMessage";
+i3PP.b8P = ".gameBtn";
+i3PP.m4P = "fc";
+i3PP.C5P = "body";
+q3PP.Y5u = ".loader-ctn";
+i3PP.N5P = "#ctn-1";
+i3PP.f2P = 7;
+i3PP.r4P = "slice";
+i3PP.W2P = 2;
+i3PP.Y4P = "toLowerCase";
+i3PP.V9P = "CaptchaFrame2";
+q3PP.A2u = 'src';
+i3PP.a9P = "user clicked audio";
+i3PP.A6P = "style";
+i3PP.e8P = "********";
+q3PP.B2u = '<img src="';
+i3PP.J4P = "location";
+i3PP.D4P = 1000;
+i3PP.F4P = 2000;
+q3PP.P5u = ".timer";
+q3PP.J2u = "inject";
+i3PP.j9P = "attr";
+q3PP.I2u = '.starCont';
+i3PP.d2P = 10;
+q3PP.Y1u = "9";
+i3PP.n7P = "_fc_player_stars";
+q3PP.c8u = "begin_timeout";
+i3PP.K2P = 5;
+i3PP.w0P = "contentWindow";
+q3PP.M2u = "customGUI";
+i3PP.W6P = '.audioBtn';
+i3PP.o4P = 256;
+i3PP.l5P = "addClass";
+q3PP.i5u = 'base';
+function checkAnswer(h2P, p2P, c2P, H2P, Z2P) {
+    var t8u = i3PP;
+    var Q2P = new Date()[t8u.Q8P]();
+    var g2P = $[t8u.h8P]({
+        url: _answerURL,
+        type: t8u.c8P,
+        timeout: t8u.O4P,
         data: {
-            sid: _sid,
-            session_token: _session_token,
-            game_token: _game_token
+            sid: h2P,
+            session_token: p2P,
+            game_token: c2P,
+            guess: prep(H2P),
+            analytics_tier: _analytics_tier
         },
         headers: {
-            "cache-control": T31.r0v,
-            "X-NewRelic-Timestamp": u4v,
-            "X-Requested-ID": requestID()
+            "cache-control": t8u.H8P,
+            "X-NewRelic-Timestamp": Q2P,
+            "X-Requested-ID": getRequestID()
         },
-        success: function(Z4v) {
-            var I0v = "time_end_seconds";
-            var z0v = "time_end";
-            var J0v = "decryption_key";
-            var O4v = jQuery[T31.C0v](Z4v);
-            if (O4v[T31.B0v] == T31.v0v) {
-                timeoutMode();
-                return;
+        success: function(m2P) {
+            var T6u = q3PP;
+            var g8u = "solved";
+            var e2P = jQuery[t8u.m8P](m2P);
+            if (e2P[g8u] && window[t8u.G4P] && _earlyVictoryMessage) {
+                parent[t8u.G4P](t8u.S8P, t8u.T4P);
+                if (_get_query[t8u.r8P]) {
+                    log(t8u.W8P);
+                    parent[t8u.G4P](t8u.M8P, t8u.T4P);
+                }
             }
-            if (O4v[J0v]) {
-                _encryption_time_end = O4v[z0v];
-                _encryption_time_end_seconds = O4v[I0v];
-                _encryption_time_delta = getEncryptionTimeDelta();
-                if (typeof A4v === T31.i0v) currentTarget[A4v](O4v);
-                else A4v(O4v);
-            } else if (O4v[T31.s0v]) {
-                if (O4v[T31.s0v] == T31.x0v)
-                    if (currentTarget) currentTarget[T31.z7v](T31.Q6v);
-            } else {
+            if (e2P[t8u.v8P] == t8u.q8P)
                 timeoutMode();
-                return;
-            }
+            if (e2P[T6u.O1u] == T6u.c8u)
+                if (currentTarget)
+                    currentTarget[t8u.s0P](T6u.H8u);
+            if (typeof Z2P === T6u.p8u)
+                currentTarget[Z2P](m2P);
+            else
+                Z2P(m2P);
         }
     });
 }
-
-function showMeta() {
-    var P31 = S9vv;
-    var n6v = '.starCount';
-    var N6v = '.starpic';
-    var t6v = '60';
-    var S6v = ".patent";
-    $(S6v)[P31.a6v]();
-    var p1v = _is_timed_mode && !_hidden_timed_mode;
-    var P1v = !p1v && _pl != P31.m7v && !_forcePhoneBtn;
-    if (!P1v) $(P31.R6v)[P31.m6v]();
-    switch (_meta_theme) {
-        case P31.c6v:
-        case P31.k6v:
-        case P31.f6v:
-        case P31.W6v:
-            $(P31.E6v)[P31.V6v]();
-            if (!_show_phone) $(P31.M6v)[P31.V6v]();
-            $(P31.X6v)[P31.V6v]();
-            $(P31.F6v)[P31.V6v]();
-            if (P1v) $(P31.R6v)[P31.V6v]();
-        case P31.H6v:
-            if (P1v) $(P31.R6v)[P31.V6v]();
-            if (p1v) $(P31.l6v)[P31.U6v]({
-                left: t6v
-            });
-            $(P31.F6v)[P31.V6v]();
-        case P31.b6v:
-            break;
-        default:
-            $(P31.E6v)[P31.V6v]();
-            $(P31.g6v)[P31.U6v]({
-                left: P31.L6v
-            });
-            if (!_show_phone) $(P31.M6v)[P31.V6v]();
-            $(P31.X6v)[P31.V6v]();
-            $(P31.F6v)[P31.V6v]();
-            $(N6v)[P31.V6v]();
-            $(n6v)[P31.V6v]();
-            if (P1v) $(P31.R6v)[P31.V6v]();
-            break;
-    }
+var _debug = i3PP.w4P;
+var _cache = i3PP.L2P;
+function showWaitScreen() {
+    showLoader();
+    startSlowLoadTracker();
 }
-var _currentFrame = S9vv.R7v;
-
-function getGameToken() {
-    return _game_token;
+function bindEvts(z3P) {
+    oldTarget = currentTarget;
+    currentTarget = z3P;
 }
-
-function ShowTimedModeTimer(g4v, L4v, N4v) {
-    var p31 = S9vv;
-    if (!N4v) {
-        _encryption_time_end = g4v;
-        _encryption_time_end_seconds = L4v;
-        _encryption_time_delta = getEncryptionTimeDelta();
-    }
-    _time_end = new Date(_encryption_time_end * p31.q7v);
-    if (!_hidden_timed_mode) {
-        $(p31.R6v)[p31.a6v]();
-        $(p31.j6v)[p31.V6v]();
-    }
-    timeoutLoop();
-}
-var _showStartupBool = S9vv.o6v;
-var _session_token;
-
-function victoryScreen() {
-    var G31 = S9vv;
-    var w6v = '2';
-    var Z6v = 'top';
-    var u6v = '.starpic, .starCount';
-    var D6v = '13';
-    var y6v = '59';
-    var h6v = "hms";
-    var P6v = "displayed well done in meta footer";
-    var T6v = "code told to show meta solve";
-    var o7v = 53;
-    sendAnalytics(G31.d6v, T6v, P6v);
-    log(G31.p6v);
-    $(G31.G6v)[G31.m6v]();
-    switch (_meta_theme) {
-        case G31.b6v:
-            $(G31.E6v)[G31.a6v]();
-            $(G31.M6v)[G31.a6v]();
-            $(G31.X6v)[G31.a6v]();
-            $(G31.e6v)[G31.a6v]();
-            $(G31.q6v)[G31.a6v]();
-            $(G31.K6v)[G31.V6v]();
-            break;
-        case G31.f6v:
-        case G31.W6v:
-            $(G31.E6v)[G31.a6v]();
-            $(G31.M6v)[G31.a6v]();
-            $(G31.X6v)[G31.a6v]();
-            $(G31.e6v)[G31.a6v]();
-            $(G31.R6v)[G31.a6v]();
-            if (_get_query[h6v]) $(G31.F6v)[G31.U6v]({
-                left: y6v
-            });
-            else $(G31.F6v)[G31.U6v]({
-                left: D6v
-            });
-            $(G31.Y6v)[G31.A6v]();
-            $(u6v)[G31.V6v]();
-            $(G31.K6v)[G31.A6v]();
-            $(G31.K6v)[G31.O6v](Z6v, -o7v)[G31.U6v]({
-                top: w6v
-            });
-            break;
-        case G31.H6v:
-            $(G31.R6v)[G31.a6v]();
-            if (_get_query[h6v]) $(G31.F6v)[G31.U6v]({
-                left: y6v
-            });
-            else $(G31.F6v)[G31.U6v]({
-                left: D6v
-            });
-            $(G31.Y6v)[G31.A6v]();
-            $(u6v)[G31.V6v]();
-            $(G31.K6v)[G31.A6v]();
-            $(G31.K6v)[G31.O6v](Z6v, -o7v)[G31.U6v]({
-                top: w6v
-            });
-            break;
-        case G31.k6v:
-            $(G31.E6v)[G31.a6v]();
-            $(G31.M6v)[G31.a6v]();
-            $(G31.X6v)[G31.a6v]();
-            $(G31.e6v)[G31.a6v]();
-            $(G31.R6v)[G31.a6v]();
-            $(G31.F6v)[G31.U6v]({
-                left: y6v
-            });
-            $(G31.Y6v)[G31.m6v]();
-            $(u6v)[G31.m6v]();
-            $(G31.K6v)[G31.A6v]();
-            $(G31.K6v)[G31.O6v](Z6v, -o7v)[G31.U6v]({
-                top: w6v
-            });
-            break;
-        case G31.c6v:
-            $(G31.E6v)[G31.a6v]();
-            $(G31.M6v)[G31.a6v]();
-            $(G31.X6v)[G31.a6v]();
-            $(G31.e6v)[G31.a6v]();
-            $(G31.R6v)[G31.a6v]();
-            $(G31.F6v)[G31.U6v]({
-                top: G31.L6v
-            });
-            $(G31.Y6v)[G31.m6v]();
-            $(u6v)[G31.m6v]();
-            $(G31.K6v)[G31.A6v]();
-            $(G31.K6v)[G31.O6v](Z6v, -o7v)[G31.U6v]({
-                top: w6v
-            });
-            break;
-        default:
-            $(G31.E6v)[G31.a6v]();
-            $(G31.M6v)[G31.a6v]();
-            $(G31.X6v)[G31.a6v]();
-            $(G31.e6v)[G31.a6v]();
-            $(G31.R6v)[G31.a6v]();
-            $(G31.F6v)[G31.U6v]({
-                left: G31.L6v
-            });
-            $(G31.K6v)[G31.V6v]();
-            break;
-    }
-    if (window[G31.D0v] && !_earlyVictoryMessage) {
-        parent[G31.D0v](G31.r6v, G31.u0v);
-        if (_get_query[G31.C6v]) {
-            log(G31.B6v);
-            parent[G31.D0v](G31.v6v, G31.u0v);
-        }
-    }
-}
-var _game_token;
-var _challengeURL;
-
 function getDebug() {
     return _debug;
 }
+var _primary_cdn_url = i3PP.Z4P;
+var _backup_cdn_url = i3PP.Q4P;
+var _blank_url = i3PP.h4P;
+var _answerURL = i3PP.p4P;
+var _keyURL = i3PP.c4P;
+var _cdn_url = i3PP.H4P;
+function showApp() {
+    var h1u = "showApp";
+    var Q1u = 'showApp';
+    if (!currentTarget)
+        if (_type == i3PP.e4P)
+            currentTarget[i3PP.s0P](Q1u);
+        else
+            currentTarget[h1u]();
+}
+var _cdn_backup = i3PP.w4P;
+var _currentFrame = i3PP.r2P;
+var _showStartupBool = i3PP.g4P;
+var _session_token;
+function getGameToken() {
+    return _game_token;
+}
+var _game_token;
+var _challengeURL;
 var _sid;
-var _canReload = S9vv.Z7v;
+var _canReload = i3PP.w4P;
 var _appvars;
-var _time = S9vv.a7v;
-var _encryption_time_end = S9vv.a7v;
-var _encryption_time_end_seconds = S9vv.a7v;
-var _encryption_time_delta = S9vv.a7v;
-var _type = S9vv.r7v;
-
-function setStars(d4v) {
-    var d7v = 99;
-    _currentStars += d4v;
-    if (_currentStars > d7v) _currentStars = d7v;
-    $(S9vv.J6v)[S9vv.z6v](_currentStars);
-    bake_cookie(S9vv.I6v, _currentStars);
+var _time = i3PP.S2P;
+function timerTimeout() {
+    TimeoutErrorFlash();
 }
-
-function getSID() {
-    return _sid;
-}
-
-function timeoutMode() {
-    var q31 = S9vv;
-    var W3v = 'session_timeout';
-    var c3v = "#timeout_widget";
-    var a3v = "Timeout mode";
-    var S3v = "show timeout gui";
-    var Q3v = "session timeout display";
-    var x6v = "timeout";
-    var i6v = "#phone_widget";
-    $(i6v)[q31.m6v]();
-    if (_htmlVerify) $(q31.s6v)[q31.m6v]();
-    hideMeta();
-    $(q31.E6v)[q31.a6v]();
-    $(q31.M6v)[q31.a6v]();
-    $(q31.X6v)[q31.a6v]();
-    $(q31.e6v)[q31.a6v]();
-    $(q31.q6v)[q31.a6v]();
-    hideLoader();
-    sendAnalytics(x6v, Q3v, S3v);
-    log(a3v);
-    $(q31.i7v)[q31.m6v]();
-    $(q31.Q0v)[q31.m6v]();
-    setiFrameURL(q31.a0v, _blank_url);
-    setiFrameURL(q31.S0v, _blank_url);
-    $(q31.R3v)[q31.m6v]();
-    $(q31.m3v)[q31.m6v]();
-    $(c3v)[q31.A6v]();
-    if ($(q31.k3v)[q31.X0v] > q31.a7v) $(q31.k3v)[q31.f3v]();
-    if (window[q31.D0v]) parent[q31.D0v](W3v, q31.u0v);
-}
-
-function getHiddenTimedMode() {
-    return _hidden_timed_mode;
-}
-var _mode = S9vv.E3v;
-
-function getSameFC() {
-    var V3v = "***Getting same FC***";
-    checkPhoneMode();
-    log(V3v);
-    setupSameChallenge();
-}
-
-function TimeoutErrorFlash() {
-    var K31 = S9vv;
-    var e7v = 500;
-    if (!_hidden_timed_mode) {
-        $(K31.M3v)[K31.X3v](K31.F3v);
-        $(K31.M3v)[K31.O6v](K31.H3v, _timed_mode_timeout_colour);
+function onAppLoad() {
+    var E8u = q3PP;
+    var K8u = i3PP;
+    var l1u = "NextAppLoad";
+    var C1u = 'nextAppLoaded';
+    var D1u = 'finished_loading_game';
+    var q1u = "ON APP LOAD!!";
+    var o1u = ":focus";
+    var j3u = "is";
+    var V3u = "triggered event to current captcha to show try again";
+    var G3u = "next app is loaded";
+    var n3u = "next app loaded";
+    sendAnalytics(n3u, G3u, V3u);
+    _canReload = K8u.g4P;
+    if ($(E8u.T3u)[j3u](o1u))
+        if (currentTarget)
+            currentTarget[K8u.s0P](E8u.i1u);
+    clearSlowLoad();
+    log(q1u);
+    if (!_firstLoaded) {
+        _firstLoaded = K8u.g4P;
+        if (window[K8u.G4P])
+            parent[K8u.G4P](D1u, K8u.T4P);
+        keepAlive();
+        sendAnalytics(E8u.F1u, E8u.s1u);
     }
-    _timedout_event = setTimeout(function() {
-        if (!_hidden_timed_mode) $(K31.M3v)[K31.O6v](K31.H3v, _default_timer_color);
-        _timedout_event = setTimeout(function() {
-            TimeoutErrorFlash();
-        }, e7v);
-    }, e7v);
+    if (oldTarget)
+        if (_type == K8u.e4P)
+            oldTarget[K8u.s0P](C1u, {
+                loaded: K8u.g4P
+            });
+        else
+            oldTarget[l1u](K8u.g4P);
 }
-var _firstHidden = S9vv.Z7v;
-
+var _encryption_time_end = i3PP.S2P;
+function getLang() {
+    return _lang;
+}
+var _encryption_time_end_seconds = i3PP.S2P;
+var _encryption_time_delta = i3PP.S2P;
+var _type = i3PP.e4P;
+function metricLoader(U1P) {
+    var d8u = i3PP;
+    var E5u = '" height="0" width="0" style="width:0px !important;height 0px !important"></img>';
+    var K5u = "adurl";
+    if (U1P) {
+        if (U1P[d8u.t4P](K5u) != -d8u.r2P)
+            U1P = U1P + _site_url;
+        $(d8u.C5P)[d8u.t0P](q3PP.B2u + U1P + E5u);
+    }
+}
+var _mode = i3PP.m4P;
+var _firstHidden = i3PP.w4P;
 function isIE() {
-    var h31 = a9vv;
-    var b3v = 'msie';
-    var h4v = navigator[h31.l3v][h31.U3v]();
-    return h4v[h31.t3v](b3v) != -S9vv.R7v ? parseInt(h4v[h31.g3v](b3v)[S9vv.R7v]) : S9vv.Z7v;
+    var G8u = i3PP;
+    var I8u = 'msie';
+    var s2P = navigator[G8u.x4P][G8u.Y4P]();
+    return s2P[G8u.t4P](I8u) != -G8u.r2P ? parseInt(s2P[G8u.p7P](I8u)[G8u.r2P]) : G8u.w4P;
 }
-var _currentStars = S9vv.a7v;
-var _player_token = S9vv.H0v;
-var _get_query;
-
-function prep(y4v) {
-    return makepackage(new Date(), _session_token, pack_count);
-}
-var _htmlVerify = S9vv.Z7v;
-
-function solveMeta() {
-    victoryScreen();
-}
-var _sec_level;
-
-function getEncryptionTime() {
-    return {
-        time_end: _encryption_time_end,
-        time_end_seconds: _encryption_time_end_seconds
-    };
-}
-
-function read_cookie(t4v) {
-    var j3v = "parse";
-    var n3v = '=([^;]+)';
-    var U4v = document[a9vv.L3v][a9vv.N3v](new RegExp(t4v + n3v));
-    U4v && (U4v = JSON[j3v](U4v[S9vv.R7v]));
-    return U4v;
-}
-var _wave_level;
-
+var _currentStars = i3PP.S2P;
 function hideTimedModeTimer() {
-    var A31 = S9vv;
+    var R6u = q3PP;
     if (!_hidden_timed_mode) {
-        $(A31.M3v)[A31.O6v](A31.H3v, _default_timer_color);
-        $(A31.j6v)[A31.a6v]();
+        $(R6u.b5u)[R6u.m2u](R6u.a5u, _default_timer_color);
+        $(R6u.P5u)[R6u.m1u]();
     }
-    window[A31.U0v](_timedout_event);
+    window[R6u.U5u](_timedout_event);
     pauseTimedModeTimer();
 }
-
-function requestID() {
-    return getRequestID();
-}
-
-function getEncryptionTimeDelta() {
-    return new Date() - new Date((_encryption_time_end - _encryption_time_end_seconds) * S9vv.q7v);
-}
-
-function RCMetaUpload() {
-    var O31 = S9vv;
-    var d3v = "hidden reload and audio buttons";
-    var o3v = "code told to show recaptcha meta solve";
-    sendAnalytics(O31.d6v, o3v, d3v);
-    log(O31.p6v);
-    solveMeta();
-    $(O31.K6v)[O31.m6v]();
-}
-
-function setupNewChallenge() {
-    var w31 = S9vv;
-    var e3v = "get_new";
-    var p3v = "get different captcha";
-    var T3v = "***Get diff FC***";
-    if (!_lock_game) {
-        showLoader();
-        log(T3v);
-        sendAnalytics(a9vv.P3v, p3v, _challengeURL);
-        var Q4v = new Date()[w31.O0v]();
+function setupChallenge() {
+    var I6u = i3PP;
+    var w4u = "init";
+    var I4u = "get new captcha";
+    if (_default_game) {
+        _challengeURL = _default_game;
+        setupSameChallenge();
+    } else {
+        sendAnalytics(q3PP.O4u, I4u);
+        var h1P = new Date()[I6u.Q8P]();
         startSlowLoadTracker();
-        $[w31.Z0v]({
-            url: a9vv.G3v,
-            type: w31.w0v,
-            timeout: w31.A7v,
+        var p1P = $[I6u.h8P]({
+            url: q3PP.k4u,
+            type: I6u.c8P,
+            timeout: I6u.O4P,
             data: {
                 token: _session_token,
                 sid: _sid,
-                skip: _challengeURL,
                 lang: _lang,
                 render_type: _type,
                 analytics_tier: _analytics_tier,
                 data: {
-                    "ps": _get_query[w31.N0v],
-                    "status": e3v
+                    "ps": _get_query[q3PP.P1u],
+                    "status": w4u
                 }
             },
             headers: {
-                "cache-control": w31.r0v,
-                "X-NewRelic-Timestamp": Q4v,
-                "X-Requested-ID": requestID()
+                "cache-control": I6u.H8P,
+                "X-NewRelic-Timestamp": h1P,
+                "X-Requested-ID": getRequestID()
             },
-            success: function(S4v) {
-                if (S4v === a9vv.q3v) {
+            success: function(c1P) {
+                var Q4u = ".loader-logo";
+                if (c1P === q3PP.Z4u) {
                     setTimeout(function() {
-                        if (_loadFailCount !== w31.U7v) {
+                        if (_loadFailCount < I6u.K2P) {
                             ++_loadFailCount;
                             setTimeout(function() {
-                                setupNewChallenge();
-                            }, w31.K7v);
-                        } else timeoutMode();
-                    }, w31.y7v);
-                    return w31.Z7v;
+                                setupChallenge();
+                            }, I6u.F4P);
+                        } else
+                            timeoutMode();
+                    }, I6u.C4P);
+                    return I6u.w4P;
                 }
-                setupWithData(S4v);
+                setupWithData(c1P);
+                $(Q4u)[q3PP.r1u]();
             },
-            error: function(a4v) {
+            error: function(H1P, g1P, e1P) {
                 setTimeout(function() {
-                    if (_loadFailCount !== w31.U7v) {
+                    if (_loadFailCount !== I6u.K2P) {
                         ++_loadFailCount;
-                        setTimeout(function() {
-                            setupNewChallenge();
-                        }, w31.K7v);
-                    } else timeoutMode();
-                }, w31.y7v);
+                        setupChallenge();
+                    } else
+                        timeoutMode();
+                }, I6u.F4P);
             }
         });
-    } else setupSameChallenge();
-}
-
-function showSpinner() {
-    $(a9vv.K3v)[S9vv.m6v]();
-    $(a9vv.h3v)[S9vv.A6v]();
-}
-
-function hideMeta() {
-    var B31 = S9vv;
-    switch (_meta_theme) {
-        case B31.c6v:
-        case B31.k6v:
-        case B31.f6v:
-        case B31.W6v:
-        case B31.b6v:
-            break;
-        default:
-            $(B31.M6v)[B31.m6v]();
-            $(B31.X6v)[B31.m6v]();
-            $(B31.e6v)[B31.m6v]();
-            $(B31.R6v)[B31.m6v]();
-            $(B31.F6v)[B31.m6v]();
-            $(B31.Y6v)[B31.m6v]();
-            break;
     }
 }
-var _end_url = S9vv.H0v;
-var _game_sid;
-var _site_url;
-
-function timeoutLoop() {
-    var J31 = S9vv;
-    var D3v = 'timedTimeout';
-    var j4v = new Date();
-    var o4v = new Date(j4v[a9vv.y3v]() - _encryption_time_delta);
-    var n4v = (_time_end - o4v) / J31.q7v;
-    if (n4v < J31.a7v) {
-        if (!_hidden_timed_mode) $(J31.M3v)[J31.X3v](J31.F3v);
-        if (currentTarget) currentTarget[J31.z7v](D3v);
-        TimeoutErrorFlash();
-    } else _timedout_loop = setTimeout(function() {
-        var Y3v = "toFixed";
-        if (!_hidden_timed_mode) $(J31.M3v)[J31.X3v](n4v[Y3v](J31.R7v));
-        timeoutLoop();
-    }, J31.X7v);
-}
-var _default_game;
-var _lock_game;
-
-function bindEvts(L1v) {
-    oldTarget = currentTarget;
-    currentTarget = L1v;
-}
-
-function checkAnswer(C4v, B4v, v4v, J4v, w4v) {
-    var z31 = S9vv;
-    var r4v = new Date()[z31.O0v]();
-    var z4v = $[z31.Z0v]({
-        url: _answerURL,
-        type: z31.w0v,
-        timeout: z31.A7v,
+var _player_token = i3PP.H4P;
+var _get_query;
+var _htmlVerify = i3PP.w4P;
+var _sec_level;
+var _wave_level;
+function keepAlive(b3P) {
+    var k6u = i3PP;
+    var R1u = "../misc/refresh/";
+    $[k6u.h8P]({
+        url: R1u,
+        type: k6u.c8P,
         data: {
-            sid: C4v,
-            session_token: B4v,
-            game_token: v4v,
-            guess: prep(J4v),
+            cache_key: _session_token,
+            sid: _sid,
             analytics_tier: _analytics_tier
         },
         headers: {
-            "cache-control": z31.r0v,
-            "X-NewRelic-Timestamp": r4v,
-            "X-Requested-ID": requestID()
+            "cache-control": k6u.H8P,
+            "X-NewRelic-Timestamp": new Date()[k6u.Q8P](),
+            "X-Requested-ID": getRequestID()
         },
-        success: function(i4v) {
-            var A3v = "solved";
-            var I4v = jQuery[z31.C0v](i4v);
-            if (I4v[A3v] && window[z31.D0v] && _earlyVictoryMessage) {
-                parent[z31.D0v](z31.r6v, z31.u0v);
-                if (_get_query[z31.C6v]) {
-                    log(z31.B6v);
-                    parent[z31.D0v](z31.v6v, z31.u0v);
-                }
-            }
-            if (I4v[z31.B0v] == z31.v0v) timeoutMode();
-            if (I4v[z31.s0v] == z31.x0v)
-                if (currentTarget) currentTarget[z31.z7v](z31.Q6v);
-            if (typeof w4v === z31.i0v) currentTarget[w4v](i4v);
-            else w4v(i4v);
+        success: function(u3P) {
+            var a3P = jQuery[k6u.m8P](u3P);
+            if (a3P[q3PP.O1u])
+                timeoutMode();
+            else if (!b3P)
+                delayKeepAlive();
+        },
+        error: function() {
+            if (!b3P)
+                setTimeout(function() {
+                    keepAlive();
+                }, k6u.O4P);
         }
     });
 }
+function getSessionToken() {
+    return _session_token;
+}
+var _load_count = i3PP.S2P;
+var _end_url = i3PP.H4P;
+var _game_sid;
+var _site_url;
+var _default_game;
+var _lock_game;
 var _game_data, _string_table_prefixes, _string_table, _extra_data, _extra_victory_data, _snippet_data, _end_survey_result;
-var _lang = S9vv.F0v;
-var _lurl = S9vv.F0v;
-
-function getVars() {
-    return _appvars;
-}
-
-function getSec() {
-    return _sec_level;
-}
-
-function getStringTable() {
-    return {
-        string_table: _string_table,
-        string_table_prefixes: _string_table_prefixes
-    };
-}
-var _meta_theme = S9vv.a7v;
-
-function onAppLoad() {
-    var I31 = S9vv;
-    var s3v = "NextAppLoad";
-    var i3v = 'nextAppLoaded';
-    var I3v = "game loaded";
-    var J3v = 'finished_loading_game';
-    var v3v = "ON APP LOAD!!";
-    var C3v = ":focus";
-    var r3v = "is";
-    var Z3v = "triggered event to current captcha to show try again";
-    var O3v = "next app is loaded";
-    var u3v = "next app loaded";
-    sendAnalytics(u3v, O3v, Z3v);
-    _canReload = I31.o6v;
-    if ($(a9vv.w3v)[r3v](C3v))
-        if (currentTarget) currentTarget[I31.z7v](a9vv.B3v);
-    clearSlowLoad();
-    log(v3v);
-    if (!_firstLoaded) {
-        _firstLoaded = I31.o6v;
-        if (window[I31.D0v]) parent[I31.D0v](J3v, I31.u0v);
-        keepAlive();
-        sendAnalytics(a9vv.z3v, I3v);
+var _lang = i3PP.v4P;
+function setupWithData(W1P) {
+    var Z6u = q3PP;
+    var w6u = i3PP;
+    var l5u = "setup fc";
+    var C5u = "extra_data";
+    var s5u = "inj_tag";
+    var F5u = "***EXTRA IS***";
+    var D5u = '.fc_meta_success_text';
+    var q5u = "_meta_success_text";
+    var o5u = "extraBaseSettings";
+    var j4u = '100';
+    var T4u = "extra100Settings";
+    var V4u = '50';
+    var G4u = "extra50Settings";
+    var n4u = "_guiFontColr";
+    var u4u = 'passback_get_data';
+    var a4u = "_passback_get_data";
+    var b4u = "_time_end_seconds";
+    var z4u = "_time_end";
+    var U4u = "timed_mode";
+    var P4u = "encrypted_mode";
+    var A4u = "_suppress_verify_log";
+    var X4u = "_skip_start_up";
+    var L4u = 'sec_id';
+    var N4u = "1";
+    var d4u = 'earlyVictoryMessage';
+    var y4u = 'sid';
+    var B4u = 'game_sid';
+    var f4u = 'string_table';
+    var E4u = 'string_table_prefixes';
+    var K4u = 'lang';
+    var J4u = 'game_data';
+    var M4u = 'end_url';
+    var W4u = 'wave';
+    var r4u = 'sec';
+    var S4u = 'appvars';
+    var t4u = 'challengeID';
+    var Y4u = 'challengeURL';
+    var x4u = 'g';
+    var m4u = "/fc/ip/?url=https:\\/\\/";
+    var e4u = 'https:\\/\\/';
+    log(w6u.v8P);
+    log(W1P);
+    log(w6u.e8P);
+    if (_cdn_backup)
+        if (ie_ver === w6u.E2P)
+            W1P = W1P[w6u.p7P](e4u + _primary_cdn_url)[w6u.U7P](m4u + _backup_cdn_url);
+        else
+            W1P = W1P[Z6u.v4u](new RegExp(_primary_cdn_url,x4u), _backup_cdn_url);
+    var r1P = jQuery[w6u.m8P](W1P);
+    log(r1P);
+    if (r1P[Z6u.O1u])
+        timeoutMode();
+    else {
+        _session_started = w6u.g4P;
+        _challengeURL = r1P[Y4u];
+        _game_token = r1P[t4u];
+        _appvars = r1P[S4u];
+        _sec_level = parseFloat(r1P[r4u]);
+        _wave_level = parseFloat(r1P[W4u]);
+        _end_url = r1P[M4u];
+        _game_data = r1P[J4u] ? r1P[J4u] : {};
+        _lang = _lang ? _lang : r1P[K4u];
+        _string_table_prefixes = r1P[E4u];
+        _string_table = r1P[f4u];
+        _game_sid = r1P[B4u];
+        _sid = r1P[y4u];
+        _earlyVictoryMessage = r1P[d4u] == N4u;
+        _secure_game_id = r1P[L4u];
+        setupExtraData();
+        if (_game_data[Z6u.M2u]) {
+            if (_game_data[Z6u.M2u][X4u])
+                showMeta();
+            if (_game_data[Z6u.M2u][A4u]) {
+                _user_clicked_verify = w6u.g4P;
+                showMeta();
+            }
+            if (_game_data[Z6u.M2u][P4u])
+                _is_timed_mode = w6u.g4P;
+            if (_game_data[Z6u.M2u][U4u]) {
+                _is_timed_mode = w6u.g4P;
+                _encryption_time_end = _game_data[Z6u.M2u][z4u];
+                _encryption_time_end_seconds = _game_data[Z6u.M2u][b4u];
+                _encryption_time_delta = getEncryptionTimeDelta();
+            }
+            if (_game_data[Z6u.M2u][a4u] && !_passback_done) {
+                _passback_done = w6u.g4P;
+                if (window[w6u.G4P])
+                    parent[w6u.G4P](u4u, w6u.T4P);
+            }
+            if (_game_data[Z6u.M2u][n4u])
+                _fntClr = _game_data[Z6u.M2u][n4u];
+            if (_game_data[Z6u.M2u][G4u])
+                setupExtra(_game_data[Z6u.M2u][G4u], V4u);
+            if (_game_data[Z6u.M2u][T4u])
+                setupExtra(_game_data[Z6u.M2u][T4u], j4u);
+            if (_game_data[Z6u.M2u][o5u])
+                setupExtra(_game_data[Z6u.M2u][o5u], Z6u.i5u);
+            if (_game_data[Z6u.M2u][q5u])
+                $(D5u)[w6u.f8P](_game_data[Z6u.M2u][q5u]);
+        }
+        if (_game_data[Z6u.M2u])
+            if (_game_data[Z6u.M2u][Z6u.J2u]) {
+                _extra_data = _game_data[Z6u.M2u][Z6u.J2u][Z6u.y2u];
+                log(F5u);
+                log(_extra_data);
+            }
+        if (_game_data[Z6u.M2u])
+            if (_game_data[Z6u.M2u][s5u])
+                if (window[w6u.G4P])
+                    parent[w6u.G4P](JSON[Z6u.H1u]({
+                        "msg": s5u,
+                        "data": _game_data[Z6u.M2u][s5u]
+                    }), w6u.T4P);
+        _game_data[C5u] = _extra_data;
+        getFunCaptcha();
+        sendAnalytics(l5u);
     }
-    if (oldTarget)
-        if (_type == I31.r7v) oldTarget[I31.z7v](i3v, {
-            loaded: I31.o6v
+}
+function timeoutMode() {
+    var h6u = q3PP;
+    var Q6u = i3PP;
+    var Q5u = 'session_timeout';
+    var Z5u = "#timeout_widget";
+    var w5u = "Timeout mode";
+    var k5u = "show timeout gui";
+    var I5u = "session timeout display";
+    var O5u = "timeout";
+    var R5u = "#phone_widget";
+    $(R5u)[Q6u.D5P]();
+    if (_htmlVerify)
+        $(Q6u.X5P)[Q6u.D5P]();
+    hideMeta();
+    $(Q6u.z8P)[h6u.m1u]();
+    $(h6u.W1u)[h6u.m1u]();
+    $(Q6u.z5P)[h6u.m1u]();
+    $(Q6u.b8P)[h6u.m1u]();
+    $(h6u.h2u)[h6u.m1u]();
+    hideLoader();
+    sendAnalytics(O5u, I5u, k5u);
+    log(w5u);
+    $(Q6u.N5P)[Q6u.D5P]();
+    $(Q6u.L5P)[Q6u.D5P]();
+    setiFrameURL(Q6u.G9P, _blank_url);
+    setiFrameURL(Q6u.V9P, _blank_url);
+    $(Q6u.I8P)[Q6u.D5P]();
+    $(Q6u.y8P)[Q6u.D5P]();
+    $(Z5u)[Q6u.i5P]();
+    if ($(Q6u.E6P)[Q6u.t6P] > Q6u.S2P)
+        $(Q6u.E6P)[Q6u.f6P]();
+    if (window[Q6u.G4P])
+        parent[Q6u.G4P](Q5u, Q6u.T4P);
+}
+function getEndURL() {
+    var p6u = i3PP;
+    var A5u = "get app url";
+    var X5u = "get url";
+    sendAnalytics(X5u, A5u, _end_url);
+    if (_end_url)
+        return _end_url[p6u.t6P] > p6u.S2P ? _end_url : p6u.v4P;
+    else
+        return p6u.v4P;
+}
+var _lurl = i3PP.v4P;
+function prep(C2P) {
+    return makepackage(C2P, _session_token, pack_count);
+}
+var _meta_theme = i3PP.S2P;
+function sendAnalytics(K1P, J1P, E1P, f1P) {
+    var H6u = q3PP;
+    var c6u = i3PP;
+    var m5u = "../a/";
+    var e5u = " - ";
+    var g5u = "Analytics to upload: ";
+    var H5u = "failed game";
+    var c5u = "user clicked verify again";
+    var p5u = "user clicked verify";
+    var h5u = "begin load";
+    var T2P = 100;
+    var u2P = 40;
+    var M1P = c6u.g4P;
+    if (K1P == h5u)
+        hideLoader();
+    if (J1P === H6u.s1u && _load_count > c6u.S2P)
+        M1P = c6u.w4P;
+    if (J1P == p5u && !E1P) {
+        if ($(c6u.E6P)[c6u.t6P] > c6u.S2P)
+            $(c6u.E6P)[c6u.f6P]();
+        if (!_user_clicked_verify) {
+            _user_clicked_verify = c6u.g4P;
+            showMeta();
+        } else
+            J1P = c5u;
+    }
+    if (_analytics_tier < T2P)
+        M1P = c6u.w4P;
+    switch (_analytics_tier) {
+    case u2P:
+        if (K1P == c6u.c5P)
+            M1P = c6u.g4P;
+        if (K1P == H6u.p1u)
+            M1P = c6u.g4P;
+        if (K1P == H5u)
+            M1P = c6u.g4P;
+        if (J1P == H6u.g1u)
+            M1P = c6u.g4P;
+        if (J1P == c5u)
+            M1P = c6u.g4P;
+        if (J1P == c6u.a9P)
+            M1P = c6u.g4P;
+    case c6u.a2P:
+        if (J1P == p5u)
+            M1P = c6u.g4P;
+        if (K1P == H6u.F1u)
+            M1P = c6u.g4P;
+        if (K1P == c6u.m0P)
+            M1P = c6u.g4P;
+        break;
+    }
+    if (M1P) {
+        log(g5u + K1P + e5u + J1P + e5u + E1P + e5u + f1P);
+        var B1P = new Date()[c6u.Q8P]();
+        $[c6u.h8P]({
+            url: m5u,
+            type: c6u.c8P,
+            data: {
+                sid: _sid,
+                game_token: _game_token,
+                session_token: _session_token,
+                game_type: _challengeURL,
+                render_type: _type,
+                category: K1P,
+                action: J1P,
+                label: E1P,
+                data: f1P,
+                analytics_tier: _analytics_tier
+            },
+            headers: {
+                "cache-control": c6u.H8P,
+                "X-NewRelic-Timestamp": B1P,
+                "X-Requested-ID": getRequestID()
+            },
+            success: function(y1P) {
+                var v5u = "analytics response";
+                log(v5u);
+                log(y1P);
+                log(i3PP.e8P);
+            }
         });
-        else oldTarget[s3v](I31.o6v);
-}
-
-function isIOS() {
-    var s31 = a9vv;
-    var Q5v = /AppleWebKit/;
-    var x3v = /(iPod|iPhone|iPad)/;
-    return navigator[s31.l3v][s31.N3v](x3v) && navigator[s31.l3v][s31.N3v](Q5v);
-}
-
-function decryptImg(D4v, Y4v) {
-    return btoa(decrypt(D4v, Y4v));
-}
-function decrypt(pierwsza, druga) {
-    if (typeof pierwsza === 'object') pierwsza = JSON["stringify"](pierwsza);
-    return atob(CryptoJS.AES.decrypt(pierwsza, druga, {
-        format: CryptoJSAesJson
-    })["toString"](CryptoJS["enc"]["Base64"]));
-}
-
-var _user_clicked_verify = S9vv.Z7v;
-var _fp = S9vv.Z7v;
-
-function lowFPSFallback(d1v, T1v) {
-    var Q51 = S9vv;
-    var a5v = "restart";
-    var L7v = 23;
-    if (T1v) {
-        sendAnalytics(a9vv.S5v, a5v, d1v);
-        parent[Q51.D0v](JSON[Q51.Y0v]({
-            msg: a5v,
-            deviceList: T1v,
-            token: _session_token,
-            fallbackType: L7v
-        }), Q51.u0v);
-    } else {
-        _forcePhoneBtn = Q51.o6v;
-        $(Q51.G6v)[Q51.A6v]();
-        showMeta();
-        sendAnalytics(a9vv.S5v, a9vv.R5v, d1v);
     }
 }
-var _pk = S9vv.F0v;
-
-function getTime() {
-    return _time;
+function setiFrameURL(q2P, i2P) {
+    var g6u = i3PP;
+    var i8u = "prop";
+    var o8u = '#';
+    var j5u = "src";
+    var o2P = document[g6u.I0P](q2P);
+    if (o2P !== g6u.v4P)
+        if (o2P[g6u.w0P])
+            o2P[g6u.w0P][g6u.J4P][q3PP.v4u](i2P);
+        else if (o2P[j5u])
+            o2P[j5u] = i2P;
+        else
+            $(o8u + q2P)[i8u](q3PP.A2u, i2P);
 }
-var _njst = S9vv.F0v;
-var _noJSX = S9vv.F0v;
-var _analytics_tier = S9vv.N7v;
-var _passback_done = S9vv.Z7v;
-
+var _user_clicked_verify = i3PP.w4P;
+var _fp = i3PP.w4P;
 function setupSameChallenge() {
-    var a51 = S9vv;
-    var c5v = "get_same";
-    var m5v = "get same captcha";
-    sendAnalytics(a9vv.P3v, m5v, _challengeURL);
-    var i1v = new Date()[a51.O0v]();
+    var v6u = i3PP;
+    var p4u = "get_same";
+    var h4u = "get same captcha";
+    sendAnalytics(q3PP.O4u, h4u, _challengeURL);
+    var m1P = new Date()[v6u.Q8P]();
     startSlowLoadTracker();
-    $[a51.Z0v]({
-        url: a9vv.G3v,
-        type: a51.w0v,
-        timeout: a51.A7v,
+    $[v6u.h8P]({
+        url: q3PP.k4u,
+        type: v6u.c8P,
+        timeout: v6u.O4P,
         data: {
             token: _session_token,
             sid: _sid,
@@ -907,2092 +703,2418 @@ function setupSameChallenge() {
             render_type: _type,
             analytics_tier: _analytics_tier,
             data: {
-                "ps": _get_query[a51.N0v],
-                "status": c5v
+                "ps": _get_query[q3PP.P1u],
+                "status": p4u
             }
         },
         headers: {
-            "cache-control": a51.r0v,
-            "X-NewRelic-Timestamp": i1v,
-            "X-Requested-ID": requestID()
+            "cache-control": v6u.H8P,
+            "X-NewRelic-Timestamp": m1P,
+            "X-Requested-ID": getRequestID()
         },
-        success: function(s1v) {
-            if (s1v === a9vv.q3v) {
+        success: function(v1P) {
+            if (v1P === q3PP.Z4u) {
                 setTimeout(function() {
-                    if (_loadFailCount !== a51.U7v) {
+                    if (_loadFailCount !== v6u.A2P) {
                         ++_loadFailCount;
                         setTimeout(function() {
                             setupSameChallenge();
-                        }, a51.K7v);
-                    } else timeoutMode();
-                }, a51.y7v);
-                return a51.Z7v;
+                        }, v6u.F4P);
+                    } else
+                        timeoutMode();
+                }, v6u.C4P);
+                return v6u.w4P;
             }
-            setupWithData(s1v);
+            setupWithData(v1P);
         },
-        error: function(x1v) {
+        error: function(x1P) {
             setTimeout(function() {
-                if (_loadFailCount !== a51.U7v) {
+                if (_loadFailCount !== v6u.A2P) {
                     ++_loadFailCount;
                     setupSameChallenge();
-                } else timeoutMode();
-            }, a51.y7v);
+                } else
+                    timeoutMode();
+            }, v6u.C4P);
         }
     });
 }
-var _forcePhoneBtn = S9vv.Z7v;
-
-function bake_cookie(H4v, l4v) {
-    var R51 = S9vv;
-    var M5v = '';
-    var E5v = '; path=/;';
-    var f5v = '; domain=.';
-    var k5v = '=';
-    if (window[R51.o0v]) {
-        var F4v = [H4v, k5v, JSON[R51.Y0v](l4v), f5v, window[R51.o0v][R51.P0v][a9vv.W5v](), E5v][a9vv.V5v](M5v);
-        document[a9vv.L3v] = F4v;
-    }
+var _pk = i3PP.v4P;
+function hasExtraData() {
+    if (_extra_victory_data)
+        return i3PP.r2P;
+    else if (_extra_data)
+        return i3PP.r2P;
+    else
+        return i3PP.S2P;
 }
-var _aria_start_label = S9vv.F0v;
-
-function setupExtraData() {
-    var c51 = S9vv;
-    var t5v = "fc_append_survey";
-    var U5v = "Yes";
-    var l5v = "fc_lock_game";
-    var H5v = "auto";
-    var F5v = "fc_default_game";
-    var X5v = "fc_banner_url";
-    if (_extra_data) {
-        if (_extra_data[X5v]) _end_url = _extra_data[X5v];
-        else _end_url = c51.H0v;
-        if (_extra_data[F5v] && _extra_data[F5v] != c51.H0v && _extra_data[F5v] != H5v) _default_game = _extra_data[F5v];
-        if (_extra_data[l5v] && _extra_data[l5v] != c51.H0v) _lock_game = _extra_data[l5v] == U5v ? c51.R7v : c51.a7v;
-        if (_extra_data[t5v]) _append_survey = _extra_data[t5v] == U5v ? c51.R7v : c51.a7v;
-    }
+var _njst = i3PP.v4P;
+var _noJSX = i3PP.v4P;
+var _analytics_tier = i3PP.a2P;
+function hideSpinner() {
+    $(q3PP.Y5u)[i3PP.D5P]();
+    $(q3PP.x5u)[i3PP.i5P]();
 }
-var _secure_mode = S9vv.Z7v;
-
-function hideApp() {
-    var g5v = "hideApp";
-    var b5v = 'hideApp';
-    if (!currentTarget)
-        if (_type == S9vv.r7v) currentTarget[S9vv.z7v](b5v);
-        else currentTarget[g5v]();
+var _passback_done = i3PP.w4P;
+function getHiddenTimedMode() {
+    return _hidden_timed_mode;
 }
-var _session_started = S9vv.Z7v;
-var _pl = S9vv.a7v;
-
-function metricLoader(b4v) {
-    var f51 = a9vv;
-    var o5v = '" height="0" width="0" style="width:0px !important;height 0px !important"></img>';
-    var L5v = "adurl";
-    if (b4v) {
-        if (b4v[f51.t3v](L5v) != -S9vv.R7v) b4v = b4v + _site_url;
-        $(f51.N5v)[f51.n5v](f51.j5v + b4v + o5v);
-    }
-}
-
-function showLoader() {
-    $(a9vv.h3v)[S9vv.V6v]();
-}
-var _refresh_count = S9vv.a7v;
-
-function loadVictoryScreen(O1v, Z1v, u1v, D1v, w1v) {
-    var X51 = a9vv;
-    var M51 = S9vv;
-    var I5v = "pointer";
-    var Z5v = '<img style="z-index:2;position: absolute;" />';
-    var O5v = "Load victory screen event!";
-    var u5v = '" style="z-index:2;position: absolute;" />';
-    var A5v = "fallback_victory";
-    var D5v = "inject fallback image";
-    var h5v = "display injected";
-    var e5v = "Injecting html...";
-    var G5v = "INJECT";
-    var p5v = "empty";
-    var T5v = "fc_victory_html";
-    var d5v = 'html content: ';
-    var Y7v = 5000;
-    var D7v = 4500;
-    var h7v = 2500;
-    log(d5v + D1v);
-    var A1v = M51.o6v;
+function loadVictoryScreen(I1P, k1P, O1P, C1P, w1P) {
+    var r6u = q3PP;
+    var S6u = i3PP;
+    var U2u = "pointer";
+    var X2u = '<img style="z-index:2;position: absolute;" />';
+    var L2u = "Load victory screen event!";
+    var N2u = '" style="z-index:2;position: absolute;" />';
+    var d2u = "fallback_victory";
+    var f2u = "inject fallback image";
+    var K2u = "display injected";
+    var W2u = "Injecting html...";
+    var r2u = "INJECT";
+    var S2u = "empty";
+    var t2u = "fc_victory_html";
+    var Y2u = 'html content: ';
+    var R4P = 5000;
+    var l4P = 4500;
+    var s4P = 2500;
+    log(Y2u + C1P);
+    var R1P = S6u.g4P;
     if (_extra_victory_data) {
-        if (_extra_victory_data[T5v]) {
-            var Y1v = $(_extra_victory_data[T5v]);
-            $(X51.P5v)[p5v]();
-            $(X51.P5v)[X51.n5v](Y1v);
+        if (_extra_victory_data[t2u]) {
+            var l1P = $(_extra_victory_data[t2u]);
+            $(S6u.U5P)[S2u]();
+            $(S6u.U5P)[S6u.t0P](l1P);
         }
         loadedVictoryScreen();
-        A1v = M51.Z7v;
-    } else if (D1v == G5v) {
-        log(e5v);
-        if (_game_data[X51.q5v][X51.K5v]) {
-            A1v = M51.Z7v;
-            if (window[M51.D0v]) {
-                sendAnalytics(X51.K5v, h5v);
-                var r1v = _game_data[X51.q5v][X51.K5v];
-                parent[M51.D0v](JSON[M51.Y0v]({
-                    "msg": X51.K5v,
-                    "data": _game_data[X51.q5v][X51.K5v]
-                }), M51.u0v);
+        R1P = S6u.w4P;
+    } else if (C1P == r2u) {
+        log(W2u);
+        if (_game_data[r6u.M2u][r6u.J2u]) {
+            R1P = S6u.w4P;
+            if (window[S6u.G4P]) {
+                sendAnalytics(r6u.J2u, K2u);
+                var Z1P = _game_data[r6u.M2u][r6u.J2u];
+                parent[S6u.G4P](JSON[r6u.H1u]({
+                    "msg": r6u.J2u,
+                    "data": _game_data[r6u.M2u][r6u.J2u]
+                }), S6u.T4P);
                 setTimeout(function() {
-                    var y5v = "show_inject";
-                    parent[S9vv.D0v](JSON[S9vv.Y0v]({
-                        "msg": y5v
-                    }), S9vv.u0v);
-                }, h7v);
-                if (!adAnim) loadedVictoryScreen();
-                else setTimeout(function() {
+                    var E2u = "show_inject";
+                    parent[i3PP.G4P](JSON[r6u.H1u]({
+                        "msg": E2u
+                    }), i3PP.T4P);
+                }, s4P);
+                if (!adAnim)
                     loadedVictoryScreen();
-                }, Y7v);
-            }
-            if (ie_ver && ie_ver <= M51.E7v) {
-                sendAnalytics(X51.K5v, D5v);
-                D1v = $(X51.j5v + _game_data[X51.q5v][X51.K5v][X51.Y5v][A5v] + u5v);
-                $(X51.P5v)[p5v]();
-                $(X51.P5v)[X51.n5v](D1v);
-                loadedVictoryScreen();
-            }
-        }
-    }
-    if (A1v) {
-        if (u1v) _end_url = u1v[M51.X0v] > M51.a7v ? u1v : _end_url;
-        if (Z1v) _end_survey_result = Z1v;
-        log(O5v);
-        log(O1v);
-        var Y1v = D1v ? $(D1v) : $(Z5v);
-        if (w1v) _extra_data[X51.w5v] = w1v;
-        $(X51.P5v)[p5v]();
-        $(X51.P5v)[X51.n5v](Y1v);
-        if (!D1v) {
-            Y1v[X51.r5v](X51.C5v, function() {
-                loadedVictoryScreen();
-            })[X51.B5v](X51.v5v, O1v);
-            setTimeout(function() {
-                var J5v = '<p id="victoryWait" style="position: absolute;left: 100px;bottom: 20px;">Please wait...</p>';
-                $(X51.P5v)[X51.n5v](J5v);
-                loadedVictoryScreen();
-            }, D7v);
-        } else loadedVictoryScreen();
-        if (_end_url)
-            if (_end_url[M51.X0v] > M51.a7v) $(X51.P5v)[X51.z5v](I5v);
-    }
-}
-var _textCaptchaMade = S9vv.Z7v;
-
-function getWaveCount() {
-    return _wave_level;
-}
-var _show_audio = S9vv.Z7v;
-var _lightbox_firefox_loaded = S9vv.Z7v;
-var isAndroid = navigator[a9vv.l3v][a9vv.U3v]()[a9vv.t3v](a9vv.i5v) > -S9vv.R7v;
-var _android_ver;
-if (isAndroid) _android_ver = parseFloat(navigator[a9vv.l3v][a9vv.s5v](navigator[a9vv.l3v][a9vv.t3v](a9vv.x5v) + S9vv.V7v));
-var is_safari_ios = isIOS();
-
-function setupChallenge() {
-    var H51 = S9vv;
-    var S8v = "init";
-    var Q8v = "get new captcha";
-    if (_default_game) {
-        _challengeURL = _default_game;
-        setupSameChallenge();
-    } else {
-        sendAnalytics(a9vv.P3v, Q8v);
-        var C1v = new Date()[H51.O0v]();
-        startSlowLoadTracker();
-        var B1v = $[H51.Z0v]({
-            url: a9vv.G3v,
-            type: H51.w0v,
-            timeout: H51.A7v,
-            data: {
-                token: _session_token,
-                sid: _sid,
-                lang: _lang,
-                render_type: _type,
-                analytics_tier: _analytics_tier,
-                data: {
-                    "ps": _get_query[H51.N0v],
-                    "status": S8v
-                }
-            },
-            headers: {
-                "cache-control": H51.r0v,
-                "X-NewRelic-Timestamp": C1v,
-                "X-Requested-ID": requestID()
-            },
-            success: function(v1v) {
-                var a8v = ".loader-logo";
-                if (v1v === a9vv.q3v) {
+                else
                     setTimeout(function() {
-                        if (_loadFailCount < H51.f7v) {
-                            ++_loadFailCount;
-                            setTimeout(function() {
-                                setupChallenge();
-                            }, H51.K7v);
-                        } else timeoutMode();
-                    }, H51.y7v);
-                    return H51.Z7v;
-                }
-                setupWithData(v1v);
-                $(a8v)[H51.V6v]();
-            },
-            error: function(J1v, z1v, I1v) {
-                setTimeout(function() {
-                    if (_loadFailCount !== H51.f7v) {
-                        ++_loadFailCount;
-                        setupChallenge();
-                    } else timeoutMode();
-                }, H51.K7v);
+                        loadedVictoryScreen();
+                    }, R4P);
             }
-        });
-    }
-}
-
-function log(T4v) {
-    var R8v = "log";
-    if (_debug) try {
-        console[R8v](T4v);
-    } catch (P4v) {}
-}
-var ie_ver = isIE();
-
-function delayKeepAlive() {
-    var O7v = 120000;
-    setTimeout(function() {
-        keepAlive();
-    }, O7v);
-}
-
-function showWaitScreen() {
-    showLoader();
-    startSlowLoadTracker();
-}
-
-function checkPhoneMode() {
-    var c8v = ", _refresh_count: ";
-    var m8v = "_pl: ";
-    if (!_show_phone) {
-        log(m8v + _pl + c8v + _refresh_count);
-        if (_refresh_count >= S9vv.f7v) setupNoJS();
-    }
-}
-var _append_survey = S9vv.Z7v;
-var _appended_survey = S9vv.Z7v;
-
-function setiFrameURL(e4v, G4v) {
-    var U51 = a9vv;
-    var M8v = "prop";
-    var V8v = '#';
-    var E8v = "src";
-    var p4v = document[U51.k8v](e4v);
-    if (p4v !== S9vv.F0v)
-        if (p4v[U51.f8v]) p4v[U51.f8v][S9vv.o0v][U51.W8v](G4v);
-        else if (p4v[E8v]) p4v[E8v] = G4v;
-    else $(V8v + e4v)[M8v](U51.v5v, G4v);
-}
-
-function clearSlowLoad() {
-    window[S9vv.U0v](_slow_load);
-}
-var _loadFailCount = S9vv.a7v;
-var adAnim = S9vv.Z7v;
-
-function keepAlive(N1v) {
-    var g51 = S9vv;
-    var X8v = "../misc/refresh/";
-    $[g51.Z0v]({
-        url: X8v,
-        type: g51.w0v,
-        data: {
-            cache_key: _session_token,
-            sid: _sid,
-            analytics_tier: _analytics_tier
-        },
-        headers: {
-            "cache-control": g51.r0v,
-            "X-NewRelic-Timestamp": new Date()[g51.O0v](),
-            "X-Requested-ID": requestID()
-        },
-        success: function(j1v) {
-            var n1v = jQuery[g51.C0v](j1v);
-            if (n1v[g51.s0v]) timeoutMode();
-            else if (!N1v) delayKeepAlive();
-        },
-        error: function() {
-            if (!N1v) setTimeout(function() {
-                keepAlive();
-            }, g51.A7v);
+            if (ie_ver && ie_ver <= S6u.f2P) {
+                sendAnalytics(r6u.J2u, f2u);
+                C1P = $(r6u.B2u + _game_data[r6u.M2u][r6u.J2u][r6u.y2u][d2u] + N2u);
+                $(S6u.U5P)[S2u]();
+                $(S6u.U5P)[S6u.t0P](C1P);
+                loadedVictoryScreen();
+            }
         }
-    });
-}
-var _earlyVictoryMessage = S9vv.Z7v;
-
-function loadedVictoryScreen() {
-    var l8v = "victoryScreenLoaded";
-    var H8v = 'victoryScreenLoaded';
-    var F8v = "loaded victory screen";
-    log(F8v);
-    if (currentTarget)
-        if (_type == S9vv.r7v) currentTarget[S9vv.z7v](H8v, {
-            loaded: S9vv.o6v
-        });
-        else currentTarget[l8v]();
-}
-var stmp = S9vv.F0v;
-var stmpSet = S9vv.Z7v;
-
-function getCDN() {
-    return _cdn_url;
-}
-var bootstrapComplete = S9vv.Z7v;
-var _focusColor = S9vv.H0v;
-
-function getFunCaptcha() {
-    var N51 = S9vv;
-    var b8v = "/";
-    var t8v = "../apps/";
-    var U8v = "***Getting FC***";
-    log(U8v);
-    if (_type && _challengeURL)
-        if (_type == N51.r7v)
-            if (_currentFrame == N51.R7v) {
-                _currentFrame = N51.m7v;
-                setiFrameURL(N51.a0v, t8v + _type + b8v + _challengeURL + b8v + N51.H0v);
-            } else {
-                _currentFrame = N51.R7v;
-                _showStartupBool = N51.Z7v;
-                setiFrameURL(N51.S0v, t8v + _type + b8v + _challengeURL + b8v + N51.H0v);
-            }
-    else setupNoJS();
-}
-var _firstLoaded = S9vv.Z7v;
-var _audio_type = S9vv.m7v;
-
-function setupExtra(K4v, q4v) {
-    var j51 = S9vv;
-    var n51 = a9vv;
-    var T8v = '{"msg":"changeIframeSize","height":340}';
-    var d8v = "<div style='position:relative;'>";
-    var o8v = 'body';
-    var j8v = "</div>";
-    var n8v = "<div style='position:absolute;top:0;left:0;right:0;z-index:2000;' id='extra-container'>";
-    var N8v = "prepend";
-    var L8v = '.upper-ctn';
-    if (extraCreated && q4v != n51.g8v) return j51.F0v;
-    if (extraCreatedBase && q4v == n51.g8v) return j51.F0v;
-    if (q4v != n51.g8v) {
-        $(L8v)[N8v](n8v + K4v[j51.z6v] + j8v);
-        extraCreated = j51.o6v;
-    } else {
-        $(o8v)[n51.n5v](d8v + K4v[j51.z6v] + j8v);
-        if (window[j51.D0v]) parent[j51.D0v](T8v, j51.u0v);
-        extraCreatedBase = j51.o6v;
+    }
+    if (R1P) {
+        if (O1P)
+            _end_url = O1P[S6u.t6P] > S6u.S2P ? O1P : _end_url;
+        if (k1P)
+            _end_survey_result = k1P;
+        log(L2u);
+        log(I1P);
+        var l1P = C1P ? $(C1P) : $(X2u);
+        if (w1P)
+            _extra_data[S6u.q9P] = w1P;
+        $(S6u.U5P)[S2u]();
+        $(S6u.U5P)[S6u.t0P](l1P);
+        if (!C1P) {
+            l1P[S6u.n8P](S6u.u3u, function() {
+                loadedVictoryScreen();
+            })[S6u.j9P](r6u.A2u, I1P);
+            setTimeout(function() {
+                var P2u = '<p id="victoryWait" style="position: absolute;left: 100px;bottom: 20px;">Please wait...</p>';
+                $(i3PP.U5P)[i3PP.t0P](P2u);
+                loadedVictoryScreen();
+            }, l4P);
+        } else
+            loadedVictoryScreen();
+        if (_end_url)
+            if (_end_url[S6u.t6P] > S6u.S2P)
+                $(S6u.U5P)[S6u.l5P](U2u);
     }
 }
-var _audio_start_delay = S9vv.q7v;
-var _audio_game_index = S9vv.a7v;
-var _fntClr = S9vv.H0v;
-var _timeout_fallback = S9vv.u7v;
-var _hidden_timed_mode = S9vv.Z7v;
-var _secure_game_id;
-
-function getGameSid() {
-    return _game_sid;
+function getStringTable() {
+    return {
+        string_table: _string_table,
+        string_table_prefixes: _string_table_prefixes
+    };
 }
-var _secure_client_id;
-
-function showStartup() {
-    return _showStartupBool;
+var _forcePhoneBtn = i3PP.w4P;
+function decryptImg(l2P, R2P) {
+    return btoa(decrypt(l2P, R2P));
 }
-
+function destroyLastCaptcha() {
+    var W6u = i3PP;
+    var R4u = "toggleClass";
+    var l4u = 'startupClick';
+    var C4u = "visible";
+    var s4u = "hidden";
+    var F4u = "visibility";
+    var D4u = "***Destroying FC***";
+    if (_is_timed_mode)
+        hideTimedModeTimer();
+    log(D4u);
+    if (!(_type == W6u.e4P)) {
+        oldTarget[W6u.A6P][F4u] = s4u;
+        currentTarget[W6u.A6P][F4u] = C4u;
+    }
+    if (_is_timed_mode)
+        currentTarget[W6u.s0P](l4u, {});
+    if (_currentFrame == W6u.W2P) {
+        $(W6u.N5P)[R4u](W6u.i8P);
+        $(W6u.L5P)[R4u](W6u.i8P);
+        setiFrameURL(W6u.V9P, _blank_url);
+    } else {
+        $(W6u.N5P)[R4u](W6u.i8P);
+        $(W6u.L5P)[R4u](W6u.i8P);
+        setiFrameURL(W6u.G9P, _blank_url);
+    }
+}
 function boostRefresh() {
     checkPhoneMode();
     _refresh_count++;
 }
-var _slow_load;
-$(document)[a9vv.P8v](function() {
-    var d51 = a9vv;
-    var o51 = S9vv;
-    var K71 = "audio";
-    var a71 = "createElement";
-    var S71 = '#audio_play';
-    var Q71 = '#audio_submit';
-    var x41 = '.gameBtn';
-    var s41 = '.reloadBtn';
-    var i41 = 'fc_audio_el';
-    var I41 = '#phone_response_field';
-    var v41 = '#phone';
-    var B41 = '#phone_contact';
-    var C41 = "#phone_contact";
-    var r41 = '#phone_passcode_submit';
-    var w41 = "#phone_passcode_submit";
-    var Z41 = '#phone_change';
-    var O41 = "#phone_change";
-    var u41 = '#phone_call';
-    var A41 = '#phone_sms';
-    var y41 = "limited";
-    var h41 = "success";
-    var e41 = "&&";
-    var p41 = ".passcode_entry_info";
-    var T41 = "sms";
-    var d41 = "again";
-    var L41 = '#phone_submit_call';
-    var g41 = "call";
-    var b41 = "call_me_again_button";
-    var t41 = "#phone_call";
-    var U41 = "#phone_sms";
-    var l41 = ".response_field";
-    var M41 = '#phone_cant_text';
-    var V41 = '#phone_submit';
-    var k41 = "image";
-    var c41 = "setAttributeNode";
-    var Q41 = "createAttribute";
-    var x11 = "#phone_submit";
-    var s11 = 'keypress';
-    var e11 = "val";
-    var G11 = '.response_field';
-    var p11 = "#audio_submit";
-    var T11 = "#phone_submit_call";
-    var d11 = "#phone_cant_text";
-    var j11 = "click";
-    var n11 = "#html-verify-btn";
-    var N11 = "lb";
-    var L11 = ".fc-loader";
-    var g11 = ".loader";
-    var b11 = 'check_extra';
-    var U11 = "Not found";
-    var X11 = "referrer";
-    var M11 = "parent";
-    var V11 = 'onmessage';
-    var E11 = "attachEvent";
-    var W11 = 'message';
-    var f11 = "addEventListener";
-    var k11 = "exec";
-    var c11 = " ";
-    var R11 = "android4";
-    var a11 = "250";
-    var S11 = "size";
-    var Q11 = '.patent';
-    var u91 = 'undefined';
-    var A91 = "pl";
-    var K91 = 'js_ready';
-    var q91 = "fp2";
-    var e91 = "cdn_url";
-    var G91 = "atp";
-    var p91 = "scl";
-    var P91 = "ht";
-    var T91 = "tfb";
-    var d91 = "display extra data";
-    var o91 = "extra data";
-    var N91 = "getScript";
-    var B2v = "removeClass";
-    var C2v = '<iframe class="wrapper" id="CaptchaFrame2" src="';
-    var r2v = "#ctn-2 iframe";
-    var w2v = '" horizontalscrolling="no" verticalscrolling="no" scrolling="no"></iframe>';
-    var Z2v = '<iframe class="wrapper" id="CaptchaFrame" src="';
-    var O2v = "replaceWith";
-    var u2v = "#ctn-1 iframe";
-    var Y2v = 'crios';
-    var K2v = "metaiconclr";
-    var p2v = "height";
-    var P2v = "screen";
-    var d2v = "pause";
-    var n2v = 'keyup.audio_ctrl';
-    var N2v = "#audio_play";
-    var L2v = "focus";
-    var g2v = "#audio_download";
-    var t2v = ".audio_noauto_support_info";
-    var F2v = "audio captcha";
-    var X2v = "noJSX";
-    var V2v = 'role';
-    var k2v = '.main-ctn';
-    var c2v = "njst";
-    var R2v = "pk";
-    var v8v = "adanim";
-    var C8v = "meta";
-    var r8v = "at";
-    var w8v = ".phone_limit_2";
-    var Z8v = ".phone_limit";
-    var O8v = ".phone_3";
-    var u8v = ".phone_2";
-    var A8v = ".phone_1";
-    var Y8v = "#phone_response_field";
-    var D8v = "value";
-    var y8v = "#phone";
-    var h8v = "entry_title_default";
-    var K8v = ".phone_start_intro";
-    var q8v = "lurl";
-    var e8v = "lang";
-    var G8v = "r";
-    var p8v = "search";
-    var P7v = 250;
-    var M7v = 9;
-    var k7v = 4;
-    _get_query = D3(document[o51.o0v][p8v]);
-    _session_token = Y3();
-    _htmlVerify = A3();
-    _sid = _get_query[G8v];
-    _lang = _get_query[e8v] ? _get_query[e8v] : o51.F0v;
-    _lurl = _get_query[q8v] ? _get_query[q8v] : o51.F0v;
-
-    function F3() {
-        var E81 = S9vv;
-        $(K8v)[E81.X3v](lang_obj[h8v]);
-        $(y8v)[E81.a7v][D8v] = E81.H0v;
-        $(Y8v)[E81.a7v][D8v] = E81.H0v;
-        m3 = E81.R7v;
-        $(A8v)[E81.A6v]();
-        $(u8v)[E81.m6v]();
-        $(O8v)[E81.m6v]();
-        $(Z8v)[E81.m6v]();
-        $(w8v)[E81.m6v]();
-    }
-    _analytics_tier = _get_query[r8v] ? parseInt(_get_query[r8v]) : o51.N7v;
-    _meta_theme = _get_query[C8v];
-
-    function u3() {
-        var W81 = S9vv;
-        var B8v = "Stars: ";
-        _currentStars = read_cookie(W81.I6v);
-        log(B8v + _currentStars);
-        if (_currentStars == W81.F0v) _currentStars = W81.a7v;
-        $(W81.J6v)[W81.z6v](_currentStars);
-    }
-    adAnim = _get_query[v8v];
-
-    function r3() {
-        var f81 = S9vv;
-        var a2v = '_blank';
-        var S2v = "open";
-        var Q2v = "open end url";
-        var x8v = "end url clicked";
-        var s8v = "fcs=";
-        var i8v = '&';
-        var I8v = '?';
-        var z8v = "_end_survey_result: ";
-        var J8v = "_end_url: ";
-        if (_extra_victory_data)
-            if (_extra_victory_data[d51.w5v]) metricLoader(_extra_victory_data[d51.w5v]);
-        log(J8v + _end_url);
-        if (_end_url)
-            if (_end_url[f81.X0v] > f81.a7v) {
-                if (_append_survey && !_appended_survey) {
-                    log(z8v + _end_survey_result);
-                    if (_end_survey_result) {
-                        var L9v = _end_url && _end_url[d51.t3v](I8v) !== -f81.R7v,
-                            N9v = L9v ? i8v : I8v;
-                        _appended_survey = f81.o6v;
-                        _end_url = _end_url + N9v + s8v + _end_survey_result;
-                    }
+var _aria_start_label = i3PP.v4P;
+var _secure_mode = i3PP.w4P;
+function setupNewChallenge() {
+    var J6u = i3PP;
+    var g4u = "get_new";
+    var H4u = "get different captcha";
+    var c4u = "***Get diff FC***";
+    if (!_lock_game) {
+        showLoader();
+        log(c4u);
+        sendAnalytics(q3PP.O4u, H4u, _challengeURL);
+        var Y1P = new Date()[J6u.Q8P]();
+        startSlowLoadTracker();
+        $[J6u.h8P]({
+            url: q3PP.k4u,
+            type: J6u.c8P,
+            timeout: J6u.O4P,
+            data: {
+                token: _session_token,
+                sid: _sid,
+                skip: _challengeURL,
+                lang: _lang,
+                render_type: _type,
+                analytics_tier: _analytics_tier,
+                data: {
+                    "ps": _get_query[q3PP.P1u],
+                    "status": g4u
                 }
-                sendAnalytics(x8v, Q2v, _end_url);
-                window[S2v](_end_url, a2v);
+            },
+            headers: {
+                "cache-control": J6u.H8P,
+                "X-NewRelic-Timestamp": Y1P,
+                "X-Requested-ID": getRequestID()
+            },
+            success: function(t1P) {
+                if (t1P === q3PP.Z4u) {
+                    setTimeout(function() {
+                        if (_loadFailCount !== J6u.A2P) {
+                            ++_loadFailCount;
+                            setTimeout(function() {
+                                setupNewChallenge();
+                            }, J6u.F4P);
+                        } else
+                            timeoutMode();
+                    }, J6u.C4P);
+                    return J6u.w4P;
+                }
+                setupWithData(t1P);
+            },
+            error: function(S1P) {
+                setTimeout(function() {
+                    if (_loadFailCount !== J6u.A2P) {
+                        ++_loadFailCount;
+                        setTimeout(function() {
+                            setupNewChallenge();
+                        }, J6u.F4P);
+                    } else
+                        timeoutMode();
+                }, J6u.C4P);
             }
-        if (_extra_data)
-            if (_extra_data[d51.w5v] && _extra_data[d51.w5v] != f81.H0v) metricLoader(_extra_data[d51.w5v]);
+        });
+    } else
+        setupSameChallenge();
+}
+function passLoadProgress(n3P) {
+    var k1u = "LoadProgress";
+    var I1u = 'loadProgress';
+    if (_type == i3PP.e4P)
+        oldTarget[i3PP.s0P](I1u, {
+            appProgress: n3P
+        });
+    else
+        oldTarget[k1u](n3P);
+}
+var _session_started = i3PP.w4P;
+var _pl = i3PP.S2P;
+function setTime(d1P) {
+    _time = d1P;
+}
+var _refresh_count = i3PP.S2P;
+var _textCaptchaMade = i3PP.w4P;
+function getGameSid() {
+    return _game_sid;
+}
+var _show_audio = i3PP.w4P;
+var _lightbox_firefox_loaded = i3PP.w4P;
+var isAndroid = navigator[i3PP.x4P][i3PP.Y4P]()[i3PP.t4P](i3PP.S4P) > -i3PP.r2P;
+var _android_ver;
+function ShowTimedModeTimer(z1P, b1P, a1P) {
+    var f6u = q3PP;
+    if (!a1P) {
+        _encryption_time_end = z1P;
+        _encryption_time_end_seconds = b1P;
+        _encryption_time_delta = getEncryptionTimeDelta();
     }
-    _pk = _get_query[R2v];
-
-    function p3() {
-        var m2v = "phone";
-        var g7v = 21;
-        var b7v = 20;
-        if (_mode == m2v) K3();
+    _time_end = new Date(_encryption_time_end * i3PP.D4P);
+    if (!_hidden_timed_mode) {
+        $(f6u.v1u)[f6u.m1u]();
+        $(f6u.P5u)[f6u.r1u]();
+    }
+    timeoutLoop();
+}
+if (isAndroid)
+    _android_ver = parseFloat(navigator[i3PP.x4P][i3PP.r4P](navigator[i3PP.x4P][i3PP.t4P](i3PP.W4P) + i3PP.B2P));
+function checkPhoneMode() {
+    var F2u = ", _refresh_count: ";
+    var D2u = "_pl: ";
+    if (!_show_phone) {
+        log(D2u + _pl + F2u + _refresh_count);
+        if (_refresh_count >= i3PP.K2P)
+            setupNoJS();
+    }
+}
+function setupNoJS(F1P, q1P) {
+    var d6u = q3PP;
+    var y6u = i3PP;
+    var q2u = "replace_fc";
+    var i2u = '<input type="hidden" id="FunCaptcha-Token" name="fc-token" placeholder="Copy verification code in here" >';
+    var o2u = '" frameborder="0" scrolling="no" style="width: 308px; height:408px; border-style: none;" id="fc-iframe-wrap"></iframe>';
+    var j1u = '&lang=';
+    var T1u = '&r=';
+    var V1u = '&session=';
+    var G1u = '&litejs=1';
+    var n1u = '/fc/api/nojs/?pkey=';
+    var a1u = '//';
+    var b1u = "protocol";
+    var z1u = '<iframe src="';
+    var U1u = "&ps=";
+    var A1u = "hasOwnProperty";
+    var X1u = "&fb_type=1";
+    var L1u = "&fb_type=";
+    var N1u = "&fb_type=2";
+    var o1P = y6u.H4P;
+    var i1P = y6u.H4P;
+    if (F1P)
+        o1P = N1u;
+    else if (q1P)
+        o1P = L1u + q1P;
+    else
+        o1P = X1u;
+    if (_get_query[A1u](d6u.P1u))
+        i1P += U1u + _get_query[d6u.P1u];
+    var D1P = z1u + window[y6u.J4P][b1u] + a1u + window[y6u.J4P][d6u.u1u] + n1u + _pk + G1u + o1P + V1u + _session_token + T1u + _sid + j1u + _lang + i1P + o2u + i2u;
+    if (window[y6u.G4P])
+        parent[y6u.G4P](JSON[d6u.H1u]({
+            "msg": q2u,
+            "data": D1P
+        }), y6u.T4P);
+}
+var is_safari_ios = isIOS();
+var ie_ver = isIE();
+var _append_survey = i3PP.w4P;
+var _appended_survey = i3PP.w4P;
+function read_cookie(P1P) {
+    var J5u = "parse";
+    var M5u = '=([^;]+)';
+    var A1P = document[i3PP.m9P][i3PP.y9P](new RegExp(P1P + M5u));
+    A1P && (A1P = JSON[J5u](A1P[i3PP.r2P]));
+    return A1P;
+}
+var _loadFailCount = i3PP.S2P;
+var adAnim = i3PP.w4P;
+function getCDN() {
+    return _cdn_url;
+}
+function getTime() {
+    return _time;
+}
+var _earlyVictoryMessage = i3PP.w4P;
+var stmp = i3PP.v4P;
+var stmpSet = i3PP.w4P;
+function isIOS() {
+    var L6u = i3PP;
+    var w8u = /AppleWebKit/;
+    var k8u = /(iPod|iPhone|iPad)/;
+    return navigator[L6u.x4P][L6u.y9P](k8u) && navigator[L6u.x4P][L6u.y9P](w8u);
+}
+var bootstrapComplete = i3PP.w4P;
+var _focusColor = i3PP.H4P;
+function hideWaitScreen() {
+    clearSlowLoad();
+    hideLoader();
+}
+var _firstLoaded = i3PP.w4P;
+function delayKeepAlive() {
+    var k4P = 120000;
+    setTimeout(function() {
+        keepAlive();
+    }, k4P);
+}
+function startSlowLoadTracker() {
+    var O8u = "setTimeout";
+    if (!isFF())
+        _slow_load = window[O8u](function() {
+            var N2P = 11;
+            setupNoJS(i3PP.w4P, N2P);
+        }, _timeout_fallback);
+}
+function getEncryptionTimeDelta() {
+    return new Date() - new Date((_encryption_time_end - _encryption_time_end_seconds) * i3PP.D4P);
+}
+var _audio_type = i3PP.W2P;
+var _audio_start_delay = i3PP.D4P;
+var _audio_game_index = i3PP.S2P;
+function setupExtra(F2P, D2P) {
+    var P6u = i3PP;
+    var R8u = '{"msg":"changeIframeSize","height":340}';
+    var l8u = "<div style='position:relative;'>";
+    var C8u = 'body';
+    var s8u = "</div>";
+    var F8u = "<div style='position:absolute;top:0;left:0;right:0;z-index:2000;' id='extra-container'>";
+    var D8u = "prepend";
+    var q8u = '.upper-ctn';
+    if (extraCreated && D2P != q3PP.i5u)
+        return P6u.v4P;
+    if (extraCreatedBase && D2P == q3PP.i5u)
+        return P6u.v4P;
+    if (D2P != q3PP.i5u) {
+        $(q8u)[D8u](F8u + F2P[P6u.f8P] + s8u);
+        extraCreated = P6u.g4P;
+    } else {
+        $(C8u)[P6u.t0P](l8u + F2P[P6u.f8P] + s8u);
+        if (window[P6u.G4P])
+            parent[P6u.G4P](R8u, P6u.T4P);
+        extraCreatedBase = P6u.g4P;
+    }
+}
+var _fntClr = i3PP.H4P;
+function showMeta() {
+    var z6u = i3PP;
+    var U6u = q3PP;
+    var d1u = '.starCount';
+    var y1u = '.starpic';
+    var E1u = '60';
+    var e1u = ".patent";
+    $(e1u)[U6u.m1u]();
+    var j3P = _is_timed_mode && !_hidden_timed_mode;
+    var T3P = !j3P && _pl != z6u.W2P && !_forcePhoneBtn;
+    if (!T3P)
+        $(U6u.v1u)[z6u.D5P]();
+    switch (_meta_theme) {
+    case U6u.x1u:
+    case U6u.Y1u:
+    case U6u.t1u:
+    case U6u.S1u:
+        $(z6u.z8P)[U6u.r1u]();
+        if (!_show_phone)
+            $(U6u.W1u)[U6u.r1u]();
+        $(z6u.z5P)[U6u.r1u]();
+        $(U6u.M1u)[U6u.r1u]();
+        if (T3P)
+            $(U6u.v1u)[U6u.r1u]();
+    case U6u.J1u:
+        if (T3P)
+            $(U6u.v1u)[U6u.r1u]();
+        if (j3P)
+            $(z6u.o5P)[U6u.K1u]({
+                left: E1u
+            });
+        $(U6u.M1u)[U6u.r1u]();
+    case U6u.f1u:
+        break;
+    default:
+        $(z6u.z8P)[U6u.r1u]();
+        $(z6u.W6P)[U6u.K1u]({
+            left: U6u.B1u
+        });
+        if (!_show_phone)
+            $(U6u.W1u)[U6u.r1u]();
+        $(z6u.z5P)[U6u.r1u]();
+        $(U6u.M1u)[U6u.r1u]();
+        $(y1u)[U6u.r1u]();
+        $(d1u)[U6u.r1u]();
+        if (T3P)
+            $(U6u.v1u)[U6u.r1u]();
+        break;
+    }
+}
+var _timeout_fallback = i3PP.I4P;
+function isFF() {
+    var b6u = i3PP;
+    if (navigator[b6u.x4P][b6u.Y4P]()[b6u.t4P](b6u.m5P) > -b6u.r2P)
+        return b6u.g4P;
+    else
+        return b6u.w4P;
+}
+function getWaveCount() {
+    return _wave_level;
+}
+function getGameData() {
+    return _game_data;
+}
+var _hidden_timed_mode = i3PP.w4P;
+function getSameFC() {
+    var T2u = "***Getting same FC***";
+    checkPhoneMode();
+    log(T2u);
+    setupSameChallenge();
+}
+var _secure_game_id;
+var _secure_client_id;
+function getFunCaptcha() {
+    var a6u = i3PP;
+    var q4u = "/";
+    var i4u = "../apps/";
+    var o4u = 'http';
+    var j2u = "***Getting FC***";
+    log(j2u);
+    if (_type && _challengeURL)
+        if (_type == a6u.e4P) {
+            var Q1P;
+            if (_challengeURL[a6u.t4P](o4u) === a6u.S2P)
+                Q1P = _challengeURL;
+            else
+                Q1P = i4u + _type + q4u + _challengeURL + q4u;
+            Q1P += a6u.H4P;
+            if (_currentFrame == a6u.r2P) {
+                _currentFrame = a6u.W2P;
+                setiFrameURL(a6u.G9P, Q1P);
+            } else {
+                _currentFrame = a6u.r2P;
+                _showStartupBool = a6u.w4P;
+                setiFrameURL(a6u.V9P, Q1P);
+            }
+        } else
+            setupNoJS();
+}
+var _slow_load;
+function getEncryptionTime() {
+    return {
+        time_end: _encryption_time_end,
+        time_end_seconds: _encryption_time_end_seconds
+    };
+}
+function getSec() {
+    return _sec_level;
+}
+function getSID() {
+    return _sid;
+}
+function setStars(V1P) {
+    var V2P = 99;
+    _currentStars += V1P;
+    if (_currentStars > V2P)
+        _currentStars = V2P;
+    $(i3PP.V7P)[i3PP.f8P](_currentStars);
+    bake_cookie(i3PP.n7P, _currentStars);
+}
+$(document)[i3PP.M4P](function() {
+    var V6u = i3PP;
+    var C3u = "&language=";
+    var s3u = "/get_audio/?session_token=";
+    var D3u = "&r=";
+    function g6() {
+        var Y5P = "Error setting up FC.";
+        if (!z6())
+            if (_session_token)
+                setupChallenge();
+            else {
+                log(Y5P);
+                setupNoJS();
+            }
+        else
+            setupNoJS();
+    }
+    function G6() {
+        var j0P = "fc_ui_text_color";
+        var T0P = "fc_ui_color";
+        var V0P = "fc_banner_img";
+        var G0P = "fc_ball_img";
+        var n0P = "fc_background_img";
+        var u0P = "display extra victory data";
+        var a0P = "extra victory data";
+        var b0P = 'get_snips';
+        var z0P = "fc_snips";
+        var U0P = "click_macro";
+        var P0P = "getExtraData";
+        var A0P = "triggering fcExtra";
+        var X0P = "Cannot find FCEXTRA";
+        if (typeof fcExtra === L0P)
+            log(X0P);
+        else if (Object(fcExtra)) {
+            log(A0P);
+            _extra_data = fcExtra[P0P]();
+            log(_extra_data);
+            sendAnalytics(d0P, N0P);
+            setupExtraData();
+        }
+        if (!(typeof fcExtraVictory === L0P))
+            if (Object(fcExtraVictory)) {
+                log(A0P);
+                _extra_victory_data = fcExtraVictory[P0P]();
+                log(_extra_victory_data);
+                if (_extra_victory_data[U0P]) {
+                    if (!_extra_data)
+                        _extra_data = {};
+                    _extra_data[U0P] = _extra_victory_data[U0P];
+                }
+                if (_extra_victory_data) {
+                    if (_extra_victory_data[z0P])
+                        if (window[V6u.G4P])
+                            parent[V6u.G4P](b0P, V6u.T4P);
+                    sendAnalytics(a0P, u0P);
+                    setupExtraData();
+                }
+                if (!_extra_data)
+                    _extra_data = {};
+                if (_extra_victory_data[n0P])
+                    _extra_data[n0P] = _extra_victory_data[n0P];
+                if (_extra_victory_data[G0P])
+                    _extra_data[G0P] = _extra_victory_data[G0P];
+                if (_extra_victory_data[V0P])
+                    _extra_data[V0P] = _extra_victory_data[V0P];
+                if (_extra_victory_data[T0P])
+                    _extra_data[T0P] = _extra_victory_data[T0P];
+                if (_extra_victory_data[j0P])
+                    _extra_data[j0P] = _extra_victory_data[j0P];
+            }
+    }
+    function i7() {
+        var U6P = '#audio_download';
+        var P6P = "display:none;";
+        var i9 = document[X6P](V6u.A6P);
+        i9[Y6P] = P6P;
+        $(U6P)[V6u.S2P][z6P](i9);
+    }
+    var q3u = "&analytics_tier=";
+    var i3u = "/fc/get_audio/?session_token=";
+    function y6() {
+        var L6P = 'image';
+        var N6P = "switch_type";
+        var y6P = "_type: ";
+        if (_is_timed_mode)
+            hideTimedModeTimer();
+        log(y6P + _type);
+        if (_type != d6P) {
+            D7();
+            _show_audio = V6u.w4P;
+            _firstHidden = V6u.w4P;
+            _mode = V6u.m4P;
+            showLoader();
+            $(V6u.z8P)[V6u.i5P]();
+            $(V6u.b8P)[V6u.D5P]();
+            q7();
+            $(V6u.I8P)[V6u.D5P]();
+            $(V6u.y8P)[V6u.D5P]();
+            $(V6u.N5P)[V6u.i5P]();
+            $(V6u.L5P)[V6u.i5P]();
+            $(V6u.N5P)[o8P](V6u.i8P);
+            $(V6u.L5P)[o8P](V6u.i8P);
+            $(V6u.N5P)[V6u.l5P](V6u.i8P);
+            _currentFrame = V6u.r2P;
+            setupChallenge();
+        } else
+            Recaptcha[N6P](L6P);
+    }
+    function K6() {
+        _show_audio = V6u.g4P;
+        if (_audio_type >= V6u.W2P)
+            M6();
+        else if (!_textCaptchaMade)
+            J6();
+        else
+            M6();
+    }
+    var T9P = ".audio_noauto_support_info";
+    var b9P = 'keyup.audio_ctrl';
+    function d6() {
+        showLoader();
+        showMeta();
+        _htmlVerify = V6u.w4P;
+        $(V6u.X5P)[V6u.D5P]();
+        $(V6u.N5P)[V6u.i5P]();
+        $(V6u.L5P)[V6u.i5P]();
+        _showStartupBool = V6u.w4P;
+        g6();
+    }
+    function u6() {
+        var G7P = "Stars: ";
+        _currentStars = read_cookie(V6u.n7P);
+        log(G7P + _currentStars);
+        if (_currentStars == V6u.v4P)
+            _currentStars = V6u.S2P;
+        $(V6u.V7P)[V6u.f8P](_currentStars);
+    }
+    var U9P = ".response_field";
+    var P9P = 'fc_audio_el';
+    var L0P = 'undefined';
+    var N0P = "display extra data";
+    var d0P = "extra data";
+    var z7P = "exec";
+    var J7P = ".phone_limit_2";
+    var M7P = ".phone_3";
+    var W7P = "entry_title_default";
+    function a6() {
+        var u7P = "intro";
+        return _get_query[u7P];
+    }
+    var S7P = ".phone_start_intro";
+    var Y7P = ".phone_limit";
+    var x7P = "limited";
+    var v7P = "success";
+    var g7P = "#phone_response_field";
+    function W6() {
+        audioPlaySound();
+    }
+    function o7() {
+        var Y9P = "get";
+        var x9P = ";path=/";
+        var v9P = "timestamp=";
+        var g9P = "substring";
+        var p9P = "prototype";
+        if (typeof Document == L0P || typeof Document[p9P] == L0P) {
+            Date[p9P][V6u.Q8P] = function() {
+                var e9P = "00";
+                var b9 = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](0, 7);
+                var n9 = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](7, 13);
+                var z9 = b9 + e9P + n9;
+                document[V6u.m9P] = v9P + z9 + x9P;
+                return z9;
+            }
+            ;
+            return V6u.g4P;
+        }
+        if (_fp)
+            try {
+                new FCFConfig()[Y9P](function(G9) {
+                    stmp = G9;
+                    stmpSet = V6u.g4P;
+                    if (bootstrapComplete)
+                        g6();
+                });
+            } catch (V9) {
+                stmp = Date[V6u.c9P]()[V6u.H9P]();
+                stmpSet = V6u.g4P;
+                if (bootstrapComplete)
+                    g6();
+            }
+        Date[p9P][V6u.Q8P] = function() {
+            var K9P = "width";
+            var J9P = "innerHeight";
+            var M9P = 'HTMLDocument.querySelectorAll';
+            var W9P = 536.5;
+            var r9P = 'html';
+            var t9P = "querySelectorAll";
+            if (_fp)
+                return stmp;
+            var D3P = document[t9P];
+            var q3P;
+            Document[p9P][t9P] = Element[p9P][t9P] = function() {
+                var S9P = "stack";
+                var R3P;
+                try {
+                    V6u.v4P[V6u.S2P]();
+                } catch (O3P) {
+                    R3P = O3P;
+                }
+                q3P = R3P[S9P];
+            }
+            ;
+            document[t9P](r9P);
+            Document[p9P][t9P] = D3P;
+            if (q3P) {
+                var j9 = /AppleWebKit\/(.*?)\s/g[z7P](navigator[V6u.x4P]);
+                var F3P = j9 && parseInt(j9[V6u.r2P]) > W9P;
+                if (q3P[K4P](M9P) != -V6u.r2P && (F3P || !j9))
+                    var T9 = V6u.r2P;
+                else
+                    var T9 = V6u.S2P;
+            } else
+                var T9 = V6u.S2P;
+            if (window[J9P] == V6u.S2P || window[S5P][K9P] == V6u.S2P || window[S5P][r5P] == V6u.S2P)
+                var o3P = V6u.r2P;
+            else
+                var o3P = V6u.S2P;
+            var s3P = T9[V6u.H9P]() + o3P[V6u.H9P]();
+            var C3P = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](V6u.S2P, V6u.f2P);
+            var l3P = new Date()[V6u.c9P]()[V6u.H9P]()[g9P](V6u.f2P, V6u.X2P);
+            var i3P = C3P + s3P[V6u.H9P]() + l3P;
+            document[V6u.m9P] = v9P + i3P + x9P;
+            return i3P;
+        }
+        ;
+    }
+    var H7P = " ";
+    var c7P = "&&";
+    var Q7P = ".passcode_entry_info";
+    function f6() {
+        var a8P = "phone";
+        var z2P = 21;
+        var U2P = 20;
+        if (_mode == a8P)
+            L6();
         else {
-            var E8 = _forcePhoneBtn ? g7v : b7v;
-            setupNoJS(S9vv.Z7v, E8);
+            var c7 = _forcePhoneBtn ? z2P : U2P;
+            setupNoJS(V6u.w4P, c7);
         }
     }
-    _njst = _get_query[c2v];
-
-    function J3() {
-        var c81 = S9vv;
-        var M2v = 'tabindex';
-        var E2v = "removeAttribute";
-        var W2v = 'aria-label';
-        var f2v = "getAttribute";
-        _aria_start_label = $(k2v)[c81.a7v][f2v](W2v);
-        $(k2v)[c81.a7v][E2v](W2v);
-        $(k2v)[c81.a7v][E2v](V2v);
-        $(k2v)[c81.a7v][E2v](M2v);
+    var Z7P = ".phone_2";
+    var w7P = ".phone_1";
+    var q7P = "getScript";
+    var G6P = 'role';
+    var b6P = '.main-ctn';
+    var z6P = "setAttributeNode";
+    var X6P = "createAttribute";
+    var d6P = "image";
+    var B6P = "audio";
+    var K6P = '#audio_play';
+    var J6P = '#audio_submit';
+    var M6P = '.gameBtn';
+    var r6P = '.reloadBtn';
+    var S6P = '#phone_response_field';
+    var Y6P = "value";
+    var m6P = "#phone";
+    function V6(d9, N9) {
+        var o9P = "../pd/";
+        var y9 = new Date()[V6u.Q8P]();
+        $[V6u.h8P]({
+            url: o9P,
+            type: V6u.c8P,
+            data: {
+                sid: _sid,
+                session_token: _session_token,
+                s_n: prep(d9),
+                s_v: prep(N9),
+                analytics_tier: _analytics_tier
+            },
+            headers: {
+                "cache-control": V6u.H8P,
+                "X-NewRelic-Timestamp": y9,
+                "X-Requested-ID": getRequestID()
+            },
+            success: function(L9) {
+                var i9P = "pd response";
+                log(i9P);
+                log(L9);
+                log(V6u.e8P);
+            }
+        });
     }
-    _noJSX = _get_query[X2v];
-
-    function b3() {
-        var m81 = S9vv;
-        var b2v = 'alert';
-        var U2v = "Trigger RECAPTCHA";
-        var l2v = "swapped to audio captcha";
-        var H2v = "user clicked audio";
-        var j7v = 50;
+    var e6P = '#phone';
+    var g6P = '#phone_contact';
+    var H6P = "#phone_contact";
+    var c6P = '#phone_passcode_submit';
+    var p6P = "#phone_passcode_submit";
+    var h6P = '#phone_change';
+    function D7() {
+        $(window)[V6u.z9P](b9P);
+        if (_audio_type >= V6u.W2P)
+            audioDestroySound();
+    }
+    var Q6P = "#phone_change";
+    var Z6P = '#phone_call';
+    var w6P = '#phone_sms';
+    function v6() {
+        var d7P = "code_not_input";
+        var E7P = "../phone/v/";
+        if ($(g7P)[V6u.S2P][Y6P]) {
+            $(Z7P)[V6u.D5P]();
+            h6 = V6u.M2P;
+            showSpinner();
+            var p9 = new Date()[V6u.Q8P]();
+            $[V6u.h8P]({
+                url: E7P,
+                type: V6u.c8P,
+                data: {
+                    sid: _sid,
+                    session_token: _session_token,
+                    passcode: prep($(g7P)[V6u.S2P][Y6P]),
+                    analytics_tier: _analytics_tier
+                },
+                headers: {
+                    "cache-control": V6u.H8P,
+                    "X-NewRelic-Timestamp": p9,
+                    "X-Requested-ID": getRequestID()
+                },
+                success: function(x9) {
+                    var y7P = "code_incorrect";
+                    var B7P = ".phone_info";
+                    var f7P = "phone verify response";
+                    log(f7P);
+                    log(x9);
+                    log(V6u.e8P);
+                    hideSpinner();
+                    var m9 = jQuery[V6u.m8P](x9);
+                    if (m9[v7P] == V6u.g4P) {
+                        h6 = J2P;
+                        $(B7P)[V6u.D5P]();
+                        $(M7P)[V6u.i5P]();
+                        solveMeta();
+                    } else if (m9[V6u.v8P] == x7P) {
+                        h6 = V6u.K2P;
+                        $(Y7P)[V6u.i5P]();
+                        $(Z7P)[V6u.D5P]();
+                    } else {
+                        h6 = V6u.W2P;
+                        $(Q7P)[V6u.C6P](lang_obj[y7P]);
+                        $(Z7P)[V6u.i5P]();
+                    }
+                }
+            });
+        } else
+            alert(lang_obj[d7P]);
+    }
+    var k6P = "sms";
+    var I6P = "again";
+    var O6P = '#phone_submit_call';
+    var R6P = "call";
+    var l6P = "call_me_again_button";
+    var s6P = "#phone_call";
+    var F6P = "#phone_sms";
+    var D6P = "#phone_submit_call";
+    var q6P = '#phone_cant_text';
+    function P6() {
+        audioDestroySound();
+        $(U9P)[R8P](V6u.H4P);
+        $(C8P)[X8P]();
+    }
+    var i6P = "#phone_cant_text";
+    var o6P = '#phone_submit';
+    var j8P = "#phone_submit";
+    var G8P = 'keypress';
+    var X8P = "focus";
+    var w8P = "audio captcha";
+    var R8P = "val";
+    var l8P = '.response_field';
+    var C8P = "#audio_play";
+    var s8P = "#audio_download";
+    var F8P = "pause";
+    function N6() {
+        var X7P = "../phone/c/";
+        var L7P = "capped_calling_title";
+        var N7P = ".phone_limit_2 .title";
+        $(Y7P)[V6u.D5P]();
+        $(N7P)[V6u.C6P](lang_obj[L7P][V6u.p7P](c7P)[V6u.S2P] + $(m6P)[V6u.S2P][Y6P] + H7P + lang_obj[L7P][V6u.p7P](c7P)[V6u.r2P]);
+        $(J7P)[V6u.i5P]();
+        h6 = V6u.E2P;
+        if (!S6) {
+            S6 = V6u.g4P;
+            var t9 = new Date()[V6u.Q8P]();
+            $[V6u.h8P]({
+                url: X7P,
+                type: V6u.c8P,
+                data: {
+                    sid: _sid,
+                    session_token: _session_token,
+                    phone_number: prep($(m6P)[V6u.S2P][Y6P]),
+                    site: _site_url,
+                    analytics_tier: _analytics_tier
+                },
+                headers: {
+                    "cache-control": V6u.H8P,
+                    "X-NewRelic-Timestamp": t9,
+                    "X-Requested-ID": getRequestID()
+                },
+                success: function(S9) {
+                    var A7P = "phone contact response";
+                    log(A7P);
+                    log(S9);
+                    log(V6u.e8P);
+                }
+            });
+        }
+    }
+    var D8P = "#audio_submit";
+    var o8P = "removeClass";
+    var j5P = '<iframe class="wrapper" id="CaptchaFrame2" src="';
+    var T5P = "#ctn-2 iframe";
+    var V5P = '" horizontalscrolling="no" verticalscrolling="no" scrolling="no"></iframe>';
+    var G5P = '<iframe class="wrapper" id="CaptchaFrame" src="';
+    var n5P = "replaceWith";
+    var u5P = "#ctn-1 iframe";
+    var P5P = "click";
+    function L6() {
+        return;
+    }
+    var A5P = "#html-verify-btn";
+    function j6() {
+        var h9P = "/fc";
+        var Q9P = "https://";
+        var Z9P = "/fc/ap/?asset=/fc";
+        var w9P = 2.4;
+        var U9 = V6u.g4P;
+        if (_android_ver <= w9P)
+            U9 = V6u.w4P;
+        if (ie_ver)
+            if (ie_ver <= V6u.B2P)
+                U9 = V6u.w4P;
+        if (!U9) {
+            _cdn_backup = V6u.g4P;
+            if (ie_ver == V6u.E2P)
+                _cdn_url = Z9P;
+            else
+                _cdn_url = Q9P + _backup_cdn_url + h9P;
+        } else
+            _cdn_url = _primary_cdn_url;
+    }
+    var K5P = "createElement";
+    var r5P = "height";
+    var S5P = "screen";
+    var x5P = "lb";
+    var v5P = 'crios';
+    var e5P = ".fc-loader";
+    var g5P = ".loader";
+    var H5P = 'check_extra';
+    var p5P = "Not found";
+    var h5P = "href";
+    var Q5P = "referrer";
+    var Z5P = "parent";
+    var w5P = 'onmessage';
+    var k5P = "attachEvent";
+    var I5P = 'message';
+    var O5P = "addEventListener";
+    var R5P = "android4";
+    var s5P = "250";
+    var F5P = "size";
+    function p6(w9, l9) {
+        var e7P = "../phone/msg/";
+        var h7P = "code_title_sent";
+        var k7P = ".call-me-btn";
+        if ($(m6P)[V6u.S2P][Y6P]) {
+            $(k7P)[V6u.D5P]();
+            if (!w9) {
+                $(w7P)[V6u.D5P]();
+                $(Z7P)[V6u.i5P]();
+                $(Q7P)[V6u.C6P](lang_obj[h7P][V6u.p7P](c7P)[V6u.S2P] + $(m6P)[V6u.S2P][Y6P] + H7P + lang_obj[h7P][V6u.p7P](c7P)[V6u.r2P]);
+            }
+            h6 = V6u.W2P;
+            setTimeout(function() {
+                if (!$(g7P)[V6u.S2P][Y6P])
+                    $(k7P)[V6u.i5P]();
+            }, V6u.I4P);
+            var I9 = new Date()[V6u.Q8P]();
+            $[V6u.h8P]({
+                url: e7P,
+                type: V6u.c8P,
+                data: {
+                    sid: _sid,
+                    session_token: _session_token,
+                    phone_number: prep($(m6P)[V6u.S2P][Y6P]),
+                    method: l9 ? l9 : k6P,
+                    analytics_tier: _analytics_tier
+                },
+                headers: {
+                    "cache-control": V6u.H8P,
+                    "X-NewRelic-Timestamp": I9,
+                    "X-Requested-ID": getRequestID()
+                },
+                success: function(h9) {
+                    var r7P = "entry_title_error";
+                    var t7P = ".";
+                    var m7P = "phone send response";
+                    log(m7P);
+                    log(h9);
+                    log(V6u.e8P);
+                    var Z9 = jQuery[V6u.m8P](h9);
+                    if (Z9[v7P] == V6u.w4P)
+                        if (Z9[V6u.v8P] == x7P) {
+                            h6 = V6u.K2P;
+                            $(Y7P)[V6u.i5P]();
+                            $(Z7P)[V6u.D5P]();
+                        } else {
+                            t6();
+                            var Q9 = Z9[V6u.v8P];
+                            if (Q9[V6u.r4P](-V6u.r2P) != t7P)
+                                Q9 += t7P;
+                            $(i6P)[V6u.D5P]();
+                            $(D6P)[V6u.i5P]();
+                            $(S7P)[V6u.C6P](Q9 + H7P + lang_obj[r7P]);
+                        }
+                }
+            });
+        } else
+            $(S7P)[V6u.C6P](lang_obj[W7P]);
+    }
+    var q5P = '.patent';
+    var j4P = "pl";
+    var V4P = 'js_ready';
+    var n4P = "fp2";
+    var u4P = "cdn_url";
+    var a4P = "atp";
+    function F7(W9) {
+        var P7P = "+";
+        W9 = W9[V6u.p7P](P7P)[V6u.U7P](H7P);
+        var M9 = {}, J9, K9 = /[?&]?([^=]+)=([^&]*)/g;
+        while (J9 = K9[z7P](W9))
+            M9[decodeURIComponent(J9[V6u.r2P])] = decodeURIComponent(J9[V6u.W2P]);
+        return M9;
+    }
+    var b4P = "scl";
+    var z4P = "ht";
+    var U4P = "tfb";
+    function q7() {
+        var i7P = "button";
+        var o7P = "tabindex";
+        var j6P = "role";
+        var T6P = "aria-label";
+        var F9 = document[X6P](T6P);
+        var s9 = document[X6P](j6P);
+        var C9 = document[X6P](o7P);
+        F9[Y6P] = _aria_start_label;
+        s9[Y6P] = i7P;
+        C9[Y6P] = V6u.S2P;
+        $(b6P)[V6u.S2P][z6P](F9);
+        $(b6P)[V6u.S2P][z6P](s9);
+        $(b6P)[V6u.S2P][z6P](C9);
+    }
+    var P4P = "metaiconclr";
+    var A4P = "noJSX";
+    var X4P = "njst";
+    var L4P = "pk";
+    function n6() {
+        var I7P = "#recaptcha_challenge_image";
+        var O7P = ".recaptcha_only_if_image";
+        var R7P = "#recaptcha_image img";
+        if (_type != d6P) {
+            $(R7P)[V6u.D5P]();
+            $(O7P)[V6u.D5P]();
+            $(I7P)[V6u.D5P]();
+        } else
+            _canReload = V6u.g4P;
+        if (_show_audio && !_textCaptchaMade) {
+            _textCaptchaMade = V6u.g4P;
+            K6();
+        }
+    }
+    var N4P = "adanim";
+    var d4P = "meta";
+    var y4P = "at";
+    var B4P = "lurl";
+    var f4P = "lang";
+    var E4P = "r";
+    function T6() {
+        var k9P = '_blank';
+        var I9P = "open";
+        var O9P = "open end url";
+        var R9P = "end url clicked";
+        var l9P = "fcs=";
+        var C9P = '&';
+        var s9P = '?';
+        var F9P = "_end_survey_result: ";
+        var D9P = "_end_url: ";
+        if (_extra_victory_data)
+            if (_extra_victory_data[V6u.q9P])
+                metricLoader(_extra_victory_data[V6u.q9P]);
+        log(D9P + _end_url);
+        if (_end_url)
+            if (_end_url[V6u.t6P] > V6u.S2P) {
+                if (_append_survey && !_appended_survey) {
+                    log(F9P + _end_survey_result);
+                    if (_end_survey_result) {
+                        var X9 = _end_url && _end_url[V6u.t4P](s9P) !== -V6u.r2P
+                          , P9 = X9 ? C9P : s9P;
+                        _appended_survey = V6u.g4P;
+                        _end_url = _end_url + P9 + l9P + _end_survey_result;
+                    }
+                }
+                sendAnalytics(R9P, O9P, _end_url);
+                window[I9P](_end_url, k9P);
+            }
+        if (_extra_data)
+            if (_extra_data[V6u.q9P] && _extra_data[V6u.q9P] != V6u.H4P)
+                metricLoader(_extra_data[V6u.q9P]);
+    }
+    var K4P = "search";
+    var j2P = 250;
+    var y2P = 9;
+    var J2P = 4;
+    _get_query = F7(document["location"][K4P]);
+    _session_token = U6();
+    _htmlVerify = a6();
+    function X6(E9) {
+        var y0P = "_extra_data!!!";
+        var B0P = "fc_extra_data";
+        var f0P = "fc_js_lib";
+        var E0P = '<meta name="keywords" content="';
+        var K0P = "keywords";
+        var J0P = "</title>";
+        var M0P = "<title>";
+        var W0P = "title";
+        var r0P = '">';
+        var S0P = '<meta name="description" content="';
+        var Y0P = 'head';
+        var x0P = "description";
+        var v0P = "snip_data";
+        var e0P = "label";
+        var g0P = "action";
+        var H0P = "via postmessage";
+        var c0P = "analytics";
+        var p0P = "name";
+        var h0P = "store_player_data";
+        var Q0P = "load_count";
+        var Z0P = 'CaptchaFrame2';
+        var k0P = 'CaptchaFrame';
+        var O0P = "FunCaptcha-action";
+        var R0P = "msg";
+        var l0P = "msg is object!";
+        var C0P = 'skipStartupScreen';
+        var F0P = "verify_clicked";
+        var D0P = "lightbox_hide";
+        var q0P = "refresh_game";
+        var i0P = "canvas_render_fix";
+        var o0P = "Firefox fix for lightbox";
+        var j7P = "lightbox_show";
+        var T7P = "data";
+        if (E9[T7P])
+            if (E9[T7P] == j7P) {
+                if (navigator[V6u.x4P][V6u.Y4P]()[V6u.t4P](V6u.m5P) > -V6u.r2P || navigator[V6u.x4P][V6u.Y4P]()[V6u.t4P](v5P) > -V6u.r2P) {
+                    log(o0P);
+                    if (_lightbox_firefox_loaded) {
+                        $(u5P)[n5P](G5P + _blank_url + V5P);
+                        $(T5P)[n5P](j5P + _blank_url + V5P);
+                        $(V6u.N5P)[o8P](V6u.i8P);
+                        $(V6u.L5P)[o8P](V6u.i8P);
+                        $(V6u.N5P)[V6u.l5P](V6u.i8P);
+                        _firstHidden = V6u.w4P;
+                        _currentFrame = V6u.r2P;
+                        setupNewChallenge();
+                    } else {
+                        _lightbox_firefox_loaded = V6u.g4P;
+                        if (_htmlVerify)
+                            A6();
+                        else
+                            g6();
+                    }
+                }
+            } else if (E9[T7P] == i0P) {
+                $(u5P)[n5P](G5P + _blank_url + V5P);
+                $(T5P)[n5P](j5P + _blank_url + V5P);
+                $(V6u.N5P)[o8P](V6u.i8P);
+                $(V6u.L5P)[o8P](V6u.i8P);
+                $(V6u.N5P)[V6u.l5P](V6u.i8P);
+                _firstHidden = V6u.w4P;
+                _currentFrame = V6u.r2P;
+                setupNewChallenge();
+            } else if (E9[T7P] == q0P)
+                m6();
+            else if (!(E9[T7P] == D0P))
+                if (E9[T7P] === F0P) {
+                    _showStartupBool = V6u.w4P;
+                    if (currentTarget)
+                        currentTarget[V6u.s0P](C0P);
+                } else if (Object(E9[T7P])) {
+                    log(l0P);
+                    if (E9[T7P][R0P] == O0P) {
+                        document[V6u.I0P](k0P)[V6u.w0P][V6u.G4P](E9[T7P], V6u.T4P);
+                        document[V6u.I0P](Z0P)[V6u.w0P][V6u.G4P](E9[T7P], V6u.T4P);
+                    }
+                    if (E9[T7P][R0P] == Q0P)
+                        _load_count = E9[T7P][Y6P];
+                    if (E9[T7P][R0P] == h0P)
+                        V6(E9[T7P][p0P], E9[T7P][Y6P]);
+                    if (E9[T7P][R0P] == c0P)
+                        sendAnalytics(H0P, E9[T7P][g0P], E9[T7P][e0P]);
+                    if (E9[T7P][R0P] == V6u.m0P)
+                        sendAnalytics(V6u.m0P, V6u.v4P, V6u.v4P, E9[T7P][T7P]);
+                    if (E9[T7P][R0P] == v0P) {
+                        _snippet_data = E9[T7P][T7P];
+                        for (var f9 in _snippet_data) {
+                            var B9 = _snippet_data[f9];
+                            if (f9 == x0P)
+                                $(Y0P)[V6u.t0P](S0P + B9 + r0P);
+                            else if (f9 == W0P)
+                                $(Y0P)[V6u.t0P](M0P + B9 + J0P);
+                            else if (f9 == K0P)
+                                $(Y0P)[V6u.t0P](E0P + B9 + r0P);
+                        }
+                        if (_extra_victory_data[f0P])
+                            $[q7P](_extra_victory_data[f0P]);
+                    }
+                    if (E9[T7P][B0P]) {
+                        _extra_data = E9[T7P];
+                        log(y0P);
+                        log(_extra_data);
+                        sendAnalytics(d0P, N0P);
+                        setupExtraData();
+                        if (_currentFrame == V6u.W2P) {
+                            _canReload = V6u.g4P;
+                            m6();
+                        }
+                    }
+                }
+    }
+    _sid = _get_query[E4P];
+    _lang = _get_query[f4P] ? _get_query[f4P] : V6u.v4P;
+    function t6() {
+        $(S7P)[V6u.C6P](lang_obj[W7P]);
+        $(m6P)[V6u.S2P][Y6P] = V6u.H4P;
+        $(g7P)[V6u.S2P][Y6P] = V6u.H4P;
+        h6 = V6u.r2P;
+        $(w7P)[V6u.i5P]();
+        $(Z7P)[V6u.D5P]();
+        $(M7P)[V6u.D5P]();
+        $(Y7P)[V6u.D5P]();
+        $(J7P)[V6u.D5P]();
+    }
+    _lurl = _get_query[B4P] ? _get_query[B4P] : V6u.v4P;
+    _analytics_tier = _get_query[y4P] ? parseInt(_get_query[y4P]) : V6u.a2P;
+    _meta_theme = _get_query[d4P];
+    adAnim = _get_query[N4P];
+    function s7() {
+        var F3u = "&d=1&game=";
+        var S3P;
+        switch (_audio_type) {
+        case V6u.W2P:
+        default:
+            S3P = i3u + _session_token + q3u + _analytics_tier + D3u + _sid + F3u + _audio_game_index;
+            break;
+        case V6u.M2P:
+            S3P = _lurl + s3u + _session_token + q3u + _analytics_tier + D3u + _sid + F3u + _audio_game_index;
+            break;
+        }
+        if (_lang)
+            S3P = S3P + C3u + _lang;
+        window["location"][h5P] = S3P;
+    }
+    _pk = _get_query[L4P];
+    _njst = _get_query[X4P];
+    _noJSX = _get_query[A4P];
+    _focusColor = _get_query[P4P];
+    _timeout_fallback = _get_query[U4P] ? _get_query[U4P] : V6u.I4P;
+    _hidden_timed_mode = _get_query[z4P] ? _get_query[z4P] : V6u.w4P;
+    _secure_client_id = _get_query[b4P];
+    if (_get_query[a4P])
+        _audio_type = parseInt(_get_query[a4P]);
+    if (_get_query[u4P])
+        _primary_cdn_url = _get_query[u4P];
+    if (!ie_ver || ie_ver > y2P)
+        _fp = _get_query[n4P];
+    if (window[V6u.G4P])
+        parent[V6u.G4P](V4P, V6u.T4P);
+    o7();
+    function M6() {
+        var o3u = 'alert';
+        var n9P = "Trigger RECAPTCHA";
+        var u9P = "swapped to audio captcha";
+        var n2P = 50;
         hideLoader();
-        sendAnalytics(F2v, H2v, l2v);
-        _session_started = m81.o6v;
-        log(U2v);
-        $(m81.i7v)[m81.m6v]();
-        $(m81.Q0v)[m81.m6v]();
-        setiFrameURL(m81.a0v, _blank_url);
-        setiFrameURL(m81.S0v, _blank_url);
-        $(m81.R3v)[m81.A6v]();
+        sendAnalytics(w8P, V6u.a9P, u9P);
+        _session_started = V6u.g4P;
+        log(n9P);
+        $(V6u.N5P)[V6u.D5P]();
+        $(V6u.L5P)[V6u.D5P]();
+        setiFrameURL(V6u.G9P, _blank_url);
+        setiFrameURL(V6u.V9P, _blank_url);
+        $(V6u.I8P)[V6u.i5P]();
         if (!audioUseHTML5()) {
             audioSetupUnSupportedUI();
-            $(t2v)[d51.B5v](V2v, b2v);
-            $(g2v)[L2v]();
+            $(T9P)[V6u.j9P](G6P, o3u);
+            $(s8P)[X8P]();
         } else {
-            $(N2v)[L2v]();
+            $(C8P)[X8P]();
             setTimeout(function() {
-                $(N2v)[L2v]();
-            }, j7v);
-            $(window)[d51.r5v](n2v, function(S1v) {
-                var t7v = 17;
-                var R1v = S1v[d51.j2v] ? S1v[d51.j2v] : S1v[d51.o2v];
-                if (R1v == t7v)
+                $(C8P)[X8P]();
+            }, n2P);
+            $(window)[V6u.n8P](b9P, function(x3P) {
+                var P2P = 17;
+                var t3P = x3P[V6u.V8P] ? x3P[V6u.V8P] : x3P[V6u.T8P];
+                if (t3P == P2P)
                     if (_show_audio) {
-                        var a1v = k3();
-                        if (a1v) a1v[d2v]();
-                        f3 = S9vv.Z7v;
+                        var Y3P = c6();
+                        if (Y3P)
+                            Y3P[F8P]();
+                        H6 = V6u.w4P;
                         audioPlaySound();
                     }
             });
         }
     }
-
-    function C3() {
-        var a81 = S9vv;
-        var q2v = "Image fallback: ";
-        var e2v = "ar";
-        var G2v = "iPad";
-        var T2v = "iPhone";
-        var G7v = 480;
-        var S8 = a81.Z7v;
-        if (_pl == a81.c7v) S8 = a81.o6v;
-        if (navigator[d51.l3v][d51.t3v](T2v) > -a81.R7v && window[P2v][p2v] == G7v) S8 = a81.o6v;
-        if (navigator[d51.l3v][d51.t3v](G2v) > -a81.R7v && _lang == e2v) S8 = a81.o6v;
-        if (!i3()) S8 = a81.o6v;
-        log(q2v + S8);
-        return S8;
-    }
-    _focusColor = _get_query[K2v];
-
-    function j3(F9v) {
-        var S81 = S9vv;
-        var j91 = "_extra_data!!!";
-        var n91 = "fc_extra_data";
-        var L91 = "fc_js_lib";
-        var g91 = '<meta name="keywords" content="';
-        var b91 = "keywords";
-        var t91 = "</title>";
-        var U91 = "<title>";
-        var l91 = "title";
-        var H91 = '">';
-        var F91 = '<meta name="description" content="';
-        var X91 = 'head';
-        var M91 = "description";
-        var V91 = "snip_data";
-        var W91 = "label";
-        var f91 = "action";
-        var k91 = "via postmessage";
-        var c91 = "analytics";
-        var m91 = "name";
-        var R91 = "store_player_data";
-        var a91 = 'CaptchaFrame2';
-        var S91 = 'CaptchaFrame';
-        var Q91 = "FunCaptcha-action";
-        var x2v = "msg";
-        var s2v = "msg is object!";
-        var i2v = 'skipStartupScreen';
-        var I2v = "verify_clicked";
-        var z2v = "lightbox_hide";
-        var J2v = "refresh_game";
-        var v2v = "canvas_render_fix";
-        var A2v = "Firefox fix for lightbox";
-        var y2v = "lightbox_show";
-        var h2v = "data";
-        if (F9v[h2v])
-            if (F9v[h2v] == y2v) {
-                if (navigator[d51.l3v][d51.U3v]()[d51.t3v](d51.D2v) > -S81.R7v || navigator[d51.l3v][d51.U3v]()[d51.t3v](Y2v) > -S81.R7v) {
-                    log(A2v);
-                    if (_lightbox_firefox_loaded) {
-                        $(u2v)[O2v](Z2v + _blank_url + w2v);
-                        $(r2v)[O2v](C2v + _blank_url + w2v);
-                        $(S81.i7v)[B2v](S81.x7v);
-                        $(S81.Q0v)[B2v](S81.x7v);
-                        $(S81.i7v)[d51.z5v](S81.x7v);
-                        _firstHidden = S81.Z7v;
-                        _currentFrame = S81.R7v;
-                        setupNewChallenge();
-                    } else {
-                        _lightbox_firefox_loaded = S81.o6v;
-                        if (_htmlVerify) P3();
-                        else W3();
-                    }
-                }
-            } else if (F9v[h2v] == v2v) {
-            $(u2v)[O2v](Z2v + _blank_url + w2v);
-            $(r2v)[O2v](C2v + _blank_url + w2v);
-            $(S81.i7v)[B2v](S81.x7v);
-            $(S81.Q0v)[B2v](S81.x7v);
-            $(S81.i7v)[d51.z5v](S81.x7v);
-            _firstHidden = S81.Z7v;
-            _currentFrame = S81.R7v;
-            setupNewChallenge();
-        } else if (F9v[h2v] == J2v) V3();
-        else if (!(F9v[h2v] == z2v))
-            if (F9v[h2v] === I2v) {
-                _showStartupBool = S81.Z7v;
-                if (currentTarget) currentTarget[S81.z7v](i2v);
-            } else if (Object(F9v[h2v])) {
-            log(s2v);
-            if (F9v[h2v][x2v] == Q91) {
-                document[d51.k8v](S91)[d51.f8v][S81.D0v](F9v[h2v], S81.u0v);
-                document[d51.k8v](a91)[d51.f8v][S81.D0v](F9v[h2v], S81.u0v);
-            }
-            if (F9v[h2v][x2v] == R91) w3(F9v[h2v][m91], F9v[h2v][D8v]);
-            if (F9v[h2v][x2v] == c91) sendAnalytics(k91, F9v[h2v][f91], F9v[h2v][W91]);
-            if (F9v[h2v][x2v] == d51.E91) sendAnalytics(d51.E91, S81.F0v, S81.F0v, F9v[h2v][h2v]);
-            if (F9v[h2v][x2v] == V91) {
-                _snippet_data = F9v[h2v][h2v];
-                for (var H9v in _snippet_data) {
-                    var l9v = _snippet_data[H9v];
-                    if (H9v == M91) $(X91)[d51.n5v](F91 + l9v + H91);
-                    else if (H9v == l91) $(X91)[d51.n5v](U91 + l9v + t91);
-                    else if (H9v == b91) $(X91)[d51.n5v](g91 + l9v + H91);
-                }
-                if (_extra_victory_data[L91]) $[N91](_extra_victory_data[L91]);
-            }
-            if (F9v[h2v][n91]) {
-                _extra_data = F9v[h2v];
-                log(j91);
-                log(_extra_data);
-                sendAnalytics(o91, d91);
-                setupExtraData();
-                if (_currentFrame == S81.m7v) {
-                    _canReload = S81.o6v;
-                    V3();
-                }
-            }
-        }
-    }
-    _timeout_fallback = _get_query[T91] ? _get_query[T91] : o51.u7v;
-    _hidden_timed_mode = _get_query[P91] ? _get_query[P91] : o51.Z7v;
-    _secure_client_id = _get_query[p91];
-    if (_get_query[G91]) _audio_type = parseInt(_get_query[G91]);
-    if (_get_query[e91]) _primary_cdn_url = _get_query[e91];
-    if (!ie_ver || ie_ver > M7v) _fp = _get_query[q91];
-    if (window[o51.D0v]) parent[o51.D0v](K91, o51.u0v);
-
-    function y3() {
-        var Q81 = S9vv;
-        var Y91 = "/fc";
-        var D91 = "https://";
-        var y91 = "/fc/ap/?asset=/fc";
-        var h91 = 2.4;
-        var n9v = Q81.o6v;
-        if (_android_ver <= h91) n9v = Q81.Z7v;
-        if (ie_ver)
-            if (ie_ver <= Q81.V7v) n9v = Q81.Z7v;
-        if (!n9v) {
-            _cdn_backup = Q81.o6v;
-            if (ie_ver == Q81.W7v) _cdn_url = y91;
-            else _cdn_url = D91 + _backup_cdn_url + Y91;
-        } else _cdn_url = _primary_cdn_url;
-    }
-    B3();
-    y3();
-    if (_get_query[A91]) _pl = _get_query[A91];
-
-    function Z3() {
-        var x91 = "fc_ui_text_color";
-        var s91 = "fc_ui_color";
-        var i91 = "fc_banner_img";
-        var I91 = "fc_ball_img";
-        var z91 = "fc_background_img";
-        var J91 = "display extra victory data";
-        var v91 = "extra victory data";
-        var B91 = 'get_snips';
-        var C91 = "fc_snips";
-        var r91 = "click_macro";
-        var w91 = "getExtraData";
-        var Z91 = "triggering fcExtra";
-        var O91 = "Cannot find FCEXTRA";
-        if (typeof fcExtra === u91) log(O91);
-        else if (Object(fcExtra)) {
-            log(Z91);
-            _extra_data = fcExtra[w91]();
-            log(_extra_data);
-            sendAnalytics(o91, d91);
-            setupExtraData();
-        }
-        if (!(typeof fcExtraVictory === u91))
-            if (Object(fcExtraVictory)) {
-                log(Z91);
-                _extra_victory_data = fcExtraVictory[w91]();
-                log(_extra_victory_data);
-                if (_extra_victory_data[r91]) {
-                    if (!_extra_data) _extra_data = {};
-                    _extra_data[r91] = _extra_victory_data[r91];
-                }
-                if (_extra_victory_data) {
-                    if (_extra_victory_data[C91])
-                        if (window[S9vv.D0v]) parent[S9vv.D0v](B91, S9vv.u0v);
-                    sendAnalytics(v91, J91);
-                    setupExtraData();
-                }
-                if (!_extra_data) _extra_data = {};
-                if (_extra_victory_data[z91]) _extra_data[z91] = _extra_victory_data[z91];
-                if (_extra_victory_data[I91]) _extra_data[I91] = _extra_victory_data[I91];
-                if (_extra_victory_data[i91]) _extra_data[i91] = _extra_victory_data[i91];
-                if (_extra_victory_data[s91]) _extra_data[s91] = _extra_victory_data[s91];
-                if (_extra_victory_data[x91]) _extra_data[x91] = _extra_victory_data[x91];
-            }
-    }
-    if (_pl == o51.m7v) {
-        $(o51.l6v)[o51.A6v]();
-        $(Q11)[o51.m6v]();
+    j6();
+    if (_get_query[j4P])
+        _pl = _get_query[j4P];
+    if (_pl == V6u.W2P) {
+        $(V6u.o5P)[V6u.i5P]();
+        $(q5P)[V6u.D5P]();
     }
     if (isAndroid)
-        if (_get_query[S11] == a11 || _get_query[S11] == P7v)
-            if (_android_ver == k7v) $(d51.N5v)[d51.z5v](R11);
-    Z3();
-    u3();
+        if (_get_query[F5P] == s5P || _get_query[F5P] == j2P)
+            if (_android_ver == J2P)
+                $(V6u.C5P)[V6u.l5P](R5P);
+    G6();
+    u6();
     hideMeta();
-
-    function D3(E9v) {
-        var m11 = "+";
-        E9v = E9v[d51.g3v](m11)[d51.V5v](c11);
-        var V9v = {},
-            M9v, X9v = /[?&]?([^=]+)=([^&]*)/g;
-        while (M9v = X9v[k11](E9v)) V9v[decodeURIComponent(M9v[S9vv.R7v])] = decodeURIComponent(M9v[S9vv.m7v]);
-        return V9v;
+    if (window[V6u.G4P])
+        if (window[O5P])
+            window[O5P](I5P, X6, V6u.w4P);
+        else if (window[k5P])
+            window[k5P](w5P, X6);
+    _site_url = window["location"] != window[Z5P]["location"] ? document[Q5P] : document["location"];
+    if (!_site_url)
+        _site_url = window["location"][h5P];
+    if (!_site_url)
+        _site_url = window["location"];
+    if (!_site_url)
+        _site_url = p5P;
+    sendAnalytics(V6u.c5P, _site_url);
+    if (window[V6u.G4P])
+        parent[V6u.G4P](H5P, V6u.T4P);
+    var h6 = V6u.S2P;
+    try {
+        if (getiOSVer()[V6u.S2P] <= V6u.B2P) {
+            $(g5P)[V6u.i5P]();
+            $(e5P)[V6u.D5P]();
+        }
+    } catch (R7) {}
+    if (!((navigator[V6u.x4P][V6u.Y4P]()[V6u.t4P](V6u.m5P) > -V6u.r2P || navigator[V6u.x4P][V6u.Y4P]()[V6u.t4P](v5P) > -V6u.r2P) && _get_query[x5P]))
+        if (_htmlVerify)
+            A6();
+        else {
+            bootstrapComplete = V6u.g4P;
+            if (!_fp || stmpSet)
+                g6();
+        }
+    $(A5P)[P5P](function() {
+        d6();
+    });
+    $(V6u.U5P)[P5P](function() {
+        T6();
+    });
+    $(V6u.z5P)[P5P](function() {
+        m6();
+    });
+    function m6() {
+        var a5P = "user clicked reload";
+        var b5P = "reload captcha";
+        if (_htmlVerify)
+            d6();
+        else if (_canReload) {
+            _canReload = V6u.w4P;
+            if (_is_timed_mode)
+                hideTimedModeTimer();
+            checkPhoneMode();
+            if (_mode == V6u.m4P) {
+                sendAnalytics(b5P, a5P);
+                $(u5P)[n5P](G5P + _blank_url + V5P);
+                $(T5P)[n5P](j5P + _blank_url + V5P);
+                $(V6u.N5P)[o8P](V6u.i8P);
+                $(V6u.L5P)[o8P](V6u.i8P);
+                $(V6u.N5P)[V6u.l5P](V6u.i8P);
+                _firstHidden = V6u.w4P;
+                _currentFrame = V6u.r2P;
+                _showStartupBool = V6u.g4P;
+                setupNewChallenge();
+            } else {
+                if (_audio_type >= V6u.W2P)
+                    P6();
+                else
+                    Recaptcha[V6u.q8P]();
+                _canReload = V6u.g4P;
+            }
+        }
     }
-    if (window[o51.D0v])
-        if (window[f11]) window[f11](W11, j3, o51.Z7v);
-        else if (window[E11]) window[E11](V11, j3);
-    _site_url = window[o51.o0v] != window[M11][o51.o0v] ? document[X11] : document[o51.o0v];
-
-    function P3() {
-        var i51 = S9vv;
-        var H11 = "display html verify";
-        var F11 = "zero credits";
-        sendAnalytics(F11, H11);
-        $(i51.i7v)[i51.m6v]();
-        $(i51.Q0v)[i51.m6v]();
-        $(i51.s6v)[i51.A6v]();
+    $(D8P)[P5P](function() {
+        Y6();
+        var k7 = c6();
+        if (k7)
+            k7[F8P]();
+    });
+    if (_audio_type >= V6u.W2P) {
+        $(s8P)[P5P](s7);
+        $(C8P)[P5P](function() {
+            W6();
+        });
+    }
+    $(V6u.z8P)[P5P](function() {
+        E6();
+    });
+    $(V6u.b8P)[P5P](function() {
+        y6();
+    });
+    $(V6u.u8P)[P5P](f6);
+    $(V6u.o5P)[V6u.n8P](G8P, function(H7) {
+        var g7 = H7[V6u.V8P] || H7[V6u.T8P];
+        if (g7 == V6u.X2P)
+            f6();
+    });
+    $(j8P)[P5P](function() {
+        p6();
+    });
+    $(o6P)[V6u.n8P](G8P, function(e7) {
+        var m7 = e7[V6u.V8P] || e7[V6u.T8P];
+        if (m7 == V6u.X2P)
+            p6();
+    });
+    $(i6P)[P5P](function() {
+        B6();
+    });
+    $(q6P)[V6u.n8P](G8P, function(v7) {
+        var x7 = v7[V6u.V8P] || v7[V6u.T8P];
+        if (x7 == V6u.X2P)
+            B6();
+    });
+    $(D6P)[P5P](function() {
+        $(F6P)[V6u.D5P]();
+        $(s6P)[V6u.C6P](lang_obj[l6P]);
+        p6(V6u.v4P, R6P);
+    });
+    $(O6P)[V6u.n8P](G8P, function(Y7) {
+        var t7 = Y7[V6u.V8P] || Y7[V6u.T8P];
+        if (t7 == V6u.X2P) {
+            $(F6P)[V6u.D5P]();
+            $(s6P)[V6u.C6P](lang_obj[l6P]);
+            p6(V6u.v4P, R6P);
+        }
+    });
+    function A6() {
+        var d5P = "display html verify";
+        var y5P = "zero credits";
+        sendAnalytics(y5P, d5P);
+        $(V6u.N5P)[V6u.D5P]();
+        $(V6u.L5P)[V6u.D5P]();
+        $(V6u.X5P)[V6u.i5P]();
         hideLoader();
     }
-    if (!_site_url) _site_url = window[o51.o0v][d51.l11];
-    if (!_site_url) _site_url = window[o51.o0v];
-    if (!_site_url) _site_url = U11;
-    sendAnalytics(d51.t11, _site_url);
-    if (window[o51.D0v]) parent[o51.D0v](b11, o51.u0v);
-    var m3 = o51.a7v;
-    try {
-        if (getiOSVer()[o51.a7v] <= o51.V7v) {
-            $(g11)[o51.A6v]();
-            $(L11)[o51.m6v]();
+    $(F6P)[P5P](function() {
+        p6(I6P, k6P);
+    });
+    $(w6P)[V6u.n8P](G8P, function(S7) {
+        var r7 = S7[V6u.V8P] || S7[V6u.T8P];
+        if (r7 == V6u.X2P)
+            p6(I6P, k6P);
+    });
+    $(s6P)[P5P](function() {
+        p6(I6P, R6P);
+    });
+    $(Z6P)[V6u.n8P](G8P, function(W7) {
+        var M7 = W7[V6u.V8P] || W7[V6u.T8P];
+        if (M7 == V6u.X2P)
+            p6(I6P, R6P);
+    });
+    $(Q6P)[P5P](function() {
+        t6();
+    });
+    $(h6P)[V6u.n8P](G8P, function(J7) {
+        var K7 = J7[V6u.V8P] || J7[V6u.T8P];
+        if (K7 == V6u.X2P)
+            t6();
+    });
+    function B6() {
+        var K7P = "entry_title_notext";
+        $(S7P)[V6u.C6P](lang_obj[K7P]);
+        $(i6P)[V6u.D5P]();
+        $(D6P)[V6u.i5P]();
+    }
+    $(p6P)[P5P](function() {
+        v6();
+    });
+    function l7() {
+        var b7P = "player";
+        return _get_query[b7P];
+    }
+    $(c6P)[V6u.n8P](G8P, function(E7) {
+        var f7 = E7[V6u.V8P] || E7[V6u.T8P];
+        if (f7 == V6u.X2P)
+            v6();
+    });
+    $(H6P)[P5P](function() {
+        N6();
+    });
+    function E6() {
+        if (_is_timed_mode)
+            hideTimedModeTimer();
+        clearSlowLoad();
+        L6();
+        if ($(V6u.E6P)[V6u.t6P] > V6u.S2P)
+            $(V6u.E6P)[V6u.f6P]();
+        showMeta();
+        if (_htmlVerify) {
+            $(V6u.X5P)[V6u.D5P]();
+            _htmlVerify = V6u.w4P;
         }
-    } catch (Q8) {}
-    if (!((navigator[d51.l3v][d51.U3v]()[d51.t3v](d51.D2v) > -o51.R7v || navigator[d51.l3v][d51.U3v]()[d51.t3v](Y2v) > -o51.R7v) && _get_query[N11]))
-        if (_htmlVerify) P3();
-        else {
-            bootstrapComplete = o51.o6v;
-            if (!_fp || stmpSet) W3();
-        }
-    $(n11)[j11](function() {
-        L3();
-    });
-    $(d51.P5v)[j11](function() {
-        r3();
-    });
-
-    function N3() {
-        var o11 = "entry_title_notext";
-        $(K8v)[S9vv.X3v](lang_obj[o11]);
-        $(d11)[S9vv.m6v]();
-        $(T11)[S9vv.A6v]();
+        if (is_safari_ios)
+            i7();
+        $(V6u.z8P)[V6u.D5P]();
+        $(V6u.b8P)[V6u.i5P]();
+        _mode = B6P;
+        b6();
+        K6();
     }
-    $(o51.X6v)[j11](function() {
-        V3();
+    $(g6P)[V6u.n8P](G8P, function(B7) {
+        var y7 = B7[V6u.V8P] || B7[V6u.T8P];
+        if (y7 == V6u.X2P)
+            N6();
     });
-
-    function W3() {
-        var P11 = "Error setting up FC.";
-        if (!C3())
-            if (_session_token) setupChallenge();
-            else {
-                log(P11);
-                setupNoJS();
-            }
-        else setupNoJS();
+    $(e6P)[V6u.n8P](G8P, function(d7) {
+        var N7 = d7[V6u.V8P] || d7[V6u.T8P];
+        if (N7 == V6u.X2P)
+            p6();
+    });
+    function c6() {
+        return document[V6u.I0P](P9P);
     }
-    $(p11)[j11](function() {
-        X3();
-        var R8 = k3();
-        R8[d2v]();
+    $(m6P)[X8P](function() {
+        var x6P = "selectionEnd";
+        var v6P = "selectionStart";
+        this[v6P] = this[x6P] = this[Y6P][V6u.t6P];
     });
-
-    function K3() {
-        return;
-    }
-    if (_audio_type >= o51.m7v) $(N2v)[j11](function() {
-        T3();
-    });
-    $(o51.E6v)[j11](function() {
-        G3();
-    });
-    $(o51.e6v)[j11](function() {
-        e3();
-    });
-    $(o51.G6v)[j11](p3);
-
-    function X3() {
-        var J51 = S9vv;
-        var i11 = "audio_alert";
-        var I11 = "error displayed";
-        var z11 = "user tried to submit blank";
-        var y11 = "../audio/";
-        var h11 = "user submited guess";
-        var K11 = "#audio_commit";
-        var q11 = '#recaptcha_challenge_field';
-        var m8 = $(G11)[e11]();
-        var c8 = $(q11)[e11]();
-        if (m8 != J51.H0v) {
-            $(J51.R3v)[J51.m6v]();
-            $(K11)[J51.A6v]();
-            sendAnalytics(F2v, h11);
-            var k8 = new Date()[J51.O0v]();
-            $[J51.Z0v]({
-                url: y11,
-                type: J51.w0v,
-                timeout: J51.A7v,
+    function Y6() {
+        var U8P = "audio_alert";
+        var P8P = "error displayed";
+        var A8P = "user tried to submit blank";
+        var p8P = "../audio/";
+        var Z8P = "user submited guess";
+        var k8P = "#audio_commit";
+        var O8P = '#recaptcha_challenge_field';
+        var w7 = $(l8P)[R8P]();
+        var Z7 = $(O8P)[R8P]();
+        if (w7 != V6u.H4P) {
+            $(V6u.I8P)[V6u.D5P]();
+            $(k8P)[V6u.i5P]();
+            sendAnalytics(w8P, Z8P);
+            var Q7 = new Date()[V6u.Q8P]();
+            $[V6u.h8P]({
+                url: p8P,
+                type: V6u.c8P,
+                timeout: V6u.O4P,
                 data: {
                     r: _sid,
                     session_token: _session_token,
-                    response: m8,
-                    challenge: c8,
+                    response: w7,
+                    challenge: Z7,
                     analytics_tier: _analytics_tier,
                     audio_type: _audio_type,
                     language: _lang
                 },
                 headers: {
-                    "cache-control": J51.r0v,
-                    "X-NewRelic-Timestamp": k8,
-                    "X-Requested-ID": requestID()
+                    "cache-control": V6u.H8P,
+                    "X-NewRelic-Timestamp": Q7,
+                    "X-Requested-ID": getRequestID()
                 },
-                success: function(W8) {
-                    var J11 = "#audio_error";
-                    var v11 = "#audio_error p";
-                    var B11 = "error_reply";
-                    var C11 = "#audio_disabled";
-                    var r11 = "#audio_disabled p";
-                    var w11 = 'disabled';
-                    var Z11 = "message";
-                    var O11 = "#audio_solve";
-                    var u11 = "guess confirmed by server";
-                    var A11 = "correct";
-                    var D11 = "audio response";
-                    log(D11);
-                    log(W8);
-                    log(d51.Y11);
-                    var f8 = jQuery[J51.C0v](W8);
-                    if (f8[J51.B0v] == A11) {
+                success: function(p7) {
+                    var L8P = "#audio_error";
+                    var N8P = "#audio_error p";
+                    var d8P = "error_reply";
+                    var B8P = "#audio_disabled";
+                    var E8P = "#audio_disabled p";
+                    var K8P = 'disabled';
+                    var J8P = "message";
+                    var t8P = "#audio_solve";
+                    var Y8P = "guess confirmed by server";
+                    var x8P = "correct";
+                    var g8P = "audio response";
+                    log(g8P);
+                    log(p7);
+                    log(V6u.e8P);
+                    var h7 = jQuery[V6u.m8P](p7);
+                    if (h7[V6u.v8P] == x8P) {
                         RCMetaUpload();
-                        sendAnalytics(F2v, u11);
-                        setStars(J51.c7v);
-                        $(K11)[J51.m6v]();
-                        $(J51.R3v)[J51.m6v]();
-                        $(O11)[J51.A6v]();
-                        if (window[J51.D0v] && _earlyVictoryMessage) {
-                            parent[J51.D0v](J51.r6v, J51.u0v);
-                            if (_get_query[J51.C6v]) {
-                                log(J51.B6v);
-                                parent[J51.D0v](J51.v6v, J51.u0v);
+                        sendAnalytics(w8P, Y8P);
+                        setStars(V6u.M2P);
+                        $(k8P)[V6u.D5P]();
+                        $(V6u.I8P)[V6u.D5P]();
+                        $(t8P)[V6u.i5P]();
+                        if (window[V6u.G4P] && _earlyVictoryMessage) {
+                            parent[V6u.G4P](V6u.S8P, V6u.T4P);
+                            if (_get_query[V6u.r8P]) {
+                                log(V6u.W8P);
+                                parent[V6u.G4P](V6u.M8P, V6u.T4P);
                             }
                         }
-                    } else if (f8[Z11] && f8[J51.B0v] == w11) {
-                        $(r11)[J51.z6v](f8[Z11]);
-                        $(C11)[J51.A6v]();
-                        $(J51.m3v)[J51.m6v]();
-                        $(K11)[J51.m6v]();
+                    } else if (h7[J8P] && h7[V6u.v8P] == K8P) {
+                        $(E8P)[V6u.f8P](h7[J8P]);
+                        $(B8P)[V6u.i5P]();
+                        $(V6u.y8P)[V6u.D5P]();
+                        $(k8P)[V6u.D5P]();
                     } else {
-                        if (f8[B11]) {
-                            $(v11)[J51.z6v](f8[B11]);
-                            $(J11)[J51.A6v]();
+                        if (h7[d8P]) {
+                            $(N8P)[V6u.f8P](h7[d8P]);
+                            $(L8P)[V6u.i5P]();
                         }
-                        $(J51.R3v)[J51.A6v]();
-                        $(g2v)[L2v]();
-                        $(K11)[J51.m6v]();
-                        g3();
+                        $(V6u.I8P)[V6u.i5P]();
+                        $(s8P)[X8P]();
+                        $(k8P)[V6u.D5P]();
+                        P6();
                     }
                 }
             });
         } else {
-            sendAnalytics(F2v, z11, I11);
-            alert(lang_obj[i11]);
+            sendAnalytics(w8P, A8P, P8P);
+            alert(lang_obj[U8P]);
         }
     }
-    $(o51.l6v)[d51.r5v](s11, function(V8) {
-        var M8 = V8[d51.j2v] || V8[d51.o2v];
-        if (M8 == S9vv.l7v) p3();
+    $(S6P)[V6u.n8P](G8P, function(L7) {
+        var X7 = L7[V6u.V8P] || L7[V6u.T8P];
+        if (X7 == V6u.X2P)
+            v6();
     });
-    $(x11)[j11](function() {
-        c3();
+    $(r6P)[V6u.n8P](G8P, function(A7) {
+        var P7 = A7[V6u.V8P] || A7[V6u.T8P];
+        if (P7 == V6u.X2P)
+            m6();
     });
-
-    function v3() {
-        var B51 = S9vv;
-        var m41 = "button";
-        var R41 = "tabindex";
-        var a41 = "role";
-        var S41 = "aria-label";
-        var J8 = document[Q41](S41);
-        var z8 = document[Q41](a41);
-        var I8 = document[Q41](R41);
-        J8[D8v] = _aria_start_label;
-        z8[D8v] = m41;
-        I8[D8v] = B51.a7v;
-        $(k2v)[B51.a7v][c41](J8);
-        $(k2v)[B51.a7v][c41](z8);
-        $(k2v)[B51.a7v][c41](I8);
-    }
-
-    function O3() {
-        var C51 = S9vv;
-        var E41 = "#recaptcha_challenge_image";
-        var W41 = ".recaptcha_only_if_image";
-        var f41 = "#recaptcha_image img";
-        if (_type != k41) {
-            $(f41)[C51.m6v]();
-            $(W41)[C51.m6v]();
-            $(E41)[C51.m6v]();
-        } else _canReload = C51.o6v;
-        if (_show_audio && !_textCaptchaMade) {
-            _textCaptchaMade = C51.o6v;
-            d3();
-        }
-    }
-    $(V41)[d51.r5v](s11, function(X8) {
-        var F8 = X8[d51.j2v] || X8[d51.o2v];
-        if (F8 == S9vv.l7v) c3();
+    $(V6u.W6P)[V6u.n8P](G8P, function(U7) {
+        var z7 = U7[V6u.V8P] || U7[V6u.T8P];
+        if (z7 == V6u.X2P)
+            E6();
     });
-    $(d11)[j11](function() {
-        N3();
+    $(M6P)[V6u.n8P](G8P, function(b7) {
+        var a7 = b7[V6u.V8P] || b7[V6u.T8P];
+        if (a7 == V6u.X2P)
+            y6();
     });
-    $(M41)[d51.r5v](s11, function(H8) {
-        var l8 = H8[d51.j2v] || H8[d51.o2v];
-        if (l8 == S9vv.l7v) N3();
-    });
-
-    function e3() {
-        var Z51 = S9vv;
-        var H41 = 'image';
-        var F41 = "switch_type";
-        var X41 = "_type: ";
-        if (_is_timed_mode) hideTimedModeTimer();
-        log(X41 + _type);
-        if (_type != k41) {
-            z3();
-            _show_audio = Z51.Z7v;
-            _firstHidden = Z51.Z7v;
-            _mode = Z51.E3v;
+    function J6() {
+        var l7P = 'recaptcha_widget';
+        var C7P = "custom";
+        var s7P = "6Lc7hvUSAAAAAPx7PpoPuefKklnKgB3qq3cu4m25";
+        var F7P = "create";
+        var D7P = 'https://www.google.com/recaptcha/api/js/recaptcha_ajax.js';
+        if (!r6) {
             showLoader();
-            $(Z51.E6v)[Z51.A6v]();
-            $(Z51.e6v)[Z51.m6v]();
-            v3();
-            $(Z51.R3v)[Z51.m6v]();
-            $(Z51.m3v)[Z51.m6v]();
-            $(Z51.i7v)[Z51.A6v]();
-            $(Z51.Q0v)[Z51.A6v]();
-            $(Z51.i7v)[B2v](Z51.x7v);
-            $(Z51.Q0v)[B2v](Z51.x7v);
-            $(Z51.i7v)[d51.z5v](Z51.x7v);
-            _currentFrame = Z51.R7v;
-            setupChallenge();
-        } else Recaptcha[F41](H41);
-    }
-
-    function g3() {
-        audioDestroySound();
-        $(l41)[e11](S9vv.H0v);
-        $(N2v)[L2v]();
-    }
-    $(T11)[j11](function() {
-        $(U41)[S9vv.m6v]();
-        $(t41)[S9vv.X3v](lang_obj[b41]);
-        c3(S9vv.F0v, g41);
-    });
-    $(L41)[d51.r5v](s11, function(U8) {
-        var A51 = S9vv;
-        var t8 = U8[d51.j2v] || U8[d51.o2v];
-        if (t8 == A51.l7v) {
-            $(U41)[A51.m6v]();
-            $(t41)[A51.X3v](lang_obj[b41]);
-            c3(A51.F0v, g41);
-        }
-    });
-
-    function d3() {
-        _show_audio = S9vv.o6v;
-        if (_audio_type >= S9vv.m7v) b3();
-        else if (!_textCaptchaMade) n3();
-        else b3();
-    }
-
-    function w3(t9v, b9v) {
-        var D51 = S9vv;
-        var N41 = "../pd/";
-        var U9v = new Date()[D51.O0v]();
-        $[D51.Z0v]({
-            url: N41,
-            type: D51.w0v,
-            data: {
-                sid: _sid,
-                session_token: _session_token,
-                s_n: prep(t9v),
-                s_v: prep(b9v),
-                analytics_tier: _analytics_tier
-            },
-            headers: {
-                "cache-control": D51.r0v,
-                "X-NewRelic-Timestamp": U9v,
-                "X-Requested-ID": requestID()
-            },
-            success: function(g9v) {
-                var n41 = "pd response";
-                log(n41);
-                log(g9v);
-                log(d51.Y11);
-            }
-        });
-    }
-
-    function I3() {
-        var o41 = '#audio_download';
-        var j41 = "display:none;";
-        var v8 = document[Q41](S9vv.C7v);
-        v8[D8v] = j41;
-        $(o41)[S9vv.a7v][c41](v8);
-    }
-    $(U41)[j11](function() {
-        c3(d41, T41);
-    });
-
-    function c3(Q9v, i8) {
-        var K51 = S9vv;
-        var q41 = "../phone/msg/";
-        var G41 = "code_title_sent";
-        var P41 = ".call-me-btn";
-        if ($(y8v)[K51.a7v][D8v]) {
-            $(P41)[K51.m6v]();
-            if (!Q9v) {
-                $(A8v)[K51.m6v]();
-                $(u8v)[K51.A6v]();
-                $(p41)[K51.X3v](lang_obj[G41][d51.g3v](e41)[K51.a7v] + $(y8v)[K51.a7v][D8v] + c11 + lang_obj[G41][d51.g3v](e41)[K51.R7v]);
-            }
-            m3 = K51.m7v;
-            setTimeout(function() {
-                if (!$(Y8v)[S9vv.a7v][D8v]) $(P41)[S9vv.A6v]();
-            }, K51.u7v);
-            var s8 = new Date()[K51.O0v]();
-            $[K51.Z0v]({
-                url: q41,
-                type: K51.w0v,
-                data: {
-                    sid: _sid,
-                    session_token: _session_token,
-                    phone_number: prep($(y8v)[K51.a7v][D8v]),
-                    method: i8 ? i8 : T41,
-                    analytics_tier: _analytics_tier
-                },
-                headers: {
-                    "cache-control": K51.r0v,
-                    "X-NewRelic-Timestamp": s8,
-                    "X-Requested-ID": requestID()
-                },
-                success: function(R9v) {
-                    var Z81 = S9vv;
-                    var Y41 = "entry_title_error";
-                    var D41 = ".";
-                    var K41 = "phone send response";
-                    log(K41);
-                    log(R9v);
-                    log(d51.Y11);
-                    var S9v = jQuery[Z81.C0v](R9v);
-                    if (S9v[h41] == Z81.Z7v)
-                        if (S9v[Z81.B0v] == y41) {
-                            m3 = Z81.f7v;
-                            $(Z8v)[Z81.A6v]();
-                            $(u8v)[Z81.m6v]();
-                        } else {
-                            F3();
-                            var a9v = S9v[Z81.B0v];
-                            if (a9v[d51.s5v](-Z81.R7v) != D41) a9v += D41;
-                            $(d11)[Z81.m6v]();
-                            $(T11)[Z81.A6v]();
-                            $(K8v)[Z81.X3v](a9v + c11 + lang_obj[Y41]);
-                        }
-                }
+            $[q7P](D7P, function() {
+                r6 = V6u.g4P;
+                J6();
             });
-        } else $(K8v)[K51.X3v](lang_obj[h8v]);
+        } else
+            Recaptcha[F7P](s7P, B6P, {
+                theme: C7P,
+                custom_theme_widget: l7P,
+                callback: n6,
+                lang: _lang
+            });
     }
-    $(A41)[d51.r5v](s11, function(b8) {
-        var g8 = b8[d51.j2v] || b8[d51.o2v];
-        if (g8 == S9vv.l7v) c3(d41, T41);
+    $(l8P)[V6u.n8P](G8P, function(u7) {
+        var n7 = u7[V6u.V8P] || u7[V6u.T8P];
+        if (n7 == V6u.X2P)
+            Y6();
     });
-    $(t41)[j11](function() {
-        c3(d41, g41);
-    });
-    $(u41)[d51.r5v](s11, function(L8) {
-        var N8 = L8[d51.j2v] || L8[d51.o2v];
-        if (N8 == S9vv.l7v) c3(d41, g41);
-    });
-    $(O41)[j11](function() {
-        F3();
-    });
-    $(Z41)[d51.r5v](s11, function(n8) {
-        var j8 = n8[d51.j2v] || n8[d51.o2v];
-        if (j8 == S9vv.l7v) F3();
-    });
-    $(w41)[j11](function() {
-        l3();
-    });
-    $(r41)[d51.r5v](s11, function(o8) {
-        var d8 = o8[d51.j2v] || o8[d51.o2v];
-        if (d8 == S9vv.l7v) l3();
-    });
-    $(C41)[j11](function() {
-        q3();
-    });
-    $(B41)[d51.r5v](s11, function(T8) {
-        var P8 = T8[d51.j2v] || T8[d51.o2v];
-        if (P8 == S9vv.l7v) q3();
-    });
-    $(v41)[d51.r5v](s11, function(p8) {
-        var G8 = p8[d51.j2v] || p8[d51.o2v];
-        if (G8 == S9vv.l7v) c3();
-    });
-    $(y8v)[L2v](function() {
-        var z41 = "selectionEnd";
-        var J41 = "selectionStart";
-        this[J41] = this[z41] = this[D8v][S9vv.X0v];
-    });
-    $(I41)[d51.r5v](s11, function(e8) {
-        var q8 = e8[d51.j2v] || e8[d51.o2v];
-        if (q8 == S9vv.l7v) l3();
-    });
-
-    function k3() {
-        return document[d51.k8v](i41);
-    }
-    $(s41)[d51.r5v](s11, function(K8) {
-        var h8 = K8[d51.j2v] || K8[d51.o2v];
-        if (h8 == S9vv.l7v) V3();
-    });
-    $(o51.g6v)[d51.r5v](s11, function(y8) {
-        var D8 = y8[d51.j2v] || y8[d51.o2v];
-        if (D8 == S9vv.l7v) G3();
-    });
-    $(x41)[d51.r5v](s11, function(Y8) {
-        var A8 = Y8[d51.j2v] || Y8[d51.o2v];
-        if (A8 == S9vv.l7v) e3();
-    });
-
-    function T3() {
-        audioPlaySound();
-    }
-    $(G11)[d51.r5v](s11, function(u8) {
-        var O8 = u8[d51.j2v] || u8[d51.o2v];
-        if (O8 == S9vv.l7v) X3();
-    });
-    $(Q71)[d51.r5v](s11, function(Z8) {
-        var w8 = Z8[d51.j2v] || Z8[d51.o2v];
-        if (w8 == S9vv.l7v) {
-            X3();
-            var r8 = k3();
-            r8[d2v]();
+    $(J6P)[V6u.n8P](G8P, function(G7) {
+        var V7 = G7[V6u.V8P] || G7[V6u.T8P];
+        if (V7 == V6u.X2P) {
+            Y6();
+            var T7 = c6();
+            T7[F8P]();
         }
     });
-    $(S71)[d51.r5v](s11, function(C8) {
-        var B8 = C8[d51.j2v] || C8[d51.o2v];
-        if (B8 == S9vv.l7v) T3();
+    function C7() {
+        var B5P = '2d';
+        var f5P = "getContext";
+        var E5P = 'canvas';
+        var I7 = document[K5P](E5P);
+        return !!(I7[f5P] && I7[f5P](B5P));
+    }
+    $(K6P)[V6u.n8P](G8P, function(j7) {
+        var o9 = j7[V6u.V8P] || j7[V6u.T8P];
+        if (o9 == V6u.X2P)
+            W6();
     });
-    var M3 = o51.Z7v;
-    var U3 = o51.Z7v;
-
-    function i3() {
-        var c71 = '2d';
-        var m71 = "getContext";
-        var R71 = 'canvas';
-        var a8 = document[a71](R71);
-        return !!(a8[m71] && a8[m71](c71));
+    var r6 = V6u.w4P;
+    var S6 = V6u.w4P;
+    function U6() {
+        return _get_query["token"];
+    }
+    function b6() {
+        var V6P = 'tabindex';
+        var n6P = "removeAttribute";
+        var u6P = 'aria-label';
+        var a6P = "getAttribute";
+        _aria_start_label = $(b6P)[V6u.S2P][a6P](u6P);
+        $(b6P)[V6u.S2P][n6P](u6P);
+        $(b6P)[V6u.S2P][n6P](G6P);
+        $(b6P)[V6u.S2P][n6P](V6P);
     }
     audioUseHTML5 = function() {
-        var W71 = "audio/wav";
-        var f71 = "canPlayType";
-        var k71 = 'audio';
-        var Z9v = S9vv.Z7v;
-        if (isAndroid && _android_ver < k7v) Z9v = S9vv.Z7v;
+        var B9P = "audio/wav";
+        var f9P = "canPlayType";
+        var E9P = 'audio';
+        var I3P = V6u.w4P;
+        if (isAndroid && _android_ver < J2P)
+            I3P = V6u.w4P;
         else {
-            var w9v = document[a71](k71);
-            Z9v = !!w9v[f71] && !!w9v[f71](W71) && !audioCanSupport();
+            var k3P = document[K5P](E9P);
+            I3P = !!k3P[f9P] && !!k3P[f9P](B9P) && !audioCanSupport();
         }
-        return Z9v;
-    };
-
-    function B3() {
-        var H71 = "get";
-        var F71 = ";path=/";
-        var X71 = "timestamp=";
-        var V71 = "substring";
-        var E71 = "prototype";
-        if (typeof Document == u91 || typeof Document[E71] == u91) {
-            Date[E71][S9vv.O0v] = function() {
-                var i81 = S9vv;
-                var M71 = "00";
-                var o9v = new Date()[d51.y3v]()[d51.W5v]()[V71](i81.a7v, i81.E7v);
-                var d9v = new Date()[d51.y3v]()[d51.W5v]()[V71](i81.E7v, i81.l7v);
-                var j9v = o9v + M71 + d9v;
-                document[d51.L3v] = X71 + j9v + F71;
-                return j9v;
-            };
-            return S9vv.o6v;
-        }
-        if (_fp) try {
-            new FCFConfig()[H71](function(T9v) {
-                stmp = T9v;
-                stmpSet = S9vv.o6v;
-                if (bootstrapComplete) W3();
-            });
-        } catch (P9v) {
-            stmp = Date[d51.y3v]()[d51.W5v]();
-            stmpSet = S9vv.o6v;
-            if (bootstrapComplete) W3();
-        }
-        Date[E71][S9vv.O0v] = function() {
-            var O81 = S9vv;
-            var N71 = "width";
-            var L71 = "innerHeight";
-            var g71 = 'HTMLDocument.querySelectorAll';
-            var b71 = 536.5;
-            var t71 = 'html';
-            var l71 = "querySelectorAll";
-            if (_fp) return stmp;
-            var h9v = document[l71];
-            var K9v;
-            Document[E71][l71] = Element[E71][l71] = function() {
-                var U71 = "stack";
-                var u9v;
-                try {
-                    O81.F0v[O81.a7v]();
-                } catch (O9v) {
-                    u9v = O9v;
-                }
-                K9v = u9v[U71];
-            };
-            document[l71](t71);
-            Document[E71][l71] = h9v;
-            if (K9v) {
-                var G9v = /AppleWebKit\/(.*?)\s/g [k11](navigator[d51.l3v]);
-                var y9v = G9v && parseInt(G9v[O81.R7v]) > b71;
-                if (K9v[p8v](g71) != -O81.R7v && (y9v || !G9v)) var p9v = O81.R7v;
-                else var p9v = O81.a7v;
-            } else var p9v = O81.a7v;
-            if (window[L71] == O81.a7v || window[P2v][N71] == O81.a7v || window[P2v][p2v] == O81.a7v) var e9v = O81.R7v;
-            else var e9v = O81.a7v;
-            var D9v = p9v[d51.W5v]() + e9v[d51.W5v]();
-            var Y9v = new Date()[d51.y3v]()[d51.W5v]()[V71](O81.a7v, O81.E7v);
-            var A9v = new Date()[d51.y3v]()[d51.W5v]()[V71](O81.E7v, O81.l7v);
-            var q9v = Y9v + D9v[d51.W5v]() + A9v;
-            document[d51.L3v] = X71 + q9v + F71;
-            return q9v;
-        };
+        return I3P;
     }
+    ;
     audioCanSupport = function() {
         return isFF3();
-    };
+    }
+    ;
     isIOS = function() {
-        var n71 = /like Mac OS/;
-        var r9v = S9vv.Z7v;
-        if (navigator && navigator[d51.l3v]) {
-            var C9v = navigator[d51.l3v][d51.N3v](n71);
-            if (C9v) r9v = S9vv.o6v;
+        var d9P = /like Mac OS/;
+        var w3P = V6u.w4P;
+        if (navigator && navigator[V6u.x4P]) {
+            var Z3P = navigator[V6u.x4P][V6u.y9P](d9P);
+            if (Z3P)
+                w3P = V6u.g4P;
         }
-        return r9v;
-    };
-
-    function q3() {
-        var h81 = S9vv;
-        var d71 = "../phone/c/";
-        var o71 = "capped_calling_title";
-        var j71 = ".phone_limit_2 .title";
-        $(Z8v)[h81.m6v]();
-        $(j71)[h81.X3v](lang_obj[o71][d51.g3v](e41)[h81.a7v] + $(y8v)[h81.a7v][D8v] + c11 + lang_obj[o71][d51.g3v](e41)[h81.R7v]);
-        $(w8v)[h81.A6v]();
-        m3 = h81.W7v;
-        if (!U3) {
-            U3 = h81.o6v;
-            var f9v = new Date()[h81.O0v]();
-            $[h81.Z0v]({
-                url: d71,
-                type: h81.w0v,
-                data: {
-                    sid: _sid,
-                    session_token: _session_token,
-                    phone_number: prep($(y8v)[h81.a7v][D8v]),
-                    site: _site_url,
-                    analytics_tier: _analytics_tier
-                },
-                headers: {
-                    "cache-control": h81.r0v,
-                    "X-NewRelic-Timestamp": f9v,
-                    "X-Requested-ID": requestID()
-                },
-                success: function(W9v) {
-                    var T71 = "phone contact response";
-                    log(T71);
-                    log(W9v);
-                    log(d51.Y11);
-                }
-            });
-        }
+        return w3P;
     }
-
-    function Y3() {
-        var P71 = "token";
-        return _get_query[P71];
-    }
+    ;
     isFF3 = function() {
-        var p71 = /(Firefox)\/(3\.6\.[^;\+,\/\s]+)/;
-        var B9v = S9vv.Z7v;
-        if (navigator && navigator[d51.l3v]) {
-            var v9v = navigator[d51.l3v][d51.N3v](p71);
-            if (v9v) B9v = S9vv.o6v;
+        var N9P = /(Firefox)\/(3\.6\.[^;\+,\/\s]+)/;
+        var Q3P = V6u.w4P;
+        if (navigator && navigator[V6u.x4P]) {
+            var h3P = navigator[V6u.x4P][V6u.y9P](N9P);
+            if (h3P)
+                Q3P = V6u.g4P;
         }
-        return B9v;
-    };
+        return Q3P;
+    }
+    ;
     isSafari = function() {
-        var G71 = /Safari/;
-        var J9v = S9vv.Z7v;
-        if (navigator && navigator[d51.l3v]) {
-            var z9v = navigator[d51.l3v][d51.N3v](G71);
-            if (z9v) J9v = S9vv.o6v;
+        var L9P = /Safari/;
+        var p3P = V6u.w4P;
+        if (navigator && navigator[V6u.x4P]) {
+            var c3P = navigator[V6u.x4P][V6u.y9P](L9P);
+            if (c3P)
+                p3P = V6u.g4P;
         }
-        return J9v;
-    };
+        return p3P;
+    }
+    ;
     isChrome = function() {
-        var e71 = /Chrome/;
-        var I9v = S9vv.Z7v;
-        if (navigator && navigator[d51.l3v]) {
-            var i9v = navigator[d51.l3v][d51.N3v](e71);
-            if (i9v) I9v = S9vv.o6v;
+        var X9P = /Chrome/;
+        var H3P = V6u.w4P;
+        if (navigator && navigator[V6u.x4P]) {
+            var g3P = navigator[V6u.x4P][V6u.y9P](X9P);
+            if (g3P)
+                H3P = V6u.g4P;
         }
-        return I9v;
-    };
+        return H3P;
+    }
+    ;
     audioAndroid41Less = function() {
-        var q81 = S9vv;
-        var q71 = 4.1;
-        var s9v = q81.Z7v;
-        if (navigator && navigator[d51.l3v]) {
-            var x9v = navigator[d51.l3v][d51.t3v](d51.x5v);
-            if (x9v >= q81.a7v) {
-                var Q1v = parseFloat(navigator[d51.l3v][d51.s5v](x9v + q81.V7v));
-                if (Q1v < q71) s9v = q81.o6v;
+        var A9P = 4.1;
+        var e3P = V6u.w4P;
+        if (navigator && navigator[V6u.x4P]) {
+            var m3P = navigator[V6u.x4P][V6u.t4P](V6u.W4P);
+            if (m3P >= V6u.S2P) {
+                var v3P = parseFloat(navigator[V6u.x4P][V6u.r4P](m3P + V6u.B2P));
+                if (v3P < A9P)
+                    e3P = V6u.g4P;
             }
         }
-        return s9v;
-    };
-
-    function G3() {
-        var e81 = S9vv;
-        if (_is_timed_mode) hideTimedModeTimer();
-        clearSlowLoad();
-        K3();
-        if ($(e81.k3v)[e81.X0v] > e81.a7v) $(e81.k3v)[e81.f3v]();
-        showMeta();
-        if (_htmlVerify) {
-            $(e81.s6v)[e81.m6v]();
-            _htmlVerify = e81.Z7v;
-        }
-        if (is_safari_ios) I3();
-        $(e81.E6v)[e81.m6v]();
-        $(e81.e6v)[e81.A6v]();
-        _mode = K71;
-        J3();
-        d3();
+        return e3P;
     }
-    var f3 = o51.Z7v;
-    var H3 = o51.Z7v;
-
-    function L3() {
-        var p81 = S9vv;
-        showLoader();
-        showMeta();
-        _htmlVerify = p81.Z7v;
-        $(p81.s6v)[p81.m6v]();
-        $(p81.i7v)[p81.A6v]();
-        $(p81.Q0v)[p81.A6v]();
-        _showStartupBool = p81.Z7v;
-        W3();
-    }
-
-    function l3() {
-        var P81 = S9vv;
-        var A71 = "code_not_input";
-        var h71 = "../phone/v/";
-        if ($(Y8v)[P81.a7v][D8v]) {
-            $(u8v)[P81.m6v]();
-            m3 = P81.c7v;
-            showSpinner();
-            var m9v = new Date()[P81.O0v]();
-            $[P81.Z0v]({
-                url: h71,
-                type: P81.w0v,
-                data: {
-                    sid: _sid,
-                    session_token: _session_token,
-                    passcode: prep($(Y8v)[P81.a7v][D8v]),
-                    analytics_tier: _analytics_tier
-                },
-                headers: {
-                    "cache-control": P81.r0v,
-                    "X-NewRelic-Timestamp": m9v,
-                    "X-Requested-ID": requestID()
-                },
-                success: function(k9v) {
-                    var Y71 = "code_incorrect";
-                    var D71 = ".phone_info";
-                    var y71 = "phone verify response";
-                    log(y71);
-                    log(k9v);
-                    log(d51.Y11);
-                    hideSpinner();
-                    var c9v = jQuery[P81.C0v](k9v);
-                    if (c9v[h41] == P81.o6v) {
-                        m3 = k7v;
-                        $(D71)[P81.m6v]();
-                        $(O8v)[P81.A6v]();
-                        solveMeta();
-                    } else if (c9v[P81.B0v] == y41) {
-                        m3 = P81.f7v;
-                        $(Z8v)[P81.A6v]();
-                        $(u8v)[P81.m6v]();
-                    } else {
-                        m3 = P81.m7v;
-                        $(p41)[P81.X3v](lang_obj[Y71]);
-                        $(u8v)[P81.A6v]();
-                    }
-                }
-            });
-        } else alert(lang_obj[A71]);
-    }
-
-    function x3() {
-        var u71 = "player";
-        return _get_query[u71];
-    }
-    var E3;
+    ;
+    var H6 = V6u.w4P;
+    var x6 = V6u.w4P;
+    var e6;
     audioPlaySound = function() {
-        var T81 = S9vv;
-        var f01 = 'ended';
-        var k01 = 'canplay';
-        var c01 = "load";
-        var m01 = "appendChild";
-        var R01 = "SoundStartDelay";
-        var a01 = 'auto';
-        var S01 = "preload";
-        var Q01 = "autoplay";
-        var x71 = "loop";
-        var s71 = "autobuffer";
-        var i71 = 'audio/wav';
-        var I71 = "type";
-        var z71 = "id";
-        var J71 = "&language=";
-        var v71 = "/get_audio/?session_token=";
-        var B71 = "&game=";
-        var C71 = "&r=";
-        var r71 = "&analytics_tier=";
-        var w71 = "/fc/get_audio/?session_token=";
-        var Z71 = "play";
-        var O71 = "currentTime";
-        if (!document[d51.k8v] || f3) return;
-        f3 = T81.o6v;
-        _canReload = T81.o6v;
+        var v3u = 'ended';
+        var m3u = 'canplay';
+        var e3u = "load";
+        var g3u = "appendChild";
+        var H3u = "SoundStartDelay";
+        var c3u = 'auto';
+        var p3u = "preload";
+        var h3u = "autoplay";
+        var Q3u = "loop";
+        var Z3u = "autobuffer";
+        var w3u = 'audio/wav';
+        var k3u = "type";
+        var I3u = "id";
+        var O3u = "&game=";
+        var R3u = "play";
+        var l3u = "currentTime";
+        if (!document[V6u.I0P] || H6)
+            return;
+        H6 = V6u.g4P;
+        _canReload = V6u.g4P;
         if (audioUseHTML5()) {
-            var m1v = k3();
-            $(l41)[L2v]();
-            if (m1v) {
-                m1v[O71] = T81.a7v;
-                E3 = setTimeout(function() {
-                    clearTimeout(E3);
-                    var k1v = k3();
-                    k1v[Z71]();
+            var r3P = c6();
+            $(U9P)[X8P]();
+            if (r3P) {
+                r3P[l3u] = V6u.S2P;
+                e6 = setTimeout(function() {
+                    clearTimeout(e6);
+                    var M3P = c6();
+                    M3P[R3u]();
                 }, _audio_start_delay);
             } else {
-                var c1v = undefined;
+                var W3P = undefined;
                 switch (_audio_type) {
-                    case T81.m7v:
-                    default:
-                        c1v = w71 + _session_token + r71 + _analytics_tier + C71 + _sid + B71 + _audio_game_index;
-                        break;
-                    case T81.c7v:
-                        c1v = _lurl + v71 + _session_token + r71 + _analytics_tier + C71 + _sid + B71 + _audio_game_index;
-                        break;
+                case V6u.W2P:
+                default:
+                    W3P = i3u + _session_token + q3u + _analytics_tier + D3u + _sid + O3u + _audio_game_index;
+                    break;
+                case V6u.M2P:
+                    W3P = _lurl + s3u + _session_token + q3u + _analytics_tier + D3u + _sid + O3u + _audio_game_index;
+                    break;
                 }
-                if (_lang) c1v = c1v + J71 + _lang;
-                m1v = new Audio(c1v);
-                m1v[z71] = i41;
-                m1v[I71] = i71;
-                m1v[s71] = T81.Z7v;
-                m1v[x71] = _audio_type === T81.c7v;
-                m1v[Q01] = T81.Z7v;
-                m1v[S01] = a01;
-                m1v[R01] = T81.K7v;
-                document[d51.k8v](K71)[m01](m1v);
-                m1v[c01]();
-                $(l41)[L2v]();
-                audioRegHandle(m1v, k01, function() {
-                    E3 = setTimeout(function() {
-                        clearTimeout(E3);
-                        var f1v = k3();
-                        f1v[Z71]();
+                if (_lang)
+                    W3P = W3P + C3u + _lang;
+                r3P = new Audio(W3P);
+                r3P[I3u] = P9P;
+                r3P[k3u] = w3u;
+                r3P[Z3u] = V6u.w4P;
+                r3P[Q3u] = _audio_type === V6u.M2P;
+                r3P[h3u] = V6u.w4P;
+                r3P[p3u] = c3u;
+                r3P[H3u] = V6u.F4P;
+                document[V6u.I0P](B6P)[g3u](r3P);
+                r3P[e3u]();
+                $(U9P)[X8P]();
+                audioRegHandle(r3P, m3u, function() {
+                    e6 = setTimeout(function() {
+                        clearTimeout(e6);
+                        var J3P = c6();
+                        J3P[R3u]();
                     }, _audio_start_delay);
-                }, T81.Z7v);
+                }, V6u.w4P);
             }
-            audioRegHandle(m1v, f01, function() {
-                var W01 = "duration";
-                var W1v = k3();
-                if (W1v[W01] == T81.R7v) W1v[Z71]();
-                else f3 = T81.Z7v;
-            }, T81.Z7v);
-        } else audioSetupUnSupportedUI();
-        H3 = T81.o6v;
-    };
-
-    function n3() {
-        var F01 = 'recaptcha_widget';
-        var X01 = "custom";
-        var M01 = "6Lc7hvUSAAAAAPx7PpoPuefKklnKgB3qq3cu4m25";
-        var V01 = "create";
-        var E01 = 'https://www.google.com/recaptcha/api/js/recaptcha_ajax.js';
-        if (!M3) {
-            showLoader();
-            $[N91](E01, function() {
-                M3 = S9vv.o6v;
-                n3();
-            });
-        } else Recaptcha[V01](M01, K71, {
-            theme: X01,
-            custom_theme_widget: F01,
-            callback: O3,
-            lang: _lang
-        });
+            audioRegHandle(r3P, v3u, function() {
+                var x3u = "duration";
+                var K3P = c6();
+                if (K3P[x3u] == V6u.r2P)
+                    K3P[R3u]();
+                else
+                    H6 = V6u.w4P;
+            }, V6u.w4P);
+        } else
+            audioSetupUnSupportedUI();
+        x6 = V6u.g4P;
     }
-
-    function V3() {
-        var d81 = S9vv;
-        var l01 = "user clicked reload";
-        var H01 = "reload captcha";
-        if (_htmlVerify) L3();
-        else if (_canReload) {
-            _canReload = d81.Z7v;
-            if (_is_timed_mode) hideTimedModeTimer();
-            checkPhoneMode();
-            if (_mode == d81.E3v) {
-                sendAnalytics(H01, l01);
-                $(u2v)[O2v](Z2v + _blank_url + w2v);
-                $(r2v)[O2v](C2v + _blank_url + w2v);
-                $(d81.i7v)[B2v](d81.x7v);
-                $(d81.Q0v)[B2v](d81.x7v);
-                $(d81.i7v)[d51.z5v](d81.x7v);
-                _firstHidden = d81.Z7v;
-                _currentFrame = d81.R7v;
-                _showStartupBool = d81.o6v;
-                setupNewChallenge();
-            } else {
-                if (_audio_type >= d81.m7v) g3();
-                else Recaptcha[d81.v0v]();
-                _canReload = d81.o6v;
-            }
-        }
+    ;
+    function z6() {
+        var J5P = "Image fallback: ";
+        var M5P = "ar";
+        var W5P = "iPad";
+        var t5P = "iPhone";
+        var i4P = 480;
+        var O7 = V6u.w4P;
+        if (_pl == V6u.M2P)
+            O7 = V6u.g4P;
+        if (navigator[V6u.x4P][V6u.t4P](t5P) > -V6u.r2P && window[S5P][r5P] == i4P)
+            O7 = V6u.g4P;
+        if (navigator[V6u.x4P][V6u.t4P](W5P) > -V6u.r2P && _lang == M5P)
+            O7 = V6u.g4P;
+        if (!C7())
+            O7 = V6u.g4P;
+        log(J5P + O7);
+        return O7;
     }
     audioSetupUnSupportedUI = function() {
-        var b01 = "audio_download_nosupport";
-        var t01 = "after";
-        var U01 = "#audio_info";
-        $(N2v)[S9vv.m6v]();
-        $(U01)[S9vv.m6v]();
-        $(t2v)[S9vv.A6v]();
-        $(t2v)[t01]($(g2v));
-        $(g2v)[d51.z5v](b01);
-    };
-
-    function z3() {
-        $(window)[d51.g01](n2v);
-        if (_audio_type >= S9vv.m7v) audioDestroySound();
+        var S3u = "audio_download_nosupport";
+        var t3u = "after";
+        var Y3u = "#audio_info";
+        $(C8P)[V6u.D5P]();
+        $(Y3u)[V6u.D5P]();
+        $(T9P)[V6u.i5P]();
+        $(T9P)[t3u]($(s8P));
+        $(s8P)[V6u.l5P](S3u);
     }
+    ;
     audioDestroySound = function() {
-        var N01 = "removeChild";
-        var L01 = "parentNode";
-        f3 = S9vv.Z7v;
-        H3 = S9vv.Z7v;
+        var W3u = "removeChild";
+        var r3u = "parentNode";
+        H6 = V6u.w4P;
+        x6 = V6u.w4P;
         _audio_game_index++;
-        var E1v = k3();
-        if (E1v) {
-            E1v[d2v]();
-            E1v[L01][N01](E1v);
+        var E3P = c6();
+        if (E3P) {
+            E3P[F8P]();
+            E3P[r3u][W3u](E3P);
         }
-    };
-    audioRegHandle = function(V1v, M1v, X1v, l1v) {
-        var P01 = "function";
-        var T01 = "on";
-        var o01 = "e";
-        var j01 = "undefined";
-        var n01 = "domready";
-        if (M1v == n01) {
-            audioRegDOM(X1v);
+    }
+    ;
+    audioRegHandle = function(f3P, B3P, y3P, L3P) {
+        var B3u = "function";
+        var f3u = "on";
+        var K3u = "e";
+        var J3u = "undefined";
+        var M3u = "domready";
+        if (B3P == M3u) {
+            audioRegDOM(y3P);
             return;
         }
-        if (typeof V1v[f11] != j01) V1v[f11](M1v, X1v, l1v);
-        else if (typeof V1v[E11] != j01) {
-            var F1v = M1v + X1v;
-            V1v[o01 + F1v] = X1v;
-            V1v[F1v] = function(U1v) {
-                var d01 = "event";
-                if (typeof U1v == j01) U1v = window[d01];
-                V1v[o01 + F1v](U1v);
-            };
-            V1v[E11](T01 + M1v, V1v[F1v]);
+        if (typeof f3P[O5P] != J3u)
+            f3P[O5P](B3P, y3P, L3P);
+        else if (typeof f3P[k5P] != J3u) {
+            var d3P = B3P + y3P;
+            f3P[K3u + d3P] = y3P;
+            f3P[d3P] = function(X3P) {
+                var E3u = "event";
+                if (typeof X3P == J3u)
+                    X3P = window[E3u];
+                f3P[K3u + d3P](X3P);
+            }
+            ;
+            f3P[k5P](f3u + B3P, f3P[d3P]);
         } else {
-            M1v = T01 + M1v;
-            if (typeof V1v[M1v] == P01) {
-                var H1v = V1v[M1v];
-                V1v[M1v] = function() {
-                    H1v();
-                    return X1v();
-                };
-            } else V1v[M1v] = X1v;
+            B3P = f3u + B3P;
+            if (typeof f3P[B3P] == B3u) {
+                var N3P = f3P[B3P];
+                f3P[B3P] = function() {
+                    N3P();
+                    return y3P();
+                }
+                ;
+            } else
+                f3P[B3P] = y3P;
         }
-    };
-    audioRegDOM = function(t1v) {
-        var A01 = "top";
-        var Y01 = "doScroll";
-        var D01 = "documentElement";
-        var q01 = "onreadystatechange";
-        var e01 = "callee";
-        var p01 = "DOMContentLoaded";
-        if (document[f11]) {
-            document[f11](p01, function() {
-                var G01 = "removeEventListener";
-                document[G01](p01, arguments[e01], S9vv.Z7v);
-                t1v();
-            }, S9vv.Z7v);
+    }
+    ;
+    audioRegDOM = function(A3P) {
+        var b3u = "top";
+        var z3u = "doScroll";
+        var U3u = "documentElement";
+        var L3u = "onreadystatechange";
+        var N3u = "callee";
+        var y3u = "DOMContentLoaded";
+        if (document[O5P]) {
+            document[O5P](y3u, function() {
+                var d3u = "removeEventListener";
+                document[d3u](y3u, arguments[N3u], V6u.w4P);
+                A3P();
+            }, V6u.w4P);
             return;
         }
-        if (document[E11]) {
-            var b1v = S9vv.Z7v;
-            document[E11](q01, function() {
-                var y01 = "detachEvent";
-                var h01 = "complete";
-                var K01 = "readyState";
-                if (document[K01] === h01) {
-                    document[y01](q01, arguments[e01]);
-                    t1v();
-                    b1v = S9vv.o6v;
+        if (document[k5P]) {
+            var P3P = V6u.w4P;
+            document[k5P](L3u, function() {
+                var P3u = "detachEvent";
+                var A3u = "complete";
+                var X3u = "readyState";
+                if (document[X3u] === A3u) {
+                    document[P3u](L3u, arguments[N3u]);
+                    A3P();
+                    P3P = V6u.g4P;
                 }
             });
-            if (document[D01][Y01] && window == window[A01])(function() {
-                var u01 = "left";
-                if (b1v) return;
-                try {
-                    document[D01][Y01](u01);
-                } catch (g1v) {
-                    setTimeout(arguments[e01], S9vv.R7v);
-                    return;
-                }
-                t1v();
-                b1v = S9vv.o6v;
-            }());
+            if (document[U3u][z3u] && window == window[b3u])
+                (function() {
+                    var a3u = "left";
+                    if (P3P)
+                        return;
+                    try {
+                        document[U3u][z3u](a3u);
+                    } catch (U3P) {
+                        setTimeout(arguments[N3u], V6u.r2P);
+                        return;
+                    }
+                    A3P();
+                    P3P = V6u.g4P;
+                }());
             return;
         }
-        audioRegHandle(window, d51.C5v, t1v, S9vv.Z7v);
-    };
-
-    function A3() {
-        var O01 = "intro";
-        return _get_query[O01];
+        audioRegHandle(window, V6u.u3u, A3P, V6u.w4P);
     }
+    ;
 });
-var oldTarget;
-
-function hideSpinner() {
-    $(a9vv.h3v)[S9vv.m6v]();
-    $(a9vv.K3v)[S9vv.A6v]();
-}
-
-function isFF() {
-    var b31 = a9vv;
-    if (navigator[b31.l3v][b31.U3v]()[b31.t3v](b31.D2v) > -S9vv.R7v) return S9vv.o6v;
-    else return S9vv.Z7v;
-}
-var currentTarget;
-var _show_phone = S9vv.Z7v;
-getiOSVer = function() {
-    var t31 = S9vv;
-    var B01 = /OS (\d+)_(\d+)_?(\d+)?/;
-    var C01 = "appVersion";
-    var r01 = "platform";
-    var w01 = "test";
-    var Z01 = /iP(hone|od|ad)/;
-    if (Z01[w01](navigator[r01])) {
-        var y1v = navigator[C01][a9vv.N3v](B01);
-        return [parseInt(y1v[t31.R7v], t31.X7v), parseInt(y1v[t31.m7v], t31.X7v), parseInt(y1v[t31.c7v] || t31.a7v, t31.X7v)];
+function victoryScreen() {
+    var l6u = i3PP;
+    var C6u = q3PP;
+    var x2u = '2';
+    var v2u = 'top';
+    var e2u = '.starpic, .starCount';
+    var g2u = '13';
+    var H2u = '59';
+    var c2u = "hms";
+    var Z2u = "displayed well done in meta footer";
+    var w2u = "code told to show meta solve";
+    var G2P = 53;
+    sendAnalytics(C6u.k2u, w2u, Z2u);
+    log(C6u.Q2u);
+    $(l6u.u8P)[l6u.D5P]();
+    switch (_meta_theme) {
+    case C6u.f1u:
+        $(l6u.z8P)[C6u.m1u]();
+        $(C6u.W1u)[C6u.m1u]();
+        $(l6u.z5P)[C6u.m1u]();
+        $(l6u.b8P)[C6u.m1u]();
+        $(C6u.h2u)[C6u.m1u]();
+        $(C6u.p2u)[C6u.r1u]();
+        break;
+    case C6u.t1u:
+    case C6u.S1u:
+        $(l6u.z8P)[C6u.m1u]();
+        $(C6u.W1u)[C6u.m1u]();
+        $(l6u.z5P)[C6u.m1u]();
+        $(l6u.b8P)[C6u.m1u]();
+        $(C6u.v1u)[C6u.m1u]();
+        if (_get_query[c2u])
+            $(C6u.M1u)[C6u.K1u]({
+                left: H2u
+            });
+        else
+            $(C6u.M1u)[C6u.K1u]({
+                left: g2u
+            });
+        $(C6u.I2u)[l6u.i5P]();
+        $(e2u)[C6u.r1u]();
+        $(C6u.p2u)[l6u.i5P]();
+        $(C6u.p2u)[C6u.m2u](v2u, -G2P)[C6u.K1u]({
+            top: x2u
+        });
+        break;
+    case C6u.J1u:
+        $(C6u.v1u)[C6u.m1u]();
+        if (_get_query[c2u])
+            $(C6u.M1u)[C6u.K1u]({
+                left: H2u
+            });
+        else
+            $(C6u.M1u)[C6u.K1u]({
+                left: g2u
+            });
+        $(C6u.I2u)[l6u.i5P]();
+        $(e2u)[C6u.r1u]();
+        $(C6u.p2u)[l6u.i5P]();
+        $(C6u.p2u)[C6u.m2u](v2u, -G2P)[C6u.K1u]({
+            top: x2u
+        });
+        break;
+    case C6u.Y1u:
+        $(l6u.z8P)[C6u.m1u]();
+        $(C6u.W1u)[C6u.m1u]();
+        $(l6u.z5P)[C6u.m1u]();
+        $(l6u.b8P)[C6u.m1u]();
+        $(C6u.v1u)[C6u.m1u]();
+        $(C6u.M1u)[C6u.K1u]({
+            left: H2u
+        });
+        $(C6u.I2u)[l6u.D5P]();
+        $(e2u)[l6u.D5P]();
+        $(C6u.p2u)[l6u.i5P]();
+        $(C6u.p2u)[C6u.m2u](v2u, -G2P)[C6u.K1u]({
+            top: x2u
+        });
+        break;
+    case C6u.x1u:
+        $(l6u.z8P)[C6u.m1u]();
+        $(C6u.W1u)[C6u.m1u]();
+        $(l6u.z5P)[C6u.m1u]();
+        $(l6u.b8P)[C6u.m1u]();
+        $(C6u.v1u)[C6u.m1u]();
+        $(C6u.M1u)[C6u.K1u]({
+            top: C6u.B1u
+        });
+        $(C6u.I2u)[l6u.D5P]();
+        $(e2u)[l6u.D5P]();
+        $(C6u.p2u)[l6u.i5P]();
+        $(C6u.p2u)[C6u.m2u](v2u, -G2P)[C6u.K1u]({
+            top: x2u
+        });
+        break;
+    default:
+        $(l6u.z8P)[C6u.m1u]();
+        $(C6u.W1u)[C6u.m1u]();
+        $(l6u.z5P)[C6u.m1u]();
+        $(l6u.b8P)[C6u.m1u]();
+        $(C6u.v1u)[C6u.m1u]();
+        $(C6u.M1u)[C6u.K1u]({
+            left: C6u.B1u
+        });
+        $(C6u.p2u)[C6u.r1u]();
+        break;
     }
-};
-var _loaded_victory_screen = S9vv.H0v;
-var showVictoryID = S9vv.o6v;
-var _is_timed_mode = S9vv.Z7v;
-
-function hideWaitScreen() {
-    clearSlowLoad();
-    hideLoader();
+    if (window[l6u.G4P] && !_earlyVictoryMessage) {
+        parent[l6u.G4P](l6u.S8P, l6u.T4P);
+        if (_get_query[l6u.r8P]) {
+            log(l6u.W8P);
+            parent[l6u.G4P](l6u.M8P, l6u.T4P);
+        }
+    }
+}
+function showVictoryScreen() {
+    var n2u = "fc_hide_victory_html";
+    var u2u = ".ctn";
+    $(u2u)[q3PP.m1u]();
+    if (_extra_victory_data)
+        if (_extra_victory_data[n2u])
+            showVictoryID = i3PP.w4P;
+    if (showVictoryID)
+        $(i3PP.U5P)[q3PP.r1u]();
+}
+function hideMeta() {
+    var D6u = i3PP;
+    var q6u = q3PP;
+    switch (_meta_theme) {
+    case q6u.x1u:
+    case q6u.Y1u:
+    case q6u.t1u:
+    case q6u.S1u:
+    case q6u.f1u:
+        break;
+    default:
+        $(q6u.W1u)[D6u.D5P]();
+        $(D6u.z5P)[D6u.D5P]();
+        $(D6u.b8P)[D6u.D5P]();
+        $(q6u.v1u)[D6u.D5P]();
+        $(q6u.M1u)[D6u.D5P]();
+        $(q6u.I2u)[D6u.D5P]();
+        break;
+    }
+}
+var oldTarget;
+var currentTarget;
+function showLoader() {
+    $(q3PP.Y5u)[q3PP.r1u]();
+}
+function showSpinner() {
+    $(q3PP.x5u)[i3PP.D5P]();
+    $(q3PP.Y5u)[i3PP.i5P]();
+}
+var _show_phone = i3PP.w4P;
+function timeoutLoop() {
+    var V8u = i3PP;
+    var G5u = 'timedTimeout';
+    var n1P = new Date();
+    var G1P = new Date(n1P[V8u.c9P]() - _encryption_time_delta);
+    var u1P = (_time_end - G1P) / V8u.D4P;
+    if (u1P < V8u.S2P) {
+        if (!_hidden_timed_mode)
+            $(q3PP.b5u)[V8u.C6P](q3PP.n5u);
+        if (currentTarget)
+            currentTarget[V8u.s0P](G5u);
+        TimeoutErrorFlash();
+    } else
+        _timedout_loop = setTimeout(function() {
+            var V5u = "toFixed";
+            if (!_hidden_timed_mode)
+                $(q3PP.b5u)[V8u.C6P](u1P[V5u](V8u.r2P));
+            timeoutLoop();
+        }, V8u.d2P);
+}
+function setupExtraData() {
+    var n8u = i3PP;
+    var L5u = "fc_append_survey";
+    var N5u = "Yes";
+    var d5u = "fc_lock_game";
+    var y5u = "auto";
+    var B5u = "fc_default_game";
+    var f5u = "fc_banner_url";
+    if (_extra_data) {
+        if (_extra_data[f5u])
+            _end_url = _extra_data[f5u];
+        else
+            _end_url = n8u.H4P;
+        if (_extra_data[B5u] && _extra_data[B5u] != n8u.H4P && _extra_data[B5u] != y5u)
+            _default_game = _extra_data[B5u];
+        if (_extra_data[d5u] && _extra_data[d5u] != n8u.H4P)
+            _lock_game = _extra_data[d5u] == N5u ? n8u.r2P : n8u.S2P;
+        if (_extra_data[L5u])
+            _append_survey = _extra_data[L5u] == N5u ? n8u.r2P : n8u.S2P;
+    }
+}
+function bake_cookie(L1P, X1P) {
+    var a8u = i3PP;
+    var W5u = '';
+    var r5u = '; path=/;';
+    var S5u = '; domain=.';
+    var t5u = '=';
+    if (window[a8u.J4P]) {
+        var N1P = [L1P, t5u, JSON[q3PP.H1u](X1P), S5u, window[a8u.J4P][q3PP.u1u][a8u.H9P](), r5u][a8u.U7P](W5u);
+        document[a8u.m9P] = N1P;
+    }
+}
+getiOSVer = function() {
+    var b8u = i3PP;
+    var O2u = /OS (\d+)_(\d+)_?(\d+)?/;
+    var R2u = "appVersion";
+    var l2u = "platform";
+    var C2u = "test";
+    var s2u = /iP(hone|od|ad)/;
+    if (s2u[C2u](navigator[l2u])) {
+        var s1P = navigator[R2u][b8u.y9P](O2u);
+        return [parseInt(s1P[b8u.r2P], b8u.d2P), parseInt(s1P[b8u.W2P], b8u.d2P), parseInt(s1P[b8u.M2P] || b8u.S2P, b8u.d2P)];
+    }
+}
+;
+function clearSlowLoad() {
+    window[q3PP.U5u](_slow_load);
+}
+var _loaded_victory_screen = i3PP.H4P;
+var showVictoryID = i3PP.g4P;
+var _is_timed_mode = i3PP.w4P;
+function showStartup() {
+    return _showStartupBool;
 }
 var _time_end;
-var _timed_mode_timeout_colour = a9vv.v01;
-
-function sendAnalytics(k4v, f4v, W4v, E4v) {
-    var l31 = a9vv;
-    var H31 = S9vv;
-    var Q61 = "../a/";
-    var x01 = " - ";
-    var s01 = "Analytics to upload: ";
-    var i01 = "failed game";
-    var I01 = "user clicked verify again";
-    var z01 = "user clicked verify";
-    var J01 = "begin load";
-    var T7v = 100;
-    var n7v = 40;
-    var c4v = H31.o6v;
-    if (k4v == J01) hideLoader();
-    if (f4v == z01 && !W4v) {
-        if ($(H31.k3v)[H31.X0v] > H31.a7v) $(H31.k3v)[H31.f3v]();
-        if (!_user_clicked_verify) {
-            _user_clicked_verify = H31.o6v;
-            showMeta();
-        } else f4v = I01;
+var _timed_mode_timeout_colour = q3PP.z5u;
+function getVars() {
+    return _appvars;
+}
+function hideLoader() {
+    $(q3PP.Y5u)[q3PP.m1u]();
+}
+function hideApp() {
+    var Z1u = "hideApp";
+    var w1u = 'hideApp';
+    if (!currentTarget)
+        if (_type == i3PP.e4P)
+            currentTarget[i3PP.s0P](w1u);
+        else
+            currentTarget[Z1u]();
+}
+function pauseTimedModeTimer() {
+    window[q3PP.U5u](_timedout_loop);
+}
+function solveMeta() {
+    victoryScreen();
+}
+function TimeoutErrorFlash() {
+    var L8u = q3PP;
+    var q4P = 500;
+    if (!_hidden_timed_mode) {
+        $(L8u.b5u)[i3PP.C6P](L8u.n5u);
+        $(L8u.b5u)[L8u.m2u](L8u.a5u, _timed_mode_timeout_colour);
     }
-    if (_analytics_tier < T7v) c4v = H31.Z7v;
-    switch (_analytics_tier) {
-        case n7v:
-            if (k4v == l31.t11) c4v = H31.o6v;
-            if (k4v == l31.S5v) c4v = H31.o6v;
-            if (k4v == i01) c4v = H31.o6v;
-            if (f4v == l31.R5v) c4v = H31.o6v;
-            if (f4v == I01) c4v = H31.o6v;
-        case H31.N7v:
-            if (f4v == z01) c4v = H31.o6v;
-            if (k4v == l31.z3v) c4v = H31.o6v;
-            if (k4v == l31.E91) c4v = H31.o6v;
-            break;
-    }
-    if (c4v) {
-        log(s01 + k4v + x01 + f4v + x01 + W4v + x01 + E4v);
-        var V4v = new Date()[H31.O0v]();
-        $[H31.Z0v]({
-            url: Q61,
-            type: H31.w0v,
-            data: {
-                sid: _sid,
-                game_token: _game_token,
-                session_token: _session_token,
-                game_type: _challengeURL,
-                render_type: _type,
-                category: k4v,
-                action: f4v,
-                label: W4v,
-                data: E4v,
-                analytics_tier: _analytics_tier
-            },
-            headers: {
-                "cache-control": H31.r0v,
-                "X-NewRelic-Timestamp": V4v,
-                "X-Requested-ID": requestID()
-            },
-            success: function(M4v) {
-                var S61 = "analytics response";
-                log(S61);
-                log(M4v);
-                log(l31.Y11);
-            }
-        });
+    _timedout_event = setTimeout(function() {
+        if (!_hidden_timed_mode)
+            $(L8u.b5u)[L8u.m2u](L8u.a5u, _default_timer_color);
+        _timedout_event = setTimeout(function() {
+            TimeoutErrorFlash();
+        }, q4P);
+    }, q4P);
+}
+function lowFPSFallback(G3P, V3P) {
+    var y8u = i3PP;
+    var B8u = q3PP;
+    var c1u = "restart";
+    var b2P = 23;
+    if (V3P) {
+        sendAnalytics(B8u.p1u, c1u, G3P);
+        parent[y8u.G4P](JSON[B8u.H1u]({
+            msg: c1u,
+            deviceList: V3P,
+            token: _session_token,
+            fallbackType: b2P
+        }), y8u.T4P);
+    } else {
+        _forcePhoneBtn = y8u.g4P;
+        $(y8u.u8P)[y8u.i5P]();
+        showMeta();
+        sendAnalytics(B8u.p1u, B8u.g1u, G3P);
     }
 }
-var _default_timer_color = $(S9vv.M3v)[S9vv.O6v](S9vv.H3v) != _timed_mode_timeout_colour ? $(S9vv.M3v)[S9vv.O6v](S9vv.H3v) : a9vv.a61;
-
-function timerTimeout() {
-    TimeoutErrorFlash();
-}
-
-function setupWithData(m4v) {
-    var X31 = a9vv;
-    var M31 = S9vv;
-    var w61 = "setup fc";
-    var Z61 = "click_enabled";
-    var O61 = "extra_data";
-    var u61 = "inj_tag";
-    var A61 = "***EXTRA IS***";
-    var Y61 = '.fc_meta_success_text';
-    var D61 = "_meta_success_text";
-    var y61 = "extraBaseSettings";
-    var h61 = '100';
-    var K61 = "extra100Settings";
-    var q61 = '50';
-    var e61 = "extra50Settings";
-    var G61 = "_guiFontColr";
-    var p61 = 'passback_get_data';
-    var P61 = "_passback_get_data";
-    var T61 = "_time_end_seconds";
-    var d61 = "_time_end";
-    var o61 = "timed_mode";
-    var j61 = "encrypted_mode";
-    var n61 = "_suppress_verify_log";
-    var N61 = "_skip_start_up";
-    var L61 = 'sec_id';
-    var g61 = "1";
-    var b61 = 'earlyVictoryMessage';
-    var t61 = 'sid';
-    var U61 = 'game_sid';
-    var l61 = 'string_table';
-    var H61 = 'string_table_prefixes';
-    var F61 = 'lang';
-    var X61 = 'game_data';
-    var M61 = 'end_url';
-    var V61 = 'wave';
-    var E61 = 'sec';
-    var W61 = 'appvars';
-    var f61 = 'challengeID';
-    var k61 = 'challengeURL';
-    var c61 = 'g';
-    var m61 = "/fc/ip/?url=https:\\/\\/";
-    var R61 = 'https:\\/\\/';
-    log(M31.B0v);
-    log(m4v);
-    log(X31.Y11);
-    if (_cdn_backup)
-        if (ie_ver === M31.W7v) m4v = m4v[X31.g3v](R61 + _primary_cdn_url)[X31.V5v](m61 + _backup_cdn_url);
-        else m4v = m4v[X31.W8v](new RegExp(_primary_cdn_url, c61), _backup_cdn_url);
-    var R4v = jQuery[M31.C0v](m4v);
-    log(R4v);
-    if (R4v[M31.s0v]) timeoutMode();
-    else {
-        _session_started = M31.o6v;
-        _challengeURL = R4v[k61];
-        _game_token = R4v[f61];
-        _appvars = R4v[W61];
-        _sec_level = parseFloat(R4v[E61]);
-        _wave_level = parseFloat(R4v[V61]);
-        _end_url = R4v[M61];
-        _game_data = R4v[X61] ? R4v[X61] : {};
-        _lang = _lang ? _lang : R4v[F61];
-        _string_table_prefixes = R4v[H61];
-        _string_table = R4v[l61];
-        _game_sid = R4v[U61];
-        _sid = R4v[t61];
-        _earlyVictoryMessage = R4v[b61] == g61;
-        _secure_game_id = R4v[L61];
-        setupExtraData();
-        if (_game_data[X31.q5v]) {
-            if (_game_data[X31.q5v][N61]) showMeta();
-            if (_game_data[X31.q5v][n61]) {
-                _user_clicked_verify = M31.o6v;
-                showMeta();
+function getEncryptionKey(O2P) {
+    var f8u = i3PP;
+    var I2P = new Date()[f8u.Q8P]();
+    $[f8u.h8P]({
+        url: _keyURL,
+        type: f8u.c8P,
+        timeout: f8u.O4P,
+        data: {
+            sid: _sid,
+            session_token: _session_token,
+            game_token: _game_token
+        },
+        headers: {
+            "cache-control": f8u.H8P,
+            "X-NewRelic-Timestamp": I2P,
+            "X-Requested-ID": getRequestID()
+        },
+        success: function(w2P) {
+            var o7u = q3PP;
+            var h8u = "time_end_seconds";
+            var Q8u = "time_end";
+            var Z8u = "decryption_key";
+            var k2P = jQuery[f8u.m8P](w2P);
+            if (k2P[f8u.v8P] == f8u.q8P) {
+                timeoutMode();
+                return;
             }
-            if (_game_data[X31.q5v][j61]) _is_timed_mode = M31.o6v;
-            if (_game_data[X31.q5v][o61]) {
-                _is_timed_mode = M31.o6v;
-                _encryption_time_end = _game_data[X31.q5v][d61];
-                _encryption_time_end_seconds = _game_data[X31.q5v][T61];
+            if (k2P[Z8u]) {
+                _encryption_time_end = k2P[Q8u];
+                _encryption_time_end_seconds = k2P[h8u];
                 _encryption_time_delta = getEncryptionTimeDelta();
+                if (typeof O2P === o7u.p8u)
+                    currentTarget[O2P](k2P);
+                else
+                    O2P(k2P);
+            } else if (k2P[o7u.O1u]) {
+                if (k2P[o7u.O1u] == o7u.c8u)
+                    if (currentTarget)
+                        currentTarget[f8u.s0P](o7u.H8u);
+            } else {
+                timeoutMode();
+                return;
             }
-            if (_game_data[X31.q5v][P61] && !_passback_done) {
-                _passback_done = M31.o6v;
-                if (window[M31.D0v]) parent[M31.D0v](p61, M31.u0v);
-            }
-            if (_game_data[X31.q5v][G61]) _fntClr = _game_data[X31.q5v][G61];
-            if (_game_data[X31.q5v][e61]) setupExtra(_game_data[X31.q5v][e61], q61);
-            if (_game_data[X31.q5v][K61]) setupExtra(_game_data[X31.q5v][K61], h61);
-            if (_game_data[X31.q5v][y61]) setupExtra(_game_data[X31.q5v][y61], X31.g8v);
-            if (_game_data[X31.q5v][D61]) $(Y61)[M31.z6v](_game_data[X31.q5v][D61]);
         }
-        if (_game_data[X31.q5v])
-            if (_game_data[X31.q5v][X31.K5v]) {
-                _extra_data = _game_data[X31.q5v][X31.K5v][X31.Y5v];
-                log(A61);
-                log(_extra_data);
-            }
-        if (_game_data[X31.q5v])
-            if (_game_data[X31.q5v][u61])
-                if (window[M31.D0v]) parent[M31.D0v](JSON[M31.Y0v]({
-                    "msg": u61,
-                    "data": _game_data[X31.q5v][u61]
-                }), M31.u0v);
-        _game_data[O61] = _extra_data;
-        if (_game_data[Z61] === M31.a7v) disableClick();
-        getFunCaptcha();
-        sendAnalytics(w61);
-    }
+    });
 }
+var _default_timer_color = $(q3PP.b5u)[q3PP.m2u](q3PP.a5u) != _timed_mode_timeout_colour ? $(q3PP.b5u)[q3PP.m2u](q3PP.a5u) : q3PP.u5u;
 var _timedout_loop;
 var _timedout_event;
-
-function getGameData() {
-    return _game_data;
+var extraCreatedBase = i3PP.w4P;
+var extraCreated = i3PP.w4P;
+var pack_count = i3PP.o4P;
+function log(T1P) {
+    var T5u = "log";
+    if (_debug)
+        try {
+            console[T5u](T1P);
+        } catch (j1P) {}
 }
-var extraCreatedBase = S9vv.Z7v;
-
-function disableClick() {
-    var C61 = "removeAttr";
-    var r61 = ".logo-url";
-    $(r61)[C61](a9vv.l11);
-}
-
-function showApp() {
-    var v61 = "showApp";
-    var B61 = 'showApp';
-    if (!currentTarget)
-        if (_type == S9vv.r7v) currentTarget[S9vv.z7v](B61);
-        else currentTarget[v61]();
-}
-
-function showVictoryScreen() {
-    var z61 = "fc_hide_victory_html";
-    var J61 = ".ctn";
-    $(J61)[S9vv.a6v]();
-    if (_extra_victory_data)
-        if (_extra_victory_data[z61]) showVictoryID = S9vv.Z7v;
-    if (showVictoryID) $(a9vv.P5v)[S9vv.V6v]();
-}
-var extraCreated = S9vv.Z7v;
-var pack_count = S9vv.p7v;
-
-function hideLoader() {
-    $(a9vv.h3v)[S9vv.a6v]();
-}
-$(a9vv.w3v)[a9vv.I61](function() {
-    if (currentTarget) try {
-        currentTarget[S9vv.z7v](a9vv.B3v);
-    } catch (s4v) {}
-    $(window)[a9vv.r5v](a9vv.i61, function(x4v) {
-        var Q7v = x4v[a9vv.j2v] ? x4v[a9vv.j2v] : x4v[a9vv.o2v];
-        if (Q7v == S9vv.l7v && !_show_audio) setupNoJS(S9vv.o6v);
+$(q3PP.T3u)[q3PP.e8u](function() {
+    if (currentTarget)
+        try {
+            currentTarget[i3PP.s0P](q3PP.i1u);
+        } catch (v2P) {}
+    $(window)[i3PP.n8P](q3PP.m8u, function(x2P) {
+        var j6u = i3PP;
+        var Y2P = x2P[j6u.V8P] ? x2P[j6u.V8P] : x2P[j6u.T8P];
+        if (Y2P == j6u.X2P && !_show_audio)
+            setupNoJS(j6u.g4P);
     });
 });
-$(a9vv.w3v)[a9vv.s61](function() {
-    var x61 = 'hideTab';
-    $(window)[a9vv.g01](a9vv.i61);
-    if (currentTarget) try {
-        currentTarget[S9vv.z7v](x61);
-    } catch (S7v) {}
+$(q3PP.T3u)[q3PP.v8u](function() {
+    var x8u = 'hideTab';
+    $(window)[i3PP.z9P](q3PP.m8u);
+    if (currentTarget)
+        try {
+            currentTarget[i3PP.s0P](x8u);
+        } catch (t2P) {}
 });
+function RCMetaUpload() {
+    var V2u = "hidden reload and audio buttons";
+    var G2u = "code told to show recaptcha meta solve";
+    sendAnalytics(q3PP.k2u, G2u, V2u);
+    log(q3PP.Q2u);
+    solveMeta();
+    $(q3PP.p2u)[i3PP.D5P]();
+}
+function loadedVictoryScreen() {
+    var a2u = "victoryScreenLoaded";
+    var b2u = 'victoryScreenLoaded';
+    var z2u = "loaded victory screen";
+    log(z2u);
+    if (currentTarget)
+        if (_type == i3PP.e4P)
+            currentTarget[i3PP.s0P](b2u, {
+                loaded: i3PP.g4P
+            });
+        else
+            currentTarget[a2u]();
+}
