@@ -345,7 +345,7 @@ class AutoBuyer extends Emitter {
 
     if(unassignedPlayers.length > 0) {
       for(let player of unassignedPlayers) {
-        await this.wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+        await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
         this.busyMessage(account, `Putting to trade pile`)
         await account.instance.putToTradepile({
           itemId: player.id
@@ -712,7 +712,7 @@ class AutoBuyer extends Emitter {
           fetchedAllPages = true;
         } else {
           currentPage++;
-          await this.wait(500);
+          await wait(500);
         }
       }
       console.log('fetched all players', players)
@@ -723,7 +723,7 @@ class AutoBuyer extends Emitter {
     }
     await this.savePlayers();
     this.table.update();
-    await this.wait(3000);
+    await wait(3000);
     el.text('Update database')
     el.attr('data-disabled', 0);
   }
