@@ -664,60 +664,62 @@ class Account extends Emitter {
 
       //Make request
       request(request_options, async function(err, res, body) {
-        if(!err) {
-
-
-
-          if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
-            try {
-              body = await that.unzip_body(body);
-            } catch(e) {
-              body = body.toString();
+        try {
+          if(!err) {
+            if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
+              try {
+                body = await that.unzip_body(body);
+              } catch(e) {
+                body = body.toString();
+              }
             }
+
+
+
+            if(options.ut && res.statusCode !== 200) {
+              if(res.statusCode == 458) {
+                console.log('Captcha is pending, try to solve :)');
+                await that.solveCaptcha();
+              }
+              //458 - puzzle captcha
+              if(res.statusCode === 358) {
+                return reject(new Error('FUN_CAPTCHA_REQUIRED'));
+              }
+
+              //426 - upgrade required (? XD)
+              //429 - too many requests (too many actions have been taken)
+              //521 - error (unknown but it's always related with too many requests)
+
+              if(futxErrors[res.statusCode]) {
+                return reject(new Error(futxErrors[res.statusCode]));
+              }
+              return reject(new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`));
+            }
+
+            if(options.json) {
+              try {
+                body = JSON.parse(body);
+                //{"message":null,"reason":"expired session","code":401}
+              } catch(e) {
+                return reject(e);
+              }
+            }
+
+            if(options.ut) {
+              if(body.code == 401) {
+                //this.logged = false;
+                return reject(new Error('UNAUTHORIZED'));
+              }
+            }
+
+            resolve({res: res, body: body});
+          } else {
+            reject(err);
           }
-
-
-
-          if(options.ut && res.statusCode !== 200) {
-            if(res.statusCode == 458) {
-              console.log('Captcha is pending, try to solve :)');
-              await that.solveCaptcha();
-            }
-            //458 - puzzle captcha
-            if(res.statusCode === 358) {
-              return reject(new Error('FUN_CAPTCHA_REQUIRED'));
-            }
-
-            //426 - upgrade required (? XD)
-            //429 - too many requests (too many actions have been taken)
-            //521 - error (unknown but it's always related with too many requests)
-
-            if(futxErrors[res.statusCode]) {
-              return reject(new Error(futxErrors[res.statusCode]));
-            }
-            return reject(new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`));
-          }
-
-          if(options.json) {
-            try {
-              body = JSON.parse(body);
-              //{"message":null,"reason":"expired session","code":401}
-            } catch(e) {
-              return reject(e);
-            }
-          }
-
-          if(options.ut) {
-            if(body.code == 401) {
-              //this.logged = false;
-              return reject(new Error('UNAUTHORIZED'));
-            }
-          }
-
-          resolve({res: res, body: body});
-        } else {
-          reject(err);
+        } catch(e) {
+          reject(e);
         }
+
       });
     });
   }

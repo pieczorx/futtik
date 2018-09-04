@@ -199,6 +199,11 @@ class FunCaptcha extends Emitter {
       if(resGuess.body.solved) {
         return true;
       }
+      
+      //Captcha timeout
+      if(resGuess.body.error == 'DENIED ACCESS') {
+        return false;
+      }
     }
     return false;
   }
