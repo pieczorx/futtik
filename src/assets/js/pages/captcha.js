@@ -8,7 +8,6 @@ class PageCaptcha {
     $(document).on('click', `[data-role='captchaListElement'] button`, function() {
       const el = $(this).closest(`[data-role='captchaListElement']`);
       const id = el.attr('data-id');
-      console.log('solve', id);
       for(let captcha of funCaptcha.captchas) {
         if(captcha.id == id) {
           console.log('mamy');
@@ -27,7 +26,6 @@ class PageCaptcha {
 
       spins = spins + (direction == 'left' ? 1 : -1);
       const degrees = (spins / slices) * 360;
-      console.log('final degrees: ', spins, slices, direction);
       el.attr('data-spins', spins)
       el.find('img').css('transform', `rotate(${degrees}deg)`)
 

@@ -76,6 +76,7 @@ class FunCaptcha extends Emitter {
 
   async trigger({publicKey, siteUrl, blob}) {
 
+    //Get captcha
     const resGetJsMdString  = await this.post(`https://funcaptcha.com/fc/api/?onload=loadFunCaptcha`)
     const jsMdString = this.getFromBetween(resGetJsMdString.body, `https://cdn.funcaptcha.com/fc/js/`, `/standard/funcaptcha_api.js`);
 
@@ -84,6 +85,7 @@ class FunCaptcha extends Emitter {
         value: "js"
     }];
 
+    //Get from public key
     const resPublicKey = await this.post(`https://funcaptcha.com/fc/gt2/public_key/${publicKey}`, {
       json: true,
       form: {
@@ -107,41 +109,33 @@ class FunCaptcha extends Emitter {
     let resPublicKeyValuesArray = resPublicKey.body.token.split('|')
     const token = resPublicKeyValuesArray[0];
     resPublicKeyValuesArray.shift();
-
     for(let x of resPublicKeyValuesArray) {
       let xSplitted = x.split('=');
       tokenResponse[xSplitted[0]] = xSplitted[1];
     }
 
-    console.log(tokenResponse, token);
-
-    /*
-    token: 3785b8c9b9fce7516.7820589101
-    r: us-east-1
-    metabgclr: transparent
-    guitextcolor: %23606060
-    metaiconclr: %23606060
-    meta: 6
-    lang: en
-    pk: A4EECF77-AC87-8C8D-5754-BF882F72063B
-    injs: https://cdn.funcaptcha.com/fc/assets/graphics/ea/script/privacy_policy_fifa_2.js
-    at: 40
-    ht: 1
-    atp: 2
-    cdn_url: https://cdn.funcaptcha.com/fc
-    lurl: https://audio-us-east-1.funcaptcha.com
-    surl: https://funcaptcha.com
-    */
-
+    const sid = tokenResponse.r;
     const requestId = CryptoJS.AES.encrypt(`{}`, `REQUESTED${token}ID`, {
       format: CryptoJSAesJson
     }).toString();
 
+    //Solve single captcha
+    for(let i = 0; i < 3; i++) {
+      console.log(`SOLVE CAPTCHA [TRY ${i}]`);
+      let captchaSolved = await this.solveSingleCaptcha(token, requestId, sid);
+      if(captchaSolved) {
+        return resPublicKey.body.token;
+      }
+    }
+    throw new Error('It was unable to solve captcha');
+  }
+
+  async solveSingleCaptcha(token, requestId, sid) {
     const resCaptchas = await this.post(`https://funcaptcha.com/fc/gfct/`, {
       headers: this.getHeaders(requestId),
       form: {
         token: token,
-        sid: tokenResponse.r,
+        sid: sid,
         lang: 'en',
         render_type: 'canvas',
         analytics_tier: 40,
@@ -165,26 +159,48 @@ class FunCaptcha extends Emitter {
     const resEncryptionKey = await this.post(`https://funcaptcha.com/fc/ekey/`, {
       headers: this.getHeaders(requestId),
       form: {
-        sid: tokenResponse.r,
+        sid: sid,
         session_token: token,
         game_token: resCaptchas.body.challengeID
       },
       json: true,
     })
-
+    let decryptionKey = resEncryptionKey.body.decryption_key;
+    let answers = [];
     //Go through all images
     for(let image of finalImages) {
-      let finalImage = this.decodeImage(image, resEncryptionKey.body.decryption_key);
-      const degrees = await this.requestCaptchaAnswer({
+      let finalImage = this.decodeImage(image, decryptionKey);
+      let degrees = await this.requestCaptchaAnswer({
         imgUrl: finalImage,
         slices: 7
       });
-      //$("body").append(`<img src="${finalImage}" style="width: 100px;"/>`);
+      answers[answers.length] = degrees;
+
+      const guessEncrypted = CryptoJS.AES.encrypt(answers.join(','), token, {
+        format: CryptoJSAesJson
+      }).toString();
+
+      let resGuess = await this.post(`https://funcaptcha.com/fc/ca/`, {
+        headers: this.getHeaders(requestId),
+        form: {
+          sid: sid,
+          session_token: token,
+          game_token: resCaptchas.body.challengeID,
+          guess: guessEncrypted,
+          analytics_tier: 40
+        },
+        json: true
+      });
+
+      console.log('Answered single captcha', resGuess.body);
+      if(resGuess.body.decryption_key) {
+        decryptionKey = resGuess.body.decryption_key;
+      }
+      if(resGuess.body.solved) {
+        return true;
+      }
     }
-
-
-    //Post answer
-
+    return false;
   }
 
   getHeaders(requestId) {
@@ -199,17 +215,20 @@ class FunCaptcha extends Emitter {
     const date2 = new Date().getTime().toString().substring(7, 13);
     return `${date1}00${date2}`
   }
-
   getRequestId() {
 
   }
-
   encryptAESMessage() {
 
   }
-
   decryptAESMessage() {
 
+  }
+  getFromBetween(str, a, b) {
+    return str.substring(
+      str.lastIndexOf(a) + 1,
+      str.lastIndexOf(b)
+    );
   }
 
   requestCaptchaAnswer(options) {
@@ -225,13 +244,6 @@ class FunCaptcha extends Emitter {
       this.captchas[id] = options;
       this.emit('solveRequest');
     });
-  }
-
-  getFromBetween(str, a, b) {
-    return str.substring(
-      str.lastIndexOf(a) + 1,
-      str.lastIndexOf(b)
-    );
   }
 
   get(url, options) {

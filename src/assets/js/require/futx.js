@@ -292,11 +292,33 @@ class Account extends Emitter {
 
     if(data.body.code == 458) {
       console.log('Captcha is pending, try to solve :)', data.body);
-      await this.solveCaptcha();
+      try {
+        const funCaptchaToken = await this.solveCaptcha();
+        console.log('taki mamy token', funCaptchaToken);
+        await this.validateCaptcha(funCaptchaToken);
+      } catch(e) {
+        console.warn(e);
+        throw new Error('FUNCAPTCHA_SOLVE_ERROR');
+      }
+
+
+
     }
     //console.log('Got security question info', data.body);
 
   }
+
+  async validateCaptcha(funCaptchaToken) {
+    const url = `${this.utas}/ut/game/fifa18/captcha/fun/validate`;
+    await this.post(url, {
+      form: {
+        funCaptchaToken: funCaptchaToken
+      },
+      sendJson: true,
+      ut: true
+    });
+  }
+
   async answerSecurityQuestion() {
     const answerHashed = eaHasher(this.answer);
     //console.log('answerHashed', answerHashed);
@@ -317,7 +339,7 @@ class Account extends Emitter {
     const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
       json: true
     });
-    await this.captcha.trigger({
+    return await this.captcha.trigger({
       publicKey: data.body.pk,
       blob: data.body.blob,
       siteUrl: 'https://www.easports.com'
