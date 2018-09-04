@@ -85,6 +85,10 @@ class AutoBuyer extends Emitter {
 
           break;
         }
+        case 'NO_TRADE_EXISTS': {
+
+          break;
+        }
         case 'FUN_CAPTCHA_REQUIRED': {
           account.logged = false;
           this.emit('accountUpdate');
@@ -97,8 +101,7 @@ class AutoBuyer extends Emitter {
           break;
         }
         case 'NOT_ENOUGH_CREDIT': {
-          console.error('wszystko jest ok xD');
-
+          console.error('NOT_ENOUGH_CREDIT');
           break;
         }
         default: {
