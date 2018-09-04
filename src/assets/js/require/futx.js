@@ -14,6 +14,12 @@ class Account extends Emitter {
     }
     this.gameSku = platforms[this.platform];
   }
+  //I think it's not used anymore
+  // async relogin() {
+  //
+  //   this.bearer = null;
+  //   await this.login;
+  // }
   login() {
     return new Promise(async (resolve, reject) => {
       await this.getWebAppConfig();
@@ -27,10 +33,11 @@ class Account extends Emitter {
 
 
         if(this.twoStepEnabled) {
-          await this.visitAnswerPage();
-          await this.requestTwoFactorCode();
-          await this.visitCodePage();
-          await this.loginWithCode();
+          if(await this.visitAnswerPage()) {
+            await this.requestTwoFactorCode();
+            await this.visitCodePage();
+            await this.loginWithCode();
+          }
         }
       }
       await this.getPids(); //required
@@ -107,7 +114,11 @@ class Account extends Emitter {
     const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin&_eventId=end`;
     const data = await this.get(url, {follow: false});
     if(data.res.headers.location) {
-      this.execution = (data.res.headers.location.split('execution=')[1]).split('&')[0];
+      if(data.res.headers.location.includes('/execution=')) {
+        this.execution = (data.res.headers.location.split('execution=')[1]).split('&')[0];
+      } else {
+        return false;
+      }
       //console.log('Got execution after visiting answer page:', this.execution);
 
       const url2 = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
@@ -115,6 +126,7 @@ class Account extends Emitter {
     } else {
       //console.log('Visited answer page', data);
     }
+    return true;
   }
   async requestTwoFactorCode(resend) {
     const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
