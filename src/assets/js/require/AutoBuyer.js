@@ -678,6 +678,7 @@ class AutoBuyer extends Emitter {
         //Custom
         analyzer: player.analyzer,
         current: player.current,
+        lastPriceCheck: player.lastPriceCheck
       })
     });
     await fse.outputJson(CONFIG.PATH_PLAYERS, newPlayers)
