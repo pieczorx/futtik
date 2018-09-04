@@ -302,20 +302,7 @@ class Account extends Emitter {
       json: true
     });
 
-    if(data.body.code == 458) {
-      console.log('Captcha is pending, try to solve :)', data.body);
-      try {
-        const funCaptchaToken = await this.solveCaptcha();
-        console.log('taki mamy token', funCaptchaToken);
-        await this.validateCaptcha(funCaptchaToken);
-      } catch(e) {
-        console.warn(e);
-        throw new Error('FUNCAPTCHA_SOLVE_ERROR');
-      }
 
-
-
-    }
     //console.log('Got security question info', data.body);
 
   }
@@ -348,15 +335,24 @@ class Account extends Emitter {
 
   //Captcha
   async solveCaptcha() {
-    const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
-      json: true,
-      ut: true
-    });
-    return await this.captcha.trigger({
-      publicKey: data.body.pk,
-      blob: data.body.blob,
-      siteUrl: 'https://www.easports.com'
-    });
+    try {
+      const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
+        json: true,
+        ut: true
+      });
+      const funCaptchaToken = await this.captcha.trigger({
+        publicKey: data.body.pk,
+        blob: data.body.blob,
+        siteUrl: 'https://www.easports.com'
+      });
+
+      console.log('taki mamy token', funCaptchaToken);
+      await this.validateCaptcha(funCaptchaToken);
+    } catch(e) {
+      console.warn(e);
+      throw new Error('FUNCAPTCHA_SOLVE_ERROR');
+    }
+
   }
 
   //Fifa functions
@@ -683,6 +679,10 @@ class Account extends Emitter {
 
 
           if(options.ut && res.statusCode !== 200) {
+            if(res.statusCode == 458) {
+              console.log('Captcha is pending, try to solve :)');
+              await that.solveCaptcha();
+            }
             //458 - puzzle captcha
             if(res.statusCode === 358) {
               return reject(new Error('FUN_CAPTCHA_REQUIRED'));
