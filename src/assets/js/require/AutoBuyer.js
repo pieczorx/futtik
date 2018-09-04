@@ -635,9 +635,17 @@ class AutoBuyer extends Emitter {
         if(!player.analyzer) {
           player.analyzer = {};
         }
-        if(!player.lastPriceCheck) {
+        if(player.lastPriceCheck) {
+          for(let platform of pltfrm.list) {
+            if(player.lastPriceCheck[platform]) {
+              player.lastPriceCheck[platform].date = new Date(player.lastPriceCheck[platform].date);
+            }
+          }
+        } else {
           player.lastPriceCheck = {};
         }
+
+
 
       });
       console.log(`Loaded ${this.players.length} players`)
