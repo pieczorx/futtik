@@ -211,15 +211,15 @@ body[data-a-loading='1'] .s {transition: all .5s ease;opacity:0.66;pointer-event
     /* background-color: #f3f3f3; */
 }
 .s[data-name='captcha'] .captchaList {}
-.s[data-name='captcha'] .captchaList .e {background-color: rgba(255, 255, 255, 0.04);margin-right: 10px;width: 174px;overflow: hidden;margin-bottom: 10px;}
+.s[data-name='captcha'] .captchaList .e {background-color: rgba(255, 255, 255, 0.04);margin-right: 10px;width: 174px;overflow: hidden;margin-bottom: 10px;user-select: none;}
 .s[data-name='captcha'] .captchaList .e .wrapper {
     position: relative;
     background-color: white;
     padding: 10px 0px;
 }
 .s[data-name='captcha'] .captchaList .e button {border-top-left-radius: 0px;border-top-right-radius: 0px;/* margin-top: 15px; */}
-.s[data-name='captcha'] .captchaList .e img {/* border: 3px solid hsl(216, 83%, 55%); */border-radius: 500px;margin-left: 30px;}
-.s[data-name='captcha'] .captchaList .e .arrow {position: absolute;height: 100%;width: 50px;color: hsl(0, 0%, 75%);top: 0;font-size: 16px;cursor: pointer;transition: all .1s ease;}
+.s[data-name='captcha'] .captchaList .e img {/* border: 3px solid hsl(216, 83%, 55%); */border-radius: 500px;margin-left: 30px;transition: all .1s ease;}
+.s[data-name='captcha'] .captchaList .e .arrow {position: absolute;height: 100%;width: 50px;color: hsl(0, 0%, 75%);top: 0;font-size: 16px;cursor: pointer;transition: all .1s ease;z-index: 1;}
 .s[data-name='captcha'] .captchaList .e .arrow:hover {
     color: hsl(216, 83%, 55%);
     font-size: 18px;

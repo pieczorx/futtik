@@ -175,8 +175,9 @@ class FunCaptcha extends Emitter {
     //Go through all images
     for(let image of finalImages) {
       let finalImage = this.decodeImage(image, resEncryptionKey.body.decryption_key);
-      await this.requestCaptchaAnswer({
-        imgUrl: finalImage
+      const degrees = await this.requestCaptchaAnswer({
+        imgUrl: finalImage,
+        slices: 7
       });
       //$("body").append(`<img src="${finalImage}" style="width: 100px;"/>`);
     }
@@ -213,9 +214,16 @@ class FunCaptcha extends Emitter {
 
   requestCaptchaAnswer(options) {
     return new Promise((resolve, reject) => {
-      options.onAnswer = resolve;
-      this.captchas[this.captchas.length] = options;
-      this.onRequest();
+      const id = this.captchas.length;
+      options.onAnswer = (spins) => {
+        const degreesFactor = 51.4;
+        spins = parseInt(spins);
+        const degrees = ((spins * (degreesFactor * 10)) / 10).toFixed(2);
+        resolve(degrees);
+      };
+      options.id = id;
+      this.captchas[id] = options;
+      this.emit('solveRequest');
     });
   }
 
