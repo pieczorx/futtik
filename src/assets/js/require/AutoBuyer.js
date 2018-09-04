@@ -96,6 +96,7 @@ class AutoBuyer extends Emitter {
           break;
         }
         case 'UNAUTHORIZED': {
+          console.warn('Account was unauthorized');
           account.logged = false;
           this.emit('accountUpdate');
           break;
@@ -125,7 +126,7 @@ class AutoBuyer extends Emitter {
   }
 
   async workTaskEnsureLogged(account) {
-    if(account.enabled && !account.instance.logged) {
+    if(account.enabled && !account.logged) {
       //But make sure no other account on this proxy was logged less than X seconds before
       if(this.lastLoginDate) {
         if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
@@ -511,7 +512,7 @@ class AutoBuyer extends Emitter {
     }
     this.busyMessage(account, 'Logging in');
     await account.instance.login();
-    //account.logged = true;
+    account.logged = true;
     logger.logAccount('Logged in to an account', account);
     this.emit('accountUpdate');
     account.cookies = account.instance.cookies();

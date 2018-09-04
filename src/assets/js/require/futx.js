@@ -7,7 +7,7 @@ class Account extends Emitter {
     super();
     this.jar = request.jar();
     Object.assign(this, data);
-    this.logged = false;
+    //this.logged = false;
     this.listeners = [];
     let platforms = {
       xone: 'FFA18XBO'
@@ -41,7 +41,7 @@ class Account extends Emitter {
       await this.getSecurityQuestion(); //required
       await this.answerSecurityQuestion(); //required
 
-      this.logged = true;
+      //this.logged = true;
       resolve();
     });
   }
@@ -337,7 +337,8 @@ class Account extends Emitter {
   //Captcha
   async solveCaptcha() {
     const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
-      json: true
+      json: true,
+      ut: true
     });
     return await this.captcha.trigger({
       publicKey: data.body.pk,
@@ -688,13 +689,16 @@ class Account extends Emitter {
           if(options.json) {
             try {
               body = JSON.parse(body);
-              if(body.code == 401) {
-                this.logged = false;
-                return reject(new Error('UNAUTHORIZED'));
-              }
               //{"message":null,"reason":"expired session","code":401}
             } catch(e) {
               return reject(e);
+            }
+          }
+
+          if(options.ut) {
+            if(body.code == 401) {
+              //this.logged = false;
+              return reject(new Error('UNAUTHORIZED'));
             }
           }
 

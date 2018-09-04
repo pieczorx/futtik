@@ -289,7 +289,6 @@ class PagePlayers {
       },
       actions: {
         remove: (id) => {
-          console.warn('remove this id', id);
           let player = autoBuyer.getPlayerFromId(id);
           player.current[currentPlatform()] = false;
           this.tableCurrent.update();

@@ -78,7 +78,8 @@ button.buttonGreen:hover, button.buttonGreen:active {background-color: hsl(118, 
 .checkbox {}
 .checkbox input {display: none;}
 .checkbox .box {cursor: pointer;background-color: rgba(255, 255, 255, 0.1);width: 16px; height: 16px;display: inline-block;}
-.checkbox .box:hover {background-color: rgba(255, 255, 255, 0.15);}
+.checkbox .box:hover, .checkbox .box:active {background-color: rgba(255, 255, 255, 0.15);}
+.checkbox .box:active {opacity: 0.75;}
 .checkbox i {display: none;margin: 3px 0px 0px 3px;font-size: 10px;float: left;}
 .checkbox input:checked + .box {background-color: hsl(216, 83%, 55%);}
 .checkbox input:checked + .box:hover {background-color: hsl(216, 83%, 60%);}
