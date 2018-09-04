@@ -14,8 +14,9 @@ const CryptoJSAesJson = {
   }
 }
 
-class FunCaptcha {
+class FunCaptcha extends Emitter {
   constructor(options) {
+    super();
     this.captchas = [];
     Object.assign(this, options)
   }
@@ -33,8 +34,15 @@ class FunCaptcha {
 
   }
 
-  encodeBda(string) {
-    n6R = typeof n6R == "undefined" ? false : n6R;
+  encodeBda(P6R) {
+    let g1P = "join";
+    let g4R = "";
+    let n4R = "slice";
+    let n6R = false;
+    let R5P = "charCodeAt";
+    let E8R = 16;
+    let x8R = 63;
+    let e8P = "charAt";
     let d6R, y6R, W6R, Z6R, j6R, b6R, N6R, D6R, p6R = [],
         t6R = g4R,
         s6R, T6R, x6R;
@@ -68,15 +76,17 @@ class FunCaptcha {
 
   async trigger({publicKey, siteUrl, blob}) {
 
+    //Get captcha
     const resGetJsMdString  = await this.post(`https://funcaptcha.com/fc/api/?onload=loadFunCaptcha`)
-    const jsMdString = this.getFromBetween(res, `https://cdn.funcaptcha.com/fc/js/`, `/standard/funcaptcha_api.js`);
+    const jsMdString = this.getFromBetween(resGetJsMdString.body, `https://cdn.funcaptcha.com/fc/js/`, `/standard/funcaptcha_api.js`);
 
     let bdaData = [{
         key: "api_type",
         value: "js"
     }];
 
-    await this.post(`https://funcaptcha.com/fc/gt2/public_key/${publicKey}`, {
+    //Get from public key
+    const resPublicKey = await this.post(`https://funcaptcha.com/fc/gt2/public_key/${publicKey}`, {
       json: true,
       form: {
         bda: this.encodeBda(JSON.stringify(bdaData)),
@@ -95,29 +105,125 @@ class FunCaptcha {
       }
     });
 
+    let tokenResponse = {};
+    let resPublicKeyValuesArray = resPublicKey.body.token.split('|')
+    const token = resPublicKeyValuesArray[0];
+    resPublicKeyValuesArray.shift();
+    for(let x of resPublicKeyValuesArray) {
+      let xSplitted = x.split('=');
+      tokenResponse[xSplitted[0]] = xSplitted[1];
+    }
 
-    await this.post(`https://funcaptcha.com/fc/gfct/`, {
-      headers: {
-        'X-NewRelic-Timestamp': `153509500866200`,
-        'X-Requested-ID': `{"ct":"43RPIQBvveDmSSkS0qrTYQ==","iv":"c396d58b84f59673522c4c636ce56e68","s":"31cbd93dc2557280"}`
+    const sid = tokenResponse.r;
+    const requestId = CryptoJS.AES.encrypt(`{}`, `REQUESTED${token}ID`, {
+      format: CryptoJSAesJson
+    }).toString();
+
+    //Solve single captcha
+    for(let i = 0; i < 3; i++) {
+      console.log(`SOLVE CAPTCHA [TRY ${i}]`);
+      let captchaSolved = await this.solveSingleCaptcha(token, requestId, sid);
+      if(captchaSolved) {
+        return resPublicKey.body.token;
+      }
+    }
+    throw new Error('It was unable to solve captcha');
+  }
+
+  async solveSingleCaptcha(token, requestId, sid) {
+    const resCaptchas = await this.post(`https://funcaptcha.com/fc/gfct/`, {
+      headers: this.getHeaders(requestId),
+      form: {
+        token: token,
+        sid: sid,
+        lang: 'en',
+        render_type: 'canvas',
+        analytics_tier: 40,
+        data: {
+          status: 'init'
+        }
       },
-
+      json: true
     });
 
-    //Post answer
-    await this.requestCaptchaAnswer({
-      imgUrl: 'asdasd'
-    });
+    //Get images
+    const imageUrls = resCaptchas.body.game_data.customGUI._challenge_imgs;
+    let finalImages = [];
+    for(let imageUrl of imageUrls) {
+      let resImage = await this.get(imageUrl);
+      finalImages[finalImages.length] = (resImage.body);
+
+    }
+
+    //Get image encryption key
+    const resEncryptionKey = await this.post(`https://funcaptcha.com/fc/ekey/`, {
+      headers: this.getHeaders(requestId),
+      form: {
+        sid: sid,
+        session_token: token,
+        game_token: resCaptchas.body.challengeID
+      },
+      json: true,
+    })
+    let decryptionKey = resEncryptionKey.body.decryption_key;
+    let answers = [];
+    //Go through all images
+    for(let image of finalImages) {
+      let finalImage = this.decodeImage(image, decryptionKey);
+      let degrees = await this.requestCaptchaAnswer({
+        imgUrl: finalImage,
+        slices: 7
+      });
+      answers[answers.length] = degrees;
+
+      const guessEncrypted = CryptoJS.AES.encrypt(answers.join(','), token, {
+        format: CryptoJSAesJson
+      }).toString();
+
+      let resGuess = await this.post(`https://funcaptcha.com/fc/ca/`, {
+        headers: this.getHeaders(requestId),
+        form: {
+          sid: sid,
+          session_token: token,
+          game_token: resCaptchas.body.challengeID,
+          guess: guessEncrypted,
+          analytics_tier: 40
+        },
+        json: true
+      });
+
+      console.log('Answered single captcha', resGuess.body);
+      if(resGuess.body.decryption_key) {
+        decryptionKey = resGuess.body.decryption_key;
+      }
+      if(resGuess.body.solved) {
+        return true;
+      }
+    }
+    return false;
   }
 
-  requestCaptchaAnswer(options) {
-    return new Promise((resolve, reject) => {
-      options.onAnswer = resolve;
-      this.captchas[this.captchas.length] = options;
-      this.onRequest();
-    });
+  getHeaders(requestId) {
+    return {
+      'X-NewRelic-Timestamp': this.getTimestamp(),
+      'X-Requested-ID': requestId,
+      'cache-control': `no-cache`
+    }
   }
+  getTimestamp() {
+    const date1 = new Date().getTime().toString().substring(0, 7);
+    const date2 = new Date().getTime().toString().substring(7, 13);
+    return `${date1}00${date2}`
+  }
+  getRequestId() {
 
+  }
+  encryptAESMessage() {
+
+  }
+  decryptAESMessage() {
+
+  }
   getFromBetween(str, a, b) {
     return str.substring(
       str.lastIndexOf(a) + 1,
@@ -125,16 +231,35 @@ class FunCaptcha {
     );
   }
 
-  post(url, options) {
-    Object.assign(options, {method: 'POST'});
-    return this.request(url, options);
+  requestCaptchaAnswer(options) {
+    return new Promise((resolve, reject) => {
+      const id = this.captchas.length;
+      options.onAnswer = (spins) => {
+        const degreesFactor = 51.4;
+        spins = parseInt(spins);
+        const degrees = ((spins * (degreesFactor * 10)) / 10).toFixed(2);
+        resolve(degrees);
+      };
+      options.id = id;
+      this.captchas[id] = options;
+      this.emit('solveRequest');
+    });
   }
 
-  post(url, options) {
+  get(url, options) {
+    if(!options) {
+      options = {}
+    }
     Object.assign(options, {method: 'GET'});
     return this.request(url, options);
   }
-
+  post(url, options) {
+    if(!options) {
+      options = {}
+    }
+    Object.assign(options, {method: 'POST'});
+    return this.request(url, options);
+  }
   request(url, options) {
     return new Promise((resolve, reject) => {
       if(!options.headers) {
@@ -147,7 +272,12 @@ class FunCaptcha {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
 
       };
-
+      if(process.env.FIDDLER == 1) {
+        options.rejectUnauthorized = false;
+      }
+      if(process.env.FIDDLER == 1) {
+        options.proxy = 'http://127.0.0.1:8888'
+      }
       request(url, options, (error, response, body) => {
         console.log('request done statusCode:', response.statusCode); // Print the response status code if a response was received
         if(!error) {

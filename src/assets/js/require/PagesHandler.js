@@ -11,16 +11,18 @@ class PagesHandler {
   }
   stop() {
     for(let instance of this.instances) {
-      instance.instance._stop();
+      if(instance.instance._stop) {
+        instance.instance._stop();
+      }
     }
   }
   load(pages, options) {
-    console.log('load pages', pages);
     this.currentPages = pages;
     return new Promise(async (resolve, reject) => {
       if(typeof(pages) == 'string') {
         pages = [pages];
       }
+
       for(let instance of this.instances) {
         if(pages.includes(instance.name)) {
 

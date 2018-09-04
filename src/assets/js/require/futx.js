@@ -7,7 +7,7 @@ class Account extends Emitter {
     super();
     this.jar = request.jar();
     Object.assign(this, data);
-    this.logged = false;
+    //this.logged = false;
     this.listeners = [];
     let platforms = {
       xone: 'FFA18XBO'
@@ -16,68 +16,32 @@ class Account extends Emitter {
   }
   login() {
     return new Promise(async (resolve, reject) => {
-      console.log('========== Get web app config');
       await this.getWebAppConfig();
-
-      console.log('========== Visit first page');
       await this.visitFirstPage();
 
       if(!this.bearer) {
-
-
-        console.log('========== Get fid');
         await this.getFid();
-
-        /*if(this.bearer) {
-          console.log('mamy access token, finishujemy chwilowo');
-          return;
-        }*/
-        console.log('========== Get execution');
         await this.getExecution();
-
-        console.log('========== Visit login page');
         await this.visitLoginPage();
-
-        console.log('========== Log in for the first time');
         await this.firstLogin();
 
 
         if(this.twoStepEnabled) {
-          console.log('========== Visit answer page');
           await this.visitAnswerPage();
-
-          console.log('========== Request two factor code');
           await this.requestTwoFactorCode();
-
-          console.log('========== Visit two factor page');
           await this.visitCodePage();
-
-          console.log('========== Login with code');
           await this.loginWithCode();
         }
       }
-      console.log('========== Get pids');
       await this.getPids(); //required
-
-
-      console.log('========== Get shards');
       await this.getShards(); //required
-
-      console.log('========== Get utas server');
       await this.getUtasServer(); //required
-
-      console.log('========== Get FOS server code');
       await this.getFosServerCode(); //required
-
-      console.log('========== Get UT SID');
       await this.getUtSid(); //required
+      await this.getSecurityQuestion(); //required
+      await this.answerSecurityQuestion(); //required
 
-      console.log('========== Get security question');
-      await this.getSecurityQuestion();
-
-      console.log('========== Answer security question');
-      await this.answerSecurityQuestion();
-      this.logged = true;
+      //this.logged = true;
       resolve();
     });
   }
@@ -87,29 +51,24 @@ class Account extends Emitter {
   async visitFirstPage() {
     const url = `https://www.easports.com/pl/fifa/ultimate-team/web-app/`;
     const data = await this.get(url);
-    console.log(data);
   }
   async getWebAppConfig() {
     const url = `https://www.easports.com/pl/fifa/ultimate-team/web-app/config/config.json`;
     const data = await this.get(url, {
       json: true
     });
-    console.log('Got web app config', data.body);
     this.webAppConfig = data.body;
     this.authUrl = this.webAppConfig.authURL;
   }
-
   async getExecution() {
     const data = await this.get(this.urlGetExecution, {
       follow: false
     });
     this.execution = (data.res.headers.location.split('execution=')[1]).split('&')[0];
-    console.log('Got execution: ', this.execution);
   }
   async visitLoginPage() {
     const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
     const data = await this.get(url);
-    console.log(data);
   }
   async firstLogin() {
     const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
@@ -134,14 +93,14 @@ class Account extends Emitter {
     if(data.res.headers.location) {
       let newExecution = (data.res.headers.location.split('execution=')[1]).split('&')[0];
       this.twoStepEnabled = true;
-      console.log('Two step is enabled but we dont know which one');
+      //console.log('Two step is enabled but we dont know which one');
       if(newExecution == this.execution) {
         throw new Error('Invalid credentials');
       }
       this.execution = newExecution;
-      console.log('Got new execution:', this.execution);
+      //console.log('Got new execution:', this.execution);
     } else {
-      console.log('Two step is disabled');
+      //console.log('Two step is disabled');
     }
   }
   async visitAnswerPage() {
@@ -149,12 +108,12 @@ class Account extends Emitter {
     const data = await this.get(url, {follow: false});
     if(data.res.headers.location) {
       this.execution = (data.res.headers.location.split('execution=')[1]).split('&')[0];
-      console.log('Got execution after visiting answer page:', this.execution);
+      //console.log('Got execution after visiting answer page:', this.execution);
 
       const url2 = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
       const data2 = await this.get(url2);
     } else {
-      console.log('Visited answer page', data);
+      //console.log('Visited answer page', data);
     }
   }
   async requestTwoFactorCode(resend) {
@@ -167,7 +126,7 @@ class Account extends Emitter {
       follow: false
     });
     this.execution = (data.res.headers.location.split('execution=')[1]).split('&')[0];
-    console.log('Two factor code requested');
+    //console.log('Two factor code requested');
   }
   async visitCodePage() {
     await this.get(`https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`);
@@ -175,7 +134,7 @@ class Account extends Emitter {
   async loginWithCode() {
     let code = '';
     if(this.twoFactorToken) {
-      console.log('Loggin in with 2 factor');
+      //console.log('Loggin in with 2 factor');
       code = gotp(this.twoFactorToken, 6, 30, Math.floor(Date.now() / 1000));
     } else {
       throw new Error('Loggin in with mail is not ready yet');
@@ -191,7 +150,6 @@ class Account extends Emitter {
       follow: false
     });
   }
-
   async getFid() {
     let parameters = {
       prompt: 'login',
@@ -211,10 +169,7 @@ class Account extends Emitter {
 
     this.fid = data.res.headers.location.split('fid=')[1];
     this.urlGetExecution = data.res.headers.location;
-    console.log('Got fid: ', this.fid);
-    console.log('Got execution url', this.urlGetExecution);
   }
-
   async getBearer() {
     //const url = `https://accounts.ea.com/connect/auth?client_id=ORIGIN_JS_SDK&response_type=token&redirect_uri=nucleus:rest&prompt=none`
     let parameters = {
@@ -237,7 +192,7 @@ class Account extends Emitter {
 
     //try {
       this.bearer = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
-      console.log('Got access token', this.bearer);
+      //console.log('Got access token', this.bearer);
     //} catch(e) {
       //console.warn('login required XDDD');
       //const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer ? this.bearer : 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
@@ -245,7 +200,7 @@ class Account extends Emitter {
       //  follow: false
       //});
       //this.bearer = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
-  //  }
+    //}
 
     //2do
     //https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html#access_token=QVQwOjEuMDozLjA6NjA6ZmlnTml3azJRcTZnakNnMzZoZDdYbWVnOFZhZm1uMGh0MWY6NjgzNDM6b2IyN3U&token_type=Bearer&expires_in=3599
@@ -260,7 +215,6 @@ class Account extends Emitter {
       }
     });
     if(data.body.error) {
-      console.log('========== Get bearer');
       await this.getBearer();
       await this.getPids();
       return;
@@ -275,7 +229,6 @@ class Account extends Emitter {
     const data = await this.get(url, {
       json: true
     });
-    console.log('Shards: ', data);
     this.shards = data.body.shardInfo;
   }
   async getUtasServer() {
@@ -292,7 +245,7 @@ class Account extends Emitter {
         finalData = data;
         break;
       } catch(e) {
-        console.log(`Shard ${shard.clientFacingIpPort} doesn't work, it should be ok`);
+        //console.log(`Shard ${shard.clientFacingIpPort} doesn't work, it should be ok`);
       }
     }
     if(!finalShard) {
@@ -339,14 +292,36 @@ class Account extends Emitter {
 
     if(data.body.code == 458) {
       console.log('Captcha is pending, try to solve :)', data.body);
-      await this.solveCaptcha();
+      try {
+        const funCaptchaToken = await this.solveCaptcha();
+        console.log('taki mamy token', funCaptchaToken);
+        await this.validateCaptcha(funCaptchaToken);
+      } catch(e) {
+        console.warn(e);
+        throw new Error('FUNCAPTCHA_SOLVE_ERROR');
+      }
+
+
+
     }
-    console.log('Got security question info', data.body);
+    //console.log('Got security question info', data.body);
 
   }
+
+  async validateCaptcha(funCaptchaToken) {
+    const url = `${this.utas}/ut/game/fifa18/captcha/fun/validate`;
+    await this.post(url, {
+      form: {
+        funCaptchaToken: funCaptchaToken
+      },
+      sendJson: true,
+      ut: true
+    });
+  }
+
   async answerSecurityQuestion() {
     const answerHashed = eaHasher(this.answer);
-    console.log('answerHashed', answerHashed);
+    //console.log('answerHashed', answerHashed);
     const url = `${this.utas}/ut/game/fifa18/phishing/validate?answer=${answerHashed}`;
     const data = await this.post(url, {
       form: answerHashed,
@@ -356,15 +331,16 @@ class Account extends Emitter {
       throw new Error('Could not answer question');
     }
     this.phishingToken = data.body.token;
-    console.log('secret hash data', data);
+    //console.log('secret hash data', data);
   }
 
   //Captcha
   async solveCaptcha() {
     const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
-      json: true
+      json: true,
+      ut: true
     });
-    await this.captcha.trigger({
+    return await this.captcha.trigger({
       publicKey: data.body.pk,
       blob: data.body.blob,
       siteUrl: 'https://www.easports.com'
@@ -375,11 +351,11 @@ class Account extends Emitter {
   async getMassInfo() {
     const url = `${this.utas}/ut/game/fifa18/usermassinfo`
     const data = await this.get(url, {
-      json: true
+      json: true,
+      ut: true
     });
-    console.log('Fetched mass info', data);
-    this.massInfo = data.body;
-    this.getCoinsFromCurrencies(this.massInfo.userInfo.currencies);
+    this.getCoinsFromCurrencies(data.body.userInfo.currencies);
+    return data.body;
   }
   async searchTransferMarket(p) {
     const limit = p.limit || 36;
@@ -397,9 +373,10 @@ class Account extends Emitter {
 
     const url = `${this.utas}/ut/game/fifa18/transfermarket?${querystring.stringify(parameters)}`
     const data = await this.get(url, {
-      json: true
+      json: true,
+      ut: true
     });
-    console.log('Searched transfer market :)', data.body);
+    //console.log('Searched transfer market :)', data.body);
     return {
       auctions: data.body.auctionInfo
     };
@@ -416,32 +393,39 @@ class Account extends Emitter {
         ]
       },
       sendJson: true,
-      json: true
+      json: true,
+      ut: true
     });
-    if(data.res.statusCode == 200) {
-      return true;
-    }
-    return false;
   }
   async bid(p) {
     const url = `${this.utas}/ut/game/fifa18/trade/${p.tradeId}/bid?sku_b=FFT18`
-    const data = await this.put(url, {
-      form: {
-        bid: p.coins,
-      },
-      sendJson: true
-    })
-    if(data.res.statusCode === 461) {
-      return false;
+    try {
+      const data = await this.put(url, {
+        form: {
+          bid: p.coins,
+        },
+        sendJson: true,
+        json: true,
+        ut: true
+      })
+      this.getCoinsFromCurrencies(data.body.currencies);
+      return data.body.auctionInfo;
+
+    } catch(e) {
+      if(e.message === 'PERMISSION_DENIED') {
+        throw new Error('PLAYER_ALREADY_BOUGHT');
+      } else {
+        throw e;
+      }
     }
-    const body = JSON.parse(data.body);
-    this.getCoinsFromCurrencies(body.currencies);
-    return body.auctionInfo;
+
+
   }
   async relistAuctions() {
     const url = `${this.utas}/ut/game/fifa18/auctionhouse/relist`
     const data = await this.put(url, {
-      json: true
+      json: true,
+      ut: true
     })
     return data.tradeIdList;
     /*
@@ -456,7 +440,8 @@ class Account extends Emitter {
   async getTradePile() {
     const url = `${this.utas}/ut/game/fifa18/tradepile`
     const data = await this.get(url, {
-      json: true
+      json: true,
+      ut: true
     })
 
     this.updateCoins(data.body.credits);
@@ -477,26 +462,27 @@ class Account extends Emitter {
         startingBid: p.priceBid
       },
       sendJson: true,
-      json: true
+      json: true,
+      ut: true
     });
-    if(data.res.statusCode == 200) {
-      return true;
-    }
-    return false;
     /* REQUEST
     {"itemData":{"id":121088671531},"startingBid":150,"duration":3600,"buyNowPrice":200}
     */
   }
-
   async deleteSoldAuctions() {
     const url = `${this.utas}/ut/game/fifa18/trade/sold`
-    const data = await this.delete(url);
-    if(data.res.statusCode == 200) {
-      return true;
+    try {
+      await this.delete(url, {
+        ut: true
+      });
+    } catch(e) {
+      throw new Error('Could not delete sold auctions');
     }
-    return false;
   }
-
+  async getUnassignedItems() {
+    const body = await this.getMassInfo();
+    return body.purchasedItems.itemData;
+  }
   //Misc
   getCoinsFromCurrencies(currencies) {
     currencies.forEach(currency => {
@@ -672,15 +658,7 @@ class Account extends Emitter {
       request(request_options, async function(err, res, body) {
         if(!err) {
 
-          //458 - puzzle captcha
-          if(res.statusCode === 358) {
-            console.log('CAPTCHA DETECTED XDDD');
-            return resolve(await this.login());
-          }
 
-          //426 - upgrade required (? XD)
-          //429 - too many requests (too many actions have been taken)
-          //521 - error (unknown but it's always related with too many requests)
 
           if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
             try {
@@ -689,18 +667,41 @@ class Account extends Emitter {
               body = body.toString();
             }
           }
+
+
+
+          if(options.ut && res.statusCode !== 200) {
+            //458 - puzzle captcha
+            if(res.statusCode === 358) {
+              return reject(new Error('FUN_CAPTCHA_REQUIRED'));
+            }
+
+            //426 - upgrade required (? XD)
+            //429 - too many requests (too many actions have been taken)
+            //521 - error (unknown but it's always related with too many requests)
+
+            if(futxErrors[res.statusCode]) {
+              return reject(new Error(futxErrors[res.statusCode]));
+            }
+            return reject(new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`));
+          }
+
           if(options.json) {
             try {
               body = JSON.parse(body);
-              if(body.code == 401) {
-                this.logged = false;
-                return reject('Account logged off');
-              }
               //{"message":null,"reason":"expired session","code":401}
             } catch(e) {
               return reject(e);
             }
           }
+
+          if(options.ut) {
+            if(body.code == 401) {
+              //this.logged = false;
+              return reject(new Error('UNAUTHORIZED'));
+            }
+          }
+
           resolve({res: res, body: body});
         } else {
           reject(err);

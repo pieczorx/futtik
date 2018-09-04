@@ -21,31 +21,80 @@ class PageBots {
         </div>
       </div>
       `,
+      getId: (row) => {return row.options.mail;},
       fields: [
-        {name: 'enabled', title: 'Enabled?', format: (row, i) => {
-          let statuses = ['Disabled', 'Logging in...', 'Logged']
-          let status = 0;
-          if(row.enabled) {
-            status = 1;
-            if(row.instance && row.instance.logged) {
-              status = 2;
-            }
-          }
-          let statusText = statuses[status];
-          if(!power.state && status == 1) {
-            statusText = 'Waiting for login...';
-          }
-          return `
-          <div class="activeStatus l" data-status="${status}" data-role="toggleAccountState" data-account-id="${i}">
-            <div class="dot l circle"></div>
-            <div class="text l">${statusText}</div>
-          </div>
-          `
-        }},
+        {
+          title: 'Enable',
+          name: 'enabledState',
+          type: 'checkbox',
+          format: (row) => {
+
+            return `
+            <div class="checkbox">
+              <input type="checkbox"${row.enabled ? ` checked="checked"` : ''}>
+              <span class="box radius"><i class="far fa-check"></i></span>
+            </div>
+            `
+          },
+          align: 'center',
+          width: 40
+        },
+        {
+          title: 'Buy',
+          name: 'buyState',
+          type: 'checkbox',
+          format: (row) => {
+
+            return `
+            <div class="checkbox">
+              <input type="checkbox"${row.buy ? ` checked="checked"` : ''}>
+              <span class="box radius"><i class="far fa-check"></i></span>
+            </div>
+            `
+          },
+          align: 'center',
+          width: 40
+        },
         {name: 'mail', title: 'Mail', format: row => row.options.mail},
+        {name: 'tradepile', title: '<span title="active | closed | expired | available">Tradepile</span>', format: row => {
+          if(!row.tradePile) {
+            return '-';
+          }
+          const tradePileTypes = ['active', 'closed', 'expired', 'available'];
+          let tradePileCount = {};
+          tradePileTypes.forEach(type => {
+            tradePileCount[type] = 0;
+          });
+          row.tradePile.auctions.forEach(auction => {
+            if(typeof(tradePileCount[auction.tradeState]) != 'undefined') {
+              tradePileCount[auction.tradeState]++;
+            } else {
+              tradePileCount['available']++;
+            }
+          });
+          let finalArray = [];
+          tradePileTypes.forEach(type => {
+            finalArray[finalArray.length] = tradePileCount[type];
+          });
+          finalArray = finalArray.map((value, i) => {
+            return `<span title="${tradePileTypes[i]}">${value}</span>`;
+          })
+          return `<span class="tradePileValues">${finalArray.join(' · ')}</span>`;
+        }},
         {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
-        {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? row.coins : '-';}}
-      ]
+        {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? formatCoins(row.coins) : '-';}},
+        {name: 'message', title: 'Message', width: 180}
+      ],
+      actions: {
+        buyState: (id, state) => {
+          const account = autoBuyer.getAccountFromId(id);
+          autoBuyer.toggleAccountBuyState(account, state);
+        },
+        enabledState: (id, state) => {
+          const account = autoBuyer.getAccountFromId(id);
+          autoBuyer.toggleAccountState(account, state);
+        }
+      }
     });
 
     $(document).on('submit', `form[name='addAccount']`, function() {
@@ -58,12 +107,22 @@ class PageBots {
       return false;
     });
 
-    autoBuyer.on('update', () => {
+    autoBuyer.on('accountUpdate', () => {
+      if(!this.active) {
+        return;
+      }
       this.tableAccounts.update();
     });
+    power.on('update', () => {
+      this.tableAccounts.update();
+    })
 
   }
   _load() {
+    this.active = true;
     this.tableAccounts.update();
+  }
+  _stop() {
+    this.active = false;
   }
 }

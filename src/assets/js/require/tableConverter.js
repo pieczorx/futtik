@@ -22,11 +22,19 @@ class TableConverter {
         if(field.search) {
           let fieldType = field.search;
 
+
           if(typeof(field.search) == 'object'){
             fieldType = field.search.type;
+
           }
           if(data.filters[field.name]) {
-            let value = row[field.name];
+            let value;
+            if(typeof(field.search) == 'object' && typeof(field.search.format) === 'function') {
+              value = field.search.format(row);
+            } else {
+              value = row[field.name];
+            }
+
             let filter = data.filters[field.name]
             switch(fieldType) {
               case 'text': {

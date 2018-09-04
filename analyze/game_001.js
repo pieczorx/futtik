@@ -1,5882 +1,3771 @@
-'use strict';
+/*Want to help? We have a bug bounty program you can join at https://www.funcaptcha.com/whitehat/ or contact us at whitehat@funcaptcha.com*/
 (function() {
-  /**
-   * @param {?} data
-   * @return {undefined}
-   */
-  function userChannelHandler(data) {
-    var d = $[template](data);
-    if (d && d[filterKey] == filterValue) {
-      parent[level](str);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function exec() {
-    if (spanItem) {
-      parent[removeEventListener](keydown, onKeyDown, registrationID, g[TO_STRING](), userChannelHandler);
-      if (y == h - (hasURL ? a : value)) {
-        /** @type {boolean} */
-        ascending = v2;
-        /** @type {boolean} */
-        msg = v2;
-      }
-    } else {
-      parent[removeEventListener](keydown, onKeyDown, registrationID, g[TO_STRING](), onTraversal);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function endHide() {
-    /** @type {boolean} */
-    oldFn = fn;
-  }
-  /**
-   * @return {undefined}
-   */
-  function failure() {
-    if (!__fn) {
-      /** @type {boolean} */
-      hasLayerUrl = fn;
-    } else {
-      req();
-    }
-  }
-  /**
-   * @param {number} c
-   * @return {undefined}
-   */
-  function abs(c) {
-    /** @type {number} */
-    var idleDelay = 1.3;
-    /** @type {number} */
-    var typoScriptPath = .4;
-    /** @type {string} */
-    var languageOffsetY = "-30";
-    /** @type {string} */
-    var participant = "bold 18px ";
-    /** @type {number} */
-    var roamOffsetY = 400;
-    /** @type {number} */
-    var valueToSet = 145;
-    var obj = new createjs[ctor];
-    var out;
-    switch(c) {
-      case a:
-      case duration:
-        out = stream;
-        break;
-      case u:
-      case e:
-        out = client;
-        break;
-      case o:
-        out = driver;
-        break;
-    }
-    var result = new createjs[typeCap](out, participant + courseId, pattern);
-    /** @type {string} */
-    result[url] = doc;
-    /** @type {number} */
-    result[name] = questionInfo;
-    if (h == value) {
-      /** @type {number} */
-      result[name] = err;
-    }
-    obj[prop](result);
-    /** @type {number} */
-    var type = c - a;
-    for (; type >= value; type--) {
-      var result = clone(pattern, cell);
-      /** @type {number} */
-      result[field] = result[axis] / duration | value;
-      /** @type {number} */
-      result[n] = result[ref] / duration | value;
-      switch(type) {
-        case value:
-          result[i] = value;
-          result[name] = value;
-          break;
-        case a:
-          /** @type {number} */
-          result[i] = -arg;
-          /** @type {number} */
-          result[name] = stashSha;
-          break;
-        case duration:
-          /** @type {number} */
-          result[i] = x;
-          /** @type {number} */
-          result[name] = r;
-          break;
-        case u:
-          /** @type {number} */
-          result[i] = -arg;
-          /** @type {number} */
-          result[name] = -b;
-          break;
-        case e:
-          /** @type {number} */
-          result[i] = arg;
-          /** @type {number} */
-          result[name] = -orig;
-          break;
-      }
-      if (parent[expando] !== doneName) {
-        obj[prop](result);
-      }
-      TweenLite[tagName](result, scale, {
-        delay : defaultValue + type * len,
-        scaleX : value,
-        scaleY : value,
-        x : value,
-        y : value
-      });
-      TweenLite[method](result, handleCompositionStart, {
-        delay : a,
-        y : languageOffsetY
-      });
-      TweenLite[method](result, typoScriptPath, {
-        delay : idleDelay,
-        y : roamOffsetY
-      });
-    }
-    TweenLite[tagName](result, scale, {
-      delay : scale,
-      scaleX : a,
-      scaleY : a
-    });
-    TweenLite[method](result, scale, {
-      delay : delayM,
-      y : -s
-    });
-    self[prop](obj);
-    /** @type {number} */
-    obj[i] = valueToSet;
-    /** @type {number} */
-    obj[name] = info;
-  }
-  /**
-   * @return {undefined}
-   */
-  function onmessage() {
-    /** @type {string} */
-    var i = "restart_frames_to_average_fps";
-    /** @type {string} */
-    var field = "restart_low_fps";
-    /** @type {string} */
-    var index = "restart_ms_before_check_fps";
-    /** @type {string} */
-    var alias = "low_fps_restart_list";
-    /** @type {string} */
-    var _add = "lowFPSFallback";
-    /** @type {string} */
-    var key = "disable_low_fps_link";
-    /** @type {string} */
-    var prop = "frames_to_average_fps";
-    /** @type {string} */
-    var property = "low_fps";
-    /** @type {string} */
-    var param = "ms_before_check_fps";
-    if (!temp) {
-      /**
-       * @param {number} from
-       * @param {undefined} callback
-       * @param {number} position
-       * @param {?} speed
-       * @return {?}
-       */
-      var set = function(from, callback, position, speed) {
-        /** @type {string} */
-        var hidden = "hidden";
-        /** @type {number} */
-        var to = 3E3;
-        if (!curriedFn) {
-          return fn;
+    var J6A = "isSupported";
+    var C6A = "Touch";
+    var Z6A = "onselectstart";
+    var M6A = "drawRoundRect";
+    var H6A = '#000000';
+    var O8A = 1.1;
+    var l8A = 0.3;
+    function n1K() {
+        var H0A = 'grey';
+        var I0A = "bold 8.3px ";
+        var b0A = "not_for_public_watermark";
+        var q0A = "startup screen";
+        var L0A = "begin load";
+        var X6K = "px";
+        var R6K = 'height';
+        var e6K = 'width';
+        var i6K = "getDevicePixelRatio";
+        var x6K = "devicePixelRatio";
+        var U6K = "mouseMoveOutside";
+        var E6K = "Stage";
+        var J6K = "2d";
+        var C6K = "getContext";
+        var f6K = "FunCAPTCHA";
+        var V6K = "getElementById";
+        var E8K = 230;
+        var N8K = 182;
+        X5L = document[V6K](f6K);
+        X5L[l6K] = l5L;
+        X5L[Z6K] = E7L;
+        u1K = X5L[C6K](J6K);
+        I5L = new createjs[E6K](X5L);
+        I5L[y6K](Q7K);
+        I5L[U6K] = s6K;
+        if (window[x6K] && window[i6K]() > S7K) {
+            X5L[d6K](e6K, Math[A6K](l5L * window[i6K]()));
+            X5L[d6K](R6K, Math[A6K](E7L * window[i6K]()));
+            X5L[T6K][l6K] = l5L + X6K;
+            X5L[T6K][Z6K] = E7L + X6K;
+            I5L[Y6K] = I5L[O6K] = window[i6K]();
         }
-        if (hasSongChanged) {
-          return fn;
+        Y0K();
+        if (window[o6K][S0A])
+            T0K();
+        D5L = new createjs[F0A](s6K,z6K,q6K);
+        D5L[B0A](I7K);
+        D5L[W6K](W0A, J6L);
+        D5L[W6K](t0A, n6L);
+        D5L[W6K](s0A, V6L);
+        t9L = new createjs[F0A](s6K,z6K,q6K);
+        t9L[W6K](t0A, y6L);
+        q7L = z0K;
+        K0K();
+        U0K();
+        H7L(L0A, q0A);
+        createjs[K0A][Q0A](i7K);
+        createjs[K0A][W6K](h0A, N0K);
+        if (y8L || J7L) {
+            L7L = new createjs[p0A]();
+            L7L[w0A] = N8K;
+            L7L[a0A] = E8K;
+            var i1K = J7L ? J7L : P5L(b0A, c0A, E5L);
+            L7L[r0A](V5L([[i1K, I0A + M5L, H0A]], a8K, I7K, s6K, i7K, q6K, o9K, M0A, s6K, s6K));
+            I5L[r0A](L7L);
         }
-        if (!lastIndexMessage) {
-          return fn;
+    }
+    function E1K(x9K) {
+        t8L = s6K;
+    }
+    function J6L(b2K) {
+        var Y3A = "passLoadProgress";
+        if (r5L[X3A] == undefined) {
+            var a2K = D5L[U3A] * K8K * F7K;
+            Y6L = a2K;
+            d9L[Y6K] = a2K;
         }
-        if (document[hidden]) {
-          /** @type {number} */
-          current = value;
-          lastIndexMessage = Date[now]();
-          return fn;
-        }
-        current++;
-        /** @type {number} */
-        position = Number(position || after);
-        if (current < position) {
-          return fn;
-        }
-        /** @type {number} */
-        var pos = Number(from || to);
-        /** @type {number} */
-        var min = Number(callback || evt);
-        /** @type {boolean} */
-        var result = typeof speed !== undefined ? !!speed : fn;
-        /** @type {boolean} */
-        var hasMinValue = Date[now]() - lastIndexMessage > pos;
-        var value = createjs[service][command](position);
-        if (!result && hasMinValue && value < min) {
-          return Math[func](value) || a;
-        }
-        return fn;
-      };
-      self[operation]();
-      if (!try_fn) {
-        var hoverClass = set(args[param], args[property], args[prop], args[key]);
-        if (hoverClass) {
-          /** @type {boolean} */
-          try_fn = v2;
-          parent[_add](hoverClass);
-        }
-      }
-      if (!noAlias && args[alias]) {
-        var hoverClass = set(args[index], args[field], args[i]);
-        if (hoverClass) {
-          /** @type {boolean} */
-          noAlias = v2;
-          parent[_add](hoverClass, args[alias]);
-        }
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function logDebugMessage() {
-    /** @type {number} */
-    var file = 196.5;
-    if (args[ii] == undefined) {
-      /** @type {number} */
-      var height0 = height;
-      form = new createjs[ctor];
-      input = new createjs[componentName];
-      input[category][propertyName](newValue);
-      input[category][j](value, value, a, height0);
-      input[category][source]();
-      var opts = new createjs[componentName];
-      /** @type {number} */
-      var expectedRenderable = value;
-      opts[category][type](a);
-      opts[category][pi](newValue);
-      opts[category][j](-expectedRenderable / duration, -expectedRenderable / duration, s, height0 + expectedRenderable);
-      form[prop](opts);
-      form[prop](input);
-      /** @type {number} */
-      form[i] = undefined;
-      /** @type {number} */
-      form[name] = file;
-      self[prop](form);
-    }
-    self[operation]();
-  }
-  /**
-   * @param {string} el
-   * @param {string} node
-   * @param {number} callback
-   * @param {?} context
-   * @return {undefined}
-   */
-  function appendChild(el, node, callback, context) {
-    /** @type {string} */
-    var method = "sendAnalytics";
-    if (productionVersion) {
-      if (window[namespace][globalName]) {
-        try {
-          parent[method](el, node, callback, context);
-        } catch (J7E) {
-        }
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function addColorClick() {
-    /** @type {number} */
-    var maxFailedAttempts = 195;
-    if (d[i] < end || d[i] > start) {
-      /** @type {number} */
-      d[f] = -d[f];
-    }
-    if (d[name] < end || d[name] > maxFailedAttempts) {
-      /** @type {number} */
-      d[dim] = -d[dim];
-    }
-    d[i] += d[f];
-    d[name] += d[dim];
-  }
-  /**
-   * @param {number} val
-   * @param {number} f
-   * @return {?}
-   */
-  function parse(val, f) {
-    /** @type {string} */
-    var method = "fc2_cross_colour";
-    var obj = new createjs[componentName];
-    obj[category][propertyName](args[method] ? args[method] : color)[key](evt, value)[key](list, evt)[key](tag, value)[key](text, t)[key](time, x)[key](text, time)[key](tag, tag)[key](list, list)[key](evt, tag)[key](t, time)[key](x, x)[key](x, x)[key](t, t)[eventName](evt, value);
-    obj[i] = val ? val : expr;
-    obj[name] = f ? f : v;
-    /** @type {number} */
-    obj[property] = obj[idField] = id;
-    /** @type {number} */
-    obj[field] = x;
-    /** @type {number} */
-    obj[n] = x;
-    cb(obj, format, o);
-    self[prop](obj);
-    return obj;
-  }
-  /**
-   * @return {undefined}
-   */
-  function getService() {
-    /** @type {boolean} */
-    data[columnIndex] = fn;
-    data[action](click, alert);
-    data[action](resize, function(canCreateDiscussions) {
-      /** @type {string} */
-      document[body][STYLE][signedTransactionsCounter] = signedTxHex;
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function stop() {
-    /** @type {string} */
-    var OUTERSIZE = "hideWaitScreen";
-    window[cancel]($list);
-    if (onExit) {
-      /** @type {boolean} */
-      onExit = fn;
-      parent[OUTERSIZE]();
-    }
-  }
-  /**
-   * @param {number} ids
-   * @return {undefined}
-   */
-  function nativeRequire(ids) {
-    /** @type {string} */
-    var funcName = "setTimeout";
-    $list = window[funcName](function() {
-      modAddDefinedListener();
-    }, ids ? ids : rumbleSpeed);
-  }
-  /**
-   * @param {!Object} options
-   * @return {?}
-   */
-  function valid_any_match(options) {
-    var i = options[k];
-    if (i == value) {
-      return fn;
-    }
-    for (; --i;) {
-      var name = Math[mathMethod](Math[rngname]() * (i + a));
-      options[i] = options[name];
-      options[name] = options[i];
-    }
-  }
-  /**
-   * @param {?} spaces
-   * @return {undefined}
-   */
-  function indentString(spaces) {
-    /** @type {string} */
-    var k = "passLoadProgress";
-    if (args[ii] == undefined) {
-      /** @type {number} */
-      var start = item[state] * v * duration;
-      /** @type {number} */
-      className = start;
-      /** @type {number} */
-      input[property] = start;
-    }
-    if (window[namespace][globalName]) {
-      try {
-        parent[k](item[state]);
-      } catch (t2G) {
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function tryParseQRCode() {
-    /** @type {string} */
-    var OUTERSIZE = "setupSameChallenge";
-    parent[OUTERSIZE]();
-    refresh();
-  }
-  /**
-   * @return {?}
-   */
-  function split() {
-    var args = new createjs[ctor];
-    var opts = new createjs[componentName];
-    opts[category][configName]([git_ref, vibrateBtn], [value, a], value, value, value, min);
-    opts[category][j](value, value, min, right);
-    args[prop](opts);
-    return args;
-  }
-  /**
-   * @param {number} name
-   * @return {undefined}
-   */
-  function chain(name) {
-    self[methodName](name);
-  }
-  /**
-   * @return {undefined}
-   */
-  function newColumnRowInAddTableDialog() {
-    /** @type {number} */
-    var tm = 30.5;
-    /** @type {string} */
-    var updatedTop = "51.9 ";
-    /** @type {number} */
-    var handler = 14.5;
-    /** @type {number} */
-    var jump = 2.5;
-    /** @type {string} */
-    var task = "#c2c5c9";
-    /** @type {number} */
-    var s = 136;
-    /** @type {number} */
-    var core_user_remove_user_device = 71;
-    /** @type {number} */
-    var o1E = 61;
-    /** @type {number} */
-    var p7E = 33;
-    /** @type {number} */
-    var I7E = 23;
-    /** @type {number} */
-    var questionInfo = 16;
-    target = new createjs[ctor];
-    /** @type {number} */
-    var x = s;
-    /** @type {number} */
-    var wsFunction = core_user_remove_user_device;
-    var result = bind([[Width, s], [Height, o1E], [r3E, value], [s3E, check], [V3E, p7E], [L3E, args[paramName] !== undefined ? args[paramName] : path], [a3E, v2], [K3E, colorHold], [y3E, grid], [n3E, cell], [d3E, fn]]);
-    self[prop](target);
-    target[prop](result);
-    if (h < imgHeight) {
-      var result = clone(pattern);
-      /** @type {number} */
-      result[name] = base;
-      if (parent[expando] !== doneName) {
-        target[prop](result);
-      }
-    }
-    switch(h) {
-      case a:
-        /** @type {number} */
-        _varX = x;
-        /** @type {number} */
-        result[i] = iret;
-        break;
-      case duration:
-        /** @type {number} */
-        _varX = I7E;
-        /** @type {number} */
-        result[i] = iret;
-        break;
-      case u:
-        /** @type {number} */
-        _varX = evt;
-        /** @type {number} */
-        result[i] = info;
-        break;
-      case e:
-        /** @type {number} */
-        _varX = path;
-        /** @type {number} */
-        result[i] = v;
-        break;
-      default:
-        /** @type {number} */
-        _varX = b;
-    }
-    if (hasURL || h >= imgHeight) {
-      /** @type {number} */
-      _varX = _varX + session;
-    } else {
-      if (result) {
-        result[i] = result[i] + b;
-      }
-    }
-    if (h < o) {
-      /** @type {number} */
-      _varX = _varX + t;
-    } else {
-      /** @type {number} */
-      _varX = _varX + u;
-    }
-    /** @type {number} */
-    var y = value;
-    for (; y <= h - (hasURL ? a : value); y++) {
-      if (y < imgHeight) {
-        var opts = new createjs[componentName];
-        if (pattern === editor) {
-          opts[category][type](a, duration, duration);
-          opts[category][pi](task);
-          opts[category][j](-path, a, instance, instance);
-        }
-        opts[category][type](a, duration, duration);
-        opts[category][pi](pattern);
-        opts[category][j](-o, value, instance, instance);
-        /** @type {number} */
-        opts[dst] = a;
-        target[prop](opts);
-        /** @type {number} */
-        opts[i] = _varX - jump;
-        /** @type {number} */
-        opts[name] = handler;
-        var result = new createjs[componentName];
-        result[category][type](u, duration)[pi](pattern)[setter](u, session)[key](path, b)[key](orig, value);
-        target[prop](result);
-        /** @type {number} */
-        result[property_name] = y + a;
-        /** @type {number} */
-        result[i] = _varX - code;
-        /** @type {number} */
-        result[name] = questionInfo;
-        /** @type {number} */
-        result[dst] = a;
-        /** @type {number} */
-        _varX = _varX + evt;
-        /** @type {boolean} */
-        result[idx] = fn;
-      }
-    }
-    files = new createjs[typeCap](testServer, participant + courseId, pattern);
-    /** @type {string} */
-    files[url] = doc;
-    /** @type {number} */
-    files[l] = s;
-    /** @type {number} */
-    files[i] = bar;
-    /** @type {number} */
-    files[name] = file;
-    target[prop](files);
-    ret = new createjs[typeCap](updatedTop + px, admincoursecontents + courseId, pattern);
-    /** @type {string} */
-    ret[url] = doc;
-    /** @type {number} */
-    ret[l] = locale;
-    /** @type {number} */
-    ret[i] = bar;
-    /** @type {number} */
-    ret[name] = arg;
-    target[prop](ret);
-    /** @type {boolean} */
-    ret[idx] = fn;
-    if (evtName == fn) {
-      target[labelType](value, value, x, wsFunction);
-    }
-    /** @type {boolean} */
-    target[idx] = fn;
-    /** @type {number} */
-    target[i] = offset / duration - argData;
-    /** @type {number} */
-    target[name] = position / duration - tm;
-    /** @type {number} */
-    result[i] = -u;
-    /** @type {number} */
-    result[name] = -u;
-  }
-  /**
-   * @return {undefined}
-   */
-  function openResolve() {
-    TweenLite[funcName](parent);
-    TweenLite[method](parent, len, {
-      y : args[location] !== undefined ? args[location] : y1
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function _setPossibleFlags() {
-    /** @type {string} */
-    var j = "_finalChallengeInstruction2";
-    /** @type {string} */
-    var t = "_finalChallengeInstruction1";
-    /** @type {string} */
-    var name = "_text_landing_info";
-    /** @type {string} */
-    var field = "_text_fail_top_timed";
-    /** @type {string} */
-    var subfield = "_text_fail_middle_timed";
-    /** @type {string} */
-    var i = "_touch_button_info";
-    /** @type {string} */
-    var usersIdName = "_touch_done_info";
-    /** @type {string} */
-    var url = "_text_landing_button";
-    /** @type {string} */
-    var p = "_lang_only_custom";
-    if (items[from][p] && logic == items[from][p]) {
-      if (items[from][url]) {
-        _ref1 = items[from][url];
-      }
-      if (items[from][usersIdName]) {
-        if (logic != AND && logic != OR) {
-          settings = items[from][usersIdName][functionName](_);
-        } else {
-          settings = items[from][usersIdName][functionName](buf);
-        }
-      }
-      if (items[from][i]) {
-        if (logic != AND || logic != OR) {
-          hash = items[from][i][functionName](_);
-        } else {
-          hash = items[from][i][functionName](buf);
-        }
-      }
-      if (items[from][subfield]) {
-        if (logic != AND || logic != OR) {
-          json = items[from][subfield][functionName](_);
-        } else {
-          json = items[from][subfield][functionName](buf);
-        }
-      }
-      if (items[from][field]) {
-        if (logic != AND || logic != OR) {
-          parts = items[from][field][functionName](_);
-        } else {
-          parts = items[from][field][functionName](buf);
-        }
-      }
-      if (items[from][name]) {
-        align = items[from][name][functionName](_);
-      }
-      if (items[from][t]) {
-        if (logic != AND && logic != OR) {
-          values = items[from][t][functionName](_);
-        } else {
-          values = items[from][t][functionName](buf);
-        }
-      }
-      if (items[from][j]) {
-        if (logic != AND && logic != OR) {
-          res = items[from][j][functionName](_);
-        } else {
-          res = items[from][j][functionName](buf);
-        }
-      }
-    } else {
-      if (!items[from][p]) {
-        if (items[from][url]) {
-          _ref1 = items[from][url];
-        }
-        if (items[from][usersIdName]) {
-          if (logic != AND && logic != OR) {
-            settings = items[from][usersIdName][functionName](_);
-          } else {
-            settings = items[from][usersIdName][functionName](buf);
-          }
-        }
-        if (items[from][i]) {
-          if (logic != AND || logic != OR) {
-            hash = items[from][i][functionName](_);
-          } else {
-            hash = items[from][i][functionName](buf);
-          }
-        }
-        if (items[from][subfield]) {
-          if (logic != AND || logic != OR) {
-            json = items[from][subfield][functionName](_);
-          } else {
-            json = items[from][subfield][functionName](buf);
-          }
-        }
-        if (items[from][field]) {
-          if (logic != AND || logic != OR) {
-            parts = items[from][field][functionName](_);
-          } else {
-            parts = items[from][field][functionName](buf);
-          }
-        }
-        if (items[from][name]) {
-          if (logic != AND && logic != OR) {
-            align = items[from][name][functionName](_);
-          } else {
-            align = items[from][name][functionName](buf);
-          }
-        }
-        if (items[from][t]) {
-          if (logic != AND && logic != OR) {
-            values = items[from][t][functionName](_);
-          } else {
-            values = items[from][t][functionName](buf);
-          }
-        }
-        if (items[from][j]) {
-          if (logic != AND && logic != OR) {
-            res = items[from][j][functionName](_);
-          } else {
-            res = items[from][j][functionName](buf);
-          }
-        }
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function updateGameInfoEdit() {
-    /** @type {boolean} */
-    isInScript = v2;
-    /** @type {boolean} */
-    hasSongChanged = v2;
-    createElement();
-    if (node) {
-      createjs[service][action](touchend, addColorClick);
-      TweenLite[funcName](node);
-      self[methodName](node);
-    }
-    TweenLite[funcName](target);
-    TweenLite[method](target, value, {
-      alpha : value
-    });
-    TweenLite[method](model, scale, {
-      alpha : value
-    });
-    TweenLite[method](sel, scale, {
-      alpha : value
-    });
-    TweenLite[funcName](el);
-    TweenLite[method](el, scale, {
-      alpha : value
-    });
-    TweenLite[funcName](obj);
-    TweenLite[method](obj, handleCompositionStart, {
-      alpha : value
-    });
-    if (!original_fn) {
-      if (!conf_server_type) {
-        /** @type {boolean} */
-        attributes[idx] = v2;
-        /** @type {number} */
-        attributes[propName] = value;
-        /** @type {boolean} */
-        buffer[idx] = fn;
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function readyToEnd() {
-    /** @type {number} */
-    var content = 215;
-    /** @type {number} */
-    var height0 = height;
-    request = new createjs[ctor];
-    options = new createjs[componentName];
-    options[category][propertyName](newValue);
-    options[category][j](value, value, a, height0);
-    options[category][source]();
-    var opts = new createjs[componentName];
-    /** @type {number} */
-    var expectedRenderable = value;
-    opts[category][type](a);
-    opts[category][pi](newValue);
-    opts[category][j](-expectedRenderable / duration, -expectedRenderable / duration, s, height0 + expectedRenderable);
-    request[prop](opts);
-    request[prop](options);
-    /** @type {number} */
-    request[i] = undefined;
-    /** @type {number} */
-    request[name] = content;
-    self[prop](request);
-  }
-  /**
-   * @return {undefined}
-   */
-  function handler() {
-    update(-duration);
-  }
-  /**
-   * @return {undefined}
-   */
-  function performSharedElementTransition_() {
-    /** @type {number} */
-    var _SERVICE_TAKING_TOO_LONG = 2E4;
-    /** @type {number} */
-    var add = 210;
-    /** @type {boolean} */
-    filter = v2;
-    node = new createjs[ctor];
-    /** @type {number} */
-    node[i] = t;
-    /** @type {number} */
-    node[name] = add;
-    self[prop](node);
-    node[prop](callback([[connection, admincoursecontents + courseId, lhp]], max, r, v2, evt, sib, evt, args[callbackPosition], fn, fn));
-    TweenLite[tagName](node, scale, {
-      delay : scale,
-      alpha : value,
-      onComplete : realDone
-    });
-    /** @type {number} */
-    _takingTooLongTimeout = setTimeout(tryParseQRCode, _SERVICE_TAKING_TOO_LONG);
-  }
-  /**
-   * @param {?} fromFocus
-   * @return {undefined}
-   */
-  function blur(fromFocus) {
-    if (args[ii] !== undefined) {
-      TweenLite[funcName](row);
-      self[methodName](row);
-    } else {
-      self[methodName](request);
-    }
-    /** @type {boolean} */
-    element[idx] = v2;
-    TweenLite[tagName](element, defaultValue, {
-      alpha : value
-    });
-    element[addEventListener](click, refresh);
-  }
-  /**
-   * @return {undefined}
-   */
-  function _getTxItem() {
-    if (att == value && !hasSongChanged && !isInScript) {
-      if (!originalFn) {
-        /** @type {boolean} */
-        originalFn = v2;
-        /** @type {boolean} */
-        object[idx] = v2;
-        cb(object, format, o);
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function send() {
-    /** @type {boolean} */
-    hasSongChanged = v2;
-    g[part]((Math[func](val * t) / t)[TFXD](duration));
-    set[prop](d);
-    /** @type {number} */
-    d[name] = currentValue;
-    TweenLite[method](d, scale, {
-      scaleX : ratio,
-      scaleY : ratio,
-      x : -x,
-      y : languageOffsetY
-    });
-    y++;
-    /** @type {boolean} */
-    myOnStop = v2;
-    exec();
-    debug();
-    doRequest();
-  }
-  /**
-   * @return {undefined}
-   */
-  function constructor() {
-    if (isInScript) {
-      return;
-    }
-    if (hd) {
-      parent[_add](hoverClass, index, index, $header);
-    }
-    if (node) {
-      createjs[service][action](touchend, addColorClick);
-      TweenLite[funcName](node);
-      self[methodName](node);
-    }
-    /** @type {boolean} */
-    isInScript = v2;
-    createElement();
-    total = total + w;
-    /** @type {number} */
-    w = value;
-    /** @type {number} */
-    var diff = total / createjs[service][command]();
-    diff = diff[TFXD](a);
-    var obj = new createjs[ctor];
-    /** @type {number} */
-    obj[i] = option;
-    /** @type {number} */
-    obj[name] = locale;
-    self[prop](obj);
-    var ret = callback(index, m, time, index, index, index, index, grid, fn, fn);
-    /** @type {number} */
-    ret[i] = b;
-    obj[prop](ret);
-    var courseContentPage = admincoursecontents + courseId;
-    if (h != value) {
-      var args = new createjs[typeCap](diff + count + px, courseContentPage, pattern);
-      /** @type {string} */
-      args[url] = doc;
-      /** @type {number} */
-      args[l] = locale;
-      /** @type {number} */
-      args[i] = argData;
-      /** @type {number} */
-      args[name] = x;
-    }
-    obj[prop](args);
-    TweenLite[method](obj, scale, {
-      delay : delayM,
-      alpha : value,
-      onComplete : chain,
-      onCompleteParams : [obj]
-    });
-    startOfLineClean(diff);
-    label = label + str;
-    abs(str);
-    /** @type {string} */
-    document[body][STYLE][signedTransactionsCounter] = selectedMatchMaker;
-    if (!items[newPosition]) {
-      _disableQuiz();
-    }
-    TweenLite[method](this, animate ? duration : u, {
-      onComplete : complete
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function sendStatusChangedMessage() {
-    /** @type {string} */
-    var OUTERSIZE = "onAppLoad";
-    if (window[namespace][globalName]) {
-      try {
-        parent[OUTERSIZE]();
-      } catch (l7E) {
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function get() {
-    /** @type {string} */
-    var mouseup = "mouseup";
-    /** @type {string} */
-    var widget = "keypress";
-    /** @type {string} */
-    var status = "fc2_gobtn_y";
-    /** @type {string} */
-    var IN = "in";
-    /** @type {string} */
-    var event = "pressup";
-    /** @type {string} */
-    var mousedown = "mousedown";
-    /** @type {string} */
-    var undef = "undefined";
-    /** @type {string} */
-    var format = "fc2_rotate_stroke";
-    /** @type {string} */
-    var attrid2 = "fc2_rotate_bg";
-    /** @type {string} */
-    var lastArgN = "fc2_stroke_size";
-    /** @type {string} */
-    var finalId = "13px";
-    /** @type {string} */
-    var QqGNZv7rSrGJzBzs5Ya2XQ = "14px";
-    /** @type {string} */
-    var param = "fc2_info1_y";
-    /** @type {string} */
-    var c = "fc2_help_arrow_y";
-    /** @type {string} */
-    var selColor = "green";
-    /** @type {string} */
-    var number = "fc2_help_arrow_colour";
-    /** @type {number} */
-    var identifier = 229;
-    /** @type {number} */
-    var record = 205;
-    /** @type {number} */
-    var val = 135;
-    /** @type {number} */
-    var line = 105;
-    /** @type {number} */
-    var left = 93;
-    /** @type {number} */
-    var N1E = 42;
-    /** @type {number} */
-    var height = 41;
-    /** @type {number} */
-    var width = 39;
-    /** @type {number} */
-    var translated = 26;
-    /** @type {number} */
-    var selectstart = 24;
-    if (!hd && !next) {
-      parent[_add](line ? line : addedRelations + registrationID + messages + Userone + varVal, index, index, $header);
-    }
-    self[methodName](callbacks);
-    enable();
-    if (git_ref && vibrateBtn) {
-      buffer = split();
-    } else {
-      if (git_repo_ref) {
-        buffer = new createjs[ctorName](FUNCTION_TABLE[$162](xPathQuery));
-      } else {
-        buffer = new createjs[ctorName](item[$162](xPathQuery));
-      }
-    }
-    self[prop](buffer);
-    self[prop](attributes);
-    /** @type {boolean} */
-    attributes[idx] = fn;
-    object = new createjs[ctor];
-    self[prop](object);
-    /** @type {boolean} */
-    object[idx] = fn;
-    config = new createjs[componentName];
-    config[category][propertyName](args[number] ? args[number] : selColor)[key](list, value)[key](list, -path)[key](tag, e)[key](list, base)[key](list, session)[key](value, session)[key](value, value)[eventName]();
-    /** @type {number} */
-    config[attr] = val;
-    /** @type {number} */
-    config[i] = line;
-    config[name] = args[c] !== undefined ? args[c] : dy;
-    object[prop](config);
-    context = new createjs[componentName];
-    context[category][propertyName](args[number] ? args[number] : selColor)[key](list, value)[key](list, -path)[key](tag, e)[key](list, base)[key](list, session)[key](value, session)[key](value, value)[eventName]();
-    /** @type {number} */
-    context[attr] = err;
-    /** @type {number} */
-    context[i] = record;
-    /** @type {number} */
-    context[name] = args[c] !== undefined ? args[c] - x : text;
-    object[prop](context);
-    scope = new createjs[ctor];
-    /** @type {number} */
-    scope[field] = offset / duration;
-    /** @type {number} */
-    scope[i] = offset / duration;
-    /** @type {number} */
-    scope[name] = tag;
-    self[prop](scope);
-    opts = new createjs[ctor];
-    /** @type {number} */
-    opts[i] = value;
-    /** @type {number} */
-    opts[name] = v;
-    scope[prop](opts);
-    progress = new createjs[ctor];
-    scope[prop](progress);
-    sel = new createjs[ctor];
-    scope[prop](sel);
-    set = new createjs[ctor];
-    self[prop](set);
-    tile = new createjs[toolbarItem](editor, a, a, u);
-    el = new createjs[ctor];
-    /** @type {number} */
-    el[i] = text;
-    el[name] = args[param] !== undefined ? args[param] : t;
-    self[prop](el);
-    /** @type {number} */
-    var rw = offset - el[i] / duration;
-    /** @type {string} */
-    var id = QqGNZv7rSrGJzBzs5Ya2XQ;
-    switch(logic) {
-      case ne:
-        /** @type {string} */
-        id = finalId;
-        break;
-    }
-    if (args[nightlyCode] == undefined) {
-      el[prop](callback([[hash[value], $1 + id + count + courseId, lhp], [hash[a], id + count + courseId, lhp]], rw, time, fn, option, sib, evt, args[callbackPosition], fn, fn));
-    } else {
-      el[prop](callback([[hash[value] + (hash[a] ? count + hash[a] : lang), id + count + courseId, lhp]], rw, time, fn, option, sib, evt, args[callbackPosition], fn, fn));
-    }
-    obj = new createjs[ctor];
-    /** @type {number} */
-    obj[i] = text;
-    obj[name] = args[sum] !== undefined ? args[sum] : o;
-    self[prop](obj);
-    TweenLite[method](obj, value, {
-      alpha : value
-    });
-    /** @type {number} */
-    var start = offset - obj[i] / duration;
-    if (args[lngIndex] == undefined) {
-      obj[prop](callback([[settings[value], id + count + courseId, lhp], [settings[a], $1 + id + count + courseId, lhp], [settings[duration], id + count + courseId, lhp]], start, text, fn, left, sib, evt, args[callbackPosition], fn, fn));
-    } else {
-      obj[prop](callback([[settings[value] + (settings[a] ? count + settings[a] : lang) + (settings[duration] ? count + settings[duration] : lang), id + count + courseId, lhp]], start, text, fn, left, sib, evt, args[callbackPosition], fn, fn));
-    }
-    /** @type {number} */
-    obj[i] = offset / duration - left;
-    model = new createjs[ctor];
-    self[prop](model);
-    queryData = new createjs[componentName];
-    /** @type {number} */
-    var source = value;
-    /** @type {number} */
-    var datum = stashSha;
-    /** @type {number} */
-    var me = instance;
-    queryData[category][type](u, a)[setter](source, datum)[pi](match)[op](-duration, selectstart, -o, value, me, value)[type](value, args[lastArgN])[propertyName](match)[setter](me, -e)[key](me + t, value)[key](me, e)[key](me, -e);
-    /** @type {number} */
-    queryData[i] = value;
-    /** @type {number} */
-    queryData[name] = value;
-    elem = bind([[Width, N1E], [Height, N1E], [r3E, x], [s3E, check], [a3E, v2], [K3E, colorHold], [y3E, args[attrid2] === v2 || args[attrid2] === undefined ? False : index], [n3E, args[attrid2] === v2 || args[attrid2] === undefined ? title : index], [p2E, queryData], [U2E, code], [k2E, stashSha], [L3E, args[paramName] !== undefined ? args[paramName] : path], [d3E, typeof args[format] !== undef ? args[format] : v2], [O4E, option], [W4E, m], [R4E, -evt], [N4E, -x]]);
-    elem[name] = args[location] !== undefined ? args[location] : y1;
-    /** @type {number} */
-    elem[i] = translated;
-    model[prop](elem);
-    elem[addEventListener](mousedown, go);
-    dictionary = new createjs[componentName];
-    dictionary[category][type](u, a)[setter](source, datum)[pi](match)[op](-duration, selectstart, -o, value, me, value)[type](value, args[lastArgN])[propertyName](match)[setter](me, -e)[key](me + t, value)[key](me, e)[key](me, -e);
-    /** @type {number} */
-    dictionary[i] = value;
-    /** @type {number} */
-    dictionary[name] = value;
-    /** @type {number} */
-    dictionary[property] = -a;
-    parent = bind([[Width, N1E], [Height, N1E], [L3E, args[paramName] !== undefined ? args[paramName] : path], [r3E, x], [s3E, check], [a3E, v2], [K3E, colorHold], [y3E, args[attrid2] === v2 || args[attrid2] === undefined ? False : index], [n3E, args[attrid2] === v2 || args[attrid2] === undefined ? title : index], [p2E, dictionary], [U2E, questionInfo], [k2E, stashSha], [d3E, args[format] !== undefined ? args[format] : v2], [O4E, option], [W4E, m], [R4E, -evt], [N4E, -x]]);
-    parent[name] = args[location] !== undefined ? args[location] : y1;
-    /** @type {number} */
-    parent[i] = identifier;
-    model[prop](parent);
-    parent[addEventListener](mousedown, launch);
-    self[addEventListener](event, function(canCreateDiscussions) {
-      createjs[service][action](touchend, docker);
-    });
-    /** @type {number} */
-    var whatToScale = height;
-    var courseContentPage = groupNamePrefix + (args[num] !== index ? args[num] : alt) + dupeNameCount + courseId;
-    var direction_invert = args[optionName] !== undefined ? args[optionName] : x;
-    var options = args[attribute];
-    var parentOfParent = args[parentFieldName];
-    switch(logic) {
-      case IN:
-        /** @type {number} */
-        whatToScale = width;
-        break;
-    }
-    if (args[nameRP] !== undefined) {
-      queue = queue[_j]();
-    }
-    data = bind([[Height, direction_invert], [L3E, args[paramName] !== undefined ? args[paramName] : path], [r3E, info], [d3E, options === value ? fn : v2], [j4E, options], [J4E, parentOfParent], [E4E, args[wheelnavSlicepath] !== undefined ? duration : a], [s3E, check], [pos, [queue, courseContentPage, args[repo] ? args[repo] : response]], [K3E, colorHold], [y3E, wsFunction], [n3E, html], [V4E, Obj], [L4E, args[cacheIndex] !== undefined ? fn : v2], [Width, args[cacheIndex] !== undefined ? args[cacheIndex] :
-    index], [a4E, v2], [a3E, args[cacheKey] !== undefined ? args[cacheKey] : fn], [y4E, args[channel] !== undefined ? v2 : fn], [d4E, args[wheelnavSpreaderPath] !== undefined ? v2 : fn]]);
-    /** @type {number} */
-    data[i] = expr;
-    data[name] = args[status] !== undefined ? args[status] : def;
-    if (args[channel] == undefined) {
-      /** @type {boolean} */
-      data[idx] = fn;
-    } else {
-      /** @type {number} */
-      data[propName] = scale;
-    }
-    model[prop](data);
-    newColumnRowInAddTableDialog();
-    $(body, document)[widget](function(popupData) {
-      /** @type {string} */
-      var dataTriggerHovered = "which";
-      /** @type {string} */
-      var dataPopupHovered = "keyCode";
-      /** @type {number} */
-      var river = 38;
-      var stripTerrain = popupData[dataPopupHovered] || popupData[dataTriggerHovered];
-      if (!(stripTerrain == river)) {
-        _getTxItem();
-      }
-    });
-    self[addEventListener](mouseup, function(canCreateDiscussions) {
-      if (!hasSongChanged && !isInScript) {
-        if (_fn) {
-          /** @type {boolean} */
-          _fn = fn;
-        }
-      }
-    });
-    self[addEventListener](mousedown, function(item) {
-      /** @type {string} */
-      var i = "stageY";
-      /** @type {string} */
-      var property = "stageX";
-      /** @type {number} */
-      var h_max = 235;
-      /** @type {number} */
-      var target = 190;
-      /** @type {number} */
-      var v_max = 108;
-      if (!isInScript && !hasSongChanged && item[property] > value && item[property] < min && item[i] > value && item[i] < right) {
-        compiled = cache[attr];
-        /** @type {boolean} */
-        _fn = v2;
-        tickValues[part]([value, item[property], item[i]]);
-        if (!(item[property] < tag && item[i] > m && item[i] < width || item[property] > h_max && item[i] > m && item[i] < width || item[property] > v_max && item[property] < target && item[i] > target)) {
-          _getTxItem();
-        }
-      }
-    });
-    if (!fnn) {
-      if (args[column] !== undefined) {
-        self[prop](memo);
-        TweenLite[method](memo, scale, {
-          y : value,
-          alpha : a
-        });
-        /** @type {number} */
-        el[propName] = value;
-        /** @type {number} */
-        elem[propName] = value;
-        /** @type {number} */
-        parent[propName] = value;
-        TweenLite[method](el, scale, {
-          delay : scale,
-          alpha : a
-        });
-        TweenLite[method](elem, scale, {
-          delay : scale,
-          alpha : a
-        });
-        TweenLite[method](parent, scale, {
-          delay : scale,
-          alpha : a
-        });
-        setTimeout(function() {
-          render(a);
-        }, after);
-      } else {
-        render(a);
-      }
-    } else {
-      update(-duration);
-    }
-    createjs[service][addEventListener](touchend, onTouchEnd);
-    lastIndexMessage = Date[now]();
-    if (babushka || contentVmodels) {
-      self[prop](ea);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function onComplete3() {
-    if (c == h + a) {
-      if (res) {
-        obj[methodname]();
-        if (args[lngIndex] == undefined) {
-          obj[prop](callback([[res[value], admincoursecontents + courseId, lhp], [res[a], participant + courseId, lhp], [res[duration], admincoursecontents + courseId, lhp]], width, mod, fn, left, sib, evt, args[callbackPosition], fn, fn));
-        } else {
-          obj[prop](callback([[res[value] + (res[a] ? count + res[a] : lang) + (res[duration] ? count + res[duration] : lang), admincoursecontents + courseId, lhp]], max, mod, fn, left, sib, evt, args[callbackPosition], fn, fn));
-        }
-        /** @type {number} */
-        obj[i] = offset / duration - left;
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function loadShader() {
-    /** @type {string} */
-    var _add = "getEncryptionKey";
-    parent[_add](toggle);
-  }
-  /**
-   * @param {number} data
-   * @return {undefined}
-   */
-  function update(data) {
-    /** @type {string} */
-    var label = "incorrect answer";
-    /** @type {string} */
-    var svg = "failed game";
-    updateGameInfoEdit();
-    appendChild(svg, label, data);
-    TweenLite[method](attributes, scale, {
-      alpha : a
-    });
-    TweenLite[method](opts, scale, {
-      alpha : value
-    });
-    debounce();
-    if (args[ii] !== undefined) {
-      self[prop](row);
-      clear();
-      self[prop](data);
-      TweenLite[method](data, scale, {
-        alpha : value,
-        visible : value
-      });
-    } else {
-      readyToEnd();
-      UpdateCollisions();
-    }
-    switch(data) {
-      case -duration:
-        getGroupSnippet();
-        break;
-      case -a:
-        getLocale();
-        break;
-      default:
-        join(data);
-    }
-    clearTimeout(_takingTooLongTimeout);
-    minute();
-  }
-  /**
-   * @param {number} item
-   * @return {undefined}
-   */
-  function listener(item) {
-    TweenLite[method](item, scale, {
-      scaleX : scalar,
-      scaleY : scalar
-    });
-    TweenLite[method](item, scale, {
-      delay : scale,
-      scaleX : a,
-      scaleY : a,
-      onComplete : listener,
-      onCompleteParams : [item]
-    });
-  }
-  /**
-   * @param {number} str
-   * @return {?}
-   */
-  function render(str) {
-    /** @type {string} */
-    var anims = "drawCircle";
-    /** @type {string} */
-    var type = "rect";
-    /** @type {string} */
-    var cap = "getFrame";
-    /** @type {string} */
-    var letter1 = "spriteSheet";
-    /** @type {string} */
-    var key = "gotoAndPlay";
-    /** @type {string} */
-    var asserterName = "Sprite";
-    /** @type {string} */
-    var mod = "SpriteSheet";
-    /** @type {string} */
-    var id = "getFPS";
-    /** @type {string} */
-    var mathMethod = "ceil";
-    /** @type {string} */
-    var $218 = "src";
-    /** @type {string} */
-    var DOMContentLoaded = "IMG";
-    /** @type {string} */
-    var _addEventListener = "createElement";
-    /** @type {string} */
-    var next_planting = "data:image/jpeg;base64,";
-    /** @type {string} */
-    var _add = "decryptImg";
-    /** @type {number} */
-    var placeholder = 320;
-    /** @type {boolean} */
-    handle = fn;
-    if (c == h && hasURL) {
-      return fn;
-    }
-    var opts = new createjs[ctor];
-    sel[prop](opts);
-    var obj;
-    if (c == value || h == c) {
-      obj = item[$162](section + c);
-    } else {
-      obj = _this[$162](section + c);
-      if (!obj) {
-        setTimeout(function() {
-          render(str);
-        }, s);
-        return fn;
-      }
-    }
-    c++;
-    if (mode && h != c - a) {
-      var hoverClass;
-      if (c == a) {
-        hoverClass = item[$162](section + (c - a));
-      } else {
-        hoverClass = _this[$162](section + (c - a));
-      }
-      var crop_growth = parent[_add](hoverClass, nd[tocolumnid]);
-      /** @type {string} */
-      var next_grow = next_planting + crop_growth;
-      var FUNCTION_TABLE = document[_addEventListener](DOMContentLoaded);
-      FUNCTION_TABLE[$217]($218, next_grow);
-      obj = FUNCTION_TABLE;
-    }
-    if (curriedFn && h != c - a) {
-      var b = sources;
-      var clientHeight = Math[mathMethod](createjs[service][id]() / gridSize);
-      /** @type {!Array} */
-      var d = [];
-      /** @type {number} */
-      var name = value;
-      /** @type {number} */
-      var c = b - a;
-      for (; c >= value; c--) {
-        /** @type {number} */
-        var targetOffsetHeight = value;
-        for (; targetOffsetHeight < clientHeight; targetOffsetHeight++) {
-          d[part]([name, value, m, m, value, value, value]);
-        }
-        /** @type {number} */
-        name = name + m;
-      }
-      var data = {
-        images : [obj],
-        frames : d
-      };
-      var actual = new createjs[mod](data);
-      out = new createjs[asserterName](actual);
-      out[key](value);
-      /** @type {number} */
-      out[field] = out[letter1][cap](value)[type][axis] / duration;
-      /** @type {number} */
-      out[n] = out[letter1][cap](value)[type][ref] / duration;
-    } else {
-      out = new createjs[ctorName](obj);
-      /** @type {number} */
-      out[field] = end;
-      /** @type {number} */
-      out[n] = end;
-    }
-    opts[prop](out);
-    if (c == h + a) {
-      /** @type {!Array} */
-      var options = [locale, bytes, s];
-      valid_any_match(options);
-      opts[attr] = options[value];
-    }
-    if (!undecorated) {
-      var obj = new createjs[componentName];
-      if (newIndex == index) {
-        newIndex = match;
-      }
-      obj[category][type](duration)[pi](newIndex)[anims](end, end, end);
-      /** @type {number} */
-      obj[field] = end;
-      /** @type {number} */
-      obj[n] = end;
-      /** @type {number} */
-      obj[i] = value;
-      /** @type {number} */
-      obj[name] = value;
-      opts[prop](obj);
-    }
-    /** @type {number} */
-    opts[i] = placeholder;
-    opts[name] = app;
-    /** @type {number} */
-    opts[property] = opts[idField] = value;
-    TweenLite[method](opts, scale, {
-      scaleX : ratio,
-      scaleY : ratio
-    });
-    jOrgChart_user_config_options = opts;
-    /** @type {boolean} */
-    handle = v2;
-    if (str) {
-      resolve();
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function debug() {
-    if (myOnStop) {
-      TweenLite[funcName](el);
-      TweenLite[funcName](obj);
-      /** @type {number} */
-      att = value;
-      TweenLite[method](obj, months, {
-        alpha : value,
-        onComplete : onComplete3
-      });
-      TweenLite[method](el, weeks, {
-        alpha : a,
-        delay : timeout
-      });
-      getService();
-      if (args[channel] == undefined) {
-        TweenLite[method](data, scale, {
-          alpha : value,
-          visible : value
-        });
-      } else {
-        TweenLite[method](data, scale, {
-          alpha : scale
-        });
-      }
-      if (c == h + a) {
-        if (values) {
-          el[methodname]();
-          if (args[nightlyCode] == undefined) {
-            el[prop](callback([[values[value], participant + courseId, lhp], [values[a], admincoursecontents + courseId, lhp]], expr, time, fn, dy, sib, evt, args[callbackPosition], fn, fn));
-          } else {
-            el[prop](callback([[values[value] + (values[a] ? count + values[a] : lang), admincoursecontents + courseId, lhp]], max, time, fn, dy, sib, evt, args[callbackPosition], fn, fn));
-          }
-        }
-      }
-      /** @type {boolean} */
-      myOnStop = fn;
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function search() {
-    /** @type {boolean} */
-    myOnStop = v2;
-    debug();
-    doRequest();
-    render();
-  }
-  /**
-   * @param {!Array} data
-   * @param {number} x
-   * @param {number} y
-   * @param {string} val
-   * @param {number} name
-   * @param {string} e
-   * @param {number} value
-   * @param {!Object} target
-   * @param {string} callback
-   * @param {string} ctx
-   * @return {?}
-   */
-  function callback(data, x, y, val, name, e, value, target, callback, ctx) {
-    /** @type {string} */
-    var sPRELOAD = "getMeasuredHeight";
-    /** @type {string} */
-    var SHADOW_COLOR_1 = "#FFFFFF";
-    /** @type {number} */
-    var placeholder = 52;
-    var args = new createjs[ctor];
-    if (!e) {
-      target = target !== undefined ? target : False;
-      /** @type {boolean} */
-      callback = callback === undefined ? v2 : fn;
-      /** @type {boolean} */
-      ctx = ctx === undefined ? v2 : fn;
-      var result = new createjs[ctor];
-      args[prop](result);
-      var opts = new createjs[componentName];
-      if (ctx) {
-        opts[category][type](e);
-        opts[category][pi](DEFAULT_COLOR);
-      }
-      if (callback) {
-        opts[category][opt](value, value, x, y, e);
-      } else {
-        opts[category][j](value, value, x, y);
-      }
-      result[prop](opts);
-      /** @type {number} */
-      opts[field] = x / duration;
-      /** @type {number} */
-      opts[n] = y / duration;
-      /** @type {number} */
-      opts[i] = x / duration;
-      /** @type {number} */
-      opts[name] = y / duration;
-      var options = new createjs[componentName];
-      if (target) {
-        options[category][propertyName](target);
-      }
-      if (ctx) {
-        options[category][type](duration)[pi](SHADOW_COLOR_1);
-      }
-      if (callback) {
-        options[category][opt](value, value, x, y, e);
-      } else {
-        options[category][j](value, value, x, y);
-      }
-      result[prop](options);
-      /** @type {number} */
-      options[field] = x / duration | value;
-      /** @type {number} */
-      options[n] = y / duration | value;
-      /** @type {number} */
-      options[i] = x / duration;
-      /** @type {number} */
-      options[name] = y / duration;
-      /** @type {number} */
-      result[field] = x / duration;
-      /** @type {number} */
-      result[n] = y / duration;
-      /** @type {number} */
-      result[i] = x / duration;
-      /** @type {number} */
-      result[name] = y / duration;
-      if (evtName == fn) {
-        result[labelType](-(x * len), -(y * len), x + x * ratio, y + y * ratio);
-      }
-    }
-    if (data) {
-      /** @type {number} */
-      var result = path;
-      /** @type {number} */
-      var i = value;
-      for (; i <= data[k] - a; i++) {
-        var opts = new createjs[typeCap](data[i][value], data[i][a], data[i][duration]);
-        if (!val) {
-          /** @type {string} */
-          opts[url] = doc;
-          if (name) {
-            /** @type {number} */
-            opts[i] = name;
-          } else {
-            /** @type {number} */
-            opts[i] = placeholder;
-          }
-        } else {
-          if (name) {
-            /** @type {number} */
-            opts[i] = name;
-          } else {
-            /** @type {number} */
-            opts[i] = o;
-          }
-        }
-        /** @type {number} */
-        opts[l] = x;
-        opts[name] = result;
-        args[prop](opts);
-        result = result + (opts[sPRELOAD]() + u);
-      }
-    }
-    return args;
-  }
-  /**
-   * @return {undefined}
-   */
-  function _disableQuiz() {
-    /** @type {string} */
-    var name = "disable";
-    /**
-     * @return {undefined}
-     */
-    ws[cell_ref] = function() {
-    };
-    if (createjs[validatorCollection][is256]()) {
-      createjs[validatorCollection][name](self);
-    } else {
-      self[operator](value);
-    }
-  }
-  /**
-   * @param {?} timeout
-   * @return {undefined}
-   */
-  function disconnect(timeout) {
-    set[prop](d);
-    /** @type {number} */
-    rumbleInterval = setInterval(oneSecondTick, rumbleSpeed);
-    cmd = timeout;
-    /** @type {number} */
-    var t = value;
-    for (; t <= set[aa]() - a; t++) {
-      results[t] = set[addFn1](t);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function drawInfo() {
-    /** @type {string} */
-    var type = "TEXT";
-    /** @type {string} */
-    var j = "_challenge_imgs";
-    /** @type {!Array} */
-    var model = [];
-    /** @type {!Array} */
-    var val = [];
-    if (args[platform] !== undefined) {
-      model[part]({
-        id : selected,
-        src : args[platform],
-        type : createjs[PL$29][paramNr]
-      });
-    }
-    /** @type {number} */
-    var i = value;
-    for (; i < h + a; i++) {
-      if (frameId && i == h) {
-        if (!hasURL) {
-          model[part]({
-            id : section + i,
-            src : (totalCount ? prefix : tmp) + frameId,
-            type : createjs[PL$29][paramNr]
-          });
-        }
-      } else {
-        if (i == value) {
-          model[part]({
-            id : section + i,
-            src : (totalCount ? prefix : tmp) + items[from][j][i],
-            type : alias ? createjs[PL$29][type] : createjs[PL$29][paramNr]
-          });
-        } else {
-          val[part]({
-            id : section + i,
-            src : (totalCount ? prefix : tmp) + items[from][j][i],
-            type : alias ? createjs[PL$29][type] : createjs[PL$29][paramNr]
-          });
-        }
-      }
-    }
-    if (!git_repo_ref && !git_ref) {
-      model[part]({
-        id : xPathQuery,
-        src : href ? href : addedRelations + registrationID + messages + Userone + Usertwo,
-        type : createjs[PL$29][paramNr]
-      });
-    }
-    if (rectangleStart) {
-      model[part]({
-        id : itextPath,
-        src : rectangleStart,
-        type : createjs[PL$29][paramNr]
-      });
-    }
-    if (model[k]) {
-      item[fnName](model);
-      addChild();
-      TweenLite[method](this, t, {
-        onComplete : onComplete,
-        onCompleteParams : [item, value]
-      });
-    } else {
-      error();
-    }
-    if (val[k]) {
-      _this[fnName](val);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function build() {
-    /** @type {string} */
-    var method = "bindEvts";
-    /** @type {string} */
-    var myTestingMiddleware = "hideTab";
-    /** @type {string} */
-    var tailArrowClass = "showTab";
-    /** @type {string} */
-    var mm = "hiddenTimedTimeout";
-    /** @type {string} */
-    var hiddenClass = "timedTimeout";
-    /** @type {string} */
-    var window = "skipStartupScreen";
-    /** @type {string} */
-    var collapser = "startupClick";
-    /** @type {string} */
-    var actionArgs = "victoryScreenLoaded";
-    /** @type {string} */
-    var e = "loadProgress";
-    /** @type {string} */
-    var form = "showApp";
-    /** @type {string} */
-    var xhr = "hideApp";
-    /** @type {string} */
-    var action = "bind";
-    $(elDocs, document)[action](mousemove, blur);
-    $(elDocs, document)[action](xhr, unload);
-    $(elDocs, document)[action](form, base64);
-    $(elDocs, document)[action](e, invalidateCompetencyInCourse);
-    $(elDocs, document)[action](actionArgs, dispatchTimers);
-    $(elDocs, document)[action](collapser, req);
-    $(elDocs, document)[action](window, failure);
-    $(elDocs, document)[action](hiddenClass, handler);
-    $(elDocs, document)[action](mm, mouseup);
-    $(elDocs, document)[action](tailArrowClass, fields);
-    $(elDocs, document)[action](myTestingMiddleware, ipos);
-    parent[method]($(elDocs, document));
-  }
-  /**
-   * @param {!Object} type
-   * @return {undefined}
-   */
-  function launch(type) {
-    close(type);
-    if (!hasSongChanged && !isInScript && BASE_URL) {
-      TweenLite[method](parent, handleCompositionStart, {
-        y : args[location] !== undefined ? args[location] + u : long,
-        onComplete : openResolve
-      });
-      add();
-      if (!boundFn) {
-        /** @type {number} */
-        val = parseFloat(val);
-        /** @type {number} */
-        val = val - prev;
-        /** @type {number} */
-        val = parseFloat(val);
-        TweenLite[method](cache, scale, {
-          rotation : val,
-          onComplete : closeResolve
-        });
-        dockerOpts();
-      }
-      /** @type {number} */
-      pValue = value;
-      /** @type {number} */
-      head = -prev;
-      createjs[service][addEventListener](touchend, docker);
-    }
-  }
-  /**
-   * @param {!Array} d
-   * @return {?}
-   */
-  function bind(d) {
-    /** @type {string} */
-    var editor = "rgba(0,0,0,0.2)";
-    /** @type {number} */
-    var res = .01;
-    /** @type {string} */
-    var diffuseHex = "#ffffff";
-    /** @type {number} */
-    var file = 12.5;
-    /** @type {string} */
-    var status = "fc2_arrow_y";
-    /** @type {number} */
-    var projectPath = .9;
-    /** @type {number} */
-    var options = .96;
-    /** @type {string} */
-    var id = "shadow";
-    /** @type {string} */
-    var sPRELOAD = "getMeasuredWidth";
-    /** @type {string} */
-    var _newWidth2 = "minWidth";
-    /** @type {string} */
-    var k9E = "extraWidth";
-    /** @type {string} */
-    var minA = "firefox";
-    /** @type {string} */
-    var showingFrom = "#ffffff";
-    /** @type {string} */
-    var target = core_user_remove_user_device;
-    /** @type {string} */
-    var event = foo;
-    /** @type {string} */
-    var colorHold = color1;
-    /** @type {number} */
-    var end = b;
-    var val;
-    var text;
-    /** @type {number} */
-    var c = value;
-    /** @type {boolean} */
-    var method = fn;
-    /** @type {number} */
-    var w = value;
-    /** @type {number} */
-    var att = value;
-    /** @type {boolean} */
-    var sx = v2;
-    /** @type {number} */
-    var left = duration;
-    /** @type {string} */
-    var task = showingFrom;
-    /** @type {number} */
-    var key = a;
-    /** @type {boolean} */
-    var attr = fn;
-    var args;
-    /** @type {number} */
-    var type = t;
-    /** @type {number} */
-    var p = path;
-    var obj;
-    var temp;
-    var arr;
-    /** @type {boolean} */
-    var f = fn;
-    /** @type {boolean} */
-    var arg = fn;
-    /** @type {boolean} */
-    var alias = fn;
-    /** @type {boolean} */
-    var tmp = fn;
-    /** @type {number} */
-    var colors = value;
-    /** @type {number} */
-    var s = value;
-    /** @type {number} */
-    var max = value;
-    /** @type {number} */
-    var num = value;
-    if (navigator[FRIENDLY_PRINTED][IS_EXPANDABLE]()[iof](minA) > -a) {
-      /** @type {boolean} */
-      evtName = v2;
-    }
-    /** @type {number} */
-    var v = d[k] - a;
-    for (; v >= value; v--) {
-      switch(d[v][value]) {
-        case Width:
-          val = d[v][a];
-          break;
-        case Height:
-          w = d[v][a];
-          break;
-        case r3E:
-          att = d[v][a];
-          break;
-        case pos:
-          args = d[v][a];
-          break;
-        case L3E:
-          p = d[v][a];
-          break;
-        case V3E:
-          type = d[v][a];
-          break;
-        case a3E:
-          attr = d[v][a];
-          break;
-        case s3E:
-          end = d[v][a];
-          break;
-        case y3E:
-          target = d[v][a];
-          break;
-        case n3E:
-          event = d[v][a];
-          break;
-        case K3E:
-          colorHold = d[v][a];
-          break;
-        case p2E:
-          obj = d[v][a];
-          break;
-        case U2E:
-          temp = d[v][a];
-          break;
-        case k2E:
-          arr = d[v][a];
-          break;
-        case L4E:
-          method = d[v][a];
-          break;
-        case k9E:
-          text = d[v][a];
-          break;
-        case _newWidth2:
-          c = d[v][a];
-          break;
-        case j4E:
-          left = d[v][a];
-          break;
-        case J4E:
-          task = d[v][a];
-          break;
-        case E4E:
-          key = d[v][a];
-          break;
-        case d3E:
-          sx = d[v][a];
-          break;
-        case V4E:
-          f = d[v][a];
-          break;
-        case a4E:
-          arg = d[v][a];
-          break;
-        case y4E:
-          alias = d[v][a];
-          break;
-        case d4E:
-          tmp = d[v][a];
-          break;
-        case O4E:
-          colors = d[v][a];
-          break;
-        case W4E:
-          s = d[v][a];
-          break;
-        case R4E:
-          max = d[v][a];
-          break;
-        case N4E:
-          num = d[v][a];
-          break;
-      }
-    }
-    if (args) {
-      var opts = new createjs[typeCap](args[value], args[a], args[duration]);
-      if (attr) {
-        /** @type {string} */
-        opts[url] = doc;
-      }
-      opts[i] = type;
-      opts[name] = p;
-    }
-    if (method && args) {
-      val = opts[sPRELOAD]() + (text ? text : value);
-      val = val + evt;
-    }
-    if (c) {
-      if (val < c) {
-        val = c;
-      }
-    }
-    if (args && attr) {
-      /** @type {number} */
-      opts[i] = val / duration;
-    }
-    var window = new createjs[ctor];
-    window[uname] = val;
-    if (key == duration) {
-      val = val + evt;
-    }
-    if (!_activeProvider && sx) {
-      var result = new createjs[componentName];
-      result[category][type](e)[pi](DEFAULT_COLOR)[opt](value, value, val, w, end);
-      if (!highestScoringCandidate) {
-        result[id] = new createjs[toolbarItem](editor, a, a, o);
-      }
-      window[prop](result);
-    }
-    var opts = new createjs[componentName];
-    if (target !== event) {
-      opts[category][configName]([target, event], [value, len], value, evt, value, locale);
-    } else {
-      opts[category][propertyName](target);
-    }
-    if (sx) {
-      opts[category][type](left);
-      opts[category][pi](task);
-    }
-    if (end) {
-      opts[category][opt](value, value, val, w, end);
-    } else {
-      opts[category][j](value, value, val, w);
-    }
-    window[prop](opts);
-    if (!fromChar && event) {
-      var opts = new createjs[componentName];
-      opts[category][configName]([colorHold, event], [value, len], value, t, value, locale)[opt](value, value, val, w, end);
-      /** @type {number} */
-      opts[propName] = defaultValue;
-      window[prop](opts);
-      /** @type {number} */
-      opts[field] = val / duration | value;
-      /** @type {number} */
-      opts[n] = w / duration | value;
-      /** @type {number} */
-      opts[i] = val / duration;
-      /** @type {number} */
-      opts[name] = w / duration;
-      /** @type {number} */
-      opts[property] = options;
-      /** @type {number} */
-      opts[idField] = projectPath;
-    }
-    if (obj) {
-      window[prop](obj);
-      obj[i] = temp;
-      obj[name] = arr;
-    }
-    if (key == duration) {
-      var opts = new createjs[componentName];
-      opts[category][propertyName](args[repo] ? args[repo] : response)[key](o, value)[key](o, -e)[key](orig, duration)[key](o, session)[key](o, e)[key](value, e)[key](value, value)[eventName]();
-      /** @type {number} */
-      opts[i] = val - orig - session;
-      opts[name] = args[status] !== undefined ? args[status] : file;
-      window[prop](opts);
-    }
-    var data = new createjs[componentName];
-    data[category][propertyName](git_ref ? git_ref : diffuseHex)[j](value, value, colors ? colors : val, s ? s : w);
-    data[i] = max;
-    data[name] = num;
-    window[prop](data);
-    /** @type {number} */
-    data[propName] = res;
-    if (args) {
-      opts[l] = val;
-      window[prop](opts);
-    }
-    if (arg) {
-      /** @type {number} */
-      window[field] = val / duration;
-      /** @type {number} */
-      window[n] = w / duration;
-    }
-    if (tmp) {
-      window[id] = new createjs[toolbarItem](editor, duration, duration, o);
-    }
-    if (!alias) {
-      window[addEventListener](resize, function(canCreateDiscussions) {
-        /** @type {string} */
-        document[body][STYLE][signedTransactionsCounter] = signedTxHex;
-      });
-      window[addEventListener](scroll, function(canCreateDiscussions) {
-        /** @type {string} */
-        document[body][STYLE][signedTransactionsCounter] = selectedMatchMaker;
-      });
-    }
-    if (evtName == fn) {
-      window[labelType](-(val * len), -(w * len), val + val * ratio, w + w * ratio, scalar);
-    }
-    if (f) {
-      listener(window);
-    }
-    return window;
-  }
-  /**
-   * @return {undefined}
-   */
-  function complete() {
-    /** @type {string} */
-    var V8E = "Please wait.";
-    /** @type {string} */
-    var label = "waiting on lazy load of victory screen";
-    /** @type {string} */
-    var svg = "loading";
-    /** @type {string} */
-    var status = "fc2_welldone_image_x";
-    /** @type {string} */
-    var paramName = "fc2_welldone_image_y";
-    /** @type {string} */
-    var _j = "metricLoader";
-    /** @type {string} */
-    var index = "fc_view_macro";
-    /** @type {number} */
-    var off = 95;
-    TweenLite[method](set, scale, {
-      alpha : value
-    });
-    TweenLite[method](scope, scale, {
-      alpha : value
-    });
-    TweenLite[method](progress, scale, {
-      alpha : value
-    });
-    if (animate) {
-      if (msg) {
-        completeCallback();
-        parent[level](str);
-        if (items[table]) {
-          if (items[table][index] && items[table][index] != lang) {
-            parent[_j](items[table][index]);
-          }
-        }
-        if (next && args[platform] !== undefined) {
-          var options = new createjs[ctorName](item[$162](selected));
-          options[name] = args[paramName] !== undefined ? args[paramName] : option;
-          options[i] = args[status] !== undefined ? args[status] : m;
-          self[prop](options);
-          /** @type {number} */
-          options[propName] = value;
-          TweenLite[method](options, scale, {
-            alpha : a
-          });
-        } else {
-          parent[unliasedRef]();
-        }
-        completeCallback();
-        clearTimeout(_takingTooLongTimeout);
-      }
-    } else {
-      /** @type {boolean} */
-      localsFactory = v2;
-      appendChild(svg, label);
-      api = new createjs[ctor];
-      /** @type {number} */
-      api[i] = off;
-      /** @type {number} */
-      api[name] = def;
-      self[prop](api);
-      api[prop](callback([[V8E, admincoursecontents + courseId, lhp]], v, r, fn, index, v2, index, index, fn, fn, v2));
-      TweenLite[method](api, u, {
-        onComplete : completeCallback
-      });
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function getLocale() {
-    /** @type {string} */
-    var gt = "zh";
-    /** @type {number} */
-    var scope = 240;
-    /** @type {number} */
-    var valueToSet = 57;
-    /** @type {number} */
-    var level = 48;
-    TweenLite[method](d, scale, {
-      alpha : value,
-      onComplete : chain,
-      onCompleteParams : [d]
-    });
-    /** @type {number} */
-    var x = o;
-    /** @type {number} */
-    var c = offset - o - m;
-    /** @type {number} */
-    var w = (c - x) / (set[aa]() - a);
-    /** @type {number} */
-    var t = value;
-    for (; t <= set[aa]() - a; t++) {
-      var val = set[addFn1](t);
-      TweenLite[funcName](val);
-      TweenLite[method](val, scale, {
-        scaleX : a,
-        scaleY : a,
-        y : v,
-        x : o + w * t + end,
-        alpha : a
-      });
-    }
-    var result = parse(r, arg);
-    var obj = callback([[uriTemplate, admincoursecontents + courseId, lhp]], scope, level, fn, locale, sib, evt, args[callbackPosition], fn, fn, v2);
-    /** @type {number} */
-    obj[i] = valueToSet;
-    /** @type {number} */
-    obj[name] = session;
-    if (args[column] !== undefined) {
-      /** @type {number} */
-      obj[name] = r;
-    }
-    switch(logic) {
-      case IN:
-        /** @type {number} */
-        obj[i] = list;
-        /** @type {number} */
-        result[name] = time;
-        /** @type {number} */
-        result[i] = x;
-        break;
-      case NOT:
-        /** @type {number} */
-        obj[i] = list;
-        /** @type {number} */
-        result[name] = time;
-        /** @type {number} */
-        result[i] = x;
-        break;
-      case gt:
-        /** @type {number} */
-        obj[i] = list;
-        /** @type {number} */
-        result[name] = time;
-        /** @type {number} */
-        result[i] = x;
-        break;
-      case ne:
-        /** @type {number} */
-        obj[i] = arg;
-        /** @type {number} */
-        result[name] = text;
-        /** @type {number} */
-        result[i] = x;
-        break;
-    }
-    self[prop](obj);
-    TweenLite[method](set, scale, {
-      scaleX : a,
-      scaleY : a,
-      y : r
-    });
-    disconnect(set[aa]());
-  }
-  /**
-   * @param {number} type
-   * @return {undefined}
-   */
-  function join(type) {
-    /** @type {number} */
-    var windowRight = 238;
-    /** @type {number} */
-    var apiCallRaw = 180;
-    /** @type {number} */
-    var tp = 127;
-    /** @type {number} */
-    var newPath = 125;
-    /** @type {number} */
-    var data = 43;
-    if (!sib) {
-      map = new createjs[componentName];
-      map[category][propertyName](args[callbackPosition])[j](value, b, def, arg);
-      /** @type {number} */
-      map[i] = offset / duration - m;
-      self[prop](map);
-    }
-    var res = parse(apiCallRaw, tp);
-    props = new createjs[ctor];
-    /** @type {number} */
-    props[i] = code;
-    self[prop](props);
-    /** @type {number} */
-    var pull = evt;
-    if (args[lngIndex] == undefined) {
-      props[prop](callback([[settings[value], admincoursecontents + courseId, lhp], [settings[a], participant + courseId, lhp], [settings[duration], admincoursecontents + courseId, lhp]], bytes, text, fn, option, sib, pull, args[callbackPosition], fn, fn));
-    } else {
-      props[prop](callback([[settings[value] + (settings[a] ? count + settings[a] : lang) + (settings[duration] ? count + settings[duration] : lang), admincoursecontents + courseId, lhp]], bytes, text, fn, option, sib, pull, args[callbackPosition], fn, fn));
-    }
-    /** @type {number} */
-    props[name] = desc;
-    if (!settings[a]) {
-      /** @type {number} */
-      props[name] = data;
-      /** @type {number} */
-      props[i] = text;
-    }
-    TweenLite[tagName](props, scale, {
-      alpha : value
-    });
-    var result = new createjs[typeCap](keys, admincoursecontents + courseId, lhp);
-    /** @type {number} */
-    result[i] = expr;
-    /** @type {string} */
-    result[url] = doc;
-    /** @type {number} */
-    result[name] = instance;
-    if (args[column] !== undefined) {
-      /** @type {number} */
-      result[name] = arg;
-    }
-    self[prop](result);
-    set[prop](d);
-    /** @type {number} */
-    var t = value;
-    for (; t <= set[aa]() - a; t++) {
-      var val = set[addFn1](t);
-      TweenLite[funcName](val);
-      if (t == type) {
-        /** @type {number} */
-        var right = windowRight;
-        /** @type {number} */
-        var origNewPath = newPath;
-        if (!settings[a]) {
-          /** @type {number} */
-          right = expr;
-          /** @type {number} */
-          res[i] = s;
-        }
-        TweenLite[method](val, scale, {
-          scaleX : a,
-          scaleY : a,
-          x : right,
-          y : origNewPath
-        });
-      } else {
-        TweenLite[method](val, scale, {
-          scaleX : value,
-          scaleY : value
-        });
-      }
-    }
-  }
-  /**
-   * @param {?} tag
-   * @return {undefined}
-   */
-  function docker(tag) {
-    pValue++;
-    if (!boundFn && pValue > x) {
-      /** @type {boolean} */
-      boundFn = v2;
-      val = val + head;
-      TweenLite[method](cache, scale, {
-        rotation : val,
-        onComplete : closeResolve
-      });
-      dockerOpts();
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function modAddDefinedListener() {
-    /** @type {string} */
-    var OUTERSIZE = "showWaitScreen";
-    /** @type {boolean} */
-    onExit = v2;
-    parent[OUTERSIZE]();
-  }
-  /**
-   * @return {undefined}
-   */
-  function temp_err() {
-    /** @type {string} */
-    var backColor = "transparent";
-    /** @type {string} */
-    var status = "fc2_verifybtn_y";
-    /** @type {number} */
-    var startFirstDt = 88;
-    var m = args[status] !== undefined ? args[status] : s;
-    /** @type {number} */
-    var dt = startFirstDt;
-    var direction_invert = args[optionName] !== undefined ? args[optionName] : x;
-    /** @type {number} */
-    var param = offset / duration - dt / duration;
-    switch(logic) {
-      case suf:
-        /** @type {number} */
-        param = mod;
-        /** @type {number} */
-        dt = bytes;
-        break;
-    }
-    var courseContentPage = groupNamePrefix + (args[num] !== undefined ? args[num] : alt) + dupeNameCount + courseId;
-    var parentOfParent = args[parentFieldName];
-    var key = args[attribute];
-    if (args[nameRP] !== undefined) {
-      _ref1 = _ref1[_j]();
-    }
-    params = bind([[Height, direction_invert], [r3E, info], [j4E, key], [J4E, parentOfParent], [d3E, key === value ? fn : v2], [E4E, side == a ? a : duration], [s3E, check], [pos, [_ref1, courseContentPage, args[repo] ? args[repo] : response]], [L3E, args[paramName] !== undefined ? args[paramName] : path], [a3E, args[cacheKey] !== undefined ? args[cacheKey] : fn], [K3E, colorHold], [y3E, wsFunction], [n3E, html], [V4E, refPrefix], [a4E, subwiki], [L4E, args[cacheIndex] !== undefined ? fn : v2], [Width,
-    args[cacheIndex] !== undefined ? args[cacheIndex] : index], [d4E, args[wheelnavSpreaderPath] !== undefined ? v2 : fn]]);
-    /** @type {number} */
-    params[i] = param;
-    params[name] = m;
-    /** @type {boolean} */
-    params[idx] = v2;
-    if (subwiki) {
-      /** @type {number} */
-      params[i] = expr;
-    }
-    modules = bind([[Width, params[uname] + session], [Height, list], [r3E, info], [j4E, key], [J4E, color], [d3E, key === value ? fn : v2], [s3E, check], [K3E, colorHold], [y3E, backColor], [n3E, backColor], [L3E, args[paramName] !== undefined ? args[paramName] : path]]);
-    /** @type {number} */
-    modules[i] = params[field] + params[i] - params[uname] - e;
-    /** @type {number} */
-    modules[name] = params[name] - evt;
-    callbacks[prop](modules);
-    /** @type {boolean} */
-    modules[idx] = fn;
-    callbacks[prop](params);
-    params[addEventListener](click, req);
-    if (items[newPosition] === a) {
-      if (!hd && !next) {
-        parent[_add](line ? line : addedRelations + registrationID + messages + Userone + varVal);
-      }
-    }
-    if (args[ii] !== undefined) {
-      TweenLite[funcName](row);
-      self[methodName](row);
-    } else {
-      self[methodName](form);
-    }
-    self[operation]();
-  }
-  /**
-   * @return {undefined}
-   */
-  function configure() {
-    /** @type {string} */
-    var emit = "ar";
-    /** @type {string} */
-    var url = "_show_verify_arrow";
-    /** @type {string} */
-    var i = "_center_verify";
-    /** @type {string} */
-    var t = "_verify_btn_width";
-    /** @type {string} */
-    var k = "_verify_txt_x";
-    /** @type {string} */
-    var j = "_final_chal_lang_key";
-    /** @type {string} */
-    var name = "_info_land_lang_key";
-    /** @type {string} */
-    var http = "verification";
-    /** @type {string} */
-    var controller = "game_check";
-    /** @type {string} */
-    var config = "game_perfect";
-    /** @type {string} */
-    var iframe = "game_great";
-    /** @type {string} */
-    var transform = "game_good";
-    /** @type {string} */
-    var template = "fail_top_multi";
-    /** @type {string} */
-    var tagName = "fail_button";
-    /** @type {string} */
-    var type = "wait_text";
-    /** @type {string} */
-    var time = "seconds";
-    /** @type {string} */
-    var ol = "done_button";
-    /** @type {string} */
-    var data = "fail_top";
-    /** @type {string} */
-    var SKIP_TESTS = "fail_info_timed_top";
-    /** @type {string} */
-    var merge_path = "fail_info_timed_middle";
-    /** @type {string} */
-    var subfield = "_done_info_key";
-    /** @type {string} */
-    var replacementNode = "touch_done_info_stack";
-    /** @type {string} */
-    var clonedArticleNode = "touch_done_info";
-    /** @type {string} */
-    var schemaDialogNames = "touch_button_info";
-    /** @type {string} */
-    var start = "landing_button";
-    /** @type {string} */
-    var THREAD_STARTED = "landing_info";
-    if (logic != AND || logic != OR) {
-      align = require(THREAD_STARTED, done, username)[functionName](_);
-    } else {
-      align = require(THREAD_STARTED, done, username)[functionName](buf);
-    }
-    _ref1 = require(start, done, username);
-    if (logic != AND || logic != OR) {
-      hash = require(schemaDialogNames)[functionName](_);
-    } else {
-      hash = require(schemaDialogNames)[functionName](buf);
-    }
-    /** @type {string} */
-    var currentCloneElement = clonedArticleNode;
-    if (condition) {
-      /** @type {string} */
-      currentCloneElement = replacementNode;
-    }
-    if (items[from][subfield]) {
-      currentCloneElement = items[from][subfield];
-    }
-    if (logic != AND || logic != OR) {
-      settings = require(currentCloneElement)[functionName](_);
-    } else {
-      settings = require(currentCloneElement)[functionName](buf);
-    }
-    if (!FOOTNOTES_VAR_NAME) {
-      if (logic != AND || logic != OR) {
-        json = require(merge_path)[functionName](_);
-      } else {
-        json = require(merge_path)[functionName](buf);
-      }
-    } else {
-      if (logic != AND || logic != OR) {
-        json = require(load)[functionName](_);
-      } else {
-        json = require(load)[functionName](buf);
-      }
-    }
-    if (logic != AND || logic != OR) {
-      parts = require(SKIP_TESTS)[functionName](_);
-    } else {
-      parts = require(SKIP_TESTS)[functionName](buf);
-    }
-    /** @type {string} */
-    var json = data;
-    keys = require(json);
-    queue = require(ol);
-    px = require(time, done, username);
-    connection = require(type, done, username);
-    _ref = require(tagName);
-    uriTemplate = require(template);
-    stream = require(transform, done, username);
-    client = require(iframe, done, username);
-    driver = require(config, done, username);
-    testServer = require(controller, done, username);
-    if (items[from][column]) {
-      server = require(http, done, username);
-    }
-    if (items[from][name]) {
-      if (logic != AND || logic != OR) {
-        align = require(items[from][name], done, username)[functionName](_);
-      } else {
-        align = require(items[from][name], done, username)[functionName](buf);
-      }
-    }
-    values = hash;
-    res = settings;
-    _setPossibleFlags();
-    if (items[from][j]) {
-      res = require(items[from][j])[functionName](_);
-    }
-    if (items[from][k]) {
-      segment = items[from][k];
-    }
-    if (items[from][t]) {
-      last = items[from][t];
-    }
-    if (items[from][i]) {
-      subwiki = items[from][i];
-    }
-    if (items[from][sigma]) {
-      refPrefix = items[from][sigma];
-    }
-    if (items[from][url]) {
-      /** @type {boolean} */
-      side = !items[from][url];
-    }
-    if (logic === emit) {
-      /** @type {string} */
-      ws[STYLE][domain_bug] = today;
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function getAdjacentCodeToken() {
-    createjs[service][sname](tag);
-    createjs[service][addEventListener](touchend, onTouchEnd);
-    createjs[service][addEventListener](touchend, onmessage);
-    window[cancel](srcToEval);
-    self[methodName](callbacks);
-    self[methodName](form);
-    self[methodName](params);
-    self[methodname]();
-    if (git_ref && vibrateBtn) {
-      buffer = split();
-    } else {
-      if (git_repo_ref) {
-        var xPathResults = FUNCTION_TABLE[$162](xPathQuery);
-        buffer = new createjs[ctorName](xPathResults);
-      } else {
-        xPathResults = item[$162](xPathQuery);
-        buffer = new createjs[ctorName](xPathResults);
-      }
-    }
-    self[prop](buffer);
-    self[prop](attributes);
-    /** @type {boolean} */
-    attributes[idx] = fn;
-    /** @type {boolean} */
-    params[idx] = fn;
-    test();
-  }
-  /**
-   * @return {undefined}
-   */
-  function debounce() {
-    /** @type {number} */
-    var file = 217.5;
-    /** @type {string} */
-    var status = "fc2_tryagainbtn_y";
-    /** @type {number} */
-    var height = 134;
-    /** @type {number} */
-    var label = option;
-    /** @type {number} */
-    var whatToScale = height;
-    switch(logic) {
-      case suf:
-        /** @type {number} */
-        label = tag;
-        /** @type {number} */
-        whatToScale = width;
-        break;
-    }
-    var courseContentPage = groupNamePrefix + (args[num] !== index ? args[num] : alt) + dupeNameCount + courseId;
-    var direction_invert = args[optionName] !== undefined ? args[optionName] : x;
-    var key = args[attribute];
-    var parentOfParent = args[parentFieldName];
-    if (args[nameRP] !== undefined) {
-      _ref = _ref[_j]();
-    }
-    element = bind([[Height, direction_invert], [r3E, info], [L3E, args[paramName] !== undefined ? args[paramName] : path], [d3E, key === value ? fn : v2], [j4E, a], [J4E, parentOfParent], [E4E, args[wheelnavSlicepath] !== undefined ? duration : a], [s3E, check], [pos, [_ref, courseContentPage, args[repo] ? args[repo] : match]], [K3E, colorHold], [y3E, wsFunction], [n3E, html], [L4E, args[cacheIndex] !== undefined ? fn : v2], [Width, args[cacheIndex] !== undefined ? args[cacheIndex] : index], [a4E,
-    v2], [a3E, args[cacheKey] !== undefined ? args[cacheKey] : fn], [d4E, args[wheelnavSpreaderPath] !== undefined ? v2 : fn]]);
-    /** @type {number} */
-    element[i] = offset / duration;
-    element[name] = args[status] !== undefined ? args[status] : file;
-    self[prop](element);
-    /** @type {boolean} */
-    element[idx] = fn;
-  }
-  /**
-   * @param {string} d
-   * @return {undefined}
-   */
-  function onload(d) {
-    /** @type {string} */
-    var k = "incorrect_guess";
-    /** @type {string} */
-    var series = "result";
-    /** @type {string} */
-    var search_lemma = "solved";
-    /** @type {string} */
-    var OUTERSIZE = "hideTimedModeTimer";
-    /** @type {string} */
-    var PM = "timed_mode_timeout";
-    /** @type {string} */
-    var filterKey = "response";
-    stop();
-    if (mode) {
-      y++;
-    }
-    d = $[template](d);
-    if (d && d[event] == uuid) {
-      tryParseQRCode();
-      return;
-    }
-    if (d && d[filterKey] == PM) {
-      handler();
-      return;
-    }
-    if (d && d[colorPropertyName]) {
-      dColorPropName = d[colorPropertyName];
-      message = d[header];
-      makeBorder();
-    }
-    if (d && d[colid]) {
-      tocolumnid++;
-      nd[tocolumnid] = d[colid];
-    }
-    if (d && d[filterKey] == filterValue) {
-      parent[OUTERSIZE]();
-      /** @type {boolean} */
-      ascending = v2;
-      if (d[search_lemma] == v2) {
-        /** @type {boolean} */
-        msg = v2;
-        formattedX = d[series];
-        if (isInStyle && !isInScript) {
-          test();
-        }
-      } else {
-        update(d[k] - a);
-      }
-    } else {
-      if (mode) {
-        search();
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function dispatchTimers() {
-    /** @type {boolean} */
-    animate = v2;
-    if (localsFactory) {
-      /** @type {boolean} */
-      localsFactory = fn;
-      complete();
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function refresh() {
-    /** @type {string} */
-    var OUTERSIZE = "destroyLastCaptcha";
-    /** @type {string} */
-    var method = "unbind";
-    $(elDocs, document)[method](mousemove, blur);
-    if (window[namespace][globalName]) {
-      try {
-        parent[OUTERSIZE]();
-      } catch (d8G) {
-        /** @type {string} */
-        var i = "reload";
-        /** @type {string} */
-        var target = "location";
-        window[target][i]();
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function add() {
-    if (att == value) {
-      val = cache[attr];
-      /** @type {number} */
-      att = a;
-      TweenLite[funcName](el);
-      TweenLite[method](el, scale, {
-        alpha : value
-      });
-      /** @type {number} */
-      obj[name] = -v;
-      TweenLite[method](obj, scale, {
-        delay : ratio,
-        alpha : a,
-        y : args[sum] !== undefined ? args[sum] : o
-      });
-      _deactivateAll();
-      if (args[channel] == undefined) {
-        /** @type {boolean} */
-        data[idx] = v2;
-        /** @type {number} */
-        data[propName] = value;
-        TweenLite[method](data, scale, {
-          alpha : a
-        });
-      } else {
-        TweenLite[method](data, scale, {
-          alpha : a
-        });
-      }
-    }
-    createElement();
-  }
-  /**
-   * @param {number} item
-   * @param {number} context
-   * @param {string} label
-   * @return {undefined}
-   */
-  function cb(item, context, label) {
-    /** @type {string} */
-    var name = "fromTo";
-    if (label == value) {
-      return;
-    }
-    label--;
-    TweenLite[name](item, context, {
-      alpha : value
-    }, {
-      alpha : a,
-      onComplete : cb,
-      onCompleteParams : [item, context, label]
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function append() {
-    /** @type {string} */
-    var value_color = "grey";
-    /** @type {string} */
-    var participant = "bold 8.3px ";
-    /** @type {string} */
-    var SKIP_TESTS = "not_for_public_watermark";
-    /** @type {string} */
-    var label = "startup screen";
-    /** @type {string} */
-    var svg = "begin load";
-    /** @type {string} */
-    var px = "px";
-    /** @type {string} */
-    var $218 = "height";
-    /** @type {string} */
-    var initialResizeWidth = "width";
-    /** @type {string} */
-    var shouldHydrateName = "getDevicePixelRatio";
-    /** @type {string} */
-    var DEVICE_PIXEL_RATIO = "devicePixelRatio";
-    /** @type {string} */
-    var id = "mouseMoveOutside";
-    /** @type {string} */
-    var UPPER_STAGE = "Stage";
-    /** @type {string} */
-    var cmd = "2d";
-    /** @type {string} */
-    var cell_ref = "getContext";
-    /** @type {string} */
-    var start = "FunCAPTCHA";
-    /** @type {string} */
-    var key = "getElementById";
-    /** @type {number} */
-    var layerName = 230;
-    /** @type {number} */
-    var n = 182;
-    ws = document[key](start);
-    /** @type {number} */
-    ws[axis] = offset;
-    /** @type {number} */
-    ws[ref] = position;
-    finisherFn = ws[cell_ref](cmd);
-    self = new createjs[UPPER_STAGE](ws);
-    self[operator](t);
-    /** @type {boolean} */
-    self[id] = fn;
-    if (window[DEVICE_PIXEL_RATIO] && window[shouldHydrateName]() > a) {
-      ws[$217](initialResizeWidth, Math[func](offset * window[shouldHydrateName]()));
-      ws[$217]($218, Math[func](position * window[shouldHydrateName]()));
-      /** @type {string} */
-      ws[STYLE][axis] = offset + px;
-      /** @type {string} */
-      ws[STYLE][ref] = position + px;
-      self[property] = self[idField] = window[shouldHydrateName]();
-    }
-    build();
-    if (window[namespace][globalName]) {
-      init();
-    }
-    item = new createjs[PL$29](fn, index, v2);
-    item[cmdName](evt);
-    item[addEventListener](autoplay, indentString);
-    item[addEventListener](event, log);
-    item[addEventListener]($103, error);
-    _this = new createjs[PL$29](fn, index, v2);
-    _this[addEventListener](event, reset);
-    prev = curr;
-    playlistAppendPost();
-    logDebugMessage();
-    appendChild(svg, label);
-    createjs[service][sname](tag);
-    createjs[service][addEventListener](touchend, onmessage);
-    if (babushka || contentVmodels) {
-      ea = new createjs[ctor];
-      /** @type {number} */
-      ea[i] = n;
-      /** @type {number} */
-      ea[name] = layerName;
-      var scanVmodels = contentVmodels ? contentVmodels : require(SKIP_TESTS, done, username);
-      ea[prop](callback([[scanVmodels, participant + courseId, value_color]], long, evt, fn, tag, v2, value, tmp, fn, fn));
-      self[prop](ea);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function translate() {
-    /** @type {string} */
-    var status = "fc2_loading_image_y";
-    /** @type {string} */
-    var paramName = "fc2_loading_image_x";
-    /** @type {string} */
-    var participant = "22px ";
-    /** @type {string} */
-    var param = "fc2_meta_logo_x";
-    /** @type {string} */
-    var c = "fc2_meta_logo_y";
-    /** @type {string} */
-    var i = "fc2_meta_text_y";
-    /** @type {string} */
-    var l7p = "sv";
-    /** @type {string} */
-    var between = "ko";
-    /** @type {string} */
-    var tpt = "pt";
-    /** @type {string} */
-    var lt = "pt-br";
-    /** @type {string} */
-    var coll = "it";
-    /** @type {string} */
-    var middlePathName = "11px ";
-    /** @type {string} */
-    var tmpSlug = "12px ";
-    /** @type {string} */
-    var join = "ar";
-    /** @type {string} */
-    var wheelnavMarkerPath = "fc2_intro_text_bold";
-    /** @type {number} */
-    var t = 227;
-    /** @type {number} */
-    var all = 148;
-    if (git_ref && vibrateBtn) {
-      attributes = split();
-    } else {
-      if (conf_server_type) {
-        attributes = new createjs[ctorName](FUNCTION_TABLE[$162]($143));
-      } else {
-        if (git_repo_ref) {
-          attributes = new createjs[ctorName](FUNCTION_TABLE[$162](xPathQuery));
-        } else {
-          attributes = new createjs[ctorName](FUNCTION_TABLE[$162]($189));
-        }
-      }
-    }
-    callbacks[prop](attributes);
-    /** @type {number} */
-    size = max;
-    /** @type {string} */
-    var baseNewPath = args[wheelnavMarkerPath] !== undefined ? lang : $1;
-    r1G = baseNewPath + course + courseId;
-    switch(logic) {
-      case join:
-        /** @type {number} */
-        size = s;
-        break;
-      case IN:
-        r1G = baseNewPath + tmpSlug + courseId;
-        break;
-      case NOT:
-        r1G = baseNewPath + middlePathName + courseId;
-        break;
-      case coll:
-        /** @type {number} */
-        size = max;
-        break;
-      case lt:
-        /** @type {number} */
-        size = max;
-        break;
-      case tpt:
-        /** @type {number} */
-        size = max;
-        break;
-      case ne:
-        /** @type {number} */
-        size = max;
-        break;
-      case between:
-        /** @type {number} */
-        size = max;
-        break;
-      case l7p:
-        /** @type {number} */
-        size = max;
-        break;
-    }
-    result = callback([[align[value], r1G, user], [align[a], r1G, user]], size, index, fn, option, v2, evt);
-    if (navigator[vibrate][iof](minA) !== -a && ws[STYLE][domain_bug] === today) {
-      /** @type {number} */
-      result[i] = start;
-    } else {
-      /** @type {number} */
-      result[i] = text;
-    }
-    result[name] = args[i] !== undefined ? args[i] : long;
-    switch(logic) {
-      case IN:
-        /** @type {number} */
-        result[i] = iret;
-        break;
-    }
-    callbacks[prop](result);
-    if (args[posMsg] == undefined) {
-      content = new createjs[ctorName](FUNCTION_TABLE[$162]($218));
-      content[name] = args[c] !== undefined ? args[c] : file;
-      content[i] = args[param] !== undefined ? args[param] : r;
-      callbacks[prop](content);
-    }
-    if (args[column] !== undefined) {
-      memo = callback([[server, participant + courseId, editor]], size, index, fn, option, v2, evt);
-      /** @type {number} */
-      memo[i] = text;
-      /** @type {number} */
-      memo[name] = v;
-      self[prop](memo);
-    }
-    if (args[ii] !== undefined) {
-      row = new createjs[ctorName](FUNCTION_TABLE[$162]($163));
-      row[i] = args[paramName] !== undefined ? args[paramName] : all;
-      row[name] = args[status] !== undefined ? args[status] : t;
-      self[prop](row);
-      /** @type {number} */
-      row[field] = row[n] = b;
-      clear();
-    }
-    drawInfo();
-  }
-  /**
-   * @return {undefined}
-   */
-  function error() {
-    /** @type {boolean} */
-    __fn = v2;
-    window[cancel](srcToEval);
-    self[methodName](form);
-    if (open() || hasLayerUrl && !isCSVLayer) {
-      temp_err();
-      if (open() && (!hasLayerUrl || isCSVLayer)) {
-        /** @type {boolean} */
-        params[idx] = fn;
-        /** @type {boolean} */
-        callbacks[idx] = fn;
-        if (memo) {
-          /** @type {number} */
-          memo[propName] = value;
-        }
-        if (hasLayerUrl) {
-          failure();
-        }
-      }
-    } else {
-      req();
-    }
-    sendStatusChangedMessage();
-  }
-  /**
-   * @param {number} item
-   * @param {number} data
-   * @param {!Object} file
-   * @return {undefined}
-   */
-  function report(item, data, file) {
-    /** @type {number} */
-    var curData = .15;
-    if (!data) {
-      /** @type {number} */
-      data = curData;
-    }
-    if (!file) {
-      /** @type {number} */
-      file = data;
-    }
-    TweenLite[method](item, data, {
-      alpha : a
-    });
-    TweenLite[method](item, file, {
-      delay : data,
-      alpha : value,
-      onComplete : report,
-      onCompleteParams : [item, data, file]
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function completeCallback() {
-    /** @type {string} */
-    var OUTERSIZE = "solveMeta";
-    if (!_fn3) {
-      /** @type {boolean} */
-      _fn3 = v2;
-      if (window[namespace][globalName]) {
-        try {
-          parent[OUTERSIZE]();
-        } catch (y8G) {
-        }
-      }
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function doRequest() {
-    /** @type {number} */
-    var idleDelay = .8;
-    /** @type {string} */
-    var name = "updateCache";
-    /** @type {string} */
-    var myContextHeight = " of ";
-    if (!isInScript && !items[newPosition]) {
-      /** @type {boolean} */
-      BASE_URL = fn;
-      /** @type {boolean} */
-      target[idx] = v2;
-      /** @type {number} */
-      target[propName] = value;
-      TweenLite[method](target, scale, {
-        alpha : a
-      });
-      /** @type {boolean} */
-      files[idx] = fn;
-      if (y == a) {
-        /** @type {boolean} */
-        files[idx] = v2;
-      } else {
-        /** @type {boolean} */
-        ret[idx] = v2;
-        var offset = (w / createjs[service][command]())[TFXD](a);
-        ret[pos] = offset + count + px;
-        if (y >= imgHeight) {
-          if (!style) {
-            style = new createjs[typeCap](lang, course + courseId, pattern);
-            /** @type {string} */
-            style[url] = doc;
-            /** @type {number} */
-            style[l] = locale;
-            /** @type {number} */
-            style[name] = orig;
-            /** @type {number} */
-            style[i] = bar;
-            target[prop](style);
-          }
-          var px = h + (hasURL ? value : a);
-          style[pos] = y + myContextHeight + px;
-        }
-      }
-      /** @type {number} */
-      var num = target[aa]() - a;
-      for (; num >= value; num--) {
-        var result = target[addFn1](num);
-        if (y >= imgHeight) {
-          if (result[dst] == a) {
-            /** @type {boolean} */
-            result[idx] = fn;
-          }
-        } else {
-          if (result[property_name]) {
-            if (result[property_name] == y) {
-              /** @type {boolean} */
-              result[idx] = v2;
+        if (window[o6K][S0A])
+            try {
+                parent[Y3A](D5L[U3A]);
+            } catch (c2K) {}
+    }
+    function E0K() {
+        var e5A = "victoryScreen";
+        r8L = s6K;
+        if (I8L) {
+            if (c5L[D5A] === S7K) {
+                clearTimeout(D7L);
+                if (X9L)
+                    parent[u5A](m6L, z6K, z6K, W8L);
+                parent[e5A]();
+                parent[A5A]();
+                c8L();
+                return;
             }
-          }
+            I8L = s6K;
+            y9L = q6K;
+            w6L();
         }
-      }
-      if (evtName == fn) {
-        target[name]();
-      }
-      TweenLite[method](target, scale, {
-        delay : idleDelay,
-        alpha : value
-      });
-      TweenLite[method](this, id, {
-        onComplete : resolve
-      });
     }
-  }
-  /**
-   * @param {!Object} fn
-   * @return {undefined}
-   */
-  function go(fn) {
-    close(fn);
-    if (!hasSongChanged && !isInScript && BASE_URL) {
-      TweenLite[method](elem, len, {
-        y : args[location] !== undefined ? args[location] + u : long,
-        onComplete : _performBuff
-      });
-      add();
-      if (!boundFn) {
-        /** @type {number} */
-        val = parseFloat(val);
-        val = val + prev;
-        /** @type {number} */
-        val = parseFloat(val);
-        TweenLite[method](cache, scale, {
-          rotation : val,
-          onComplete : closeResolve
+    var P8A = 1.5;
+    var v8A = "dy";
+    function t1K() {
+        TweenLite[i3A](h9L);
+        TweenLite[y3A](h9L, S7A, {
+            y: r5L[k9A] !== undefined ? r5L[k9A] : w8K
         });
-        dockerOpts();
-      }
-      /** @type {number} */
-      pValue = value;
-      head = prev;
-      createjs[service][addEventListener](touchend, docker);
     }
-  }
-  /**
-   * @return {undefined}
-   */
-  function playlistAppendPost() {
-    /** @type {string} */
-    var postfix = "/images/meta/fc_meta_bg.png";
-    /** @type {string} */
-    var filename = "/images/meta/fc_nf_meta_logo.png";
-    /** @type {string} */
-    var js = "/images/meta/fc_nf_meta_logo_white.png";
-    callbacks = new createjs[ctor];
-    self[prop](callbacks);
-    FUNCTION_TABLE = new createjs[PL$29](fn, index, v2);
-    FUNCTION_TABLE[addEventListener](event, addTextClick);
-    FUNCTION_TABLE[addEventListener]($103, translate);
-    /** @type {!Array} */
-    var value = [];
-    if (args[posMsg] == undefined) {
-      if (content) {
-        value[part]({
-          id : $218,
-          src : content,
-          type : createjs[PL$29][paramNr]
+    var m8A = "dx";
+    var z8A = "random";
+    function m0K() {
+        var n8A = "Please wait.";
+        var G8A = "waiting on lazy load of victory screen";
+        var N8A = "loading";
+        var k8A = "fc2_welldone_image_x";
+        var u8A = "fc2_welldone_image_y";
+        var D8A = "metricLoader";
+        var j8A = "fc_view_macro";
+        var q8K = 95;
+        TweenLite[y3A](v5L, n6K, {
+            alpha: o9K
         });
-      } else {
-        if (_fn2) {
-          value[part]({
-            id : $218,
-            src : src + js,
-            type : createjs[PL$29][paramNr]
-          });
+        TweenLite[y3A](n9L, n6K, {
+            alpha: o9K
+        });
+        TweenLite[y3A](z6L, n6K, {
+            alpha: o9K
+        });
+        if (q8L) {
+            if (y9L) {
+                c8L();
+                parent[w8A](L9L);
+                if (c5L[t2A])
+                    if (c5L[t2A][j8A] && c5L[t2A][j8A] != p6K)
+                        parent[D8A](c5L[t2A][j8A]);
+                if (v9L && r5L[u3A] !== undefined) {
+                    var L4K = new createjs[h4A](D5L[p4A](N3A));
+                    L4K[a0A] = r5L[u8A] !== undefined ? r5L[u8A] : F8K;
+                    L4K[w0A] = r5L[k8A] !== undefined ? r5L[k8A] : p8K;
+                    I5L[r0A](L4K);
+                    L4K[y4A] = o9K;
+                    TweenLite[y3A](L4K, n6K, {
+                        alpha: S7K
+                    });
+                } else
+                    parent[A5A]();
+                c8L();
+                clearTimeout(D7L);
+            }
         } else {
-          value[part]({
-            id : $218,
-            src : src + filename,
-            type : createjs[PL$29][paramNr]
-          });
-        }
-      }
-    }
-    if (args[ii] !== undefined) {
-      value[part]({
-        id : $163,
-        src : args[ii],
-        type : createjs[PL$29][paramNr]
-      });
-    }
-    if (git_repo_ref || conf_server_type) {
-      if (conf_server_type) {
-        value[part]({
-          id : $143,
-          src : to,
-          type : createjs[PL$29][paramNr]
-        });
-      }
-      if (git_repo_ref && !git_ref) {
-        value[part]({
-          id : xPathQuery,
-          src : href ? href : addedRelations + registrationID + messages + Userone + Usertwo,
-          type : createjs[PL$29][paramNr]
-        });
-      }
-    } else {
-      if (!(git_ref && vibrateBtn)) {
-        if (git_repo_ref || conf_server_type) {
-          if (conf_server_type) {
-            value[part]({
-              id : $143,
-              src : to,
-              type : createjs[PL$29][paramNr]
+            u8L = q6K;
+            H7L(N8A, G8A);
+            r7L = new createjs[p0A]();
+            r7L[w0A] = q8K;
+            r7L[a0A] = Z8K;
+            I5L[r0A](r7L);
+            r7L[r0A](V5L([[n8A, r7A + M5L, m5L]], K8K, m7K, s6K, z6K, q6K, z6K, z6K, s6K, s6K, q6K));
+            TweenLite[y3A](r7L, B7K, {
+                onComplete: c8L
             });
-          }
-          if (git_repo_ref) {
-            value[part]({
-              id : xPathQuery,
-              src : href ? href : addedRelations + registrationID + messages + Userone + Usertwo,
-              type : createjs[PL$29][paramNr]
+        }
+    }
+    var M8A = "floor";
+    var I8A = "from";
+    function J0K() {
+        q8L = q6K;
+        if (u8L) {
+            u8L = s6K;
+            m0K();
+        }
+    }
+    var w8A = "setStars";
+    function C6L() {
+        var n4A = "fc2_loading_image_y";
+        var G4A = "fc2_loading_image_x";
+        var N4A = "22px ";
+        var k4A = "fc2_meta_logo_x";
+        var u4A = "fc2_meta_logo_y";
+        var D4A = "fc2_meta_text_y";
+        var j4A = "sv";
+        var P4A = "ko";
+        var m4A = "pt";
+        var z4A = "pt-br";
+        var M4A = "it";
+        var H4A = "11px ";
+        var r4A = "12px ";
+        var b4A = "ar";
+        var w4A = "fc2_intro_text_bold";
+        var C8K = 227;
+        var P8K = 148;
+        if (b9L && z7L)
+            W9L = l6L();
+        else if (N9L)
+            W9L = new createjs[h4A](d5L[p4A](W4A));
+        else if (Q9L)
+            W9L = new createjs[h4A](d5L[p4A](f3A));
+        else
+            W9L = new createjs[h4A](d5L[p4A](t4A));
+        q9L[r0A](W9L);
+        a9L = e8K;
+        var M2K = r5L[w4A] !== undefined ? p6K : M6K;
+        X7L = M2K + a4A + M5L;
+        switch (H5L) {
+        case b4A:
+            a9L = g8K;
+            break;
+        case c4A:
+            X7L = M2K + r4A + M5L;
+            break;
+        case I4A:
+            X7L = M2K + H4A + M5L;
+            break;
+        case M4A:
+            a9L = e8K;
+            break;
+        case z4A:
+            a9L = e8K;
+            break;
+        case m4A:
+            a9L = e8K;
+            break;
+        case v4A:
+            a9L = e8K;
+            break;
+        case P4A:
+            a9L = e8K;
+            break;
+        case j4A:
+            a9L = e8K;
+            break;
+        }
+        s7L = V5L([[u9L[o9K], X7L, R7L], [u9L[S7K], X7L, R7L]], a9L, z6K, s6K, F8K, q6K, I7K);
+        if (navigator[k6K][D6K](N6K) !== -S7K && X5L[T6K][p3A] === w3A)
+            s7L[w0A] = i8K;
+        else
+            s7L[w0A] = T7K;
+        s7L[a0A] = r5L[D4A] !== undefined ? r5L[D4A] : a8K;
+        switch (H5L) {
+        case c4A:
+            s7L[w0A] = O7K;
+            break;
+        }
+        q9L[r0A](s7L);
+        if (r5L[O3A] == undefined) {
+            S7L = new createjs[h4A](d5L[p4A](o3A));
+            S7L[a0A] = r5L[u4A] !== undefined ? r5L[u4A] : k7K;
+            S7L[w0A] = r5L[k4A] !== undefined ? r5L[k4A] : m7K;
+            q9L[r0A](S7L);
+        }
+        if (r5L[B3A] !== undefined) {
+            V9L = V5L([[o6L, N4A + M5L, c6K]], a9L, z6K, s6K, F8K, q6K, I7K);
+            V9L[w0A] = T7K;
+            V9L[a0A] = K8K;
+            I5L[r0A](V9L);
+        }
+        if (r5L[X3A] !== undefined) {
+            R5L = new createjs[h4A](d5L[p4A](B4A));
+            R5L[w0A] = r5L[G4A] !== undefined ? r5L[G4A] : P8K;
+            R5L[a0A] = r5L[n4A] !== undefined ? r5L[n4A] : C8K;
+            I5L[r0A](R5L);
+            R5L[g4A] = R5L[V4A] = p7K;
+            f6L();
+        }
+        e6L();
+    }
+    var p8A = 'response';
+    var s8A = 'answered';
+    var B8A = 'DENIED ACCESS';
+    function q1K() {
+        var m3A = "_finalChallengeInstruction2";
+        var z3A = "_finalChallengeInstruction1";
+        var M3A = "_text_landing_info";
+        var H3A = "_text_fail_top_timed";
+        var I3A = "_text_fail_middle_timed";
+        var r3A = "_touch_button_info";
+        var c3A = "_touch_done_info";
+        var b3A = "_text_landing_button";
+        var a3A = "_lang_only_custom";
+        if (c5L[i0A][a3A] && H5L == c5L[i0A][a3A]) {
+            if (c5L[i0A][b3A])
+                w7L = c5L[i0A][b3A];
+            if (c5L[i0A][c3A])
+                if (H5L != g2A && H5L != V2A)
+                    u5L = c5L[i0A][c3A][P0A](l2A);
+                else
+                    u5L = c5L[i0A][c3A][P0A](Z2A);
+            if (c5L[i0A][r3A])
+                if (H5L != g2A || H5L != V2A)
+                    O5L = c5L[i0A][r3A][P0A](l2A);
+                else
+                    O5L = c5L[i0A][r3A][P0A](Z2A);
+            if (c5L[i0A][I3A])
+                if (H5L != g2A || H5L != V2A)
+                    Z5L = c5L[i0A][I3A][P0A](l2A);
+                else
+                    Z5L = c5L[i0A][I3A][P0A](Z2A);
+            if (c5L[i0A][H3A])
+                if (H5L != g2A || H5L != V2A)
+                    w9L = c5L[i0A][H3A][P0A](l2A);
+                else
+                    w9L = c5L[i0A][H3A][P0A](Z2A);
+            if (c5L[i0A][M3A])
+                u9L = c5L[i0A][M3A][P0A](l2A);
+            if (c5L[i0A][z3A])
+                if (H5L != g2A && H5L != V2A)
+                    S9L = c5L[i0A][z3A][P0A](l2A);
+                else
+                    S9L = c5L[i0A][z3A][P0A](Z2A);
+            if (c5L[i0A][m3A])
+                if (H5L != g2A && H5L != V2A)
+                    U5L = c5L[i0A][m3A][P0A](l2A);
+                else
+                    U5L = c5L[i0A][m3A][P0A](Z2A);
+        } else if (!c5L[i0A][a3A]) {
+            if (c5L[i0A][b3A])
+                w7L = c5L[i0A][b3A];
+            if (c5L[i0A][c3A])
+                if (H5L != g2A && H5L != V2A)
+                    u5L = c5L[i0A][c3A][P0A](l2A);
+                else
+                    u5L = c5L[i0A][c3A][P0A](Z2A);
+            if (c5L[i0A][r3A])
+                if (H5L != g2A || H5L != V2A)
+                    O5L = c5L[i0A][r3A][P0A](l2A);
+                else
+                    O5L = c5L[i0A][r3A][P0A](Z2A);
+            if (c5L[i0A][I3A])
+                if (H5L != g2A || H5L != V2A)
+                    Z5L = c5L[i0A][I3A][P0A](l2A);
+                else
+                    Z5L = c5L[i0A][I3A][P0A](Z2A);
+            if (c5L[i0A][H3A])
+                if (H5L != g2A || H5L != V2A)
+                    w9L = c5L[i0A][H3A][P0A](l2A);
+                else
+                    w9L = c5L[i0A][H3A][P0A](Z2A);
+            if (c5L[i0A][M3A])
+                if (H5L != g2A && H5L != V2A)
+                    u9L = c5L[i0A][M3A][P0A](l2A);
+                else
+                    u9L = c5L[i0A][M3A][P0A](Z2A);
+            if (c5L[i0A][z3A])
+                if (H5L != g2A && H5L != V2A)
+                    S9L = c5L[i0A][z3A][P0A](l2A);
+                else
+                    S9L = c5L[i0A][z3A][P0A](Z2A);
+            if (c5L[i0A][m3A])
+                if (H5L != g2A && H5L != V2A)
+                    U5L = c5L[i0A][m3A][P0A](l2A);
+                else
+                    U5L = c5L[i0A][m3A][P0A](Z2A);
+        }
+    }
+    var F8A = "parseJSON";
+    var E7A = 0.6;
+    var Z7A = "getChildAt";
+    function l0K(G2K) {
+        l8L();
+        x6L(G2K);
+        if (G2K[x5A])
+            C8L[C7L] = G2K[x5A];
+        x8L();
+    }
+    var l7A = "getNumChildren";
+    var V7A = "getMeasuredFPS";
+    var n7A = "cache";
+    var N7A = "lineWidth";
+    var k7A = "center";
+    var u7A = "textAlign";
+    var D7A = "Text";
+    var j7A = "tickID";
+    var m7A = "checkboxgui";
+    var M7A = "9";
+    var H7A = "_meta_theme";
+    var I7A = "textX";
+    var r7A = "14px ";
+    var c7A = "bold 14px ";
+    var Q7A = "toFixed";
+    var s7A = 0.25;
+    var F7A = 0.2;
+    var S7A = 0.1;
+    function z1K() {
+        f0K = s6K;
+    }
+    function y1K() {
+        var U5A = "getEncryptionKey";
+        parent[U5A](l0K);
+    }
+    var Y9A = 1.0;
+    var X9A = 'default';
+    var T9A = "rollout";
+    var R9A = 'pointer';
+    var A9A = "cursor";
+    var e9A = "rollover";
+    var d9A = "enabled";
+    var i9A = "now";
+    var Z9A = "body";
+    var f9A = "fc2_dim_done_button";
+    var V9A = "disable_mouse_over";
+    function F1K(d3K) {
+        var r8A = 'incorrect_guess';
+        var c8A = 'result';
+        var b8A = 'solved';
+        var a8A = 'error';
+        var i3K = $[F8A](d3K);
+        if (i3K && i3K[a8A] == B8A) {
+            Y8L();
+            return;
+        }
+        if (i3K && i3K[p8A] == s8A) {
+            V7L = q6K;
+            if (i3K[b8A] == q6K) {
+                y9L = q6K;
+                K6L = i3K[c8A];
+                if (K8L && !i5L)
+                    N7L();
+            } else
+                H8L(i3K[r8A] - S7K);
+        }
+    }
+    function e6L() {
+        var V3A = "TEXT";
+        var g3A = "_challenge_imgs";
+        var q2K = [];
+        var K2K = [];
+        if (r5L[u3A] !== undefined)
+            q2K[k3A]({
+                id: N3A,
+                src: r5L[u3A],
+                type: createjs[F0A][G3A]
             });
-          }
-        } else {
-          value[part]({
-            id : $189,
-            src : src + postfix,
-            type : createjs[PL$29][paramNr]
-          });
-        }
-      }
+        for (var L2K = o9K; L2K < j5L + S7K; L2K++)
+            if (v8L && L2K == j5L) {
+                if (!T5L)
+                    q2K[k3A]({
+                        id: n3A + L2K,
+                        src: (P9L ? H9L : M0A) + v8L,
+                        type: createjs[F0A][G3A]
+                    });
+            } else if (L2K == o9K)
+                q2K[k3A]({
+                    id: n3A + L2K,
+                    src: (P9L ? H9L : M0A) + c5L[i0A][g3A][L2K],
+                    type: x7L ? createjs[F0A][V3A] : createjs[F0A][G3A]
+                });
+            else
+                K2K[k3A]({
+                    id: n3A + L2K,
+                    src: (P9L ? H9L : M0A) + c5L[i0A][g3A][L2K],
+                    type: x7L ? createjs[F0A][V3A] : createjs[F0A][G3A]
+                });
+        if (!Q9L && !b9L)
+            q2K[k3A]({
+                id: f3A,
+                src: s9L ? s9L : M7L + p9L + l3A + b7L + Z3A,
+                type: createjs[F0A][G3A]
+            });
+        if (S8L)
+            q2K[k3A]({
+                id: C3A,
+                src: S8L,
+                type: createjs[F0A][G3A]
+            });
+        if (o7L)
+            q2K[k3A]({
+                id: J3A,
+                src: o7L,
+                type: createjs[F0A][G3A]
+            });
+        if (q2K[Q2A]) {
+            D5L[E3A](q2K);
+            X0K();
+            TweenLite[y3A](this, Q7K, {
+                onComplete: U6L,
+                onCompleteParams: [D5L, o9K]
+            });
+        } else
+            V6L();
+        if (K2K[Q2A])
+            t9L[E3A](K2K);
     }
-    if (value[k]) {
-      FUNCTION_TABLE[fnName](value);
-    } else {
-      translate();
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function getGroupSnippet() {
-    /** @type {string} */
-    var number = "fc2_timeout_arrow_colour";
-    /** @type {string} */
-    var n = "fc2_timed_out_arrow_y";
-    /** @type {string} */
-    var method = "fc2_timed_out_arrow_x";
-    /** @type {string} */
-    var object = "object";
-    /** @type {string} */
-    var OUTERSIZE = "timerTimeout";
-    /** @type {number} */
-    var token = 58;
-    /** @type {number} */
-    var langKey = 28;
-    parent[OUTERSIZE]();
-    if (d) {
-      TweenLite[method](d, scale, {
-        alpha : value,
-        onComplete : chain,
-        onCompleteParams : [d]
-      });
-      chain(set);
-    }
-    props = new createjs[ctor];
-    /** @type {number} */
-    props[i] = text;
-    self[prop](props);
-    /** @type {number} */
-    var result = evt;
-    /** @type {number} */
-    var val = bytes;
-    if (FOOTNOTES_VAR_NAME) {
-      /** @type {number} */
-      val = offset - props[i] / duration;
-    }
-    if (args[lngIndex] == undefined) {
-      props[prop](callback([[json[value], admincoursecontents + courseId, lhp], [json[a], participant + courseId, lhp], [json[duration], admincoursecontents + courseId, lhp]], val, text, fn, option, sib, result, args[callbackPosition], fn, fn));
-    } else {
-      props[prop](callback([[json[value] + (json[a] ? count + json[a] : lang) + (json[duration] ? count + json[duration] : lang), admincoursecontents + courseId, lhp]], val, text, fn, option, sib, result, args[callbackPosition], fn, fn));
-    }
-    /** @type {number} */
-    props[name] = desc;
-    TweenLite[tagName](props, scale, {
-      alpha : value
-    });
-    var obj = new createjs[ctor];
-    /** @type {number} */
-    obj[i] = text;
-    /** @type {number} */
-    obj[name] = css;
-    if (args[column] !== undefined) {
-      /** @type {number} */
-      obj[name] = arg;
-    }
-    /** @type {number} */
-    var rw = offset - obj[i] / duration;
-    self[prop](obj);
-    /** @type {!Array} */
-    var p = [[parts, admincoursecontents + courseId, lhp]];
-    if (typeof parts === object) {
-      /** @type {!Array} */
-      p = [];
-      /** @type {number} */
-      var j = value;
-      for (; j < parts[k]; j++) {
-        p[part]([parts[j], admincoursecontents + courseId, lhp]);
-      }
-    }
-    obj[prop](callback(p, rw, text, fn, option, sib, result, args[callbackPosition], fn, fn));
-    if (!FOOTNOTES_VAR_NAME) {
-      var opts = new createjs[componentName];
-      var msg = args[method] ? args[method] : code;
-      var content = args[n] ? args[n] : m;
-      var type = args[number] ? args[number] : args[repo];
-      if (!type) {
-        type = response;
-      }
-      opts[category][propertyName](type)[key](msg + o, content + bar)[key](msg + evt, content + left)[key](msg + arg, content + bar)[key](msg + langKey, content + bar)[key](msg + langKey, content + token)[op](msg + arg, content + evt, msg + err, content + value, msg + text, content + value)[op](msg + tag, content + value, msg + evt, content + value, msg + b, content + token)[key](msg + b, content + bar)[eventName]();
-      /** @type {number} */
-      opts[i] = value;
-      /** @type {number} */
-      opts[name] = value;
-      self[prop](opts);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function addTextClick() {
-    FUNCTION_TABLE[children]();
-    FUNCTION_TABLE[displayName]();
-    FUNCTION_TABLE[tip]();
-    FUNCTION_TABLE[status]();
-    parent[propertyToRemove]();
-    expectedRenderable++;
-    TweenLite[method](this, a, {
-      onComplete : playlistAppendPost
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function fields() {
-    if (modules) {
-      /** @type {boolean} */
-      modules[idx] = v2;
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function _deactivateAll() {
-    /** @type {boolean} */
-    data[columnIndex] = v2;
-    data[addEventListener](click, alert);
-    data[addEventListener](resize, function(canCreateDiscussions) {
-      /** @type {string} */
-      document[body][STYLE][signedTransactionsCounter] = signedTxHex;
-    });
-    data[addEventListener](scroll, function(canCreateDiscussions) {
-      /** @type {string} */
-      document[body][STYLE][signedTransactionsCounter] = selectedMatchMaker;
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function updateStatus() {
-    if (original) {
-      /** @type {boolean} */
-      hasSongChanged = v2;
-      set[prop](d);
-      /** @type {number} */
-      d[name] = currentValue;
-      TweenLite[method](d, scale, {
-        scaleX : ratio,
-        scaleY : ratio,
-        x : -x,
-        y : languageOffsetY
-      });
-      y++;
-    }
-    g[part]((Math[func](val * t) / t)[TFXD](duration));
-    parent[removeEventListener](keydown, onKeyDown, registrationID, g[TO_STRING](), onload);
-    if (original) {
-      search();
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function ipos() {
-    if (modules) {
-      /** @type {boolean} */
-      modules[idx] = fn;
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function dockerOpts() {
-    if (d[name] > o) {
-      TweenLite[funcName](d);
-      /** @type {number} */
-      angle = d[name] - base;
-      TweenLite[method](d, handleCompositionStart, {
-        y : angle,
-        onComplete : spiedOnComplete
-      });
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function UpdateCollisions() {
-    TweenLite[method](options, u, {
-      scaleX : s
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function closeResolve() {
-    /** @type {boolean} */
-    boundFn = fn;
-  }
-  /**
-   * @return {?}
-   */
-  function open() {
-    return mode || original;
-  }
-  /**
-   * @param {?} callback
-   * @return {undefined}
-   */
-  function unload(callback) {
-    /** @type {boolean} */
-    temp = v2;
-  }
-  /**
-   * @param {!Object} target
-   * @param {?} date
-   * @return {?}
-   */
-  function clone(target, date) {
-    if (rectangleStart) {
-      return new createjs[ctorName](item[$162](itextPath));
-    }
-    target = target == index ? match : target;
-    var opts = new createjs[componentName];
-    opts[category][type](a, duration, duration);
-    if (date) {
-      opts[category][pi](date);
-    }
-    opts[category][propertyName](target)[setter](session, value)[key](t, path)[key](instance, path)[key](css, t)[key](base, instance)[key](session, height)[key](e, instance)[key](o, t)[key](value, path)[key](path, path)[key](session, value);
-    return opts;
-  }
-  /**
-   * @return {undefined}
-   */
-  function spiedOnComplete() {
-    /** @type {number} */
-    var process = .21;
-    /** @type {number} */
-    var type = .24;
-    /** @type {number} */
-    var file = .27;
-    /** @type {number} */
-    var data = handleCompositionStart;
-    if (d[name] < x) {
-      /** @type {number} */
-      data = file;
-    } else {
-      if (d[name] < list) {
-        /** @type {number} */
-        data = type;
-      } else {
-        if (d[name] < time) {
-          /** @type {number} */
-          data = process;
-        }
-      }
-    }
-    TweenLite[method](d, data, {
-      y : app,
-      onComplete : endHide
-    });
-  }
-  /**
-   * @return {?}
-   */
-  function resolve() {
-    /** @type {number} */
-    var ngiScroll_timeout = 1100;
-    if (!handle) {
-      if (mode) {
-        nativeRequire();
-      }
-      setTimeout(function() {
-        resolve();
-      }, ngiScroll_timeout);
-      return fn;
-    }
-    /** @type {boolean} */
-    handle = fn;
-    stop();
-    if (!isInScript) {
-      total = total + w;
-      /** @type {number} */
-      w = value;
-      debug();
-      d = jOrgChart_user_config_options;
-      cache = out;
-      TweenLite[method](d, mode ? len : scale, {
-        scaleX : a,
-        scaleY : a,
-        x : expr,
-        y : app,
-        onComplete : setSelectedItems
-      });
-      TweenLite[method](this, mode ? len : scale, {
-        onComplete : _renderQueueTimeout
-      });
-      if (c == h + a) {
-        /** @type {boolean} */
-        isReplayingSong = v2;
-      }
-      if (y < h && !open()) {
-        TweenLite[method](this, mode ? len : scale, {
-          onComplete : render
+    var g9A = "fc2_show_arrows";
+    var k9A = "fc2_arrowbtn_y";
+    var u9A = "col_y";
+    var D9A = "col_x";
+    function A0K() {
+        N5L[d9A] = q6K;
+        N5L[W6K](j5A, H6L);
+        N5L[W6K](e9A, function(F3K) {
+            document[Z9A][T6K][A9A] = R9A;
         });
-      }
-    }
-  }
-  /**
-   * @param {?} data
-   * @return {undefined}
-   */
-  function onTraversal(data) {
-    /** @type {string} */
-    var k = "incorrect_guess";
-    /** @type {string} */
-    var series = "result";
-    /** @type {string} */
-    var search_lemma = "solved";
-    /** @type {string} */
-    var i = "error";
-    var d = $[template](data);
-    if (d && d[i] == uuid) {
-      tryParseQRCode();
-      return;
-    }
-    if (d && d[filterKey] == filterValue) {
-      /** @type {boolean} */
-      ascending = v2;
-      if (d[search_lemma] == v2) {
-        /** @type {boolean} */
-        msg = v2;
-        formattedX = d[series];
-        if (isInStyle && !isInScript) {
-          test();
-        }
-      } else {
-        update(d[k] - a);
-      }
-    }
-  }
-  /**
-   * @param {!Object} event
-   * @return {undefined}
-   */
-  function close(event) {
-    /** @type {string} */
-    var label = "skip startup interaction";
-    /** @type {string} */
-    var svg = "interaction";
-    if (isCSVLayer && !val2) {
-      /** @type {boolean} */
-      val2 = v2;
-      appendChild(svg, label);
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function _renderQueueTimeout() {
-    /** @type {boolean} */
-    hasSongChanged = fn;
-  }
-  /**
-   * @param {?} encode
-   * @return {undefined}
-   */
-  function base64(encode) {
-    /** @type {boolean} */
-    temp = fn;
-  }
-  /**
-   * @param {?} first
-   * @return {undefined}
-   */
-  function reset(first) {
-    parent[propertyToRemove]();
-    expectedRenderable++;
-    _this[children]();
-    _this[displayName]();
-    _this[tip]();
-    _this[status]();
-    _this = new createjs[PL$29](fn, index, v2);
-    _this[cmdName](evt);
-    _this[addEventListener](event, reset);
-  }
-  /**
-   * @param {number} i
-   * @return {undefined}
-   */
-  function startOfLineClean(i) {
-    /** @type {number} */
-    var scale = 3.33;
-    /** @type {number} */
-    var slideWidth = 1.66;
-    /** @type {number} */
-    cy = h * slideWidth;
-    /** @type {number} */
-    ry = h * scale;
-    /** @type {number} */
-    var rate = Math[func](t * cy) / t;
-    /** @type {number} */
-    var z = Math[func](t * (cy + ry) / duration) / t;
-    /** @type {number} */
-    var r = Math[func](t * ry) / t;
-    /** @type {number} */
-    var x = Math[func](t * (ry * e)) / t;
-    if (i < rate) {
-      /** @type {number} */
-      str = o;
-    } else {
-      if (i < z) {
-        /** @type {number} */
-        str = e;
-      } else {
-        if (i < r) {
-          /** @type {number} */
-          str = u;
-        } else {
-          if (i < x) {
-            /** @type {number} */
-            str = duration;
-          } else {
-            /** @type {number} */
-            str = a;
-          }
-        }
-      }
-    }
-    if (i == value || h == value) {
-      /** @type {number} */
-      str = o;
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function test() {
-    if (!isInScript) {
-      /** @type {boolean} */
-      isInStyle = v2;
-      /** @type {boolean} */
-      hasSongChanged = v2;
-      if (!items[newPosition]) {
-        TweenLite[funcName](obj);
-        TweenLite[method](obj, scale, {
-          alpha : value
+        N5L[W6K](T9A, function(B3K) {
+            document[Z9A][T6K][A9A] = X9A;
         });
-        set[prop](d);
-        TweenLite[method](d, scale, {
-          scaleX : scale,
-          scaleY : scale,
-          x : x,
-          y : def
+    }
+    var j9A = "col_height";
+    var P9A = "col_width";
+    var z9A = "InnerChildY";
+    function n6L(p2K) {
+        TweenLite[i3A](this);
+        parent[d3A]();
+        y7L++;
+        D5L[e3A]();
+        D5L[A3A]();
+        D5L[R3A]();
+        D5L[T3A]();
+        D5L = new createjs[F0A](s6K,z6K,q6K);
+        D5L[B0A](I7K);
+        D5L[W6K](W0A, J6L);
+        D5L[W6K](t0A, n6L);
+        D5L[W6K](s0A, V6L);
+        TweenLite[y3A](this, S7K, {
+            onComplete: e6L
         });
-        TweenLite[method](model, scale, {
-          alpha : value
-        });
-        TweenLite[method](sel, scale, {
-          alpha : value
-        });
-        /** @type {number} */
-        var ab = o;
-        /** @type {number} */
-        var c = offset - o - m;
-        /** @type {number} */
-        var w = (c - ab) / (set[aa]() - a);
-        /** @type {number} */
-        var t = value;
-        for (; t <= set[aa]() - a; t++) {
-          var val = set[addFn1](t);
-          TweenLite[funcName](val);
-          TweenLite[method](val, scale, {
-            scaleX : a,
-            scaleY : a,
-            y : v,
-            x : o + w * t + end
-          });
+    }
+    var M9A = "InnerChildX";
+    var H9A = "InnerChild";
+    var c9A = "bezierCurveTo";
+    var b9A = "moveTo";
+    var a9A = "fc2_info2_wrap";
+    var w9A = "fc2_info2_y";
+    var p9A = "fc2_text_bg";
+    var h9A = " ";
+    var Q9A = "fc2_info1_wrap";
+    var s9A = "Shadow";
+    function N1K(N5K) {
+        var k5K = N5K[Q2A];
+        if (k5K == o9K)
+            return s6K;
+        while (--k5K) {
+            var G5K = Math[M8A](Math[z8A]() * (k5K + S7K));
+            N5K[k5K] = N5K[G5K];
+            N5K[G5K] = N5K[k5K];
         }
-      }
-      if (h == value && !isValueSet) {
-        /** @type {boolean} */
-        msg = v2;
-        constructor();
-      } else {
-        if (ascending && msg) {
-          constructor();
-        } else {
-          performSharedElementTransition_();
+    }
+    var W9A = "closePath";
+    var B9A = "lineTo";
+    var O5A = 50.5;
+    var Y5A = "beginStroke";
+    var X5A = "setStrokeStyle";
+    var T5A = "endFill";
+    var R5A = "beginFill";
+    var A5A = "showVictoryScreen";
+    var d5A = "time_end_seconds";
+    var i5A = "time_end";
+    var x5A = "decryption_key";
+    var y5A = "removeAllChildren";
+    var E5A = "toString";
+    var J5A = "checkAnswer";
+    var V5A = "setClip";
+    var g5A = "rawY";
+    function W1K() {
+        var B6K = 20000;
+        var f8K = 210;
+        I8L = q6K;
+        o5L = new createjs[p0A]();
+        o5L[w0A] = Q7K;
+        o5L[a0A] = f8K;
+        I5L[r0A](o5L);
+        o5L[r0A](V5L([[Q0K, r7A + M5L, m5L]], e8K, m7K, q6K, I7K, y5L, I7K, r5L[p9A], s6K, s6K));
+        TweenLite[I8A](o5L, n6K, {
+            delay: n6K,
+            alpha: o9K,
+            onComplete: s1K
+        });
+        D7L = setTimeout(Y8L, B6K);
+    }
+    var n5A = "rawX";
+    var G5A = "removeEventListener";
+    var N5A = "update";
+    function L1K() {
+        TweenLite[i3A](r9L);
+        TweenLite[y3A](r9L, S7A, {
+            y: r5L[k9A] !== undefined ? r5L[k9A] : w8K
+        });
+    }
+    var k5A = "/bannerbg.jpg";
+    function m1K() {
+        var F6A = "getSameFC";
+        var S6A = "setTime";
+        if (window[o6K][S0A])
+            try {
+                parent[S6A](p7L);
+                parent[F6A]();
+            } catch (s5K) {}
+    }
+    var u5A = "loadVictoryScreen";
+    var D5A = "sec_nothing";
+    var j5A = "click";
+    var v5A = "red";
+    var m5A = "fullWidth";
+    var z5A = "fc2_add_btn_shadow";
+    var M5A = "add_shadow";
+    function D8L() {
+        return B9L || I7L;
+    }
+    function U0K() {
+        var o5A = 196.5;
+        if (r5L[X3A] == undefined) {
+            var f2K = w7K;
+            g9L = new createjs[p0A]();
+            d9L = new createjs[L4A]();
+            d9L[q4A][R5A](R9L);
+            d9L[q4A][Q4A](o9K, o9K, S7K, f2K);
+            d9L[q4A][T5A]();
+            var g2K = new createjs[L4A]();
+            var V2K = o9K;
+            g2K[q4A][X5A](S7K);
+            g2K[q4A][Y5A](R9L);
+            g2K[q4A][Q4A](-V2K / F7K, -V2K / F7K, g8K, f2K + V2K);
+            g9L[r0A](g2K);
+            g9L[r0A](d9L);
+            g9L[w0A] = O5A;
+            g9L[a0A] = o5A;
+            I5L[r0A](g9L);
         }
-      }
+        I5L[N5A]();
     }
-  }
-  /**
-   * @return {undefined}
-   */
-  function createElement() {
-    if (originalFn) {
-      /** @type {boolean} */
-      originalFn = fn;
-      /** @type {number} */
-      object[propName] = value;
-      TweenLite[funcName](object);
-      TweenLite[method](object, scale, {
-        alpha : value
-      });
-    }
-  }
-  /**
-   * @param {string} type
-   * @param {string} prefix
-   * @param {number} name
-   * @return {?}
-   */
-  function require(type, prefix, name) {
-    /** @type {string} */
-    var namespace = ".";
-    /** @type {string} */
-    var _ = "-";
-    /** @type {string} */
-    var MYPREFIX = "1";
-    /** @type {string} */
-    var object = "undefined";
-    if (typeof name === object) {
-      name = username;
-    }
-    if (typeof prefix === object) {
-      /** @type {string} */
-      prefix = MYPREFIX;
-    }
-    if (name == value) {
-      /** @type {null} */
-      name = index;
-    }
-    /** @type {number} */
-    var j = value;
-    for (; flags && j < flags[k]; j++) {
-      var env = flags[j];
-      /** @type {string} */
-      var keyOrParent = env + _ + prefix + namespace + type + (name ? _ + name : tmp);
-      /** @type {string} */
-      var f = env + _ + prefix + namespace + type;
-      if (schema[keyOrParent]) {
-        return schema[keyOrParent];
-      }
-      if (schema[f]) {
-        return schema[f];
-      }
-    }
-    /** @type {string} */
-    var linkedCollectionName = prefix + namespace + type + (name ? _ + name : tmp);
-    if (schema[linkedCollectionName]) {
-      return schema[linkedCollectionName];
-    }
-    /** @type {string} */
-    var f = prefix + namespace + type;
-    if (schema[f]) {
-      return schema[f];
-    }
-    return tmp;
-  }
-  /**
-   * @param {?} courseId
-   * @param {!Object} userId
-   * @return {undefined}
-   */
-  function invalidateCompetencyInCourse(courseId, userId) {
-    /** @type {string} */
-    var key = "appProgress";
-    /** @type {number} */
-    options[property] = userId[key] * v * duration;
-  }
-  /**
-   * @return {undefined}
-   */
-  function replace() {
-    /** @type {string} */
-    var label = "user clicked verify";
-    /** @type {string} */
-    var svg = "begin app";
-    appendChild(svg, label);
-    if (ch === o) {
-      /** @type {boolean} */
-      isValueSet = v2;
-      parent[removeEventListener](keydown, onKeyDown, registrationID, Function[TO_STRING](), process);
-    }
-    self[methodName](callbacks);
-    if (items[newPosition] === a) {
-      getAdjacentCodeToken();
-      return;
-    }
-    get();
-  }
-  /**
-   * @param {!Object} d
-   * @return {undefined}
-   */
-  function success(d) {
-    if (d[colorPropertyName]) {
-      dColorPropName = d[colorPropertyName];
-      message = d[header];
-      makeBorder();
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function oneSecondTick() {
-    /** @type {string} */
-    var i = "setChildIndex";
-    var event;
-    if (p != value) {
-      event = results[p - a];
-      TweenLite[method](event, scale, {
-        scaleX : a,
-        scaleY : a
-      });
-      set[i](event, p - a);
-    } else {
-      event = results[set[aa]() - a];
-      TweenLite[method](event, scale, {
-        scaleX : a,
-        scaleY : a
-      });
-      set[i](event, set[aa]() - a);
-    }
-    event = results[p];
-    TweenLite[method](event, scale, {
-      scaleX : scalar,
-      scaleY : scalar
-    });
-    set[i](event, set[aa]() - a);
-    if (p + a == cmd) {
-      /** @type {number} */
-      p = value;
-    } else {
-      p++;
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function addChild() {
-    if (args[ii] == undefined) {
-      TweenLite[method](input, u, {
-        scaleX : s
-      });
-    }
-  }
-  /**
-   * @param {!Object} url
-   * @return {undefined}
-   */
-  function postLink(url) {
-    /** @type {string} */
-    var last_direction = "down";
-    /** @type {string} */
-    var error = "up";
-    /** @type {string} */
-    var info = "right";
-    /** @type {string} */
-    var success = "left";
-    /** @type {string} */
-    var warn = "proceed";
-    /** @type {string} */
-    var _messageSeverityKey = "action";
-    /** @type {string} */
-    var e1p = "FunCaptcha-action";
-    /** @type {string} */
-    var i = "msg";
-    /** @type {string} */
-    var j = "data";
-    switch(url[j] && url[j][i]) {
-      case e1p:
-        switch(url[j][_messageSeverityKey]) {
-          case warn:
-            if (data && data[idx] && data[columnIndex]) {
-              alert();
-            } else {
-              if (element && element[idx]) {
-                refresh();
-              } else {
-                if (params && params[idx]) {
-                  req();
+    var H5A = "Width";
+    var I5A = "fc2_all_button_width";
+    var r5A = "autoWidth";
+    var c5A = "centerButton";
+    function N0K() {
+        var I6A = "restart_frames_to_average_fps";
+        var r6A = "restart_low_fps";
+        var c6A = "restart_ms_before_check_fps";
+        var b6A = "low_fps_restart_list";
+        var a6A = "lowFPSFallback";
+        var w6A = "disable_low_fps_link";
+        var p6A = "frames_to_average_fps";
+        var h6A = "low_fps";
+        var Q6A = "ms_before_check_fps";
+        if (!t8L) {
+            function r5K(j5K, D5K, I5K, M5K) {
+                var K6A = "hidden";
+                var F6K = 3000;
+                if (!b8L)
+                    return s6K;
+                if (Y5L)
+                    return s6K;
+                if (!J8L)
+                    return s6K;
+                if (document[K6A]) {
+                    E8L = o9K;
+                    J8L = Date[i9A]();
+                    return s6K;
                 }
-              }
+                E8L++;
+                I5K = Number(I5K || Y8K);
+                if (E8L < I5K)
+                    return s6K;
+                var z5K = Number(j5K || F6K);
+                var m5K = Number(D5K || I7K);
+                var v5K = typeof M5K !== undefined ? !!M5K : s6K;
+                var P5K = Date[i9A]() - J8L > z5K;
+                var H5K = createjs[K0A][V7A](I5K);
+                if (!v5K && P5K && H5K < m5K)
+                    return Math[A6K](H5K) || S7K;
+                return s6K;
+            }
+            I5L[N5A]();
+            if (!j6L) {
+                var b5K = r5K(r5L[Q6A], r5L[h6A], r5L[p6A], r5L[w6A]);
+                if (b5K) {
+                    j6L = q6K;
+                    parent[a6A](b5K);
+                }
+            }
+            if (!D6L && r5L[b6A]) {
+                var c5K = r5K(r5L[c6A], r5L[r6A], r5L[I6A]);
+                if (c5K) {
+                    D6L = q6K;
+                    parent[a6A](c5K, r5L[b6A]);
+                }
+            }
+        }
+    }
+    var b5A = "pulseButton";
+    var a5A = "btnbgColor2";
+    var w5A = "btnbgColor";
+    var p5A = "overlayColor";
+    var h5A = "fc2_all_button_auto_center";
+    var Q5A = "textCenter";
+    var K5A = "fc2_button_text_y";
+    var q5A = "textY";
+    var L5A = "fc2_button_text_colour";
+    function U8L() {
+        if (L8L) {
+            L8L = s6K;
+            I9L[y4A] = o9K;
+            TweenLite[i3A](I9L);
+            TweenLite[y3A](I9L, n6K, {
+                alpha: o9K
+            });
+        }
+    }
+    function i0K() {
+        Y5L = q6K;
+        O9L[k3A]((Math[A6K](k5L * Q7K) / Q7K)[Q7A](F7K));
+        v5L[r0A](z5L);
+        z5L[a0A] = I8K;
+        TweenLite[y3A](z5L, n6K, {
+            scaleX: s7A,
+            scaleY: s7A,
+            x: -j7K,
+            y: m8K
+        });
+        e5L++;
+        n7L = q6K;
+        p0K();
+        p6L();
+        q0K();
+    }
+    var s5A = "text";
+    var t5A = "taper";
+    var W5A = "arrowType";
+    var B5A = "hasStroke";
+    var F5A = "strokeColour";
+    function P1K() {
+        if (D9L)
+            D9L[E4A] = s6K;
+    }
+    var S5A = "strokeSize";
+    var o4A = "colStrokeSize";
+    var O4A = "Height";
+    var Y4A = "toUpperCase";
+    var X4A = "fc2_btn_txt_toupper";
+    var T4A = "fc2_button_border_thickness";
+    var R4A = "fc2_stroke_colour";
+    var A4A = "px ";
+    var e4A = "28";
+    var d4A = "fc2_button_font_size";
+    var i4A = "th";
+    var x4A = "fc2_all_button_height";
+    var y4A = "alpha";
+    var E4A = "visible";
+    var J4A = "removeChild";
+    var C4A = "clearTimeout";
+    var l4A = "rotation";
+    function w6L() {
+        if (i5L)
+            return;
+        if (X9L)
+            parent[u5A](m6L, z6K, z6K, W8L);
+        if (o5L) {
+            createjs[K0A][G5A](h0A, R8L);
+            TweenLite[i3A](o5L);
+            I5L[J4A](o5L);
+        }
+        i5L = q6K;
+        U8L();
+        p7L += x9L;
+        x9L = o9K;
+        var W4K = p7L / createjs[K0A][V7A]();
+        W4K = W4K[Q7A](S7K);
+        var F4K = new createjs[p0A]();
+        F4K[w0A] = F8K;
+        F4K[a0A] = b8K;
+        I5L[r0A](F4K);
+        var t4K = V5L(z6K, p8K, J7K, z6K, z6K, z6K, z6K, v7L, s6K, s6K);
+        t4K[w0A] = p7K;
+        F4K[r0A](t4K);
+        var s4K = r7A + M5L;
+        if (j5L != o9K) {
+            var B4K = new createjs[D7A](W4K + h9A + n8L,s4K,A5L);
+            B4K[u7A] = k7A;
+            B4K[N7A] = b8K;
+            B4K[w0A] = R7K;
+            B4K[a0A] = j7K;
+        }
+        F4K[r0A](B4K);
+        TweenLite[y3A](F4K, n6K, {
+            delay: P8A,
+            alpha: o9K,
+            onComplete: k7L,
+            onCompleteParams: [F4K]
+        });
+        Q1K(W4K);
+        s0K += L9L;
+        h1K(L9L);
+        document[Z9A][T6K][A9A] = X9A;
+        if (!c5L[D5A])
+            V1K();
+        TweenLite[y3A](this, q8L ? F7K : B7K, {
+            onComplete: m0K
+        });
+    }
+    var V4A = "regY";
+    var g4A = "regX";
+    var v4A = "ja";
+    var I4A = "zh-hk";
+    function d6L() {
+        if (l7L == o9K && !Y5L && !i5L)
+            if (!L8L) {
+                L8L = q6K;
+                I9L[E4A] = q6K;
+                F6L(I9L, Y9A, t7K);
+            }
+    }
+    var c4A = "zh-tw";
+    var a4A = "15px ";
+    var p4A = "getResult";
+    var h4A = "Bitmap";
+    var Q4A = "drawRect";
+    var K4A = "beginLinearGradientFill";
+    var q4A = "graphics";
+    var L4A = "Shape";
+    var t4A = "meta_bg";
+    var W4A = "landingbg";
+    var B4A = "loading_image";
+    function f7L(q3K) {
+        s8L++;
+        if (!a7L && s8L > j7K) {
+            a7L = q6K;
+            k5L = k5L + p8L;
+            TweenLite[y3A](W7L, n6K, {
+                rotation: k5L,
+                onComplete: b6L
+            });
+            M6L();
+        }
+    }
+    var o3A = "meta_logo";
+    var O3A = "fc2_disable_meta_logo";
+    var X3A = "fc2_loading_image";
+    var T3A = "close";
+    var R3A = "removeAllEventListeners";
+    var A3A = "removeAll";
+    var e3A = "reset";
+    var d3A = "boostRefresh";
+    var i3A = "killTweensOf";
+    var U3A = "progress";
+    var y3A = "to";
+    function E6L() {
+        if (!M8L)
+            P7L = s6K;
+        else
+            c7L();
+    }
+    var E3A = "loadManifest";
+    var J3A = "customFailCrossAsset";
+    var C3A = "customStarAsset";
+    var Z3A = "/appbg.jpg";
+    var l3A = "/";
+    function u0K(q5K) {
+        TweenLite[y3A](q5K, n6K, {
+            scaleX: O8A,
+            scaleY: O8A
+        });
+        TweenLite[y3A](q5K, n6K, {
+            delay: n6K,
+            scaleX: S7K,
+            scaleY: S7K,
+            onComplete: u0K,
+            onCompleteParams: [q5K]
+        });
+    }
+    var f3A = "bg";
+    var n3A = "obj";
+    var G3A = "IMAGE";
+    var N3A = "wellDoneImage";
+    function w0K() {
+        if (I7L) {
+            Y5L = q6K;
+            v5L[r0A](z5L);
+            z5L[a0A] = I8K;
+            TweenLite[y3A](z5L, n6K, {
+                scaleX: s7A,
+                scaleY: s7A,
+                x: -j7K,
+                y: m8K
+            });
+            e5L++;
+        }
+        O9L[k3A]((Math[A6K](k5L * Q7K) / Q7K)[Q7A](F7K));
+        parent[J5A](u7L, Z7L, p9L, O9L[E5A](), R0K);
+        I7L && a0K();
+    }
+    var k3A = "push";
+    var u3A = "fc2_well_done_image";
+    function V0K(J9K) {
+        if (r5L[X3A] !== undefined) {
+            TweenLite[i3A](R5L);
+            I5L[J4A](R5L);
+        } else
+            I5L[J4A](Y9L);
+        M9L[E4A] = q6K;
+        TweenLite[I8A](M9L, l8A, {
+            alpha: o9K
+        });
+        M9L[W6K](j5A, q6L);
+    }
+    var w3A = 'rtl';
+    function R0K(y3K) {
+        var Q8A = "incorrect_guess";
+        var K8A = "result";
+        var q8A = "solved";
+        var L8A = "hideTimedModeTimer";
+        var t8A = 'timed_mode_timeout';
+        var W8A = "response";
+        l8L();
+        if (B9L)
+            e5L++;
+        y3K = $[F8A](y3K);
+        if (y3K && y3K[t0A] == B8A) {
+            Y8L();
+            return;
+        }
+        if (y3K && y3K[W8A] == t8A) {
+            S6L();
+            return;
+        }
+        if (y3K && y3K[i5A]) {
+            f8L = y3K[i5A];
+            V8L = y3K[d5A];
+            b0K();
+        }
+        if (y3K && y3K[x5A]) {
+            C7L++;
+            C8L[C7L] = y3K[x5A];
+        }
+        if (y3K && y3K[W8A] == s8A) {
+            parent[L8A]();
+            V7L = q6K;
+            if (y3K[q8A] == q6K) {
+                y9L = q6K;
+                K6L = y3K[K8A];
+                if (K8L && !i5L)
+                    N7L();
+            } else
+                H8L(y3K[Q8A] - S7K);
+        } else if (B9L)
+            a0K();
+    }
+    var p3A = "direction";
+    var B3A = "fc2_constant_verification_title";
+    var i2A = "fail_info_timed_middle_hidden";
+    var Z2A = "\n";
+    var l2A = ",";
+    var V2A = 'fr';
+    var g2A = 'es';
+    var M2A = 'nextAppLoaded';
+    function k1K() {
+        var P5A = "transparent";
+        var U4A = "fc2_verifybtn_y";
+        var t8K = 88;
+        var P2K = r5L[U4A] !== undefined ? r5L[U4A] : g8K;
+        var m2K = t8K;
+        var j2K = r5L[x4A] !== undefined ? r5L[x4A] : j7K;
+        var v2K = l5L / F7K - m2K / F7K;
+        switch (H5L) {
+        case i4A:
+            v2K = A7K;
+            m2K = D8K;
+            break;
+        }
+        var D2K = j7L + (r5L[d4A] !== undefined ? r5L[d4A] : e4A) + A4A + M5L;
+        var u2K = r5L[R4A];
+        var z2K = r5L[T4A];
+        if (r5L[X4A] !== undefined)
+            w7L = w7L[Y4A]();
+        n5L = F7L([[O4A, j2K], [o4A, s8K], [S5A, z2K], [F5A, u2K], [B5A, z2K === o9K ? s6K : q6K], [W5A, T8L == S7K ? S7K : F7K], [t5A, z9L], [s5A, [w7L, D2K, r5L[L5A] ? r5L[L5A] : G9L]], [q5A, r5L[K5A] !== undefined ? r5L[K5A] : s7K], [Q5A, r5L[h5A] !== undefined ? r5L[h5A] : s6K], [p5A, C9L], [w5A, A9L], [a5A, l9L], [b5A, j8L], [c5A, N8L], [r5A, r5L[I5A] !== undefined ? s6K : q6K], [H5A, r5L[I5A] !== undefined ? r5L[I5A] : z6K], [M5A, r5L[z5A] !== undefined ? q6K : s6K]]);
+        n5L[w0A] = v2K;
+        n5L[a0A] = P2K;
+        n5L[E4A] = q6K;
+        if (N8L)
+            n5L[w0A] = j8K;
+        D9L = F7L([[H5A, n5L[m5A] + q7K], [O4A, g7K], [o4A, s8K], [S5A, z2K], [F5A, v5A], [B5A, z2K === o9K ? s6K : q6K], [t5A, z9L], [p5A, C9L], [w5A, P5A], [a5A, P5A], [q5A, r5L[K5A] !== undefined ? r5L[K5A] : s7K]]);
+        D9L[w0A] = n5L[g4A] + n5L[w0A] - n5L[m5A] - W7K;
+        D9L[a0A] = n5L[a0A] - I7K;
+        q9L[r0A](D9L);
+        D9L[E4A] = s6K;
+        q9L[r0A](n5L);
+        n5L[W6K](j5A, c7L);
+        if (c5L[D5A] === S7K)
+            if (!X9L && !v9L)
+                parent[u5A](Z9L ? Z9L : M7L + p9L + l3A + b7L + k5A);
+        if (r5L[X3A] !== undefined) {
+            TweenLite[i3A](R5L);
+            I5L[J4A](R5L);
+        } else
+            I5L[J4A](g9L);
+        I5L[N5A]();
+    }
+    function a0K() {
+        n7L = q6K;
+        p6L();
+        q0K();
+        G7L();
+    }
+    var I2A = "#FunCAPTCHA";
+    var Q2A = "length";
+    function e0K() {
+        var y9A = "mouseup";
+        var C9A = "keypress";
+        var l9A = "fc2_gobtn_y";
+        var n9A = "in";
+        var G9A = "pressup";
+        var N9A = "mousedown";
+        var v9A = "undefined";
+        var m9A = "fc2_rotate_stroke";
+        var I9A = "fc2_rotate_bg";
+        var r9A = "fc2_stroke_size";
+        var K9A = "13px";
+        var q9A = "14px";
+        var L9A = "fc2_info1_y";
+        var t9A = "fc2_help_arrow_y";
+        var F9A = "green";
+        var S9A = "fc2_help_arrow_colour";
+        var J8K = 229;
+        var V8K = 205;
+        var M8K = 135;
+        var Q8K = 105;
+        var L8K = 93;
+        var f7K = 42;
+        var V7K = 41;
+        var n7K = 39;
+        var v7K = 26;
+        var z7K = 24;
+        if (!X9L && !v9L)
+            parent[u5A](Z9L ? Z9L : M7L + p9L + l3A + b7L + k5A, z6K, z6K, W8L);
+        I5L[J4A](q9L);
+        g1K();
+        if (b9L && z7L)
+            k9L = l6L();
+        else if (Q9L)
+            k9L = new createjs[h4A](d5L[p4A](f3A));
+        else
+            k9L = new createjs[h4A](D5L[p4A](f3A));
+        I5L[r0A](k9L);
+        I5L[r0A](W9L);
+        W9L[E4A] = s6K;
+        I9L = new createjs[p0A]();
+        I5L[r0A](I9L);
+        I9L[E4A] = s6K;
+        t7L = new createjs[L4A]();
+        t7L[q4A][R5A](r5L[S9A] ? r5L[S9A] : F9A)[B9A](g7K, o9K)[B9A](g7K, -s7K)[B9A](i7K, W7K)[B9A](g7K, a7K)[B9A](g7K, q7K)[B9A](o9K, q7K)[B9A](o9K, o9K)[W9A]();
+        t7L[l4A] = M8K;
+        t7L[w0A] = Q8K;
+        t7L[a0A] = r5L[t9A] !== undefined ? r5L[t9A] : o7K;
+        I9L[r0A](t7L);
+        B7L = new createjs[L4A]();
+        B7L[q4A][R5A](r5L[S9A] ? r5L[S9A] : F9A)[B9A](g7K, o9K)[B9A](g7K, -s7K)[B9A](i7K, W7K)[B9A](g7K, a7K)[B9A](g7K, q7K)[B9A](o9K, q7K)[B9A](o9K, o9K)[W9A]();
+        B7L[l4A] = Z7K;
+        B7L[w0A] = V8K;
+        B7L[a0A] = r5L[t9A] !== undefined ? r5L[t9A] - j7K : T7K;
+        I9L[r0A](B7L);
+        n9L = new createjs[p0A]();
+        n9L[g4A] = l5L / F7K;
+        n9L[w0A] = l5L / F7K;
+        n9L[a0A] = i7K;
+        I5L[r0A](n9L);
+        g7L = new createjs[p0A]();
+        g7L[w0A] = o9K;
+        g7L[a0A] = K8K;
+        n9L[r0A](g7L);
+        z6L = new createjs[p0A]();
+        n9L[r0A](z6L);
+        e7L = new createjs[p0A]();
+        n9L[r0A](e7L);
+        v5L = new createjs[p0A]();
+        I5L[r0A](v5L);
+        G1K = new createjs[s9A](c6K,S7K,S7K,B7K);
+        C5L = new createjs[p0A]();
+        C5L[w0A] = T7K;
+        C5L[a0A] = r5L[L9A] !== undefined ? r5L[L9A] : Q7K;
+        I5L[r0A](C5L);
+        var i2K = l5L - C5L[w0A] / F7K;
+        var E2K = q9A;
+        switch (H5L) {
+        case v4A:
+            E2K = K9A;
+            break;
+        }
+        if (r5L[Q9A] == undefined)
+            C5L[r0A](V5L([[O5L[o9K], M6K + E2K + h9A + M5L, m5L], [O5L[S7K], E2K + h9A + M5L, m5L]], i2K, J7K, s6K, F8K, y5L, I7K, r5L[p9A], s6K, s6K));
+        else
+            C5L[r0A](V5L([[O5L[o9K] + (O5L[S7K] ? h9A + O5L[S7K] : p6K), E2K + h9A + M5L, m5L]], i2K, J7K, s6K, F8K, y5L, I7K, r5L[p9A], s6K, s6K));
+        g5L = new createjs[p0A]();
+        g5L[w0A] = T7K;
+        g5L[a0A] = r5L[w9A] !== undefined ? r5L[w9A] : t7K;
+        I5L[r0A](g5L);
+        TweenLite[y3A](g5L, o9K, {
+            alpha: o9K
+        });
+        var y2K = l5L - g5L[w0A] / F7K;
+        if (r5L[a9A] == undefined)
+            g5L[r0A](V5L([[u5L[o9K], E2K + h9A + M5L, m5L], [u5L[S7K], M6K + E2K + h9A + M5L, m5L], [u5L[F7K], E2K + h9A + M5L, m5L]], y2K, T7K, s6K, L8K, y5L, I7K, r5L[p9A], s6K, s6K));
+        else
+            g5L[r0A](V5L([[u5L[o9K] + (u5L[S7K] ? h9A + u5L[S7K] : p6K) + (u5L[F7K] ? h9A + u5L[F7K] : p6K), E2K + h9A + M5L, m5L]], y2K, T7K, s6K, L8K, y5L, I7K, r5L[p9A], s6K, s6K));
+        g5L[w0A] = l5L / F7K - L8K;
+        T9L = new createjs[p0A]();
+        I5L[r0A](T9L);
+        T7L = new createjs[L4A]();
+        var U2K = o9K
+          , x2K = H7K
+          , J2K = r7K;
+        T7L[q4A][X5A](B7K, S7K)[b9A](U2K, x2K)[Y5A](f5L)[c9A](-F7K, z7K, -t7K, o9K, J2K, o9K)[X5A](o9K, r5L[r9A])[R5A](f5L)[b9A](J2K, -W7K)[B9A](J2K + Q7K, o9K)[B9A](J2K, W7K)[B9A](J2K, -W7K);
+        T7L[w0A] = o9K;
+        T7L[a0A] = o9K;
+        h9L = F7L([[H5A, f7K], [O4A, f7K], [o4A, j7K], [t5A, z9L], [Q5A, q6K], [p5A, C9L], [w5A, r5L[I9A] === q6K || r5L[I9A] === undefined ? F9L : z6K], [a5A, r5L[I9A] === q6K || r5L[I9A] === undefined ? c9L : z6K], [H9A, T7L], [M9A, L7K], [z9A, H7K], [q5A, r5L[K5A] !== undefined ? r5L[K5A] : s7K], [B5A, typeof r5L[m9A] !== v9A ? r5L[m9A] : q6K], [P9A, F8K], [j9A, p8K], [D9A, -I7K], [u9A, -j7K]]);
+        h9L[a0A] = r5L[k9A] !== undefined ? r5L[k9A] : w8K;
+        h9L[w0A] = v7K;
+        T9L[r0A](h9L);
+        h9L[W6K](N9A, R6L);
+        h7L = new createjs[L4A]();
+        h7L[q4A][X5A](B7K, S7K)[b9A](U2K, x2K)[Y5A](f5L)[c9A](-F7K, z7K, -t7K, o9K, J2K, o9K)[X5A](o9K, r5L[r9A])[R5A](f5L)[b9A](J2K, -W7K)[B9A](J2K + Q7K, o9K)[B9A](J2K, W7K)[B9A](J2K, -W7K);
+        h7L[w0A] = o9K;
+        h7L[a0A] = o9K;
+        h7L[Y6K] = -S7K;
+        r9L = F7L([[H5A, f7K], [O4A, f7K], [q5A, r5L[K5A] !== undefined ? r5L[K5A] : s7K], [o4A, j7K], [t5A, z9L], [Q5A, q6K], [p5A, C9L], [w5A, r5L[I9A] === q6K || r5L[I9A] === undefined ? F9L : z6K], [a5A, r5L[I9A] === q6K || r5L[I9A] === undefined ? c9L : z6K], [H9A, h7L], [M9A, N7K], [z9A, H7K], [B5A, r5L[m9A] !== undefined ? r5L[m9A] : q6K], [P9A, F8K], [j9A, p8K], [D9A, -I7K], [u9A, -j7K]]);
+        r9L[a0A] = r5L[k9A] !== undefined ? r5L[k9A] : w8K;
+        r9L[w0A] = J8K;
+        T9L[r0A](r9L);
+        r9L[W6K](N9A, T6L);
+        I5L[W6K](G9A, function(X2K) {
+            createjs[K0A][G5A](h0A, f7L);
+        });
+        var e2K = V7K;
+        var A2K = j7L + (r5L[d4A] !== z6K ? r5L[d4A] : e4A) + A4A + M5L;
+        var R2K = r5L[x4A] !== undefined ? r5L[x4A] : j7K;
+        var d2K = r5L[T4A];
+        var T2K = r5L[R4A];
+        switch (H5L) {
+        case n9A:
+            e2K = n7K;
+            break;
+        }
+        if (r5L[X4A] !== undefined)
+            G8L = G8L[Y4A]();
+        N5L = F7L([[O4A, R2K], [q5A, r5L[K5A] !== undefined ? r5L[K5A] : s7K], [o4A, s8K], [B5A, d2K === o9K ? s6K : q6K], [S5A, d2K], [F5A, T2K], [W5A, r5L[g9A] !== undefined ? F7K : S7K], [t5A, z9L], [s5A, [G8L, A2K, r5L[L5A] ? r5L[L5A] : G9L]], [p5A, C9L], [w5A, A9L], [a5A, l9L], [b5A, g6L], [r5A, r5L[I5A] !== undefined ? s6K : q6K], [H5A, r5L[I5A] !== undefined ? r5L[I5A] : z6K], [c5A, q6K], [Q5A, r5L[h5A] !== undefined ? r5L[h5A] : s6K], [V9A, r5L[f9A] !== undefined ? q6K : s6K], [M5A, r5L[z5A] !== undefined ? q6K : s6K]]);
+        N5L[w0A] = j8K;
+        N5L[a0A] = r5L[l9A] !== undefined ? r5L[l9A] : Z8K;
+        if (r5L[f9A] == undefined)
+            N5L[E4A] = s6K;
+        else
+            N5L[y4A] = n6K;
+        T9L[r0A](N5L);
+        C0K();
+        $(Z9A, document)[C9A](function(Y2K) {
+            var E9A = "which";
+            var J9A = "keyCode";
+            var G7K = 38;
+            var O2K = Y2K[J9A] || Y2K[E9A];
+            if (!(O2K == G7K))
+                d6L();
+        });
+        I5L[W6K](y9A, function(o2K) {
+            if (!Y5L && !i5L)
+                if (i8L)
+                    i8L = s6K;
+        });
+        I5L[W6K](N9A, function(S3K) {
+            var x9A = "stageY";
+            var U9A = "stageX";
+            var y8K = 235;
+            var G8K = 190;
+            var h8K = 108;
+            if (!i5L && !Y5L && S3K[U9A] > o9K && S3K[U9A] < A8K && S3K[x9A] > o9K && S3K[x9A] < d8K) {
+                I0K = W7L[l4A];
+                i8L = q6K;
+                X6L[k3A]([o9K, S3K[U9A], S3K[x9A]]);
+                if (!(S3K[U9A] < i7K && S3K[x9A] > p8K && S3K[x9A] < u8K || S3K[U9A] > y8K && S3K[x9A] > p8K && S3K[x9A] < u8K || S3K[U9A] > h8K && S3K[U9A] < G8K && S3K[x9A] > G8K))
+                    d6L();
+            }
+        });
+        if (!o8L)
+            if (r5L[B3A] !== undefined) {
+                I5L[r0A](V9L);
+                TweenLite[y3A](V9L, n6K, {
+                    y: o9K,
+                    alpha: S7K
+                });
+                C5L[y4A] = o9K;
+                h9L[y4A] = o9K;
+                r9L[y4A] = o9K;
+                TweenLite[y3A](C5L, n6K, {
+                    delay: n6K,
+                    alpha: S7K
+                });
+                TweenLite[y3A](h9L, n6K, {
+                    delay: n6K,
+                    alpha: S7K
+                });
+                TweenLite[y3A](r9L, n6K, {
+                    delay: n6K,
+                    alpha: S7K
+                });
+                setTimeout(function() {
+                    G7L(S7K);
+                }, Y8K);
+            } else
+                G7L(S7K);
+        else
+            H8L(-F7K);
+        createjs[K0A][W6K](h0A, h0K);
+        J8L = Date[i9A]();
+        if (y8L || J7L)
+            I5L[r0A](L7L);
+    }
+    var t2A = "extra_data";
+    var v1A = "_pulse_verify";
+    var i0A = "customGUI";
+    var P0A = "split";
+    function d0K() {
+        Y5L = s6K;
+    }
+    var M0A = '';
+    var r0A = "addChild";
+    var c0A = "game_meta";
+    var a0A = "y";
+    var w0A = "x";
+    var p0A = "Container";
+    var h0A = "tick";
+    var Q0A = "setFPS";
+    var K0A = "Ticker";
+    var s0A = "complete";
+    var t0A = "error";
+    var W0A = "fileload";
+    function b0K() {
+        var h8A = "ShowTimedModeTimer";
+        parent[h8A](f8L, V8L, e5L === o9K);
+    }
+    var B0A = "setMaxConnections";
+    var F0A = "LoadQueue";
+    var S0A = "document";
+    function r1K() {
+        var T8A = 217.5;
+        var R8A = "fc2_tryagainbtn_y";
+        var H8K = 134;
+        var e4K = F8K;
+        var A4K = H8K;
+        switch (H5L) {
+        case i4A:
+            e4K = i7K;
+            A4K = u8K;
+            break;
+        }
+        var R4K = j7L + (r5L[d4A] !== z6K ? r5L[d4A] : e4A) + A4A + M5L;
+        var T4K = r5L[x4A] !== undefined ? r5L[x4A] : j7K;
+        var X4K = r5L[T4A];
+        var Y4K = r5L[R4A];
+        if (r5L[X4A] !== undefined)
+            g8L = g8L[Y4A]();
+        M9L = F7L([[O4A, T4K], [o4A, s8K], [q5A, r5L[K5A] !== undefined ? r5L[K5A] : s7K], [B5A, X4K === o9K ? s6K : q6K], [S5A, S7K], [F5A, Y4K], [W5A, r5L[g9A] !== undefined ? F7K : S7K], [t5A, z9L], [s5A, [g8L, R4K, r5L[L5A] ? r5L[L5A] : f5L]], [p5A, C9L], [w5A, A9L], [a5A, l9L], [r5A, r5L[I5A] !== undefined ? s6K : q6K], [H5A, r5L[I5A] !== undefined ? r5L[I5A] : z6K], [c5A, q6K], [Q5A, r5L[h5A] !== undefined ? r5L[h5A] : s6K], [M5A, r5L[z5A] !== undefined ? q6K : s6K]]);
+        M9L[w0A] = l5L / F7K;
+        M9L[a0A] = r5L[R8A] !== undefined ? r5L[R8A] : T8A;
+        I5L[r0A](M9L);
+        M9L[E4A] = s6K;
+    }
+    var o6K = "parent";
+    var O6K = "scaleY";
+    var Y6K = "scaleX";
+    var T6K = "style";
+    var A6K = "round";
+    var d6K = "setAttribute";
+    var y6K = "enableMouseOver";
+    var Z6K = "height";
+    var l6K = "width";
+    var g6K = "getClr";
+    var n6K = 0.5;
+    var G6K = "images/template/fc_meta_solve_welldone.png";
+    var N6K = "MSIE 10";
+    var k6K = "appVersion";
+    function Y8L() {
+        var H8A = "setupSameChallenge";
+        parent[H8A]();
+        q6L();
+    }
+    var u6K = "android";
+    function Z0K() {
+        if (x5L == j5L + S7K)
+            if (U5L) {
+                g5L[y5A]();
+                if (r5L[a9A] == undefined)
+                    g5L[r0A](V5L([[U5L[o9K], r7A + M5L, m5L], [U5L[S7K], c7A + M5L, m5L], [U5L[F7K], r7A + M5L, m5L]], u8K, A7K, s6K, B8K, y5L, I7K, r5L[p9A], s6K, s6K));
+                else
+                    g5L[r0A](V5L([[U5L[o9K] + (U5L[S7K] ? h9A + U5L[S7K] : p6K) + (U5L[F7K] ? h9A + U5L[F7K] : p6K), r7A + M5L, m5L]], e8K, A7K, s6K, B8K, y5L, I7K, r5L[p9A], s6K, s6K));
+                g5L[w0A] = l5L / F7K - B8K;
+            }
+    }
+    function V1K() {
+        var i6A = "disable";
+        X5L[Z6A] = function() {}
+        ;
+        if (createjs[C6A][J6A]())
+            createjs[C6A][i6A](I5L);
+        else
+            I5L[y6K](o9K);
+    }
+    function h0K() {
+        if (!t8L) {
+            if (!Y5L && !z8L)
+                x9L++;
+            if (z8L)
+                k0K++;
+        }
+        if (t6L)
+            if (r0K < o9K) {
+                t6L = s6K;
+                S6L();
+            } else
+                r0K -= S7K / createjs[K0A][V7A]();
+    }
+    var D6K = "indexOf";
+    var j6K = "toLowerCase";
+    function s1K() {
+        if (!v5L)
+            return z6K;
+        var O3K = F7K;
+        var S4K = Math[M8A](Math[z8A]() * B7K);
+        for (var o3K = o9K; o3K <= v5L[l7A]() - S7K; o3K++) {
+            var Y3K = v5L[Z7A](o3K);
+            switch (S4K) {
+            case o9K:
+                Y3K[m8A] = O3K;
+                Y3K[v8A] = O3K;
+                break;
+            case S7K:
+                Y3K[m8A] = -O3K;
+                Y3K[v8A] = O3K;
+                break;
+            case F7K:
+                Y3K[m8A] = O3K;
+                Y3K[v8A] = -O3K;
+                break;
+            case B7K:
+                Y3K[m8A] = -O3K;
+                Y3K[v8A] = -O3K;
+                break;
+            }
+            if (Y3K != z5L)
+                TweenLite[y3A](Y3K, n6K, {
+                    alpha: o9K,
+                    onComplete: k7L,
+                    onCompleteParams: [Y3K]
+                });
+        }
+        createjs[K0A][W6K](h0A, R8L);
+    }
+    var P6K = "userAgent";
+    var v6K = "/landingbg.jpg";
+    var m6K = "en";
+    function f6L() {
+        var Z4A = "easeNone";
+        var f4A = "getChildIndex";
+        var T8K = 360;
+        if (I5L[f4A](R5L)) {
+            R5L[l4A] = o9K;
+            TweenLite[y3A](R5L, S7K, {
+                rotation: T8K,
+                onComplete: f6L,
+                ease: Linear[Z4A]
+            });
+        }
+    }
+    var z6K = null;
+    var M6K = "bold ";
+    var H6K = "Arial";
+    var I6K = "#eafdfd";
+    var r6K = "#f4f7fd";
+    var c6K = "#000000";
+    var b6K = "#FFFFFF";
+    function p0K() {
+        if (B6L) {
+            parent[J5A](u7L, Z7L, p9L, O9L[E5A](), S1K);
+            if (e5L == j5L - (T5L ? S7K : o9K)) {
+                V7L = q6K;
+                y9L = q6K;
+            }
+        } else
+            parent[J5A](u7L, Z7L, p9L, O9L[E5A](), F1K);
+    }
+    var a6K = "#ffbb36";
+    var w6K = "#ffd33a";
+    var p6K = "";
+    var h6K = "/fc/";
+    var Q6K = "/fc/ip/?url=";
+    var K6K = "/fc/i/";
+    function c7L(k2K) {
+        var l5A = "getEncryptionTime";
+        var f5A = "sc";
+        var S6K = 1500;
+        if (!M8L)
+            return s6K;
+        if (n5L)
+            n5L[E4A] = s6K;
+        if (k2K) {
+            n5L[G5A](j5A, c7L);
+            if (k2K[n5A] && k2K[g5A])
+                $[V5A](f5A, [k2K[n5A], k2K[g5A]]);
+        }
+        if (I7L) {
+            x8L();
+            x6L(parent[l5A]());
+            return;
+        }
+        if (B9L) {
+            TweenLite[y3A](n5L, n6K, {
+                alpha: o9K
+            });
+            y1K();
+            r6L(S6K);
+        } else
+            x8L();
+    }
+    var q6K = true;
+    var L6K = "message";
+    var s6K = false;
+    var t6K = "DOMContentLoaded";
+    var W6K = "addEventListener";
+    var O8K = 1000;
+    function K0K() {
+        var s4A = "/images/meta/fc_meta_bg.png";
+        var F4A = "/images/meta/fc_nf_meta_logo.png";
+        var S4A = "/images/meta/fc_nf_meta_logo_white.png";
+        q9L = new createjs[p0A]();
+        I5L[r0A](q9L);
+        d5L = new createjs[F0A](s6K,z6K,q6K);
+        d5L[W6K](t0A, O0K);
+        d5L[W6K](s0A, C6L);
+        var r2K = [];
+        if (r5L[O3A] == undefined)
+            if (S7L)
+                r2K[k3A]({
+                    id: o3A,
+                    src: S7L,
+                    type: createjs[F0A][G3A]
+                });
+            else if (W6L)
+                r2K[k3A]({
+                    id: o3A,
+                    src: U9L + S4A,
+                    type: createjs[F0A][G3A]
+                });
+            else
+                r2K[k3A]({
+                    id: o3A,
+                    src: U9L + F4A,
+                    type: createjs[F0A][G3A]
+                });
+        if (r5L[X3A] !== undefined)
+            r2K[k3A]({
+                id: B4A,
+                src: r5L[X3A],
+                type: createjs[F0A][G3A]
+            });
+        if (Q9L || N9L) {
+            if (N9L)
+                r2K[k3A]({
+                    id: W4A,
+                    src: B8L,
+                    type: createjs[F0A][G3A]
+                });
+            if (Q9L && !b9L)
+                r2K[k3A]({
+                    id: f3A,
+                    src: s9L ? s9L : M7L + p9L + l3A + b7L + Z3A,
+                    type: createjs[F0A][G3A]
+                });
+        } else if (!(b9L && z7L))
+            if (Q9L || N9L) {
+                if (N9L)
+                    r2K[k3A]({
+                        id: W4A,
+                        src: B8L,
+                        type: createjs[F0A][G3A]
+                    });
+                if (Q9L)
+                    r2K[k3A]({
+                        id: f3A,
+                        src: s9L ? s9L : M7L + p9L + l3A + b7L + Z3A,
+                        type: createjs[F0A][G3A]
+                    });
+            } else
+                r2K[k3A]({
+                    id: t4A,
+                    src: U9L + s4A,
+                    type: createjs[F0A][G3A]
+                });
+        if (r2K[Q2A])
+            d5L[E3A](r2K);
+        else
+            C6L();
+    }
+    var Y8K = 500;
+    var A8K = 300;
+    var e8K = 280;
+    function M6L() {
+        if (z5L[a0A] > t7K) {
+            TweenLite[i3A](z5L);
+            e8L = z5L[a0A] - a7K;
+            TweenLite[y3A](z5L, F7A, {
+                y: e8L,
+                onComplete: I1K
+            });
+        }
+    }
+    function b1K() {
+        var d8A = "fc2_timeout_arrow_colour";
+        var i8A = "fc2_timed_out_arrow_y";
+        var x8A = "fc2_timed_out_arrow_x";
+        var U8A = 'object';
+        var y8A = "timerTimeout";
+        var x7K = 58;
+        var P7K = 28;
+        parent[y8A]();
+        if (z5L) {
+            TweenLite[y3A](z5L, n6K, {
+                alpha: o9K,
+                onComplete: k7L,
+                onCompleteParams: [z5L]
+            });
+            k7L(v5L);
+        }
+        J5L = new createjs[p0A]();
+        J5L[w0A] = T7K;
+        I5L[r0A](J5L);
+        var E4K = I7K;
+        var x4K = D8K;
+        if (m7L)
+            x4K = l5L - J5L[w0A] / F7K;
+        if (r5L[a9A] == undefined)
+            J5L[r0A](V5L([[Z5L[o9K], r7A + M5L, m5L], [Z5L[S7K], c7A + M5L, m5L], [Z5L[F7K], r7A + M5L, m5L]], x4K, T7K, s6K, F8K, y5L, E4K, r5L[p9A], s6K, s6K));
+        else
+            J5L[r0A](V5L([[Z5L[o9K] + (Z5L[S7K] ? h9A + Z5L[S7K] : p6K) + (Z5L[F7K] ? h9A + Z5L[F7K] : p6K), r7A + M5L, m5L]], x4K, T7K, s6K, F8K, y5L, E4K, r5L[p9A], s6K, s6K));
+        J5L[a0A] = W8K;
+        TweenLite[I8A](J5L, n6K, {
+            alpha: o9K
+        });
+        var Z4K = new createjs[p0A]();
+        Z4K[w0A] = T7K;
+        Z4K[a0A] = h7K;
+        if (r5L[B3A] !== undefined)
+            Z4K[a0A] = u7K;
+        var i4K = l5L - Z4K[w0A] / F7K;
+        I5L[r0A](Z4K);
+        var J4K = [[w9L, r7A + M5L, m5L]];
+        if (typeof w9L === U8A) {
+            J4K = [];
+            for (var y4K = o9K; y4K < w9L[Q2A]; y4K++)
+                J4K[k3A]([w9L[y4K], r7A + M5L, m5L]);
+        }
+        Z4K[r0A](V5L(J4K, i4K, T7K, s6K, F8K, y5L, E4K, r5L[p9A], s6K, s6K));
+        if (!m7L) {
+            var C4K = new createjs[L4A]();
+            var l4K = r5L[x8A] ? r5L[x8A] : L7K;
+            var f4K = r5L[i8A] ? r5L[i8A] : p8K;
+            var U4K = r5L[d8A] ? r5L[d8A] : r5L[L5A];
+            if (!U4K)
+                U4K = G9L;
+            C4K[q4A][R5A](U4K)[B9A](l4K + t7K, f4K + e7K)[B9A](l4K + I7K, f4K + B8K)[B9A](l4K + u7K, f4K + e7K)[B9A](l4K + P7K, f4K + e7K)[B9A](l4K + P7K, f4K + x7K)[c9A](l4K + u7K, f4K + I7K, l4K + Z7K, f4K + o9K, l4K + T7K, f4K + o9K)[c9A](l4K + i7K, f4K + o9K, l4K + I7K, f4K + o9K, l4K + p7K, f4K + x7K)[B9A](l4K + p7K, f4K + e7K)[W9A]();
+            C4K[w0A] = o9K;
+            C4K[a0A] = o9K;
+            I5L[r0A](C4K);
+        }
+    }
+    var d8K = 250;
+    var i8K = 245;
+    var Z8K = 220;
+    var g8K = 200;
+    var u8K = 170;
+    var D8K = 160;
+    function l6L() {
+        var H2K = new createjs[p0A]();
+        var I2K = new createjs[L4A]();
+        I2K[q4A][K4A]([b9L, z7L], [o9K, S7K], o9K, o9K, o9K, A8K);
+        I2K[q4A][Q4A](o9K, o9K, A8K, d8K);
+        H2K[r0A](I2K);
+        return H2K;
+    }
+    var j8K = 150;
+    var m8K = 140;
+    var I8K = 128;
+    var b8K = 120;
+    function R8L() {
+        var n8K = 195;
+        if (z5L[w0A] < y7K || z5L[w0A] > i8K)
+            z5L[m8A] = -z5L[m8A];
+        if (z5L[a0A] < y7K || z5L[a0A] > n8K)
+            z5L[v8A] = -z5L[v8A];
+        z5L[w0A] += z5L[m8A];
+        z5L[a0A] += z5L[v8A];
+    }
+    var a8K = 118;
+    var w8K = 115;
+    var p8K = 110;
+    var K8K = 100;
+    var s8K = 90;
+    var W8K = 86;
+    var B8K = 85;
+    var F8K = 80;
+    function j1K(h5K, K5K, Q5K) {
+        var L6A = 0.15;
+        if (!K5K)
+            K5K = L6A;
+        if (!Q5K)
+            Q5K = K5K;
+        TweenLite[y3A](h5K, K5K, {
+            alpha: S7K
+        });
+        TweenLite[y3A](h5K, Q5K, {
+            delay: K5K,
+            alpha: o9K,
+            onComplete: j1K,
+            onCompleteParams: [h5K, K5K, Q5K]
+        });
+    }
+    var o7K = 75;
+    var O7K = 73;
+    var Y7K = 72;
+    var T7K = 70;
+    function x0K() {
+        var l8K = 215;
+        var C2K = w7K;
+        Y9L = new createjs[p0A]();
+        o9L = new createjs[L4A]();
+        o9L[q4A][R5A](R9L);
+        o9L[q4A][Q4A](o9K, o9K, S7K, C2K);
+        o9L[q4A][T5A]();
+        var l2K = new createjs[L4A]();
+        var Z2K = o9K;
+        l2K[q4A][X5A](S7K);
+        l2K[q4A][Y5A](R9L);
+        l2K[q4A][Q4A](-Z2K / F7K, -Z2K / F7K, g8K, C2K + Z2K);
+        Y9L[r0A](l2K);
+        Y9L[r0A](o9L);
+        Y9L[w0A] = O5A;
+        Y9L[a0A] = l8K;
+        I5L[r0A](Y9L);
+    }
+    var R7K = 68;
+    var A7K = 65;
+    var e7K = 62;
+    var i7K = 60;
+    var y7K = 55;
+    var J7K = 50;
+    var Z7K = 45;
+    var g7K = 40;
+    var N7K = 37;
+    var k7K = 36;
+    var u7K = 35;
+    var j7K = 30;
+    var m7K = 25;
+    var H7K = 22;
+    var I7K = 20;
+    function r6L(h3K) {
+        var a7A = "setTimeout";
+        S0K = window[a7A](function() {
+            D1K();
+        }, h3K ? h3K : O8K);
+    }
+    function x6L(n2K) {
+        if (n2K[i5A]) {
+            f8L = n2K[i5A];
+            V8L = n2K[d5A];
+            b0K();
+        }
+    }
+    var r7K = 17;
+    var b7K = 15;
+    function D1K() {
+        var w7A = "showWaitScreen";
+        Z8L = q6K;
+        parent[w7A]();
+    }
+    function V6L() {
+        M8L = q6K;
+        window[C4A](w8L);
+        I5L[J4A](g9L);
+        if (D8L() || P7L && !i7L) {
+            k1K();
+            if (D8L() && (!P7L || i7L)) {
+                n5L[E4A] = s6K;
+                q9L[E4A] = s6K;
+                if (V9L)
+                    V9L[y4A] = o9K;
+                if (P7L)
+                    E6L();
+            }
+        } else
+            c7L();
+        f1K();
+    }
+    var a7K = 14;
+    function c8L() {
+        var o8A = "solveMeta";
+        if (!O8L) {
+            O8L = q6K;
+            if (window[o6K][S0A])
+                try {
+                    parent[o8A]();
+                } catch (t5K) {}
+        }
+    }
+    var w7K = 13;
+    var p7K = 12;
+    var h7K = 11;
+    var Q7K = 10;
+    var q7K = 8;
+    var L7K = 7;
+    var s7K = 6;
+    var t7K = 5;
+    var W7K = 4;
+    var B7K = 3;
+    var F7K = 2;
+    function R6L(s3K) {
+        A6L(s3K);
+        if (!Y5L && !i5L && F8L) {
+            TweenLite[y3A](h9L, S7A, {
+                y: r5L[k9A] !== undefined ? r5L[k9A] + B7K : a8K,
+                onComplete: t1K
+            });
+            O6L();
+            if (!a7L) {
+                k5L = parseFloat(k5L);
+                k5L = k5L + q7L;
+                k5L = parseFloat(k5L);
+                TweenLite[y3A](W7L, n6K, {
+                    rotation: k5L,
+                    onComplete: b6L
+                });
+                M6L();
+            }
+            s8L = o9K;
+            p8L = q7L;
+            createjs[K0A][W6K](h0A, f7L);
+        }
+    }
+    var S7K = 1;
+    var o9K = 0;
+    document[W6K](t6K, n1K, s6K);
+    window[W6K](L6K, K1K);
+    var j0K = q6K;
+    function K1K(O9K) {
+        var B09 = 'down';
+        var F09 = 'up';
+        var S09 = 'right';
+        var o6A = 'left';
+        var O6A = 'proceed';
+        var Y6A = "action";
+        var X6A = 'FunCaptcha-action';
+        var T6A = "msg";
+        var R6A = "data";
+        switch (O9K[R6A] && O9K[R6A][T6A]) {
+        case X6A:
+            switch (O9K[R6A][Y6A]) {
+            case O6A:
+                if (N5L && N5L[E4A] && N5L[d9A])
+                    H6L();
+                else if (M9L && M9L[E4A])
+                    q6L();
+                else if (n5L && n5L[E4A])
+                    c7L();
+                break;
+            case o6A:
+                T6L(O9K);
+                createjs[K0A][G5A](h0A, f7L);
+                break;
+            case S09:
+                R6L(O9K);
+                createjs[K0A][G5A](h0A, f7L);
+                break;
+            case F09:
+                break;
+            case B09:
+                break;
             }
             break;
-          case success:
-            launch(url);
-            createjs[service][action](touchend, docker);
-            break;
-          case info:
-            go(url);
-            createjs[service][action](touchend, docker);
-            break;
-          case error:
-            break;
-          case last_direction:
-            break;
-        }break;
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function mouseup() {
-    /** @type {boolean} */
-    fnn = v2;
-    /** @type {boolean} */
-    FOOTNOTES_VAR_NAME = v2;
-    if (logic != AND || logic != OR) {
-      json = require(load)[functionName](_);
-    } else {
-      json = require(load)[functionName](buf);
-    }
-    replace();
-    stop();
-  }
-  /**
-   * @param {!Function} data
-   * @param {!Object} cb
-   * @return {undefined}
-   */
-  function onComplete(data, cb) {
-    /** @type {string} */
-    var time = "timeout";
-    if (expectedRenderable < evt) {
-      if (!cb) {
-        /** @type {number} */
-        cb = value;
-      }
-      if (data[state] != a) {
-        if (data[state] == cb) {
-          log(time);
-        } else {
-          TweenLite[method](this, t, {
-            onComplete : onComplete,
-            onCompleteParams : [data, data[state]]
-          });
         }
-      }
     }
-  }
-  /**
-   * @param {!Object} d
-   * @return {undefined}
-   */
-  function toggle(d) {
-    stop();
-    success(d);
-    if (d[colid]) {
-      nd[tocolumnid] = d[colid];
-    }
-    replace();
-  }
-  /**
-   * @return {undefined}
-   */
-  function enable() {
-    /** @type {string} */
-    var name = "enable";
-    /** @type {string} */
-    var generate = "enableDOMEvents";
-    /** @type {string} */
-    var minA = "Chrome";
-    /** @type {string} */
-    var minB = "Android";
-    /**
-     * @return {?}
-     */
-    ws[cell_ref] = function() {
-      return fn;
-    };
-    if (createjs[validatorCollection][is256]()) {
-      /** @type {boolean} */
-      var v7E = navigator[FRIENDLY_PRINTED][iof](minB) > -a && !(navigator[FRIENDLY_PRINTED][iof](minA) > -a);
-      if (v7E) {
-        self[generate](fn);
-      }
-      createjs[validatorCollection][name](self);
-    } else {
-      self[operator]();
-    }
-  }
-  /**
-   * @param {!Object} result
-   * @return {?}
-   */
-  function req(result) {
-    /** @type {string} */
-    var OUTERSIZE = "getEncryptionTime";
-    /** @type {string} */
-    var showNotes = "sc";
-    /** @type {number} */
-    var normalizedIds = 1500;
-    if (!__fn) {
-      return fn;
-    }
-    if (params) {
-      /** @type {boolean} */
-      params[idx] = fn;
-    }
-    if (result) {
-      params[action](click, req);
-      if (result[token] && result[dir]) {
-        $[deck](showNotes, [result[token], result[dir]]);
-      }
-    }
-    if (original) {
-      replace();
-      success(parent[OUTERSIZE]());
-      return;
-    }
-    if (mode) {
-      TweenLite[method](params, scale, {
-        alpha : value
-      });
-      loadShader();
-      nativeRequire(normalizedIds);
-    } else {
-      replace();
-    }
-  }
-  /**
-   * @return {undefined}
-   */
-  function makeBorder() {
-    /** @type {string} */
-    var i = "ShowTimedModeTimer";
-    parent[i](dColorPropName, message, y === value);
-  }
-  /**
-   * @return {?}
-   */
-  function realDone() {
-    if (!set) {
-      return index;
-    }
-    /** @type {number} */
-    var i = duration;
-    var type = Math[mathMethod](Math[rngname]() * u);
-    /** @type {number} */
-    var t = value;
-    for (; t <= set[aa]() - a; t++) {
-      var template = set[addFn1](t);
-      switch(type) {
-        case value:
-          /** @type {number} */
-          template[f] = i;
-          /** @type {number} */
-          template[dim] = i;
-          break;
-        case a:
-          /** @type {number} */
-          template[f] = -i;
-          /** @type {number} */
-          template[dim] = i;
-          break;
-        case duration:
-          /** @type {number} */
-          template[f] = i;
-          /** @type {number} */
-          template[dim] = -i;
-          break;
-        case u:
-          /** @type {number} */
-          template[f] = -i;
-          /** @type {number} */
-          template[dim] = -i;
-          break;
-      }
-      if (template != d) {
-        TweenLite[method](template, scale, {
-          alpha : value,
-          onComplete : chain,
-          onCompleteParams : [template]
+    function a1K(V4K) {
+        var U8K = 238;
+        var k8K = 180;
+        var r8K = 127;
+        var c8K = 125;
+        var l7K = 43;
+        if (!y5L) {
+            m8L = new createjs[L4A]();
+            m8L[q4A][R5A](r5L[p9A])[Q4A](o9K, p7K, Z8K, u7K);
+            m8L[w0A] = l5L / F7K - p8K;
+            I5L[r0A](m8L);
+        }
+        var n4K = P0K(k8K, r8K);
+        J5L = new createjs[p0A]();
+        J5L[w0A] = L7K;
+        I5L[r0A](J5L);
+        var N4K = I7K;
+        if (r5L[a9A] == undefined)
+            J5L[r0A](V5L([[u5L[o9K], r7A + M5L, m5L], [u5L[S7K], c7A + M5L, m5L], [u5L[F7K], r7A + M5L, m5L]], D8K, T7K, s6K, F8K, y5L, N4K, r5L[p9A], s6K, s6K));
+        else
+            J5L[r0A](V5L([[u5L[o9K] + (u5L[S7K] ? h9A + u5L[S7K] : p6K) + (u5L[F7K] ? h9A + u5L[F7K] : p6K), r7A + M5L, m5L]], D8K, T7K, s6K, F8K, y5L, N4K, r5L[p9A], s6K, s6K));
+        J5L[a0A] = W8K;
+        if (!u5L[S7K]) {
+            J5L[a0A] = l7K;
+            J5L[w0A] = T7K;
+        }
+        TweenLite[I8A](J5L, n6K, {
+            alpha: o9K
         });
-      }
+        var D4K = new createjs[D7A](Z6L,r7A + M5L,m5L);
+        D4K[w0A] = j8K;
+        D4K[u7A] = k7A;
+        D4K[a0A] = r7K;
+        if (r5L[B3A] !== undefined)
+            D4K[a0A] = u7K;
+        I5L[r0A](D4K);
+        v5L[r0A](z5L);
+        for (var u4K = o9K; u4K <= v5L[l7A]() - S7K; u4K++) {
+            var k4K = v5L[Z7A](u4K);
+            TweenLite[i3A](k4K);
+            if (u4K == V4K) {
+                var G4K = U8K;
+                var g4K = c8K;
+                if (!u5L[S7K]) {
+                    G4K = j8K;
+                    n4K[w0A] = g8K;
+                }
+                TweenLite[y3A](k4K, n6K, {
+                    scaleX: S7K,
+                    scaleY: S7K,
+                    x: G4K,
+                    y: g4K
+                });
+            } else
+                TweenLite[y3A](k4K, n6K, {
+                    scaleX: o9K,
+                    scaleY: o9K
+                });
+        }
     }
-    createjs[service][addEventListener](touchend, addColorClick);
-  }
-  /**
-   * @return {undefined}
-   */
-  function clear() {
-    /** @type {string} */
-    var indexLookupKey = "easeNone";
-    /** @type {string} */
-    var i = "getChildIndex";
-    /** @type {number} */
-    var rotationDiff = 360;
-    if (self[i](row)) {
-      /** @type {number} */
-      row[attr] = value;
-      TweenLite[method](row, a, {
-        rotation : rotationDiff,
-        onComplete : clear,
-        ease : Linear[indexLookupKey]
-      });
+    var D0K = s6K;
+    var M7L = K6K;
+    var H9L = Q6K;
+    var Q6L = h6K;
+    var U9L = p6K;
+    function S6L() {
+        H8L(-F7K);
     }
-  }
-  /**
-   * @return {undefined}
-   */
-  function onTouchEnd() {
-    if (!temp) {
-      if (!hasSongChanged && !isReplayingSong) {
-        w++;
-      }
-      if (isReplayingSong) {
-        accessorPath++;
-      }
+    function H7L(i9K, d9K, e9K, A9K) {
+        var A6A = "sendAnalytics";
+        if (j0K)
+            if (window[o6K][S0A])
+                try {
+                    parent[A6A](i9K, d9K, e9K, A9K);
+                } catch (R9K) {}
     }
-    if (resolved) {
-      if (lat < value) {
-        /** @type {boolean} */
-        resolved = fn;
-        handler();
-      } else {
-        /** @type {number} */
-        lat = lat - a / createjs[service][command]();
-      }
+    var u7L;
+    var Z7L;
+    var p9L;
+    var i9L;
+    var Q7L = t7K;
+    var b7L;
+    var c5L;
+    var B9L = s6K;
+    var C7L = S7K;
+    function C1K() {
+        TweenLite[y3A](o9L, B7K, {
+            scaleX: g8K
+        });
     }
-  }
-  /**
-   * @param {string} fmt
-   * @return {undefined}
-   */
-  function log(fmt) {
-    TweenLite[funcName](this);
-    parent[propertyToRemove]();
-    expectedRenderable++;
-    item[children]();
-    item[displayName]();
-    item[tip]();
-    item[status]();
-    item = new createjs[PL$29](fn, index, v2);
-    item[cmdName](evt);
-    item[addEventListener](autoplay, indentString);
-    item[addEventListener](event, log);
-    item[addEventListener]($103, error);
-    TweenLite[method](this, a, {
-      onComplete : drawInfo
-    });
-  }
-  /**
-   * @param {!Object} args
-   * @return {undefined}
-   */
-  function alert(args) {
-    /** @type {string} */
-    var label = "end challenge";
-    /** @type {string} */
-    var svg = "final guess";
-    /** @type {string} */
-    var showNotes = "ech";
-    /** @type {string} */
-    var OUTERSIZE = "pauseTimedModeTimer";
-    /** @type {string} */
-    var enableScale = "dc";
-    getService();
-    if (srcToEval) {
-      window[cancel](srcToEval);
+    var C8L = [];
+    var f8L = o9K;
+    var V8L = o9K;
+    var x7L = s6K;
+    var I7L = s6K;
+    var t6L = s6K;
+    var b9L;
+    function V5L(E5K, n5K, g5K, A5K, y5K, e5K, R5K, J5K, i5K, U5K) {
+        var m6A = "getMeasuredHeight";
+        var z6A = '#FFFFFF';
+        var E7K = 52;
+        var x5K = new createjs[p0A]();
+        if (!e5K) {
+            J5K = J5K !== undefined ? J5K : F9L;
+            i5K = i5K === undefined ? q6K : s6K;
+            U5K = U5K === undefined ? q6K : s6K;
+            var Z5K = new createjs[p0A]();
+            x5K[r0A](Z5K);
+            var l5K = new createjs[L4A]();
+            if (U5K) {
+                l5K[q4A][X5A](W7K);
+                l5K[q4A][Y5A](H6A);
+            }
+            if (i5K)
+                l5K[q4A][M6A](o9K, o9K, n5K, g5K, W7K);
+            else
+                l5K[q4A][Q4A](o9K, o9K, n5K, g5K);
+            Z5K[r0A](l5K);
+            l5K[g4A] = n5K / F7K;
+            l5K[V4A] = g5K / F7K;
+            l5K[w0A] = n5K / F7K;
+            l5K[a0A] = g5K / F7K;
+            var f5K = new createjs[L4A]();
+            if (J5K)
+                f5K[q4A][R5A](J5K);
+            if (U5K)
+                f5K[q4A][X5A](F7K)[Y5A](z6A);
+            if (i5K)
+                f5K[q4A][M6A](o9K, o9K, n5K, g5K, W7K);
+            else
+                f5K[q4A][Q4A](o9K, o9K, n5K, g5K);
+            Z5K[r0A](f5K);
+            f5K[g4A] = n5K / F7K | o9K;
+            f5K[V4A] = g5K / F7K | o9K;
+            f5K[w0A] = n5K / F7K;
+            f5K[a0A] = g5K / F7K;
+            Z5K[g4A] = n5K / F7K;
+            Z5K[V4A] = g5K / F7K;
+            Z5K[w0A] = n5K / F7K;
+            Z5K[a0A] = g5K / F7K;
+            if (e9L == s6K)
+                Z5K[n7A](-(n5K * S7A), -(g5K * S7A), n5K + n5K * s7A, g5K + g5K * s7A);
+        }
+        if (E5K) {
+            var d5K = s7K;
+            for (var C5K = o9K; C5K <= E5K[Q2A] - S7K; C5K++) {
+                var V5K = new createjs[D7A](E5K[C5K][o9K],E5K[C5K][S7K],E5K[C5K][F7K]);
+                if (!A5K) {
+                    V5K[u7A] = k7A;
+                    if (y5K)
+                        V5K[w0A] = y5K;
+                    else
+                        V5K[w0A] = E7K;
+                } else if (y5K)
+                    V5K[w0A] = y5K;
+                else
+                    V5K[w0A] = t7K;
+                V5K[N7A] = n5K;
+                V5K[a0A] = d5K;
+                x5K[r0A](V5K);
+                d5K += V5K[m6A]() + B7K;
+            }
+        }
+        return x5K;
     }
-    if (!ofn) {
-      /** @type {boolean} */
-      ofn = v2;
-      if (args) {
-        $[deck](enableScale, [args[token], args[dir]]);
-      }
+    function A6L(t3K) {
+        var o9A = "skip startup interaction";
+        var O9A = "interaction";
+        if (i7L && !s6L) {
+            s6L = q6K;
+            H7L(O9A, o9A);
+        }
     }
-    if (!isInScript && !isInStyle) {
-      createElement();
-      if (open()) {
-        parent[OUTERSIZE]();
-        if (y == h - (hasURL ? a : value)) {
-          $[deck](showNotes, (Math[func](val * t) / t)[TFXD](duration));
-          if (hasURL) {
-            updateStatus();
-          }
-          test();
+    var z7L;
+    var F9L = w6K;
+    var c9L = a6K;
+    var C9L = b6K;
+    var f5L = c6K;
+    var A9L = w6K;
+    var l9L = a6K;
+    var G9L = c6K;
+    var N9L = s6K;
+    function Z1K(y9K, E9K) {
+        var e6A = "appProgress";
+        o9L[Y6K] = E9K[e6A] * K8K * F7K;
+    }
+    var R9L = b6K;
+    var v7L = r6K;
+    var K7L = I6K;
+    var M5L = H6K;
+    var j7L = M6K;
+    var S9L = [];
+    var U5L = [];
+    var E5L = o9K;
+    var z9L = p7K;
+    function M0K(X9K, Y9K) {
+        if (S8L)
+            return new createjs[h4A](D5L[p4A](C3A));
+        X9K = X9K == z6K ? f5L : X9K;
+        var T9K = new createjs[L4A]();
+        T9K[q4A][X5A](S7K, F7K, F7K);
+        if (Y9K)
+            T9K[q4A][Y5A](Y9K);
+        T9K[q4A][R5A](X9K)[b9A](q7K, o9K)[B9A](Q7K, s7K)[B9A](r7K, s7K)[B9A](h7K, Q7K)[B9A](a7K, r7K)[B9A](q7K, w7K)[B9A](W7K, r7K)[B9A](t7K, Q7K)[B9A](o9K, s7K)[B9A](s7K, s7K)[B9A](q7K, o9K);
+        return T9K;
+    }
+    var m5L = f5L;
+    var y5L;
+    var T5L = s6K;
+    var k8L = F9L;
+    function T6L(L3K) {
+        A6L(L3K);
+        if (!Y5L && !i5L && F8L) {
+            TweenLite[y3A](r9L, F7A, {
+                y: r5L[k9A] !== undefined ? r5L[k9A] + B7K : a8K,
+                onComplete: L1K
+            });
+            O6L();
+            if (!a7L) {
+                k5L = parseFloat(k5L);
+                k5L = k5L - q7L;
+                k5L = parseFloat(k5L);
+                TweenLite[y3A](W7L, n6K, {
+                    rotation: k5L,
+                    onComplete: b6L
+                });
+                M6L();
+            }
+            s8L = o9K;
+            p8L = -q7L;
+            createjs[K0A][W6K](h0A, f7L);
+        }
+    }
+    var Q8L = c9L;
+    var R7L = f5L;
+    var A5L = f5L;
+    var d8L = s6K;
+    var G6L = s6K;
+    var N6L = s6K;
+    var k6L = s6K;
+    var Y7L = z6K;
+    var P8L;
+    var j9L;
+    function p1K() {
+        i5L = q6K;
+        Y5L = q6K;
+        U8L();
+        if (o5L) {
+            createjs[K0A][G5A](h0A, R8L);
+            TweenLite[i3A](o5L);
+            I5L[J4A](o5L);
+        }
+        TweenLite[i3A](G5L);
+        TweenLite[y3A](G5L, o9K, {
+            alpha: o9K
+        });
+        TweenLite[y3A](T9L, n6K, {
+            alpha: o9K
+        });
+        TweenLite[y3A](e7L, n6K, {
+            alpha: o9K
+        });
+        TweenLite[i3A](C5L);
+        TweenLite[y3A](C5L, n6K, {
+            alpha: o9K
+        });
+        TweenLite[i3A](g5L);
+        TweenLite[y3A](g5L, F7A, {
+            alpha: o9K
+        });
+        if (!c6L)
+            if (!N9L) {
+                W9L[E4A] = q6K;
+                W9L[y4A] = o9K;
+                k9L[E4A] = s6K;
+            }
+    }
+    var H5L = m6K;
+    function N7L() {
+        if (!i5L) {
+            K8L = q6K;
+            Y5L = q6K;
+            if (!c5L[D5A]) {
+                TweenLite[i3A](g5L);
+                TweenLite[y3A](g5L, n6K, {
+                    alpha: o9K
+                });
+                v5L[r0A](z5L);
+                TweenLite[y3A](z5L, n6K, {
+                    scaleX: n6K,
+                    scaleY: n6K,
+                    x: j7K,
+                    y: Z8K
+                });
+                TweenLite[y3A](T9L, n6K, {
+                    alpha: o9K
+                });
+                TweenLite[y3A](e7L, n6K, {
+                    alpha: o9K
+                });
+                var R3K = t7K;
+                var T3K = l5L - t7K - p8K;
+                var X3K = (T3K - R3K) / (v5L[l7A]() - S7K);
+                for (var e3K = o9K; e3K <= v5L[l7A]() - S7K; e3K++) {
+                    var A3K = v5L[Z7A](e3K);
+                    TweenLite[i3A](A3K);
+                    TweenLite[y3A](A3K, n6K, {
+                        scaleX: S7K,
+                        scaleY: S7K,
+                        y: K8K,
+                        x: t7K + X3K * e3K + y7K
+                    });
+                }
+            }
+            if (j5L == o9K && !r8L) {
+                y9L = q6K;
+                w6L();
+            } else if (V7L && y9L)
+                w6L();
+            else
+                W1K();
+        }
+    }
+    var s9L, Z9L, v8L;
+    var c6L = s6K;
+    var z8L = s6K;
+    var k0K = o9K;
+    var B8L = v6K;
+    function y0K() {
+        F8L = q6K;
+    }
+    var t8L = s6K;
+    var m6L = p6K;
+    var q8L = s6K;
+    function H6L(Q3K) {
+        var p7A = "end challenge";
+        var h7A = "final guess";
+        var K7A = "ech";
+        var q7A = "pauseTimedModeTimer";
+        var L7A = "dc";
+        i6L();
+        if (w8L)
+            window[C4A](w8L);
+        if (!L6L) {
+            L6L = q6K;
+            if (Q3K)
+                $[V5A](L7A, [Q3K[n5A], Q3K[g5A]]);
+        }
+        if (!i5L && !K8L) {
+            U8L();
+            if (D8L()) {
+                parent[q7A]();
+                if (e5L == j5L - (T5L ? S7K : o9K)) {
+                    $[V5A](K7A, (Math[A6K](k5L * Q7K) / Q7K)[Q7A](F7K));
+                    if (T5L)
+                        w0K();
+                    N7L();
+                } else {
+                    w0K();
+                    B9L && r6L();
+                    v5L[r0A](z5L);
+                    z5L[a0A] = I8K;
+                    TweenLite[y3A](z5L, n6K, {
+                        scaleX: s7A,
+                        scaleY: s7A,
+                        x: -j7K,
+                        y: m8K
+                    });
+                }
+            } else if (e5L == j5L - (T5L ? S7K : o9K)) {
+                if (T5L) {
+                    O9L[k3A]((Math[A6K](k5L * Q7K) / Q7K)[Q7A](F7K));
+                    p0K();
+                } else
+                    $[V5A](K7A, (Math[A6K](k5L * Q7K) / Q7K)[Q7A](F7K));
+                H7L(h7A, p7A);
+                N7L();
+            } else
+                i0K();
+        }
+    }
+    function P5L(o1K, O1K, Y1K) {
+        var D3A = '.';
+        var j3A = '-';
+        var P3A = '1';
+        var v3A = 'undefined';
+        if (typeof Y1K === v3A)
+            Y1K = E5L;
+        if (typeof O1K === v3A)
+            O1K = P3A;
+        if (Y1K == o9K)
+            Y1K = z6K;
+        for (var S2K = o9K; P8L && S2K < P8L[Q2A]; S2K++) {
+            var F2K = P8L[S2K];
+            var B2K = F2K + j3A + O1K + D3A + o1K + (Y1K ? j3A + Y1K : M0A);
+            var W2K = F2K + j3A + O1K + D3A + o1K;
+            if (j9L[B2K])
+                return j9L[B2K];
+            if (j9L[W2K])
+                return j9L[W2K];
+        }
+        var t2K = O1K + D3A + o1K + (Y1K ? j3A + Y1K : M0A);
+        if (j9L[t2K])
+            return j9L[t2K];
+        var s2K = O1K + D3A + o1K;
+        if (j9L[s2K])
+            return j9L[s2K];
+        return M0A;
+    }
+    var X9L = s6K;
+    var u8L = s6K;
+    function G7L(E3K) {
+        var S8A = "drawCircle";
+        var o7A = "rect";
+        var O7A = "getFrame";
+        var Y7A = "spriteSheet";
+        var X7A = "gotoAndPlay";
+        var T7A = "Sprite";
+        var R7A = "SpriteSheet";
+        var A7A = "getFPS";
+        var e7A = "ceil";
+        var d7A = 'src';
+        var i7A = "IMG";
+        var x7A = "createElement";
+        var U7A = "data:image/jpeg;base64,";
+        var y7A = "decryptImg";
+        var R8K = 320;
+        U7L = s6K;
+        if (x5L == j5L && T5L)
+            return s6K;
+        var v3K = new createjs[p0A]();
+        e7L[r0A](v3K);
+        var j3K;
+        if (x5L == o9K || j5L == x5L)
+            j3K = D5L[p4A](n3A + x5L);
+        else {
+            j3K = t9L[p4A](n3A + x5L);
+            if (!j3K) {
+                setTimeout(function() {
+                    G7L(E3K);
+                }, g8K);
+                return s6K;
+            }
+        }
+        x5L++;
+        if (B9L && j5L != x5L - S7K) {
+            var u3K;
+            if (x5L == S7K)
+                u3K = D5L[p4A](n3A + (x5L - S7K));
+            else
+                u3K = t9L[p4A](n3A + (x5L - S7K));
+            var V3K = parent[y7A](u3K, C8L[C7L]);
+            var f3K = U7A + V3K;
+            var k3K = document[x7A](i7A);
+            k3K[d6K](d7A, f3K);
+            j3K = k3K;
+        }
+        if (b8L && j5L != x5L - S7K) {
+            var Z3K = a6L;
+            var l3K = Math[e7A](createjs[K0A][A7A]() / n0K);
+            var N3K = [];
+            var D3K = o9K;
+            for (var G3K = Z3K - S7K; G3K >= o9K; G3K--) {
+                for (var n3K = o9K; n3K < l3K; n3K++)
+                    N3K[k3A]([D3K, o9K, p8K, p8K, o9K, o9K, o9K]);
+                D3K = D3K + p8K;
+            }
+            var C3K = {
+                images: [j3K],
+                frames: N3K
+            };
+            var J3K = new createjs[R7A](C3K);
+            K9L = new createjs[T7A](J3K);
+            K9L[X7A](o9K);
+            K9L[g4A] = K9L[Y7A][O7A](o9K)[o7A][l6K] / F7K;
+            K9L[V4A] = K9L[Y7A][O7A](o9K)[o7A][Z6K] / F7K;
         } else {
-          updateStatus();
-          if (mode) {
-            nativeRequire();
-          }
-          set[prop](d);
-          /** @type {number} */
-          d[name] = currentValue;
-          TweenLite[method](d, scale, {
-            scaleX : ratio,
-            scaleY : ratio,
-            x : -x,
-            y : languageOffsetY
-          });
+            K9L = new createjs[h4A](j3K);
+            K9L[g4A] = y7K;
+            K9L[V4A] = y7K;
         }
-      } else {
-        if (y == h - (hasURL ? a : value)) {
-          if (hasURL) {
-            g[part]((Math[func](val * t) / t)[TFXD](duration));
-            exec();
-          } else {
-            $[deck](showNotes, (Math[func](val * t) / t)[TFXD](duration));
-          }
-          appendChild(svg, label);
-          test();
+        v3K[r0A](K9L);
+        if (x5L == j5L + S7K) {
+            var g3K = [b8K, D8K, g8K];
+            N1K(g3K);
+            v3K[l4A] = g3K[o9K];
+        }
+        if (!k6L) {
+            var P3K = new createjs[L4A]();
+            if (Y7L == z6K)
+                Y7L = f5L;
+            P3K[q4A][X5A](F7K)[Y5A](Y7L)[S8A](y7K, y7K, y7K);
+            P3K[g4A] = y7K;
+            P3K[V4A] = y7K;
+            P3K[w0A] = o9K;
+            P3K[a0A] = o9K;
+            v3K[r0A](P3K);
+        }
+        v3K[w0A] = R8K;
+        v3K[a0A] = O7L;
+        v3K[Y6K] = v3K[O6K] = o9K;
+        TweenLite[y3A](v3K, n6K, {
+            scaleX: s7A,
+            scaleY: s7A
+        });
+        g0K = v3K;
+        U7L = q6K;
+        if (E3K)
+            h6L();
+    }
+    var r7L;
+    var W8L = p6K;
+    var G0K = navigator[P6K][j6K]()[D6K](u6K) > -S7K;
+    var F8L = q6K;
+    var P9L = navigator[k6K][D6K](N6K) !== -S7K;
+    var Q9L = s6K;
+    var W6L = s6K;
+    var a8L = q6K;
+    var P6L = G6K;
+    var e5L = o9K;
+    function g1K() {
+        var x6A = "enable";
+        var U6A = "enableDOMEvents";
+        var y6A = "Chrome";
+        var E6A = "Android";
+        X5L[Z6A] = function() {
+            return s6K;
+        }
+        ;
+        if (createjs[C6A][J6A]()) {
+            var Z9K = navigator[P6K][D6K](E6A) > -S7K && !(navigator[P6K][D6K](y6A) > -S7K);
+            if (Z9K)
+                I5L[U6A](s6K);
+            createjs[C6A][x6A](I5L);
+        } else
+            I5L[y6K]();
+    }
+    var j5L = B7K;
+    function w1K() {
+        var E8A = "zh";
+        var x8K = 240;
+        var U7K = 57;
+        var C7K = 48;
+        TweenLite[y3A](z5L, n6K, {
+            alpha: o9K,
+            onComplete: k7L,
+            onCompleteParams: [z5L]
+        });
+        var v4K = t7K;
+        var P4K = l5L - t7K - p8K;
+        var j4K = (P4K - v4K) / (v5L[l7A]() - S7K);
+        for (var z4K = o9K; z4K <= v5L[l7A]() - S7K; z4K++) {
+            var m4K = v5L[Z7A](z4K);
+            TweenLite[i3A](m4K);
+            TweenLite[y3A](m4K, n6K, {
+                scaleX: S7K,
+                scaleY: S7K,
+                y: K8K,
+                x: t7K + j4K * z4K + y7K,
+                alpha: S7K
+            });
+        }
+        var H4K = P0K(m7K, u7K);
+        var M4K = V5L([[L0K, r7A + M5L, m5L]], x8K, C7K, s6K, b8K, y5L, I7K, r5L[p9A], s6K, s6K, q6K);
+        M4K[w0A] = U7K;
+        M4K[a0A] = q7K;
+        if (r5L[B3A] !== undefined)
+            M4K[a0A] = m7K;
+        switch (H5L) {
+        case c4A:
+            M4K[w0A] = g7K;
+            H4K[a0A] = J7K;
+            H4K[w0A] = j7K;
+            break;
+        case I4A:
+            M4K[w0A] = g7K;
+            H4K[a0A] = J7K;
+            H4K[w0A] = j7K;
+            break;
+        case E8A:
+            M4K[w0A] = g7K;
+            H4K[a0A] = J7K;
+            H4K[w0A] = j7K;
+            break;
+        case v4A:
+            M4K[w0A] = u7K;
+            H4K[a0A] = T7K;
+            H4K[w0A] = j7K;
+            break;
+        }
+        I5L[r0A](M4K);
+        TweenLite[y3A](v5L, n6K, {
+            scaleX: S7K,
+            scaleY: S7K,
+            y: m7K
+        });
+        H1K(v5L[l7A]());
+    }
+    var v9L = s6K;
+    var j8L = s6K;
+    function S1K(x3K) {
+        var U3K = $[F8A](x3K);
+        if (U3K && U3K[p8A] == s8A)
+            parent[w8A](L9L);
+    }
+    function h1K(I4K) {
+        var J8A = 1.3;
+        var C8A = 0.4;
+        var Z8A = "-30";
+        var f8A = "bold 18px ";
+        var X8K = 400;
+        var v8K = 145;
+        var b4K = new createjs[p0A]();
+        var r4K;
+        switch (I4K) {
+        case S7K:
+        case F7K:
+            r4K = t0K;
+            break;
+        case B7K:
+        case W7K:
+            r4K = W0K;
+            break;
+        case t7K:
+            r4K = B0K;
+            break;
+        }
+        var a4K = new createjs[D7A](r4K,f8A + M5L,A5L);
+        a4K[u7A] = k7A;
+        a4K[a0A] = N7K;
+        if (j5L == o9K)
+            a4K[a0A] = Z7K;
+        b4K[r0A](a4K);
+        for (var c4K = I4K - S7K; c4K >= o9K; c4K--) {
+            var w4K = M0K(A5L, K7L);
+            w4K[g4A] = w4K[l6K] / F7K | o9K;
+            w4K[V4A] = w4K[Z6K] / F7K | o9K;
+            switch (c4K) {
+            case o9K:
+                w4K[w0A] = o9K;
+                w4K[a0A] = o9K;
+                break;
+            case S7K:
+                w4K[w0A] = -u7K;
+                w4K[a0A] = H7K;
+                break;
+            case F7K:
+                w4K[w0A] = j7K;
+                w4K[a0A] = m7K;
+                break;
+            case B7K:
+                w4K[w0A] = -u7K;
+                w4K[a0A] = -p7K;
+                break;
+            case W7K:
+                w4K[w0A] = u7K;
+                w4K[a0A] = -b7K;
+                break;
+            }
+            if (parent[H7A] !== M7A)
+                b4K[r0A](w4K);
+            TweenLite[I8A](w4K, n6K, {
+                delay: l8A + c4K * S7A,
+                scaleX: o9K,
+                scaleY: o9K,
+                x: o9K,
+                y: o9K
+            });
+            TweenLite[y3A](w4K, F7A, {
+                delay: S7K,
+                y: Z8A
+            });
+            TweenLite[y3A](w4K, C8A, {
+                delay: J8A,
+                y: X8K
+            });
+        }
+        TweenLite[I8A](a4K, n6K, {
+            delay: n6K,
+            scaleX: S7K,
+            scaleY: S7K
+        });
+        TweenLite[y3A](a4K, n6K, {
+            delay: P8A,
+            y: -g8K
+        });
+        I5L[r0A](b4K);
+        b4K[w0A] = v8K;
+        b4K[a0A] = s8K;
+    }
+    var g6L = s6K;
+    var T8L = q6K;
+    var H0K = z6K;
+    var c0K = z6K;
+    var N8L = q6K;
+    var i7L = s6K;
+    var s6L = s6K;
+    function p6L() {
+        if (n7L) {
+            TweenLite[i3A](C5L);
+            TweenLite[i3A](g5L);
+            l7L = o9K;
+            TweenLite[y3A](g5L, v6L, {
+                alpha: o9K,
+                onComplete: Z0K
+            });
+            TweenLite[y3A](C5L, u6L, {
+                alpha: S7K,
+                delay: A8L
+            });
+            i6L();
+            if (r5L[f9A] == undefined)
+                TweenLite[y3A](N5L, n6K, {
+                    alpha: o9K,
+                    visible: o9K
+                });
+            else
+                TweenLite[y3A](N5L, n6K, {
+                    alpha: n6K
+                });
+            if (x5L == j5L + S7K)
+                if (S9L) {
+                    C5L[y5A]();
+                    if (r5L[Q9A] == undefined)
+                        C5L[r0A](V5L([[S9L[o9K], c7A + M5L, m5L], [S9L[S7K], r7A + M5L, m5L]], j8K, J7K, s6K, o7K, y5L, I7K, r5L[p9A], s6K, s6K));
+                    else
+                        C5L[r0A](V5L([[S9L[o9K] + (S9L[S7K] ? h9A + S9L[S7K] : p6K), r7A + M5L, m5L]], e8K, J7K, s6K, o7K, y5L, I7K, r5L[p9A], s6K, s6K));
+                }
+            n7L = s6K;
+        }
+    }
+    var L6L = s6K;
+    function q0K() {
+        var J7A = 0.8;
+        var C7A = "updateCache";
+        var f7A = " of ";
+        if (!i5L && !c5L[D5A]) {
+            F8L = s6K;
+            G5L[E4A] = q6K;
+            G5L[y4A] = o9K;
+            TweenLite[y3A](G5L, n6K, {
+                alpha: S7K
+            });
+            f9L[E4A] = s6K;
+            if (e5L == S7K)
+                f9L[E4A] = q6K;
+            else {
+                m9L[E4A] = q6K;
+                var z3K = (x9L / createjs[K0A][V7A]())[Q7A](S7K);
+                m9L[s5A] = z3K + h9A + n8L;
+                if (e5L >= Q7L) {
+                    if (!E9L) {
+                        E9L = new createjs[D7A](p6K,a4A + M5L,A5L);
+                        E9L[u7A] = k7A;
+                        E9L[N7A] = b8K;
+                        E9L[a0A] = b7K;
+                        E9L[w0A] = e7K;
+                        G5L[r0A](E9L);
+                    }
+                    var m3K = j5L + (T5L ? o9K : S7K);
+                    E9L[s5A] = e5L + f7A + m3K;
+                }
+            }
+            for (var M3K = G5L[l7A]() - S7K; M3K >= o9K; M3K--) {
+                var H3K = G5L[Z7A](M3K);
+                if (e5L >= Q7L) {
+                    if (H3K[m7A] == S7K)
+                        H3K[E4A] = s6K;
+                } else if (H3K[j7A])
+                    if (H3K[j7A] == e5L)
+                        H3K[E4A] = q6K;
+            }
+            if (e9L == s6K)
+                G5L[C7A]();
+            TweenLite[y3A](G5L, n6K, {
+                delay: J7A,
+                alpha: o9K
+            });
+            TweenLite[y3A](this, E7A, {
+                onComplete: h6L
+            });
+        }
+    }
+    var X5L, u1K, I5L, D5L, t9L;
+    var Y5L = q6K;
+    function B1K() {
+        var h3A = 'ar';
+        var Q3A = "_show_verify_arrow";
+        var K3A = "_center_verify";
+        var q3A = "_verify_btn_width";
+        var L3A = "_verify_txt_x";
+        var s3A = "_final_chal_lang_key";
+        var t3A = "_info_land_lang_key";
+        var W3A = "verification";
+        var F3A = "game_check";
+        var S3A = "game_perfect";
+        var o2A = "game_great";
+        var O2A = "game_good";
+        var Y2A = "fail_top_multi";
+        var X2A = "fail_button";
+        var T2A = "wait_text";
+        var R2A = "seconds";
+        var A2A = "done_button";
+        var e2A = "fail_top";
+        var d2A = "fail_info_timed_top";
+        var x2A = "fail_info_timed_middle";
+        var U2A = "_done_info_key";
+        var y2A = "touch_done_info_stack";
+        var E2A = "touch_done_info";
+        var J2A = "touch_button_info";
+        var C2A = "landing_button";
+        var f2A = "landing_info";
+        if (H5L != g2A || H5L != V2A)
+            u9L = P5L(f2A, c0A, E5L)[P0A](l2A);
+        else
+            u9L = P5L(f2A, c0A, E5L)[P0A](Z2A);
+        w7L = P5L(C2A, c0A, E5L);
+        if (H5L != g2A || H5L != V2A)
+            O5L = P5L(J2A)[P0A](l2A);
+        else
+            O5L = P5L(J2A)[P0A](Z2A);
+        var T1K = E2A;
+        if (I6L)
+            T1K = y2A;
+        if (c5L[i0A][U2A])
+            T1K = c5L[i0A][U2A];
+        if (H5L != g2A || H5L != V2A)
+            u5L = P5L(T1K)[P0A](l2A);
+        else
+            u5L = P5L(T1K)[P0A](Z2A);
+        if (!m7L)
+            if (H5L != g2A || H5L != V2A)
+                Z5L = P5L(x2A)[P0A](l2A);
+            else
+                Z5L = P5L(x2A)[P0A](Z2A);
+        else if (H5L != g2A || H5L != V2A)
+            Z5L = P5L(i2A)[P0A](l2A);
+        else
+            Z5L = P5L(i2A)[P0A](Z2A);
+        if (H5L != g2A || H5L != V2A)
+            w9L = P5L(d2A)[P0A](l2A);
+        else
+            w9L = P5L(d2A)[P0A](Z2A);
+        var X1K = e2A;
+        Z6L = P5L(X1K);
+        G8L = P5L(A2A);
+        n8L = P5L(R2A, c0A, E5L);
+        Q0K = P5L(T2A, c0A, E5L);
+        g8L = P5L(X2A);
+        L0K = P5L(Y2A);
+        t0K = P5L(O2A, c0A, E5L);
+        W0K = P5L(o2A, c0A, E5L);
+        B0K = P5L(S3A, c0A, E5L);
+        F0K = P5L(F3A, c0A, E5L);
+        if (c5L[i0A][B3A])
+            o6L = P5L(W3A, c0A, E5L);
+        if (c5L[i0A][t3A])
+            if (H5L != g2A || H5L != V2A)
+                u9L = P5L(c5L[i0A][t3A], c0A, E5L)[P0A](l2A);
+            else
+                u9L = P5L(c5L[i0A][t3A], c0A, E5L)[P0A](Z2A);
+        S9L = O5L;
+        U5L = u5L;
+        q1K();
+        if (c5L[i0A][s3A])
+            U5L = P5L(c5L[i0A][s3A])[P0A](l2A);
+        if (c5L[i0A][L3A])
+            H0K = c5L[i0A][L3A];
+        if (c5L[i0A][q3A])
+            c0K = c5L[i0A][q3A];
+        if (c5L[i0A][K3A])
+            N8L = c5L[i0A][K3A];
+        if (c5L[i0A][v1A])
+            j8L = c5L[i0A][v1A];
+        if (c5L[i0A][Q3A])
+            T8L = !c5L[i0A][Q3A];
+        if (H5L === h3A)
+            X5L[T6K][p3A] = w3A;
+    }
+    function l8L() {
+        var b7A = "hideWaitScreen";
+        window[C4A](S0K);
+        if (Z8L) {
+            Z8L = s6K;
+            parent[b7A]();
+        }
+    }
+    var l5L = A8K;
+    var E7L = d8K;
+    var i8L = s6K;
+    var l7L = o9K;
+    var X6L = [];
+    var g9L, d9L;
+    var p7L = o9K;
+    var y9L = s6K;
+    var V7L = s6K;
+    var s0K = o9K
+      , K6L = o9K
+      , L9L = o9K;
+    var z5L;
+    var O9L = [];
+    function P0K(o4K, S5K) {
+        var X8A = "fc2_cross_colour";
+        var O4K = new createjs[L4A]();
+        O4K[q4A][R5A](r5L[X8A] ? r5L[X8A] : v5A)[B9A](I7K, o9K)[B9A](g7K, I7K)[B9A](i7K, o9K)[B9A](T7K, Q7K)[B9A](J7K, j7K)[B9A](T7K, J7K)[B9A](i7K, i7K)[B9A](g7K, g7K)[B9A](I7K, i7K)[B9A](Q7K, J7K)[B9A](j7K, j7K)[B9A](j7K, j7K)[B9A](Q7K, Q7K)[W9A](I7K, o9K);
+        if (o7L)
+            O4K = new createjs[h4A](D5L[p4A](J3A));
+        O4K[w0A] = o4K ? o4K : j8K;
+        O4K[a0A] = S5K ? S5K : K8K;
+        O4K[Y6K] = O4K[O6K] = E7A;
+        O4K[g4A] = j7K;
+        O4K[V4A] = j7K;
+        F6L(O4K, Y9A, t7K);
+        I5L[r0A](O4K);
+        return O4K;
+    }
+    function k7L(u5K) {
+        I5L[J4A](u5K);
+    }
+    var i5L = s6K;
+    function H8L(d4K) {
+        var A8A = "incorrect answer";
+        var e8A = "failed game";
+        p1K();
+        H7L(e8A, A8A, d4K);
+        TweenLite[y3A](W9L, n6K, {
+            alpha: S7K
+        });
+        TweenLite[y3A](g7L, n6K, {
+            alpha: o9K
+        });
+        r1K();
+        if (r5L[X3A] !== undefined) {
+            I5L[r0A](R5L);
+            f6L();
+            I5L[r0A](N5L);
+            TweenLite[y3A](N5L, n6K, {
+                alpha: o9K,
+                visible: o9K
+            });
         } else {
-          send();
+            x0K();
+            C1K();
         }
-      }
+        switch (d4K) {
+        case -F7K:
+            b1K();
+            break;
+        case -S7K:
+            w1K();
+            break;
+        default:
+            a1K(d4K);
+        }
+        clearTimeout(D7L);
+        m1K();
     }
-  }
-  /**
-   * @return {undefined}
-   */
-  function setSelectedItems() {
-    /** @type {boolean} */
-    BASE_URL = v2;
-  }
-  /**
-   * @return {undefined}
-   */
-  function _performBuff() {
-    TweenLite[funcName](elem);
-    TweenLite[method](elem, len, {
-      y : args[location] !== undefined ? args[location] : y1
-    });
-  }
-  /**
-   * @return {undefined}
-   */
-  function init() {
-    /** @type {string} */
-    var OUTERSIZE = "getDebug";
-    /** @type {string} */
-    var unliasedRef = "getTime";
-    /** @type {string} */
-    var _i = "waves";
-    /** @type {string} */
-    var c = "fc_ball_img";
-    /** @type {string} */
-    var index = "fc_ui_text_color";
-    /** @type {string} */
-    var type = "#";
-    /** @type {string} */
-    var operator = "charAt";
-    /** @type {string} */
-    var field = "fc_ui_color";
-    /** @type {string} */
-    var id = "fc_banner_img";
-    /** @type {string} */
-    var key = "fc_background_img";
-    /** @type {string} */
-    var column = "fc_victory_html";
-    /** @type {string} */
-    var propertyToRemove = "hasExtraData";
-    /** @type {string} */
-    var via = "disable_cache_rendering";
-    /** @type {string} */
-    var END = "watermark_text_site_specific";
-    /** @type {string} */
-    var keyName = "watermark_not_for_public";
-    /** @type {string} */
-    var cap = "animation_frames";
-    /** @type {string} */
-    var newPosition = "image_stack";
-    /** @type {string} */
-    var p = "animated";
-    /** @type {string} */
-    var name = "_welldone_path";
-    /** @type {string} */
-    var clock_class = "welldone";
-    /** @type {string} */
-    var number = "fc2_ball_pos_y";
-    /** @type {string} */
-    var callbackPosition = "fc2_btn_bold";
-    /** @type {string} */
-    var noNulls = "fc_2";
-    /** @type {string} */
-    var mode = "search";
-    /** @type {string} */
-    var validation = "0";
-    /** @type {string} */
-    var definedValidation = "welldone_stars";
-    /** @type {string} */
-    var _category = "_guiProgressTextColor";
-    /** @type {string} */
-    var meta = "_guiInfoText";
-    /** @type {string} */
-    var input = "_guiActionButtonColorSecondary";
-    /** @type {string} */
-    var alarm_class = "_guiActionButtonColorMain";
-    /** @type {string} */
-    var idx = "_landingTextInfoColor";
-    /** @type {string} */
-    var url = "_landingTextColor";
-    /** @type {string} */
-    var attr = "_landingColorSecondary";
-    /** @type {string} */
-    var status_idx = "_landingColorMain";
-    /** @type {string} */
-    var cellIndex = "_guiProgressColorSecondary";
-    /** @type {string} */
-    var _j = "_guiProgressColorMain";
-    /** @type {string} */
-    var propertyInitKey = "_guiLoaderColor";
-    /** @type {string} */
-    var k = "_guiTextColor";
-    /** @type {string} */
-    var t = "_guiColorSecondary";
-    /** @type {string} */
-    var vibrate = "_guiBGColorSecondary";
-    /** @type {string} */
-    var idProperty = "_guiBGColorMain";
-    /** @type {string} */
-    var ts = "_guiColorMain";
-    /** @type {string} */
-    var textKey = "_skip_start_up";
-    /** @type {string} */
-    var current = "_pulse_done";
-    /** @type {string} */
-    var predicate = "game_rid";
-    /** @type {string} */
-    var par1 = "custom_star_url";
-    /** @type {string} */
-    var spanIndex = "skip_answer_return";
-    /** @type {string} */
-    var y = "_rimColor";
-    /** @type {string} */
-    var versionToSet = "1";
-    /** @type {string} */
-    var s = "true";
-    /** @type {string} */
-    var j = "_disableRim";
-    /** @type {string} */
-    var problem = "_disableFinalChalAfterSecChal";
-    /** @type {string} */
-    var subfield = "_disableFinalChallenge";
-    /** @type {string} */
-    var dimension = "_guiTaper";
-    /** @type {string} */
-    var stylePosName = "_guiTheme";
-    /** @type {string} */
-    var handle = "_trans_rightwayup_time_fadeindelay";
-    /** @type {string} */
-    var option = "_trans_rightwayup_time_fadein";
-    /** @type {string} */
-    var num = "_trans_rollball_time_fadeout";
-    /** @type {string} */
-    var sid = "_guiNoInfoBG";
-    /** @type {string} */
-    var cI = "_guiNoOverlay";
-    /** @type {string} */
-    var candidateIndex = "_guiNoShadow";
-    /** @type {string} */
-    var providerId = "_guiNoOutline";
-    /** @type {string} */
-    var server_type = "_landing_bg";
-    /** @type {string} */
-    var property = "_landing_bg_path";
-    /** @type {string} */
-    var text = "_app_bg";
-    /** @type {string} */
-    var count = "_end_banner";
-    /** @type {string} */
-    var bin = "_final_ball";
-    /** @type {string} */
-    var usersIdName = "_guiMainFont";
-    /** @type {string} */
-    var which = "_meta_logo";
-    /** @type {string} */
-    var mainStart = "_white_meta_logo";
-    /** @type {string} */
-    var b = "_intro_game_bg";
-    /** @type {string} */
-    var fnName = "base64_mode";
-    /** @type {string} */
-    var f = "timed_mode";
-    /** @type {string} */
-    var enable = "encrypted_mode";
-    /** @type {string} */
-    var parentId = "display_fc_welldone";
-    /** @type {string} */
-    var qidProp = "getHiddenTimedMode";
-    /** @type {string} */
-    var lang = "getLang";
-    /** @type {string} */
-    var flag = "string_table_prefixes";
-    /** @type {string} */
-    var schemaName = "string_table";
-    /** @type {string} */
-    var plur = "getStringTable";
-    /** @type {string} */
-    var finalToken = "getGameData";
-    /** @type {string} */
-    var bestParent = "getSec";
-    /** @type {string} */
-    var instancesKey = "getSessionToken";
-    /** @type {string} */
-    var singlePart = "getSID";
-    /** @type {string} */
-    var countProp = "getGameSid";
-    /** @type {string} */
-    var relid = "getGameToken";
-    /** @type {string} */
-    var PROTOTYPE = "showStartup";
-    /** @type {string} */
-    var as = "/images/template/fc_meta_solve_welldone.png";
-    /** @type {string} */
-    var prop = "substr";
-    /** @type {string} */
-    var STRING = "string";
-    /** @type {string} */
-    var data = "version/";
-    /** @type {string} */
-    var newAssociations = "safari";
-    /** @type {string} */
-    var overallJump = "msie";
-    /** @type {string} */
-    var full = "/apps/canvas/001";
-    /** @type {string} */
-    var collectionKey = "getCDN";
-    /** @type {number} */
-    var match = 78;
-    /** @type {number} */
-    var exec_status = 9;
-    origNewPath = parent[collectionKey]();
-    /** @type {string} */
-    src = origNewPath + full;
-    if (D3G) {
-      /** @type {boolean} */
-      totalCount = v2;
+    function v1K() {
+        if (D9L)
+            D9L[E4A] = q6K;
     }
-    var instance = navigator[FRIENDLY_PRINTED][IS_EXPANDABLE]();
-    if (instance[iof](overallJump) != -a) {
-      if (parseInt(instance[functionName](overallJump)[a]) == exec_status) {
-        /** @type {boolean} */
-        totalCount = v2;
-      }
+    var I0K = o9K;
+    function q6L() {
+        var W6A = "destroyLastCaptcha";
+        var B6A = "unbind";
+        $(I2A, document)[B6A](M2A, V0K);
+        if (window[o6K][S0A])
+            try {
+                parent[W6A]();
+            } catch (L5K) {
+                var s6A = "reload";
+                var t6A = "location";
+                window[t6A][s6A]();
+            }
     }
-    if (instance[iof](newAssociations) != -a) {
-      var b = instance[functionName](data)[a];
-      if (typeof b === STRING) {
-        /** @type {number} */
-        b = parseInt(b[prop](value, a));
-      }
-      if (b <= o) {
-        /** @type {boolean} */
-        totalCount = v2;
-      }
-    }
-    if (totalCount) {
-      /** @type {string} */
-      src = prefix + src;
-    }
-    /** @type {string} */
-    srcPath = src + as;
-    hasLayerUrl = parent[PROTOTYPE]();
-    registrationID = parent[relid]();
-    Userone = parent[countProp]();
-    keydown = parent[singlePart]();
-    onKeyDown = parent[instancesKey]();
-    ch = parent[bestParent]();
-    items = parent[finalToken]();
-    var result = parent[plur]();
-    schema = result[schemaName];
-    flags = result[flag];
-    logic = parent[lang]();
-    FOOTNOTES_VAR_NAME = parent[qidProp]();
-    next = items[parentId];
-    if (next) {
-      /** @type {boolean} */
-      animate = v2;
-      /** @type {boolean} */
-      hd = v2;
-    }
-    if (items[from][enable]) {
-      /** @type {boolean} */
-      mode = v2;
-      /** @type {boolean} */
-      alias = v2;
-    }
-    if (items[from][f]) {
-      /** @type {boolean} */
-      original = v2;
-    }
-    if (items[from][fnName]) {
-      /** @type {boolean} */
-      alias = v2;
-    }
-    if (items[from][b]) {
-      git_repo_ref = items[from][b];
-    }
-    if (items[from][mainStart]) {
-      _fn2 = items[from][mainStart];
-    }
-    if (items[from][which]) {
-      content = items[from][which];
-    }
-    if (items[from][usersIdName]) {
-      courseId = items[from][usersIdName];
-    }
-    if (items[from][bin]) {
-      frameId = items[from][bin];
-    }
-    if (items[from][count]) {
-      line = items[from][count];
-    }
-    if (items[from][text]) {
-      href = items[from][text];
-    }
-    if (items[from][property]) {
-      to = items[from][property];
-    }
-    if (items[from][server_type]) {
-      conf_server_type = items[from][server_type];
-    }
-    if (items[from][providerId]) {
-      _activeProvider = items[from][providerId];
-    }
-    if (items[from][candidateIndex]) {
-      highestScoringCandidate = items[from][candidateIndex];
-    }
-    if (items[from][cI]) {
-      fromChar = items[from][cI];
-    }
-    if (items[from][sid]) {
-      sib = items[from][sid];
-    }
-    if (items[from][num] !== undefined && parseInt(items[from][num]) >= value) {
-      /** @type {number} */
-      months = parseInt(items[from][num]);
-    }
-    if (items[from][option] !== undefined && parseInt(items[from][option]) >= value) {
-      /** @type {number} */
-      weeks = parseInt(items[from][option]);
-    }
-    if (items[from][handle] !== undefined && parseInt(items[from][handle]) >= value) {
-      /** @type {number} */
-      timeout = parseInt(items[from][handle]);
-    }
-    if (items[from][stylePosName]) {
-      /** @type {number} */
-      username = parseInt(items[from][stylePosName]);
-    } else {
-      /** @type {number} */
-      username = value;
-    }
-    if (items[from][dimension] !== undefined) {
-      /** @type {number} */
-      check = parseInt(items[from][dimension]);
-    }
-    if (items[from][subfield]) {
-      hasURL = items[from][subfield];
-    }
-    if (items[from][problem]) {
-      if (ch != o) {
-        hasURL = items[from][problem];
-      }
-    }
-    if (items[from][j] == v2 || items[from][j] == s || items[from][j] == versionToSet || items[from][j] == a) {
-      /** @type {boolean} */
-      undecorated = v2;
-    }
-    if (items[from][y]) {
-      newIndex = items[from][y];
-    }
-    if (items[from][spanIndex]) {
-      spanItem = items[from][spanIndex];
-    }
-    if (items[from][par1]) {
-      rectangleStart = items[from][par1];
-    }
-    if (items[from][predicate]) {
-      Function = items[from][predicate];
-    }
-    if (items[from][sigma]) {
-      /** @type {boolean} */
-      refPrefix = v2;
-    }
-    if (items[from][current]) {
-      /** @type {boolean} */
-      Obj = v2;
-    }
-    if (items[from][textKey]) {
-      /** @type {boolean} */
-      isCSVLayer = v2;
-    }
-    if (items[from][ts]) {
-      git_ref = items[from][idProperty];
-      vibrateBtn = items[from][vibrate];
-      False = items[from][ts];
-      title = items[from][t];
-      match = items[from][k];
-      if (items[from][propertyInitKey]) {
-        newValue = items[from][propertyInitKey];
-      } else {
-        newValue = match;
-      }
-      if (items[from][_j]) {
-        grid = items[from][_j];
-      } else {
-        grid = False;
-      }
-      if (items[from][cellIndex]) {
-        cell = items[from][cellIndex];
-      } else {
-        cell = title;
-      }
-      if (items[from][status_idx]) {
-        wsFunction = items[from][status_idx];
-      } else {
-        wsFunction = False;
-      }
-      if (items[from][attr]) {
-        html = items[from][attr];
-      } else {
-        if (items[from][status_idx]) {
-          html = items[from][status_idx];
+    var x5L = o9K;
+    function M1K() {
+        var Y8A = "setChildIndex";
+        var W5K;
+        if (J9L != o9K) {
+            W5K = A7L[J9L - S7K];
+            TweenLite[y3A](W5K, n6K, {
+                scaleX: S7K,
+                scaleY: S7K
+            });
+            v5L[Y8A](W5K, J9L - S7K);
         } else {
-          html = title;
+            W5K = A7L[v5L[l7A]() - S7K];
+            TweenLite[y3A](W5K, n6K, {
+                scaleX: S7K,
+                scaleY: S7K
+            });
+            v5L[Y8A](W5K, v5L[l7A]() - S7K);
         }
-      }
-      if (items[from][url]) {
-        response = items[from][url];
-      } else {
-        response = match;
-      }
-      if (items[from][idx]) {
-        user = items[from][idx];
-      } else {
-        user = response;
-      }
-      if (items[from][alarm_class]) {
-        resizingLog = items[from][alarm_class];
-      } else {
-        resizingLog = False;
-      }
-      if (items[from][input]) {
-        expected = items[from][input];
-      } else {
-        expected = title;
-      }
-      if (items[from][meta]) {
-        lhp = items[from][meta];
-      } else {
-        lhp = match;
-      }
-      if (items[from][_category]) {
-        pattern = items[from][_category];
-      } else {
-        pattern = match;
-      }
+        W5K = A7L[J9L];
+        TweenLite[y3A](W5K, n6K, {
+            scaleX: O8A,
+            scaleY: O8A
+        });
+        v5L[Y8A](W5K, v5L[l7A]() - S7K);
+        if (J9L + S7K == X8L)
+            J9L = o9K;
+        else
+            J9L++;
     }
-    if (items[from][definedValidation] === validation) {
-      /** @type {boolean} */
-      version = fn;
-    } else {
-      /** @type {boolean} */
-      version = v2;
-    }
-    var i;
-    for (i in items[from]) {
-      if (i[mode](noNulls)) {
-        args[i] = items[from][i];
-      }
-    }
-    if (args[callbackPosition] !== undefined) {
-      /** @type {string} */
-      groupNamePrefix = lang;
-    }
-    app = args[number] ? args[number] : match;
-    if (items[from][clock_class]) {
-      srcPath = items[from][name];
-      /** @type {boolean} */
-      next = v2;
-    }
-    if (items[from][p] === a) {
-      /** @type {boolean} */
-      curriedFn = v2;
-    }
-    if (items[from][newPosition] === a) {
-      /** @type {boolean} */
-      condition = v2;
-    }
-    if (items[from][cap]) {
-      sources = items[from][cap];
-    }
-    if (items[from][keyName] == v2) {
-      /** @type {boolean} */
-      babushka = v2;
-    }
-    if (items[from][END]) {
-      contentVmodels = items[from][END];
-    }
-    if (items[from][via] == v2) {
-      /** @type {boolean} */
-      evtName = v2;
-    }
-    if (parent[propertyToRemove]()) {
-      /** @type {boolean} */
-      next = fn;
-    }
-    if (items[table]) {
-      if (items[table][column]) {
-        /** @type {boolean} */
-        hd = v2;
-        $header = items[table][column];
-      }
-      if (items[table][key] && items[table][key] != lang) {
-        if (git_repo_ref) {
-          /** @type {boolean} */
-          conf_server_type = v2;
-          to = href;
+    function x8L() {
+        var C5A = "user clicked verify";
+        var Z5A = "begin app";
+        H7L(Z5A, C5A);
+        if (i9L === t7K) {
+            r8L = q6K;
+            parent[J5A](u7L, Z7L, p9L, v0K[E5A](), E0K);
         }
-        href = prefix + items[table][key];
-        /** @type {boolean} */
-        original_fn = v2;
-      }
-      if (items[table][id] && items[table][id] != lang) {
-        /** @type {boolean} */
-        next = fn;
-        /** @type {boolean} */
-        version = fn;
-        line = prefix + items[table][id];
-      }
-      if (items[table][field] && items[table][field] != lang) {
-        if (items[table][field][k] == code && items[table][field][operator](value) == type) {
-          wsFunction = False;
-          html = title;
-          False = title = items[table][field];
-          grid = cell = resizingLog = expected = False;
+        I5L[J4A](q9L);
+        if (c5L[D5A] === S7K) {
+            l1K();
+            return;
         }
-      }
-      if (items[table][index] && items[table][index] != lang) {
-        if (items[table][index][k] == code && items[table][index][operator](value) == type) {
-          response = match;
-          match = items[table][index];
-          lhp = pattern = match;
+        e0K();
+    }
+    var p8L = g7K;
+    var n0K = q7K;
+    function J1K(U9K) {
+        t8L = q6K;
+    }
+    var h8L = t7K;
+    var d7L = Q7K;
+    var P7L = s6K;
+    var d5L;
+    function y6L(w2K) {
+        parent[d3A]();
+        y7L++;
+        t9L[e3A]();
+        t9L[A3A]();
+        t9L[R3A]();
+        t9L[T3A]();
+        t9L = new createjs[F0A](s6K,z6K,q6K);
+        t9L[B0A](I7K);
+        t9L[W6K](t0A, y6L);
+    }
+    var S7L;
+    var q9L;
+    var k9L, g7L, n9L, C5L, g5L, L7L;
+    var y8L = s6K;
+    var J7L;
+    function i6L() {
+        N5L[d9A] = s6K;
+        N5L[G5A](j5A, H6L);
+        N5L[G5A](e9A, function(W3K) {
+            document[Z9A][T6K][A9A] = R9A;
+        });
+    }
+    var e9L = s6K;
+    var J5L, G1K, z6L, v5L;
+    function o0K() {
+        o8L = q6K;
+        m7L = q6K;
+        if (H5L != g2A || H5L != V2A)
+            Z5L = P5L(i2A)[P0A](l2A);
+        else
+            Z5L = P5L(i2A)[P0A](Z2A);
+        x8L();
+        l8L();
+    }
+    var h9L, r9L, N5L, T9L, Y9L, o9L;
+    function U6L(Q2K, h2K) {
+        var x3A = "timeout";
+        if (y7L < I7K) {
+            if (!h2K)
+                h2K = o9K;
+            if (Q2K[U3A] != S7K)
+                if (Q2K[U3A] == h2K)
+                    n6L(x3A);
+                else
+                    TweenLite[y3A](this, Q7K, {
+                        onComplete: U6L,
+                        onCompleteParams: [Q2K, Q2K[U3A]]
+                    });
         }
-      }
-      if (items[table][c] && items[table][c] != lang) {
-        frameId = prefix + items[table][c];
-      }
     }
-    if (!ch) {
-      /** @type {number} */
-      ch = evt;
+    var I9L, t7L, B7L, M9L;
+    var m9L, f9L, G5L, E9L;
+    var g0K, K9L;
+    var L8L = s6K;
+    var a7L = s6K;
+    var f0K = s6K;
+    var K8L = s6K;
+    function O0K() {
+        d5L[e3A]();
+        d5L[A3A]();
+        d5L[R3A]();
+        d5L[T3A]();
+        parent[d3A]();
+        y7L++;
+        TweenLite[y3A](this, S7K, {
+            onComplete: K0K
+        });
     }
-    switch(ch) {
-      case o:
-        /** @type {number} */
-        h = value;
-        break;
+    var k5L = o9K;
+    var s8L = o9K;
+    var x9L = o9K;
+    function Q1K(q4K) {
+        var V8A = 3.33;
+        var g8A = 1.66;
+        h8L = j5L * g8A;
+        d7L = j5L * V8A;
+        var K4K = Math[A6K](Q7K * h8L) / Q7K;
+        var Q4K = Math[A6K](Q7K * (h8L + d7L) / F7K) / Q7K;
+        var h4K = Math[A6K](Q7K * d7L) / Q7K;
+        var p4K = Math[A6K](Q7K * (d7L * W7K)) / Q7K;
+        if (q4K < K4K)
+            L9L = t7K;
+        else if (q4K < Q4K)
+            L9L = W7K;
+        else if (q4K < h4K)
+            L9L = B7K;
+        else if (q4K < p4K)
+            L9L = F7K;
+        else
+            L9L = S7K;
+        if (q4K == o9K || j5L == o9K)
+            L9L = t7K;
     }
-    if (items[_i]) {
-      h = items[_i];
-      if (items[_i] > o) {
-        h = items[_i];
-        /** @type {number} */
-        ch = x;
-      }
+    function H1K(B5K) {
+        v5L[r0A](z5L);
+        c1K = setInterval(M1K, O8K);
+        X8L = B5K;
+        for (var F5K = o9K; F5K <= v5L[l7A]() - S7K; F5K++)
+            A7L[F5K] = v5L[Z7A](F5K);
     }
-    if (totalCount) {
-      /** @type {string} */
-      href = prefix + href;
-      /** @type {string} */
-      line = prefix + line;
+    var o5L;
+    var w8L;
+    function Y0K() {
+        var n2A = "bindEvts";
+        var G2A = 'hideTab';
+        var N2A = 'showTab';
+        var k2A = 'hiddenTimedTimeout';
+        var u2A = 'timedTimeout';
+        var D2A = 'skipStartupScreen';
+        var j2A = 'startupClick';
+        var P2A = 'victoryScreenLoaded';
+        var v2A = 'loadProgress';
+        var m2A = 'showApp';
+        var z2A = 'hideApp';
+        var H2A = "bind";
+        $(I2A, document)[H2A](M2A, V0K);
+        $(I2A, document)[H2A](z2A, J1K);
+        $(I2A, document)[H2A](m2A, E1K);
+        $(I2A, document)[H2A](v2A, Z1K);
+        $(I2A, document)[H2A](P2A, J0K);
+        $(I2A, document)[H2A](j2A, c7L);
+        $(I2A, document)[H2A](D2A, E6L);
+        $(I2A, document)[H2A](u2A, S6L);
+        $(I2A, document)[H2A](k2A, o0K);
+        $(I2A, document)[H2A](N2A, v1K);
+        $(I2A, document)[H2A](G2A, P1K);
+        parent[n2A]($(I2A, document));
     }
-    total = parent[unliasedRef]();
-    moduleName = parent[OUTERSIZE]();
-    configure();
-  }
-  /**
-   * @return {undefined}
-   */
-  function minute() {
-    /** @type {string} */
-    var OUTERSIZE = "getSameFC";
-    /** @type {string} */
-    var unliasedRef = "setTime";
-    if (window[namespace][globalName]) {
-      try {
-        parent[unliasedRef](total);
-        parent[OUTERSIZE]();
-      } catch (n8G) {
-      }
+    var r5L = {};
+    function b6L() {
+        a7L = s6K;
     }
-  }
-  /**
-   * @return {undefined}
-   */
-  function process() {
-    /** @type {string} */
-    var OUTERSIZE = "victoryScreen";
-    /** @type {boolean} */
-    isValueSet = fn;
-    if (filter) {
-      if (items[newPosition] === a) {
-        clearTimeout(_takingTooLongTimeout);
-        if (hd) {
-          parent[_add](hoverClass, index, index, $header);
+    function I1K() {
+        var t7A = 0.21;
+        var W7A = 0.24;
+        var B7A = 0.27;
+        var K3K = F7A;
+        if (z5L[a0A] < j7K)
+            K3K = B7A;
+        else if (z5L[a0A] < g7K)
+            K3K = W7A;
+        else if (z5L[a0A] < J7K)
+            K3K = t7A;
+        TweenLite[y3A](z5L, K3K, {
+            y: O7L,
+            onComplete: z1K
+        });
+    }
+    var B6L = s6K;
+    function F6L(w5K, a5K, p5K) {
+        var q6A = "fromTo";
+        if (p5K == o9K)
+            return;
+        p5K--;
+        TweenLite[q6A](w5K, a5K, {
+            alpha: o9K
+        }, {
+            alpha: S7K,
+            onComplete: F6L,
+            onCompleteParams: [w5K, a5K, p5K]
+        });
+    }
+    var S8L = p6K;
+    var o7L = p6K;
+    function O6L() {
+        if (l7L == o9K) {
+            k5L = W7L[l4A];
+            l7L = S7K;
+            TweenLite[i3A](C5L);
+            TweenLite[y3A](C5L, n6K, {
+                alpha: o9K
+            });
+            g5L[a0A] = -K8K;
+            TweenLite[y3A](g5L, n6K, {
+                delay: s7A,
+                alpha: S7K,
+                y: r5L[w9A] !== undefined ? r5L[w9A] : t7K
+            });
+            A0K();
+            if (r5L[f9A] == undefined) {
+                N5L[E4A] = q6K;
+                N5L[y4A] = o9K;
+                TweenLite[y3A](N5L, n6K, {
+                    alpha: S7K
+                });
+            } else
+                TweenLite[y3A](N5L, n6K, {
+                    alpha: S7K
+                });
         }
-        parent[OUTERSIZE]();
-        parent[unliasedRef]();
-        completeCallback();
-        return;
-      }
-      /** @type {boolean} */
-      filter = fn;
-      /** @type {boolean} */
-      msg = v2;
-      constructor();
+        U8L();
     }
-  }
-  /** @type {string} */
-  var deck = "setClip";
-  /** @type {string} */
-  var dir = "rawY";
-  /** @type {string} */
-  var token = "rawX";
-  /** @type {string} */
-  var str_emailSpammerize = "getClr";
-  /** @type {string} */
-  var propertyToRemove = "boostRefresh";
-  /** @type {string} */
-  var status = "close";
-  /** @type {string} */
-  var tip = "removeAllEventListeners";
-  /** @type {string} */
-  var displayName = "removeAll";
-  /** @type {string} */
-  var children = "reset";
-  /** @type {string} */
-  var $163 = "loading_image";
-  /** @type {string} */
-  var $218 = "meta_logo";
-  /** @type {string} */
-  var posMsg = "fc2_disable_meta_logo";
-  /** @type {string} */
-  var course = "15px ";
-  /** @type {string} */
-  var $189 = "meta_bg";
-  /** @type {string} */
-  var $143 = "landingbg";
-  /** @type {string} */
-  var $103 = "complete";
-  /** @type {string} */
-  var autoplay = "fileload";
-  /** @type {string} */
-  var cmdName = "setMaxConnections";
-  /** @type {string} */
-  var colid = "decryption_key";
-  /** @type {string} */
-  var header = "time_end_seconds";
-  /** @type {string} */
-  var colorPropertyName = "time_end";
-  /** @type {string} */
-  var uuid = "DENIED ACCESS";
-  /** @type {string} */
-  var event = "error";
-  /** @type {string} */
-  var sname = "setFPS";
-  /** @type {string} */
-  var today = "rtl";
-  /** @type {string} */
-  var domain_bug = "direction";
-  /** @type {string} */
-  var sigma = "_pulse_verify";
-  /** @type {string} */
-  var load = "fail_info_timed_middle_hidden";
-  /** @type {string} */
-  var done = "game_meta";
-  /** @type {string} */
-  var suf = "th";
-  /** @type {string} */
-  var resources = "images/template/fc_meta_solve_welldone.png";
-  /** @type {string} */
-  var NOT = "zh-hk";
-  /** @type {string} */
-  var IN = "zh-tw";
-  /** @type {string} */
-  var unliasedRef = "showVictoryScreen";
-  /** @type {string} */
-  var table = "extra_data";
-  /** @type {string} */
-  var minA = "MSIE 10";
-  /** @type {string} */
-  var vibrate = "appVersion";
-  /** @type {string} */
-  var androidPlatform = "android";
-  /** @type {string} */
-  var scroll = "rollout";
-  /** @type {string} */
-  var uname = "fullWidth";
-  /** @type {string} */
-  var iof = "indexOf";
-  /** @type {string} */
-  var IS_EXPANDABLE = "toLowerCase";
-  /** @type {string} */
-  var FRIENDLY_PRINTED = "userAgent";
-  /** @type {string} */
-  var mousemove = "nextAppLoaded";
-  /** @type {string} */
-  var elDocs = "#FunCAPTCHA";
-  /** @type {string} */
-  var contractAddr = "/landingbg.jpg";
-  /** @type {string} */
-  var fnName = "loadManifest";
-  /** @type {string} */
-  var itextPath = "customStarAsset";
-  /** @type {string} */
-  var Usertwo = "/appbg.jpg";
-  /** @type {string} */
-  var tmp = "";
-  /** @type {string} */
-  var paramNr = "IMAGE";
-  /** @type {string} */
-  var PL$29 = "LoadQueue";
-  /** @type {string} */
-  var selected = "wellDoneImage";
-  /** @type {string} */
-  var platform = "fc2_well_done_image";
-  /** @type {string} */
-  var addFn1 = "getChildAt";
-  /** @type {string} */
-  var aa = "getNumChildren";
-  /** @type {string} */
-  var langConf = "en";
-  /** @type {string} */
-  var operator = "enableMouseOver";
-  /** @type {string} */
-  var is256 = "isSupported";
-  /** @type {string} */
-  var validatorCollection = "Touch";
-  /** @type {string} */
-  var cell_ref = "onselectstart";
-  /** @type {string} */
-  var opt = "drawRoundRect";
-  /** @type {string} */
-  var DEFAULT_COLOR = "#000000";
-  /** @type {string} */
-  var $217 = "setAttribute";
-  /** @type {string} */
-  var section = "obj";
-  /** @type {number} */
-  var scalar = 1.1;
-  /** @type {string} */
-  var methodname = "removeAllChildren";
-  /** @type {string} */
-  var column = "fc2_constant_verification_title";
-  /** @type {string} */
-  var wheelnavSpreaderPath = "fc2_add_btn_shadow";
-  /** @type {string} */
-  var d4E = "add_shadow";
-  /** @type {string} */
-  var channel = "fc2_dim_done_button";
-  /** @type {string} */
-  var y4E = "disable_mouse_over";
-  /** @type {string} */
-  var cacheKey = "fc2_all_button_auto_center";
-  /** @type {string} */
-  var a4E = "centerButton";
-  /** @type {string} */
-  var cacheIndex = "fc2_all_button_width";
-  /** @type {string} */
-  var L4E = "autoWidth";
-  /** @type {string} */
-  var V4E = "pulseButton";
-  /** @type {string} */
-  var repo = "fc2_button_text_colour";
-  /** @type {string} */
-  var pos = "text";
-  /** @type {string} */
-  var wheelnavSlicepath = "fc2_show_arrows";
-  /** @type {string} */
-  var E4E = "arrowType";
-  /** @type {string} */
-  var J4E = "strokeColour";
-  /** @type {string} */
-  var j4E = "strokeSize";
-  /** @type {string} */
-  var _j = "toUpperCase";
-  /** @type {string} */
-  var nameRP = "fc2_btn_txt_toupper";
-  /** @type {string} */
-  var parentFieldName = "fc2_stroke_colour";
-  /** @type {string} */
-  var attribute = "fc2_button_border_thickness";
-  /** @type {string} */
-  var optionName = "fc2_all_button_height";
-  /** @type {string} */
-  var dupeNameCount = "px ";
-  /** @type {string} */
-  var alt = "28";
-  /** @type {string} */
-  var num = "fc2_button_font_size";
-  /** @type {string} */
-  var N4E = "col_y";
-  /** @type {string} */
-  var R4E = "col_x";
-  /** @type {string} */
-  var W4E = "col_height";
-  /** @type {string} */
-  var O4E = "col_width";
-  /** @type {string} */
-  var k2E = "InnerChildY";
-  /** @type {string} */
-  var U2E = "InnerChildX";
-  /** @type {string} */
-  var p2E = "InnerChild";
-  /** @type {string} */
-  var op = "bezierCurveTo";
-  /** @type {string} */
-  var lngIndex = "fc2_info2_wrap";
-  /** @type {string} */
-  var sum = "fc2_info2_y";
-  /** @type {string} */
-  var nightlyCode = "fc2_info1_wrap";
-  /** @type {string} */
-  var ne = "ja";
-  /** @type {string} */
-  var toolbarItem = "Shadow";
-  /** @type {string} */
-  var attr = "rotation";
-  /** @type {string} */
-  var xPathQuery = "bg";
-  /** @type {string} */
-  var $162 = "getResult";
-  /** @type {string} */
-  var ctorName = "Bitmap";
-  /** @type {string} */
-  var varVal = "/bannerbg.jpg";
-  /** @type {string} */
-  var messages = "/";
-  /** @type {string} */
-  var newPosition = "sec_nothing";
-  /** @type {string} */
-  var selectedMatchMaker = "default";
-  /** @type {string} */
-  var count = " ";
-  /** @type {null} */
-  var index = null;
-  /** @type {string} */
-  var _add = "loadVictoryScreen";
-  /** @type {number} */
-  var ratio = 0.25;
-  /** @type {string} */
-  var TFXD = "toFixed";
-  /** @type {string} */
-  var part = "push";
-  /** @type {string} */
-  var callbackPosition = "fc2_text_bg";
-  /** @type {string} */
-  var $1 = "bold ";
-  /** @type {string} */
-  var FONT_FAMILY = "Arial";
-  /** @type {string} */
-  var cell_ = "#eafdfd";
-  /** @type {string} */
-  var _grid = "#f4f7fd";
-  /** @type {string} */
-  var color1 = "#FFFFFF";
-  /** @type {string} */
-  var propName = "alpha";
-  /** @type {string} */
-  var touchend = "tick";
-  /** @type {string} */
-  var foo = "#ffbb36";
-  /** @type {string} */
-  var core_user_remove_user_device = "#ffd33a";
-  /** @type {string} */
-  var buf = "\n";
-  /** @type {string} */
-  var _ = ",";
-  /** @type {string} */
-  var functionName = "split";
-  /** @type {string} */
-  var OR = "fr";
-  /** @type {string} */
-  var AND = "es";
-  /** @type {string} */
-  var from = "customGUI";
-  /** @type {string} */
-  var location = "fc2_arrowbtn_y";
-  /** @type {string} */
-  var funcName = "killTweensOf";
-  /** @type {string} */
-  var labelType = "cache";
-  /** @type {string} */
-  var admincoursecontents = "14px ";
-  /** @type {string} */
-  var l = "lineWidth";
-  /** @type {string} */
-  var participant = "bold 14px ";
-  /** @type {string} */
-  var idx = "visible";
-  /** @type {string} */
-  var property_name = "tickID";
-  /** @type {string} */
-  var setter = "moveTo";
-  /** @type {string} */
-  var dst = "checkboxgui";
-  /** @type {string} */
-  var editor = "#000000";
-  /** @type {string} */
-  var d3E = "hasStroke";
-  /** @type {string} */
-  var n3E = "btnbgColor2";
-  /** @type {string} */
-  var y3E = "btnbgColor";
-  /** @type {string} */
-  var K3E = "overlayColor";
-  /** @type {string} */
-  var a3E = "textCenter";
-  /** @type {string} */
-  var paramName = "fc2_button_text_y";
-  /** @type {string} */
-  var L3E = "textY";
-  /** @type {string} */
-  var V3E = "textX";
-  /** @type {string} */
-  var s3E = "taper";
-  /** @type {string} */
-  var r3E = "colStrokeSize";
-  /** @type {string} */
-  var Height = "Height";
-  /** @type {string} */
-  var Width = "Width";
-  /** @type {string} */
-  var methodName = "removeChild";
-  /** @type {string} */
-  var configName = "beginLinearGradientFill";
-  /** @type {string} */
-  var state = "progress";
-  /** @type {string} */
-  var rngname = "random";
-  /** @type {string} */
-  var mathMethod = "floor";
-  /** @type {string} */
-  var k = "length";
-  /** @type {string} */
-  var cancel = "clearTimeout";
-  /** @type {string} */
-  var signedTxHex = "pointer";
-  /** @type {string} */
-  var signedTransactionsCounter = "cursor";
-  /** @type {string} */
-  var STYLE = "style";
-  /** @type {string} */
-  var body = "body";
-  /** @type {string} */
-  var resize = "rollover";
-  /** @type {string} */
-  var click = "click";
-  /** @type {string} */
-  var action = "removeEventListener";
-  /** @type {string} */
-  var columnIndex = "enabled";
-  /** @type {number} */
-  var format = 1.0;
-  /** @type {number} */
-  var id = 0.6;
-  /** @type {string} */
-  var idField = "scaleY";
-  /** @type {string} */
-  var property = "scaleX";
-  /** @type {string} */
-  var eventName = "closePath";
-  /** @type {string} */
-  var key = "lineTo";
-  /** @type {string} */
-  var color = "red";
-  /** @type {string} */
-  var dim = "dy";
-  /** @type {string} */
-  var f = "dx";
-  /** @type {string} */
-  var globalName = "document";
-  /** @type {string} */
-  var namespace = "parent";
-  /** @type {number} */
-  var undefined = 50.5;
-  /** @type {string} */
-  var pi = "beginStroke";
-  /** @type {string} */
-  var type = "setStrokeStyle";
-  /** @type {string} */
-  var source = "endFill";
-  /** @type {string} */
-  var j = "drawRect";
-  /** @type {string} */
-  var propertyName = "beginFill";
-  /** @type {string} */
-  var category = "graphics";
-  /** @type {string} */
-  var componentName = "Shape";
-  /** @type {string} */
-  var ii = "fc2_loading_image";
-  /** @type {string} */
-  var func = "round";
-  /** @type {string} */
-  var command = "getMeasuredFPS";
-  /** @type {string} */
-  var service = "Ticker";
-  /** @type {string} */
-  var now = "now";
-  /** @type {string} */
-  var operation = "update";
-  /** @type {number} */
-  var delayM = 1.5;
-  /** @type {number} */
-  var handleCompositionStart = 0.2;
-  /** @type {string} */
-  var method = "to";
-  /** @type {number} */
-  var len = 0.1;
-  /** @type {number} */
-  var defaultValue = 0.3;
-  /** @type {number} */
-  var scale = .5;
-  /** @type {string} */
-  var tagName = "from";
-  /** @type {string} */
-  var doneName = "9";
-  /** @type {string} */
-  var expando = "_meta_theme";
-  /** @type {string} */
-  var i = "x";
-  /** @type {string} */
-  var ref = "height";
-  /** @type {string} */
-  var n = "regY";
-  /** @type {string} */
-  var axis = "width";
-  /** @type {string} */
-  var field = "regX";
-  /** @type {string} */
-  var prop = "addChild";
-  /** @type {string} */
-  var name = "y";
-  /** @type {string} */
-  var doc = "center";
-  /** @type {string} */
-  var url = "textAlign";
-  /** @type {string} */
-  var typeCap = "Text";
-  /** @type {string} */
-  var ctor = "Container";
-  /** @type {string} */
-  var lang = "";
-  /** @type {string} */
-  var newPath = "/fc/";
-  /** @type {string} */
-  var p__hack_ = "/fc/ip/?url=";
-  /** @type {string} */
-  var currentRelations = "/fc/i/";
-  /** @type {boolean} */
-  var v2 = true;
-  /** @type {string} */
-  var TO_STRING = "toString";
-  /** @type {string} */
-  var removeEventListener = "checkAnswer";
-  /** @type {string} */
-  var eventType = "message";
-  /** @type {string} */
-  var level = "setStars";
-  /** @type {string} */
-  var filterValue = "answered";
-  /** @type {string} */
-  var filterKey = "response";
-  /** @type {string} */
-  var template = "parseJSON";
-  /** @type {boolean} */
-  var fn = false;
-  /** @type {string} */
-  var DOM_CONTENT_LOADED = "DOMContentLoaded";
-  /** @type {string} */
-  var addEventListener = "addEventListener";
-  /** @type {number} */
-  var rumbleSpeed = 1E3;
-  /** @type {number} */
-  var after = 500;
-  /** @type {number} */
-  var min = 300;
-  /** @type {number} */
-  var max = 280;
-  /** @type {number} */
-  var right = 250;
-  /** @type {number} */
-  var start = 245;
-  /** @type {number} */
-  var def = 220;
-  /** @type {number} */
-  var s = 200;
-  /** @type {number} */
-  var width = 170;
-  /** @type {number} */
-  var bytes = 160;
-  /** @type {number} */
-  var expr = 150;
-  /** @type {number} */
-  var languageOffsetY = 140;
-  /** @type {number} */
-  var currentValue = 128;
-  /** @type {number} */
-  var locale = 120;
-  /** @type {number} */
-  var long = 118;
-  /** @type {number} */
-  var y1 = 115;
-  /** @type {number} */
-  var m = 110;
-  /** @type {number} */
-  var v = 100;
-  /** @type {number} */
-  var info = 90;
-  /** @type {number} */
-  var desc = 86;
-  /** @type {number} */
-  var left = 85;
-  /** @type {number} */
-  var option = 80;
-  /** @type {number} */
-  var dy = 75;
-  /** @type {number} */
-  var iret = 73;
-  /** @type {number} */
-  var _app = 72;
-  /** @type {number} */
-  var text = 70;
-  /** @type {number} */
-  var argData = 68;
-  /** @type {number} */
-  var mod = 65;
-  /** @type {number} */
-  var bar = 62;
-  /** @type {number} */
-  var tag = 60;
-  /** @type {number} */
-  var end = 55;
-  /** @type {number} */
-  var time = 50;
-  /** @type {number} */
-  var err = 45;
-  /** @type {number} */
-  var list = 40;
-  /** @type {number} */
-  var questionInfo = 37;
-  /** @type {number} */
-  var file = 36;
-  /** @type {number} */
-  var arg = 35;
-  /** @type {number} */
-  var x = 30;
-  /** @type {number} */
-  var r = 25;
-  /** @type {number} */
-  var stashSha = 22;
-  /** @type {number} */
-  var evt = 20;
-  /** @type {number} */
-  var instance = 17;
-  /** @type {number} */
-  var orig = 15;
-  /** @type {number} */
-  var base = 14;
-  /** @type {number} */
-  var height = 13;
-  /** @type {number} */
-  var b = 12;
-  /** @type {number} */
-  var css = 11;
-  /** @type {number} */
-  var t = 10;
-  /** @type {number} */
-  var session = 8;
-  /** @type {number} */
-  var code = 7;
-  /** @type {number} */
-  var path = 6;
-  /** @type {number} */
-  var o = 5;
-  /** @type {number} */
-  var e = 4;
-  /** @type {number} */
-  var u = 3;
-  /** @type {number} */
-  var duration = 2;
-  /** @type {number} */
-  var a = 1;
-  /** @type {number} */
-  var value = 0;
-  document[addEventListener](DOM_CONTENT_LOADED, append, fn);
-  window[addEventListener](eventType, postLink);
-  /** @type {boolean} */
-  var productionVersion = v2;
-  /** @type {boolean} */
-  var moduleName = fn;
-  /** @type {string} */
-  var addedRelations = currentRelations;
-  /** @type {string} */
-  var prefix = p__hack_;
-  /** @type {string} */
-  var origNewPath = newPath;
-  /** @type {string} */
-  var src = lang;
-  var keydown;
-  var onKeyDown;
-  var registrationID;
-  var ch;
-  /** @type {number} */
-  var imgHeight = o;
-  var Userone;
-  var items;
-  /** @type {boolean} */
-  var mode = fn;
-  /** @type {number} */
-  var tocolumnid = a;
-  /** @type {!Array} */
-  var nd = [];
-  /** @type {number} */
-  var dColorPropName = value;
-  /** @type {number} */
-  var message = value;
-  /** @type {boolean} */
-  var alias = fn;
-  /** @type {boolean} */
-  var original = fn;
-  /** @type {boolean} */
-  var resolved = fn;
-  var git_ref;
-  var vibrateBtn;
-  /** @type {string} */
-  var False = core_user_remove_user_device;
-  /** @type {string} */
-  var title = foo;
-  /** @type {string} */
-  var colorHold = color1;
-  /** @type {string} */
-  var match = editor;
-  /** @type {string} */
-  var wsFunction = core_user_remove_user_device;
-  /** @type {string} */
-  var html = foo;
-  /** @type {string} */
-  var response = editor;
-  /** @type {boolean} */
-  var conf_server_type = fn;
-  /** @type {string} */
-  var newValue = color1;
-  /** @type {string} */
-  var grid = _grid;
-  /** @type {string} */
-  var cell = cell_;
-  /** @type {string} */
-  var courseId = FONT_FAMILY;
-  /** @type {string} */
-  var groupNamePrefix = $1;
-  /** @type {!Array} */
-  var values = [];
-  /** @type {!Array} */
-  var res = [];
-  /** @type {number} */
-  var username = value;
-  /** @type {number} */
-  var check = b;
-  var lhp = match;
-  var sib;
-  /** @type {boolean} */
-  var hasURL = fn;
-  var resizingLog = False;
-  var expected = title;
-  var user = match;
-  var pattern = match;
-  /** @type {boolean} */
-  var _activeProvider = fn;
-  /** @type {boolean} */
-  var highestScoringCandidate = fn;
-  /** @type {boolean} */
-  var fromChar = fn;
-  /** @type {boolean} */
-  var undecorated = fn;
-  /** @type {null} */
-  var newIndex = index;
-  var flags;
-  var schema;
-  /** @type {string} */
-  var logic = langConf;
-  var href;
-  var line;
-  var frameId;
-  /** @type {boolean} */
-  var original_fn = fn;
-  /** @type {boolean} */
-  var isReplayingSong = fn;
-  /** @type {number} */
-  var accessorPath = value;
-  /** @type {string} */
-  var to = contractAddr;
-  /** @type {boolean} */
-  var temp = fn;
-  /** @type {string} */
-  var hoverClass = lang;
-  /** @type {boolean} */
-  var animate = fn;
-  /** @type {boolean} */
-  var hd = fn;
-  /** @type {boolean} */
-  var localsFactory = fn;
-  var api;
-  /** @type {string} */
-  var $header = lang;
-  /** @type {boolean} */
-  var D3G = navigator[FRIENDLY_PRINTED][IS_EXPANDABLE]()[iof](androidPlatform) > -a;
-  /** @type {boolean} */
-  var BASE_URL = v2;
-  /** @type {boolean} */
-  var totalCount = navigator[vibrate][iof](minA) !== -a;
-  /** @type {boolean} */
-  var git_repo_ref = fn;
-  /** @type {boolean} */
-  var _fn2 = fn;
-  /** @type {boolean} */
-  var version = v2;
-  /** @type {string} */
-  var srcPath = resources;
-  /** @type {number} */
-  var y = value;
-  /** @type {number} */
-  var h = u;
-  /** @type {boolean} */
-  var next = fn;
-  /** @type {boolean} */
-  var refPrefix = fn;
-  /** @type {boolean} */
-  var Obj = fn;
-  /** @type {boolean} */
-  var side = v2;
-  /** @type {null} */
-  var segment = index;
-  /** @type {null} */
-  var last = index;
-  /** @type {boolean} */
-  var subwiki = v2;
-  /** @type {boolean} */
-  var isCSVLayer = fn;
-  /** @type {boolean} */
-  var val2 = fn;
-  /** @type {boolean} */
-  var ofn = fn;
-  var ws;
-  var finisherFn;
-  var self;
-  var item;
-  var _this;
-  /** @type {boolean} */
-  var hasSongChanged = v2;
-  /** @type {number} */
-  var offset = min;
-  /** @type {number} */
-  var position = right;
-  /** @type {boolean} */
-  var _fn = fn;
-  /** @type {number} */
-  var att = value;
-  /** @type {!Array} */
-  var tickValues = [];
-  var form;
-  var input;
-  /** @type {number} */
-  var total = value;
-  /** @type {boolean} */
-  var msg = fn;
-  /** @type {boolean} */
-  var ascending = fn;
-  /** @type {number} */
-  var label = value;
-  /** @type {number} */
-  var formattedX = value;
-  /** @type {number} */
-  var str = value;
-  var d;
-  /** @type {!Array} */
-  var g = [];
-  /** @type {boolean} */
-  var isInScript = fn;
-  /** @type {number} */
-  var compiled = value;
-  /** @type {number} */
-  var c = value;
-  /** @type {number} */
-  var head = list;
-  /** @type {number} */
-  var gridSize = session;
-  /** @type {number} */
-  var cy = o;
-  /** @type {number} */
-  var ry = t;
-  /** @type {boolean} */
-  var hasLayerUrl = fn;
-  var FUNCTION_TABLE;
-  var content;
-  var callbacks;
-  var buffer;
-  var opts;
-  var scope;
-  var el;
-  var obj;
-  var ea;
-  /** @type {boolean} */
-  var babushka = fn;
-  var contentVmodels;
-  /** @type {boolean} */
-  var evtName = fn;
-  var props;
-  var tile;
-  var progress;
-  var set;
-  var elem;
-  var parent;
-  var data;
-  var model;
-  var request;
-  var options;
-  var object;
-  var config;
-  var context;
-  var element;
-  var ret;
-  var files;
-  var target;
-  var style;
-  var jOrgChart_user_config_options;
-  var out;
-  /** @type {boolean} */
-  var originalFn = fn;
-  /** @type {boolean} */
-  var boundFn = fn;
-  /** @type {boolean} */
-  var oldFn = fn;
-  /** @type {boolean} */
-  var isInStyle = fn;
-  /** @type {number} */
-  var val = value;
-  /** @type {number} */
-  var pValue = value;
-  /** @type {number} */
-  var w = value;
-  var node;
-  var srcToEval;
-  var args = {};
-  /** @type {boolean} */
-  var spanItem = fn;
-  /** @type {string} */
-  var rectangleStart = lang;
-  /** @type {number} */
-  var app = _app;
-  /** @type {boolean} */
-  var curriedFn = fn;
-  /** @type {number} */
-  var sources = value;
-  /** @type {boolean} */
-  var condition = fn;
-  /** @type {number} */
-  var months = scale;
-  /** @type {number} */
-  var weeks = scale;
-  /** @type {number} */
-  var timeout = scale;
-  /** @type {null} */
-  var _takingTooLongTimeout = index;
-  /** @type {boolean} */
-  var isValueSet = fn;
-  /** @type {boolean} */
-  var filter = fn;
-  var Function;
-  /** @type {boolean} */
-  var __fn = fn;
-  /** @type {number} */
-  var prev = list;
-  var curr = $[str_emailSpammerize]();
-  var map;
-  var result;
-  var attributes;
-  var params;
-  var size;
-  var r1G;
-  var modules;
-  var memo;
-  var row;
-  var queryData;
-  var dictionary;
-  /** @type {number} */
-  var angle = value;
-  var b2G;
-  var C2G;
-  /** @type {number} */
-  var p = value;
-  /** @type {number} */
-  var cmd = value;
-  var rumbleInterval;
-  /** @type {!Array} */
-  var results = [];
-  /** @type {boolean} */
-  var _fn3 = fn;
-  var lat;
-  var sel;
-  var cache;
-  var align;
-  var _ref1;
-  var hash;
-  var settings;
-  var queue;
-  var px;
-  var connection;
-  var _ref;
-  var keys;
-  var uriTemplate;
-  var parts;
-  var json;
-  var stream;
-  var client;
-  var driver;
-  var testServer;
-  var server;
-  /** @type {number} */
-  var className = value;
-  /** @type {boolean} */
-  var handle = fn;
-  /** @type {number} */
-  var expectedRenderable = value;
-  /** @type {boolean} */
-  var FOOTNOTES_VAR_NAME = fn;
-  var lastIndexMessage;
-  /** @type {boolean} */
-  var try_fn = fn;
-  /** @type {boolean} */
-  var noAlias = fn;
-  /** @type {number} */
-  var current = value;
-  var $list;
-  /** @type {boolean} */
-  var onExit = fn;
-  /** @type {boolean} */
-  var myOnStop = v2;
-  /** @type {boolean} */
-  var fnn = fn;
-})();
+    var O7L = Y7K;
+    var b8L = s6K;
+    var a6L = o9K;
+    function F7L(X5K) {
+        var l6A = "rgba(0,0,0,0.2)";
+        var f6A = 0.01;
+        var V6A = '#ffffff';
+        var g6A = 12.5;
+        var n6A = "fc2_arrow_y";
+        var G6A = 0.9;
+        var N6A = 0.96;
+        var k6A = "shadow";
+        var u6A = "getMeasuredWidth";
+        var D6A = "minWidth";
+        var j6A = "extraWidth";
+        var P6A = 'firefox';
+        var v6A = "#ffffff";
+        var q9K = w6K;
+        var L9K = a6K;
+        var v9K = b6K;
+        var t9K = p7K;
+        var Y5K, P9K, h9K = o9K;
+        var I9K = s6K;
+        var o5K = o9K;
+        var V9K = o9K;
+        var c9K = q6K;
+        var N9K = F7K;
+        var G9K = v6A;
+        var w9K = S7K;
+        var p9K = s6K;
+        var F9K;
+        var u9K = Q7K;
+        var k9K = s7K;
+        var K9K;
+        var g9K;
+        var n9K;
+        var H9K = s6K;
+        var M9K = s6K;
+        var z9K = s6K;
+        var m9K = s6K;
+        var a9K = o9K;
+        var b9K = o9K;
+        var j9K = o9K;
+        var D9K = o9K;
+        if (navigator[P6K][j6K]()[D6K](P6A) > -S7K)
+            e9L = q6K;
+        for (var T5K = X5K[Q2A] - S7K; T5K >= o9K; T5K--)
+            switch (X5K[T5K][o9K]) {
+            case H5A:
+                Y5K = X5K[T5K][S7K];
+                break;
+            case O4A:
+                o5K = X5K[T5K][S7K];
+                break;
+            case o4A:
+                V9K = X5K[T5K][S7K];
+                break;
+            case s5A:
+                F9K = X5K[T5K][S7K];
+                break;
+            case q5A:
+                k9K = X5K[T5K][S7K];
+                break;
+            case I7A:
+                u9K = X5K[T5K][S7K];
+                break;
+            case Q5A:
+                p9K = X5K[T5K][S7K];
+                break;
+            case t5A:
+                t9K = X5K[T5K][S7K];
+                break;
+            case w5A:
+                q9K = X5K[T5K][S7K];
+                break;
+            case a5A:
+                L9K = X5K[T5K][S7K];
+                break;
+            case p5A:
+                v9K = X5K[T5K][S7K];
+                break;
+            case H9A:
+                K9K = X5K[T5K][S7K];
+                break;
+            case M9A:
+                g9K = X5K[T5K][S7K];
+                break;
+            case z9A:
+                n9K = X5K[T5K][S7K];
+                break;
+            case r5A:
+                I9K = X5K[T5K][S7K];
+                break;
+            case j6A:
+                P9K = X5K[T5K][S7K];
+                break;
+            case D6A:
+                h9K = X5K[T5K][S7K];
+                break;
+            case S5A:
+                N9K = X5K[T5K][S7K];
+                break;
+            case F5A:
+                G9K = X5K[T5K][S7K];
+                break;
+            case W5A:
+                w9K = X5K[T5K][S7K];
+                break;
+            case B5A:
+                c9K = X5K[T5K][S7K];
+                break;
+            case b5A:
+                H9K = X5K[T5K][S7K];
+                break;
+            case c5A:
+                M9K = X5K[T5K][S7K];
+                break;
+            case V9A:
+                z9K = X5K[T5K][S7K];
+                break;
+            case M5A:
+                m9K = X5K[T5K][S7K];
+                break;
+            case P9A:
+                a9K = X5K[T5K][S7K];
+                break;
+            case j9A:
+                b9K = X5K[T5K][S7K];
+                break;
+            case D9A:
+                j9K = X5K[T5K][S7K];
+                break;
+            case u9A:
+                D9K = X5K[T5K][S7K];
+                break;
+            }
+        if (F9K) {
+            var B9K = new createjs[D7A](F9K[o9K],F9K[S7K],F9K[F7K]);
+            if (p9K)
+                B9K[u7A] = k7A;
+            B9K[w0A] = u9K;
+            B9K[a0A] = k9K;
+        }
+        if (I9K && F9K) {
+            Y5K = B9K[u6A]() + (P9K ? P9K : o9K);
+            Y5K += I7K;
+        }
+        if (h9K)
+            if (Y5K < h9K)
+                Y5K = h9K;
+        if (F9K && p9K)
+            B9K[w0A] = Y5K / F7K;
+        var O5K = new createjs[p0A]();
+        O5K[m5A] = Y5K;
+        if (w9K == F7K)
+            Y5K += I7K;
+        if (!d8L && c9K) {
+            var r9K = new createjs[L4A]();
+            r9K[q4A][X5A](W7K)[Y5A](H6A)[M6A](o9K, o9K, Y5K, o5K, t9K);
+            if (!G6L)
+                r9K[k6A] = new createjs[s9A](c6K,S7K,S7K,t7K);
+            O5K[r0A](r9K);
+        }
+        var W9K = new createjs[L4A]();
+        if (q9K !== L9K)
+            W9K[q4A][K4A]([q9K, L9K], [o9K, S7A], o9K, I7K, o9K, b8K);
+        else
+            W9K[q4A][R5A](q9K);
+        if (c9K) {
+            W9K[q4A][X5A](N9K);
+            W9K[q4A][Y5A](G9K);
+        }
+        if (t9K)
+            W9K[q4A][M6A](o9K, o9K, Y5K, o5K, t9K);
+        else
+            W9K[q4A][Q4A](o9K, o9K, Y5K, o5K);
+        O5K[r0A](W9K);
+        if (!N6L && L9K) {
+            var S9K = new createjs[L4A]();
+            S9K[q4A][K4A]([v9K, L9K], [o9K, S7A], o9K, Q7K, o9K, b8K)[M6A](o9K, o9K, Y5K, o5K, t9K);
+            S9K[y4A] = l8A;
+            O5K[r0A](S9K);
+            S9K[g4A] = Y5K / F7K | o9K;
+            S9K[V4A] = o5K / F7K | o9K;
+            S9K[w0A] = Y5K / F7K;
+            S9K[a0A] = o5K / F7K;
+            S9K[Y6K] = N6A;
+            S9K[O6K] = G6A;
+        }
+        if (K9K) {
+            O5K[r0A](K9K);
+            K9K[w0A] = g9K;
+            K9K[a0A] = n9K;
+        }
+        if (w9K == F7K) {
+            var Q9K = new createjs[L4A]();
+            Q9K[q4A][R5A](r5L[L5A] ? r5L[L5A] : G9L)[B9A](t7K, o9K)[B9A](t7K, -W7K)[B9A](b7K, F7K)[B9A](t7K, q7K)[B9A](t7K, W7K)[B9A](o9K, W7K)[B9A](o9K, o9K)[W9A]();
+            Q9K[w0A] = Y5K - b7K - q7K;
+            Q9K[a0A] = r5L[n6A] !== undefined ? r5L[n6A] : g6A;
+            O5K[r0A](Q9K);
+        }
+        var s9K = new createjs[L4A]();
+        s9K[q4A][R5A](b9L ? b9L : V6A)[Q4A](o9K, o9K, a9K ? a9K : Y5K, b9K ? b9K : o5K);
+        s9K[w0A] = j9K;
+        s9K[a0A] = D9K;
+        O5K[r0A](s9K);
+        s9K[y4A] = f6A;
+        if (F9K) {
+            B9K[N7A] = Y5K;
+            O5K[r0A](B9K);
+        }
+        if (M9K) {
+            O5K[g4A] = Y5K / F7K;
+            O5K[V4A] = o5K / F7K;
+        }
+        if (m9K)
+            O5K[k6A] = new createjs[s9A](l6A,F7K,F7K,t7K);
+        if (!z9K) {
+            O5K[W6K](e9A, function(f9K) {
+                document[Z9A][T6K][A9A] = R9A;
+            });
+            O5K[W6K](T9A, function(l9K) {
+                document[Z9A][T6K][A9A] = X9A;
+            });
+        }
+        if (e9L == s6K)
+            O5K[n7A](-(Y5K * S7A), -(o5K * S7A), Y5K + Y5K * s7A, o5K + o5K * s7A, O8A);
+        if (H9K)
+            u0K(O5K);
+        return O5K;
+    }
+    function X0K() {
+        if (r5L[X3A] == undefined)
+            TweenLite[y3A](d9L, B7K, {
+                scaleX: g8K
+            });
+    }
+    var I6L = s6K;
+    function l1K() {
+        createjs[K0A][Q0A](i7K);
+        createjs[K0A][W6K](h0A, h0K);
+        createjs[K0A][W6K](h0A, N0K);
+        window[C4A](w8L);
+        I5L[J4A](q9L);
+        I5L[J4A](g9L);
+        I5L[J4A](n5L);
+        I5L[y5A]();
+        if (b9L && z7L)
+            k9L = l6L();
+        else if (Q9L) {
+            var N2K = d5L[p4A](f3A);
+            k9L = new createjs[h4A](N2K);
+        } else {
+            N2K = D5L[p4A](f3A);
+            k9L = new createjs[h4A](N2K);
+        }
+        I5L[r0A](k9L);
+        I5L[r0A](W9L);
+        W9L[E4A] = s6K;
+        n5L[E4A] = s6K;
+        N7L();
+    }
+    var v6L = n6K;
+    var u6L = n6K;
+    var A8L = n6K;
+    var D7L = z6K;
+    var r8L = s6K;
+    var I8L = s6K;
+    var v0K;
+    var M8L = s6K;
+    var q7L = g7K;
+    var z0K = $[g6K]();
+    var m8L, s7L, W9L, n5L, a9L, X7L, D9L, V9L;
+    var R5L;
+    var T7L, h7L;
+    var e8L = o9K;
+    var x1K, U1K;
+    var J9L = o9K;
+    var X8L = o9K;
+    var c1K;
+    var A7L = [];
+    function f1K() {
+        var d6A = "onAppLoad";
+        if (window[o6K][S0A])
+            try {
+                parent[d6A]();
+            } catch (C9K) {}
+    }
+    var O8L = s6K;
+    var r0K;
+    var e7L, W7L;
+    var u9L, w7L, O5L, u5L, G8L, n8L, Q0K, g8L, Z6L, L0K, w9L, Z5L, t0K, W0K, B0K, F0K, o6L;
+    var Y6L = o9K;
+    function T0K() {
+        var r2A = "getDebug";
+        var c2A = "getTime";
+        var b2A = "waves";
+        var a2A = "fc_ball_img";
+        var w2A = "fc_ui_text_color";
+        var p2A = "#";
+        var h2A = "charAt";
+        var K2A = "fc_ui_color";
+        var q2A = "fc_banner_img";
+        var L2A = "fc_background_img";
+        var s2A = "fc_victory_html";
+        var W2A = "hasExtraData";
+        var B2A = "disable_cache_rendering";
+        var F2A = "watermark_text_site_specific";
+        var S2A = "watermark_not_for_public";
+        var o1A = "animation_frames";
+        var O1A = "image_stack";
+        var Y1A = "animated";
+        var X1A = "_welldone_path";
+        var T1A = "welldone";
+        var R1A = "fc2_ball_pos_y";
+        var A1A = "fc2_btn_bold";
+        var e1A = "fc_2";
+        var d1A = "search";
+        var i1A = "0";
+        var x1A = "welldone_stars";
+        var U1A = "_guiProgressTextColor";
+        var y1A = "_guiInfoText";
+        var E1A = "_guiActionButtonColorSecondary";
+        var J1A = "_guiActionButtonColorMain";
+        var C1A = "_landingTextInfoColor";
+        var Z1A = "_landingTextColor";
+        var l1A = "_landingColorSecondary";
+        var f1A = "_landingColorMain";
+        var V1A = "_guiProgressColorSecondary";
+        var g1A = "_guiProgressColorMain";
+        var n1A = "_guiLoaderColor";
+        var G1A = "_guiTextColor";
+        var N1A = "_guiColorSecondary";
+        var k1A = "_guiBGColorSecondary";
+        var u1A = "_guiBGColorMain";
+        var D1A = "_guiColorMain";
+        var j1A = "_skip_start_up";
+        var P1A = "_pulse_done";
+        var m1A = "game_rid";
+        var z1A = "custom_fail_cross_url";
+        var M1A = "custom_star_url";
+        var H1A = "skip_answer_return";
+        var I1A = "_rimColor";
+        var r1A = "1";
+        var c1A = "true";
+        var b1A = "_disableRim";
+        var a1A = "_disableFinalChalAfterSecChal";
+        var w1A = "_disableFinalChallenge";
+        var p1A = "_guiTaper";
+        var h1A = "_guiTheme";
+        var Q1A = "_trans_rightwayup_time_fadeindelay";
+        var K1A = "_trans_rightwayup_time_fadein";
+        var q1A = "_trans_rollball_time_fadeout";
+        var L1A = "_guiNoInfoBG";
+        var s1A = "_guiNoOverlay";
+        var t1A = "_guiNoShadow";
+        var W1A = "_guiNoOutline";
+        var B1A = "_landing_bg";
+        var F1A = "_landing_bg_path";
+        var S1A = "_app_bg";
+        var o0A = "_end_banner";
+        var O0A = "_final_ball";
+        var Y0A = "_guiMainFont";
+        var X0A = "_meta_logo";
+        var T0A = "_white_meta_logo";
+        var R0A = "_intro_game_bg";
+        var A0A = "base64_mode";
+        var e0A = "timed_mode";
+        var d0A = "encrypted_mode";
+        var x0A = "display_fc_welldone";
+        var U0A = "getHiddenTimedMode";
+        var y0A = "getLang";
+        var E0A = "string_table_prefixes";
+        var J0A = "string_table";
+        var C0A = "getStringTable";
+        var Z0A = "getGameData";
+        var l0A = "getSec";
+        var f0A = "getSessionToken";
+        var V0A = "getSID";
+        var g0A = "getGameSid";
+        var n0A = "getGameToken";
+        var G0A = "showStartup";
+        var N0A = "/images/template/fc_meta_solve_welldone.png";
+        var k0A = "substr";
+        var u0A = "string";
+        var D0A = 'version/';
+        var j0A = 'safari';
+        var v0A = 'msie';
+        var m0A = "/apps/canvas/001";
+        var z0A = "getCDN";
+        var S8K = 78;
+        var K7K = 9;
+        Q6L = parent[z0A]();
+        U9L = Q6L + m0A;
+        if (G0K)
+            P9L = q6K;
+        var d1K = navigator[P6K][j6K]();
+        if (d1K[D6K](v0A) != -S7K)
+            if (parseInt(d1K[P0A](v0A)[S7K]) == K7K)
+                P9L = q6K;
+        if (d1K[D6K](j0A) != -S7K) {
+            var e1K = d1K[P0A](D0A)[S7K];
+            if (typeof e1K === u0A)
+                e1K = parseInt(e1K[k0A](o9K, S7K));
+            if (e1K <= t7K)
+                P9L = q6K;
+        }
+        if (P9L)
+            U9L = H9L + U9L;
+        P6L = U9L + N0A;
+        P7L = parent[G0A]();
+        p9L = parent[n0A]();
+        b7L = parent[g0A]();
+        u7L = parent[V0A]();
+        Z7L = parent[f0A]();
+        i9L = parent[l0A]();
+        c5L = parent[Z0A]();
+        var R1K = parent[C0A]();
+        j9L = R1K[J0A];
+        P8L = R1K[E0A];
+        H5L = parent[y0A]();
+        m7L = parent[U0A]();
+        v9L = c5L[x0A];
+        if (v9L) {
+            q8L = q6K;
+            X9L = q6K;
+        }
+        if (c5L[i0A][d0A]) {
+            B9L = q6K;
+            x7L = q6K;
+        }
+        if (c5L[i0A][e0A])
+            I7L = q6K;
+        if (c5L[i0A][A0A])
+            x7L = q6K;
+        if (c5L[i0A][R0A])
+            Q9L = c5L[i0A][R0A];
+        if (c5L[i0A][T0A])
+            W6L = c5L[i0A][T0A];
+        if (c5L[i0A][X0A])
+            S7L = c5L[i0A][X0A];
+        if (c5L[i0A][Y0A])
+            M5L = c5L[i0A][Y0A];
+        if (c5L[i0A][O0A])
+            v8L = c5L[i0A][O0A];
+        if (c5L[i0A][o0A])
+            Z9L = c5L[i0A][o0A];
+        if (c5L[i0A][S1A])
+            s9L = c5L[i0A][S1A];
+        if (c5L[i0A][F1A])
+            B8L = c5L[i0A][F1A];
+        if (c5L[i0A][B1A])
+            N9L = c5L[i0A][B1A];
+        if (c5L[i0A][W1A])
+            d8L = c5L[i0A][W1A];
+        if (c5L[i0A][t1A])
+            G6L = c5L[i0A][t1A];
+        if (c5L[i0A][s1A])
+            N6L = c5L[i0A][s1A];
+        if (c5L[i0A][L1A])
+            y5L = c5L[i0A][L1A];
+        if (c5L[i0A][q1A] !== undefined && parseInt(c5L[i0A][q1A]) >= o9K)
+            v6L = parseInt(c5L[i0A][q1A]);
+        if (c5L[i0A][K1A] !== undefined && parseInt(c5L[i0A][K1A]) >= o9K)
+            u6L = parseInt(c5L[i0A][K1A]);
+        if (c5L[i0A][Q1A] !== undefined && parseInt(c5L[i0A][Q1A]) >= o9K)
+            A8L = parseInt(c5L[i0A][Q1A]);
+        if (c5L[i0A][h1A])
+            E5L = parseInt(c5L[i0A][h1A]);
+        else
+            E5L = o9K;
+        if (c5L[i0A][p1A] !== undefined)
+            z9L = parseInt(c5L[i0A][p1A]);
+        if (c5L[i0A][w1A])
+            T5L = c5L[i0A][w1A];
+        if (c5L[i0A][a1A])
+            if (i9L != t7K)
+                T5L = c5L[i0A][a1A];
+        if (c5L[i0A][b1A] == q6K || c5L[i0A][b1A] == c1A || c5L[i0A][b1A] == r1A || c5L[i0A][b1A] == S7K)
+            k6L = q6K;
+        if (c5L[i0A][I1A])
+            Y7L = c5L[i0A][I1A];
+        if (c5L[i0A][H1A])
+            B6L = c5L[i0A][H1A];
+        if (c5L[i0A][M1A])
+            S8L = c5L[i0A][M1A];
+        if (c5L[i0A][z1A])
+            o7L = c5L[i0A][z1A];
+        if (c5L[i0A][m1A])
+            v0K = c5L[i0A][m1A];
+        if (c5L[i0A][v1A])
+            j8L = q6K;
+        if (c5L[i0A][P1A])
+            g6L = q6K;
+        if (c5L[i0A][j1A])
+            i7L = q6K;
+        if (c5L[i0A][D1A]) {
+            b9L = c5L[i0A][u1A];
+            z7L = c5L[i0A][k1A];
+            F9L = c5L[i0A][D1A];
+            c9L = c5L[i0A][N1A];
+            f5L = c5L[i0A][G1A];
+            if (c5L[i0A][n1A])
+                R9L = c5L[i0A][n1A];
+            else
+                R9L = f5L;
+            if (c5L[i0A][g1A])
+                v7L = c5L[i0A][g1A];
+            else
+                v7L = F9L;
+            if (c5L[i0A][V1A])
+                K7L = c5L[i0A][V1A];
+            else
+                K7L = c9L;
+            if (c5L[i0A][f1A])
+                A9L = c5L[i0A][f1A];
+            else
+                A9L = F9L;
+            if (c5L[i0A][l1A])
+                l9L = c5L[i0A][l1A];
+            else if (c5L[i0A][f1A])
+                l9L = c5L[i0A][f1A];
+            else
+                l9L = c9L;
+            if (c5L[i0A][Z1A])
+                G9L = c5L[i0A][Z1A];
+            else
+                G9L = f5L;
+            if (c5L[i0A][C1A])
+                R7L = c5L[i0A][C1A];
+            else
+                R7L = G9L;
+            if (c5L[i0A][J1A])
+                k8L = c5L[i0A][J1A];
+            else
+                k8L = F9L;
+            if (c5L[i0A][E1A])
+                Q8L = c5L[i0A][E1A];
+            else
+                Q8L = c9L;
+            if (c5L[i0A][y1A])
+                m5L = c5L[i0A][y1A];
+            else
+                m5L = f5L;
+            if (c5L[i0A][U1A])
+                A5L = c5L[i0A][U1A];
+            else
+                A5L = f5L;
+        }
+        if (c5L[i0A][x1A] === i1A)
+            a8L = s6K;
+        else
+            a8L = q6K;
+        for (var A1K in c5L[i0A])
+            if (A1K[d1A](e1A))
+                r5L[A1K] = c5L[i0A][A1K];
+        if (r5L[A1A] !== undefined)
+            j7L = p6K;
+        O7L = r5L[R1A] ? r5L[R1A] : S8K;
+        if (c5L[i0A][T1A]) {
+            P6L = c5L[i0A][X1A];
+            v9L = q6K;
+        }
+        if (c5L[i0A][Y1A] === S7K)
+            b8L = q6K;
+        if (c5L[i0A][O1A] === S7K)
+            I6L = q6K;
+        if (c5L[i0A][o1A])
+            a6L = c5L[i0A][o1A];
+        if (c5L[i0A][S2A] == q6K)
+            y8L = q6K;
+        if (c5L[i0A][F2A])
+            J7L = c5L[i0A][F2A];
+        if (c5L[i0A][B2A] == q6K)
+            e9L = q6K;
+        if (parent[W2A]())
+            v9L = s6K;
+        if (c5L[t2A]) {
+            if (c5L[t2A][s2A]) {
+                X9L = q6K;
+                W8L = c5L[t2A][s2A];
+            }
+            if (c5L[t2A][L2A] && c5L[t2A][L2A] != p6K) {
+                if (Q9L) {
+                    N9L = q6K;
+                    B8L = s9L;
+                }
+                s9L = H9L + c5L[t2A][L2A];
+                c6L = q6K;
+            }
+            if (c5L[t2A][q2A] && c5L[t2A][q2A] != p6K) {
+                v9L = s6K;
+                a8L = s6K;
+                Z9L = H9L + c5L[t2A][q2A];
+            }
+            if (c5L[t2A][K2A] && c5L[t2A][K2A] != p6K)
+                if (c5L[t2A][K2A][Q2A] == L7K && c5L[t2A][K2A][h2A](o9K) == p2A) {
+                    A9L = F9L;
+                    l9L = c9L;
+                    F9L = c9L = c5L[t2A][K2A];
+                    v7L = K7L = k8L = Q8L = F9L;
+                }
+            if (c5L[t2A][w2A] && c5L[t2A][w2A] != p6K)
+                if (c5L[t2A][w2A][Q2A] == L7K && c5L[t2A][w2A][h2A](o9K) == p2A) {
+                    G9L = f5L;
+                    f5L = c5L[t2A][w2A];
+                    m5L = A5L = f5L;
+                }
+            if (c5L[t2A][a2A] && c5L[t2A][a2A] != p6K)
+                v8L = H9L + c5L[t2A][a2A];
+        }
+        if (!i9L)
+            i9L = I7K;
+        switch (i9L) {
+        case t7K:
+            j5L = o9K;
+            break;
+        }
+        if (c5L[b2A]) {
+            j5L = c5L[b2A];
+            if (c5L[b2A] > t7K) {
+                j5L = c5L[b2A];
+                i9L = j7K;
+            }
+        }
+        if (P9L) {
+            s9L = H9L + s9L;
+            Z9L = H9L + Z9L;
+        }
+        p7L = parent[c2A]();
+        D0K = parent[r2A]();
+        B1K();
+    }
+    var U7L = s6K;
+    function h6L() {
+        var o8K = 1100;
+        if (!U7L) {
+            B9L && r6L();
+            setTimeout(function() {
+                h6L();
+            }, o8K);
+            return s6K;
+        }
+        U7L = s6K;
+        l8L();
+        if (!i5L) {
+            p7L += x9L;
+            x9L = o9K;
+            p6L();
+            z5L = g0K;
+            W7L = K9L;
+            TweenLite[y3A](z5L, B9L ? S7A : n6K, {
+                scaleX: S7K,
+                scaleY: S7K,
+                x: j8K,
+                y: O7L,
+                onComplete: y0K
+            });
+            TweenLite[y3A](this, B9L ? S7A : n6K, {
+                onComplete: d0K
+            });
+            if (x5L == j5L + S7K)
+                z8L = q6K;
+            if (e5L < j5L && !D8L())
+                TweenLite[y3A](this, B9L ? S7A : n6K, {
+                    onComplete: G7L
+                });
+        }
+    }
+    var y7L = o9K;
+    var m7L = s6K;
+    var J8L;
+    var j6L = s6K;
+    function C0K() {
+        var g7A = 30.5;
+        var G7A = "51.9 ";
+        var P7A = 14.5;
+        var v7A = 2.5;
+        var z7A = "#c2c5c9";
+        var z8K = 136;
+        var X7K = 71;
+        var d7K = 61;
+        var D7K = 33;
+        var M7K = 23;
+        var c7K = 16;
+        G5L = new createjs[p0A]();
+        var r3K = z8K;
+        var I3K = X7K;
+        var c3K = F7L([[H5A, z8K], [O4A, d7K], [o4A, o9K], [t5A, z9L], [I7A, D7K], [q5A, r5L[K5A] !== undefined ? r5L[K5A] : s7K], [Q5A, q6K], [p5A, C9L], [w5A, v7L], [a5A, K7L], [B5A, s6K]]);
+        I5L[r0A](G5L);
+        G5L[r0A](c3K);
+        if (j5L < Q7L) {
+            var w3K = M0K(A5L);
+            w3K[a0A] = a7K;
+            if (parent[H7A] !== M7A)
+                G5L[r0A](w3K);
+        }
+        switch (j5L) {
+        case S7K:
+            _varX = j7K;
+            w3K[w0A] = O7K;
+            break;
+        case F7K:
+            _varX = M7K;
+            w3K[w0A] = O7K;
+            break;
+        case B7K:
+            _varX = I7K;
+            w3K[w0A] = s8K;
+            break;
+        case W7K:
+            _varX = s7K;
+            w3K[w0A] = K8K;
+            break;
+        default:
+            _varX = p7K;
+        }
+        if (T5L || j5L >= Q7L)
+            _varX += q7K;
+        else if (w3K)
+            w3K[w0A] = w3K[w0A] + p7K;
+        if (j5L < t7K)
+            _varX += Q7K;
+        else
+            _varX += B7K;
+        for (var b3K = o9K; b3K <= j5L - (T5L ? S7K : o9K); b3K++)
+            if (b3K < Q7L) {
+                var p3K = new createjs[L4A]();
+                if (A5L === c6K) {
+                    p3K[q4A][X5A](S7K, F7K, F7K);
+                    p3K[q4A][Y5A](z7A);
+                    p3K[q4A][Q4A](-s7K, S7K, r7K, r7K);
+                }
+                p3K[q4A][X5A](S7K, F7K, F7K);
+                p3K[q4A][Y5A](A5L);
+                p3K[q4A][Q4A](-t7K, o9K, r7K, r7K);
+                p3K[m7A] = S7K;
+                G5L[r0A](p3K);
+                p3K[w0A] = _varX - v7A;
+                p3K[a0A] = P7A;
+                var a3K = new createjs[L4A]();
+                a3K[q4A][X5A](B7K, F7K)[Y5A](A5L)[b9A](B7K, q7K)[B9A](s7K, p7K)[B9A](b7K, o9K);
+                G5L[r0A](a3K);
+                a3K[j7A] = b3K + S7K;
+                a3K[w0A] = _varX - L7K;
+                a3K[a0A] = c7K;
+                a3K[m7A] = S7K;
+                _varX += I7K;
+                a3K[E4A] = s6K;
+            }
+        f9L = new createjs[D7A](F0K,c7A + M5L,A5L);
+        f9L[u7A] = k7A;
+        f9L[N7A] = z8K;
+        f9L[w0A] = e7K;
+        f9L[a0A] = k7K;
+        G5L[r0A](f9L);
+        m9L = new createjs[D7A](G7A + n8L,r7A + M5L,A5L);
+        m9L[u7A] = k7A;
+        m9L[N7A] = b8K;
+        m9L[w0A] = e7K;
+        m9L[a0A] = u7K;
+        G5L[r0A](m9L);
+        m9L[E4A] = s6K;
+        if (e9L == s6K)
+            G5L[n7A](o9K, o9K, r3K, I3K);
+        G5L[E4A] = s6K;
+        G5L[w0A] = l5L / F7K - R7K;
+        G5L[a0A] = E7L / F7K - g7A;
+        c3K[w0A] = -B7K;
+        c3K[a0A] = -B7K;
+    }
+    var D6L = s6K;
+    var E8L = o9K;
+    var S0K;
+    var Z8L = s6K;
+    var n7L = q6K;
+    var o8L = s6K;
+}());

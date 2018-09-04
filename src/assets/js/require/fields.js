@@ -29,7 +29,7 @@ const Fields = {
     name: 'league',
     search: {
       type: 'text',
-      retrieve: (row) => {
+      format: (row) => {
         return row.league.name;
       }
     },
@@ -42,7 +42,7 @@ const Fields = {
     name: 'club',
     search: {
       type: 'text',
-      retrieve: (row) => {
+      format: (row) => {
         return row.club.name;
       }
     },

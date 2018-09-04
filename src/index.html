@@ -1,4 +1,5 @@
 <head>
+  <meta charset="UTF-8">
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/helpers.css"/>
   <link rel="stylesheet" href="assets/css/m.css"/>
@@ -30,6 +31,12 @@
   <script src="assets/js/require/Fields.js"></script>
   <script src="assets/js/require/Utils.js"></script>
   <script src="assets/js/require/MemHeap.js"></script>
+  <script src="assets/js/require/Exception.js"></script>
+  <script src="assets/js/require/Logger.js"></script>
+  <script src="assets/js/require/formatCoins.js"></script>
+  <script src="assets/js/require/futxErrors.js"></script>
+  <script src="assets/js/require/Checkbox.js"></script>
+  <script src="assets/js/require/SmallMenu.js"></script>
 
   <script src="assets/js/pages/bots.js"></script>
   <script src="assets/js/pages/captcha.js"></script>
@@ -47,41 +54,42 @@
   <div class="body">
     <div class="popups">
       <div class="popup" data-popup="addAccount">
-        <form name="addAccount">
-          <div class="w100">
-            <div class="title">Mail:</div>
-            <input type="text" name="mail" placeholder="account@gmail.com" class="radius" value="zpmzhc@cxxz.pl"/>
-          </div>
-          <div class="w100">
-            <div class="title">Password:</div>
-            <input type="text" name="password" placeholder="enter password" class="radius" value="toHFIgPoH4"/>
-          </div>
-          <div class="w100">
-            <div class="title">Secret answer:</div>
-            <input type="text" name="answer" placeholder="enter secret" class="radius" value="aaaa"/>
-          </div>
-          <div class="w100">
-            <div class="title l">Platform:</div>
-            <select name="platform" class="radius">
-              <option value="" disabled selected hidden>Choose platform...</option>
-              <option value="ps3">Playstation 3</option>
-              <option value="ps4">Playstation 4</option>
-              <option value="pc">PC</option>
-              <option value="xone">Xbox One</option>
-              <option value="x360">Xbox 360</option>
+        <div class="center2">
+          <form name="addAccount" class="w100">
+            <div class="w100">
+              <div class="title w100">Mail:</div>
+              <input type="text" name="mail" placeholder="account@gmail.com" class="radius w100" value="zpmzhc@cxxz.pl"/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Password:</div>
+              <input type="text" name="password" placeholder="enter password" class="radius w100" value="toHFIgPoH4"/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Secret answer:</div>
+              <input type="text" name="answer" placeholder="enter secret" class="radius w100" value="aaaa"/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Platform:</div>
+              <select name="platform" class="radius w100">
+                <option value="" disabled selected hidden>Choose platform...</option>
+                <option value="ps3">Playstation 3</option>
+                <option value="ps4">Playstation 4</option>
+                <option value="pc">PC</option>
+                <option value="xone">Xbox One</option>
+                <option value="x360">Xbox 360</option>
 
-            </select>
-          </div>
-          <div class="w100">
-            <div class="title">Two factor secret key:</div>
-            <input type="text" name="twoFactorToken" placeholder="12345678abc" class="radius" value="ajbcy2dyhomge4za"/>
-          </div>
-          <div class="r">
-            <button type="button" class="l radius b3" data-role="hidePopup" data-popup-name="addAccount">Cancel</button>
-            <button type="submit" class="l radius"><i class="fas fa-plus l"></i> Add account</button>
-          </div>
-        </form>
-
+              </select>
+            </div>
+            <div class="w100">
+              <div class="title w100">Two factor secret key:</div>
+              <input type="text" name="twoFactorToken" placeholder="12345678abc" class="radius w100" value="ajbcy2dyhomge4za"/>
+            </div>
+            <div class="w100">
+              <button type="button" class="l radius b3" data-role="hidePopup" data-popup-name="addAccount">Cancel</button>
+              <button type="submit" class="r radius"><i class="fas fa-plus l"></i> Add account</button>
+            </div>
+          </form>
+        </div>
       </div>
       <div class="popup" data-popup="loadingInitial" data-show="1">
         <div class="middle">
@@ -97,108 +105,16 @@
         <div class="logo l">Futtik</div>
       </div>
       <div class="c">
-        <div class="s" data-name="bots" data-a-args="bots">
-          <div class="center">
-            <div class="w100">
-              <button type="submit" class="r radius" data-role="showPopup" data-popup-name="addAccount"><i class="far fa-plus"></i> Add account</button>
-            </div>
-            <div data-table="accounts" class="w100"></div>
-          </div>
-        </div>
-        <div class="s" data-name="players" data-a-args="players">
-          <div class="subMenu w100">
-            <a class="e" href="/players/current" data-a-args="players,current"><i class="fas fa-user-tie"></i> Current list (<span data-table-role="countAll" data-table-name="playersCurrent">0</span>)</a>
-            <a class="e" href="/players" data-a-args="players,"><i class="fas fa-database"></i> Database (<span data-table-role="countAll" data-table-name="players">0</span>)</a>
-            <a class="e" href="/players/analyzer" data-a-args="players,analyzer"><i class="fas fa-crosshairs"></i> Analyzer (<span data-table-role="countAll" data-table-name="playersAnalyzer">0</span>)</a>
-          </div>
-
-          <div class="sSub" data-a-args="players,">
-            <div class="center">
-              <div class="w100">
-                <div class="l">
-                  <div class="paging l">
-                    <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="players"><i class="far fa-angle-left iconBig"></i></button>
-                    <button class="b2 radius l" data-table-role="pagingNext" data-table-name="players"><i class="far fa-angle-right iconBig"></i></button>
-                  </div>
-                </div>
-                <div class="r">
-                  <button type="submit" class="l radius" data-role="playersAddToAnalyzer"><i class="far fa-user-plus"></i> Add to analyzer (<span data-table-role="countAllSelected" data-table-name="players">0</span>)</button>
-                  <button type="submit" class="l radius" data-role="playersUpdateDatabase"><i class="far fa-sync-alt"></i> Update database</button>
-
-                </div>
-              </div>
-              <div data-table="players" data-table-design="players" class="w100"></div>
-            </div>
-          </div>
-          <div class="sSub" data-name="analyzer" data-a-args="players,analyzer">
-            <div class="center">
-              <div class="lay layAnalyzer l">
-                <form name="playersAnalyzer">
-                  <div class="options w100">
-                    <div class="w100">
-                      <div class="title w100">Pages to check:</div>
-                      <input type="number" name="pagesMax" class="radius w100" value="6"/>
-                    </div>
-                    <div class="w100">
-                      <div class="title w100">Cheapest items quantity:</div>
-                      <input type="number" name="cheapestItemsQuantity" class="radius w100" value="3"/>
-                    </div>
-
-                  </div>
-
-                  <div class="r">
-                    <button type="submit" class="l radius"><i class="fas fa-search"></i> Analyze</button>
-                  </div>
-                </form>
-              </div>
-              <div class="lay layAnalyzer l">
-                <div class="w100">
-                  <div class="l">
-                    <div class="paging l">
-                      <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="playersAnalyzer"><i class="far fa-angle-left iconBig"></i></button>
-                      <button class="b2 radius l" data-table-role="pagingNext" data-table-name="playersAnalyzer"><i class="far fa-angle-right iconBig"></i></button>
-                    </div>
-                  </div>
-                  <div class="r">
-                    <button type="submit" class="l radius" data-role="playersAddToCurrent"><i class="far fa-user-plus"></i> Add to list (<span data-table-role="countAllSelected" data-table-name="playersAnalyzer">0</span>)</button>
-                  </div>
-                </div>
-                <div data-table="playersAnalyzer" data-table-design="players" class="w100"></div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="sSub" data-a-args="players,current">
-            <div class="center">
-              <div class="w100">
-                <div class="l">
-                  <div class="paging l">
-                    <button class="b2 radius l" data-table-role="pagingPrevious" data-table-name="playersCurrent"><i class="far fa-angle-left iconBig"></i></button>
-                    <button class="b2 radius l" data-table-role="pagingNext" data-table-name="playersCurrent"><i class="far fa-angle-right iconBig"></i></button>
-                  </div>
-                </div>
-                <div class="r">
-
-                </div>
-              </div>
-              <div data-table="playersCurrent" data-table-design="players" class="w100"></div>
-            </div>
-          </div>
 
 
-
-
-
-        </div>
-        <div class="s" data-name="captcha" data-a-args="captcha">
-          captche
-          <div class="captchaList" data-role="captchaList">
-
-          </div>
-        </div>
       </div>
       <div class="menu">
+        <div class="smallMenuSwitch" data-role="smallMenuSwitch">
+          <div class="wrapper">
+            <i class="far fa-chevron-left" data-status="0"></i>
+            <i class="far fa-chevron-right" data-status="1"></i>
+          </div>
+        </div>
         <div class="links">
           <a href="/stats" class="e w100" data-a-args="stats" data-disabled="1">
             <i class="fas fa-home l"></i>
@@ -228,7 +144,7 @@
             <i class="fas fa-book"></i>
             <div class="title l">Log</div>
           </a>
-          <a href="/settings" class="e w100" data-a-args="settings" data-disabled="1">
+          <a href="/settings" class="e w100" data-a-args="settings">
             <i class="fas fa-sliders-h l"></i>
             <div class="title l">Settings</div>
           </a>

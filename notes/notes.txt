@@ -4,3 +4,4 @@
 
 461 - zawodnik sie sprzedal xD
 400 - tutaj ewidentnie nasza wina - wylaczamy bota xD
+478 - dziwne, wyskoczylo przy /bid

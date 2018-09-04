@@ -21,7 +21,30 @@ class PagePlayers {
     this.players = [];
 
     this.fetchUrl = ``;
+    this.initTables();
 
+    autoBuyer.on('playersUpdate', () => {
+      this.players = autoBuyer.players;
+      this.updateTables();
+    });
+
+    pltfrm.on('change', () => {
+      this.updateTables();
+    });
+    power.on('update', () => {
+      this.updateTables();
+    })
+
+  }
+  updateTables() {
+    if(!this.active) {
+      return;
+    }
+    this.table.update();
+    this.tableCurrent.update();
+    this.tableAnalyzer.update();
+  }
+  initTables() {
     this.table = new Table({
       getData: () => {
         return tableConverter.convert({
@@ -49,10 +72,10 @@ class PagePlayers {
         Fields.playerClub,
         {
           title: '',
-          name: 'add',
+          name: 'toggleAnalyzer',
           type: 'action',
           format: (row) => {
-            return `<button class="radius"><i class="far fa-user-plus"></i></button>`;
+            return `<button class="radius${row.analyzer[currentPlatform()] ? ` buttonGreen` : ''}">${row.analyzer[currentPlatform()] ? `<i class="far fa-user-check"></i>` : `<i class="far fa-user-plus"></i>`}</button>`;
           }
         }
       ],
@@ -61,11 +84,12 @@ class PagePlayers {
         limit: CONFIG.TABLE_PLAYERS_PER_PAGE
       },
       actions: {
-        add: (id) => {
-          let player = this.getPlayerFromId(id);
-          player.analyzer[currentPlatform()] = true;
+        toggleAnalyzer: (id) => {
+          let player = autoBuyer.getPlayerFromId(id);
+          player.analyzer[currentPlatform()] = !player.analyzer[currentPlatform()];
           this.tableAnalyzer.update();
-          this.savePlayers();
+          this.table.update();
+          autoBuyer.savePlayers();
         }
       }
     });
@@ -91,15 +115,19 @@ class PagePlayers {
           name: 'lastAnalyzerPriceCheckAuctionCount',
           search: {
             type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+                return row.lastAnalyzerPriceCheck[currentPlatform()].auctionCount
+              }
+              return false;
+            },
             min: 0,
             max: 500,
             step: 50
           },
           format: (row) => {
-            if(row.lastAnalyzerPriceCheck) {
-              if(row.lastAnalyzerPriceCheck[currentPlatform()]) {
-                return row.lastAnalyzerPriceCheck[currentPlatform()].auctionCount
-              }
+            if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+              return row.lastAnalyzerPriceCheck[currentPlatform()].auctionCount
             }
             return '-';
           }
@@ -109,16 +137,20 @@ class PagePlayers {
           name: 'lastAnalyzerPriceCheckPriceBuyNowAverage',
           search: {
             type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+                return row.lastAnalyzerPriceCheck[currentPlatform()].priceBuyNowAverage;
+              }
+              return false;
+            },
             min: 250,
             max: 15000000,
             step: 50
           },
 
           format: (row) => {
-            if(row.lastAnalyzerPriceCheck) {
-              if(row.lastAnalyzerPriceCheck[currentPlatform()]) {
-                return row.lastAnalyzerPriceCheck[currentPlatform()].priceBuyNowAverage.toFixed(2)
-              }
+            if(row.lastAnalyzerPriceCheck && row.lastAnalyzerPriceCheck[currentPlatform()]) {
+              return formatCoins(Math.round(row.lastAnalyzerPriceCheck[currentPlatform()].priceBuyNowAverage))
             }
             return '-';
           }
@@ -139,10 +171,10 @@ class PagePlayers {
       actions: {
         remove: (id) => {
           console.warn('remove this id', id);
-          let player = this.getPlayerFromId(id);
+          let player = autoBuyer.getPlayerFromId(id);
           player.analyzer[currentPlatform()] = false;
           this.tableAnalyzer.update();
-          this.savePlayers();
+          autoBuyer.savePlayers();
         }
       }
     });
@@ -168,16 +200,77 @@ class PagePlayers {
         Fields.playerLeague,
         Fields.playerClub,
         {
-          title: 'Price',
+          title: 'Average price',
           name: 'lastPriceCheck',
           search: 'text',
           format: (row) => {
-            if(row.lastPriceCheck) {
-              if(row.lastPriceCheck[currentPlatform()]) {
-                return `
-                <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${row.lastPriceCheck[currentPlatform()].priceBuyNowAverage.toFixed(0)}</span>
-                `
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(Math.round(row.lastPriceCheck[currentPlatform()].priceBuyNowAverage))}</span>
+              `
+            }
+            return '-';
+          }
+        },
+        {
+          title: 'Buy price',
+          name: 'buyPrice',
+          search: {
+            type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+                return autoBuyer.getPlayerBuyPrice(row, currentPlatform());
               }
+              return false;
+            }
+          },
+          format: (row) => {
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerBuyPrice(row, currentPlatform()))}</span>
+              `
+            }
+            return '-';
+          }
+        },
+        {
+          title: 'Sell price',
+          name: 'sellPrice',
+          search: {
+            type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+                return autoBuyer.getPlayerSellPrice(row, currentPlatform());
+              }
+              return false;
+            }
+          },
+          format: (row) => {
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerSellPrice(row, currentPlatform()))}</span>
+              `
+            }
+            return '-';
+          }
+        },
+        {
+          title: 'Profit',
+          name: 'profit',
+          search: {
+            type: 'numericFromTo',
+            format: (row) => {
+              if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+                return autoBuyer.getPlayerProfit(row, currentPlatform());
+              }
+              return false;
+            }
+          },
+          format: (row) => {
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              return `
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerProfit(row, currentPlatform()))}</span>
+              `
             }
             return '-';
           }
@@ -196,48 +289,32 @@ class PagePlayers {
       },
       actions: {
         remove: (id) => {
-          console.warn('remove this id', id);
-          let player = this.getPlayerFromId(id);
+          let player = autoBuyer.getPlayerFromId(id);
           player.current[currentPlatform()] = false;
           this.tableCurrent.update();
-          this.savePlayers();
+          autoBuyer.savePlayers();
         }
       }
     });
-    autoBuyer.on('playersUpdate', () => {
-      this.tableCurrent.update();
-    });
+
   }
   _load() {
-    this.table.update();
-    this.tableAnalyzer.update();
-    this.tableCurrent.update();
+    this.active = true;
+    this.updateTables();
+  }
+  _stop() {
+    this.active = false;
   }
   getAnalyzerPlayers() {
     return this.players.filter(row => {return row.analyzer ? !!row.analyzer[currentPlatform()] : false;});
   }
 
   getCurrentPlayers() {
-    this.setAutoBuyerPlayers();
     return this.players.filter(row => {return row.current ? row.current[currentPlatform()] : false});
   }
 
-  setAutoBuyerPlayers() {
-    autoBuyer.players = this.players;
-  }
-  getPlayerFromId(id) {
-    for(let player of this.players) {
-      if(player.id == id) {
-        return player;
-      }
-    }
-  }
+
   addToAnalyzer() {
-    /*this.playersAnalyzer = tableConverter.getAllData({
-      filters: this.table.filters,
-      rows: this.players,
-      fields: this.table.fields
-    });*/
     let playersToAdd = tableConverter.getAllData({
       filters: this.table.filters,
       rows: this.players,
@@ -248,9 +325,9 @@ class PagePlayers {
     });
 
     this.tableAnalyzer.update();
-
+    this.table.update();
     a.go('/players/analyzer')
-    this.savePlayers();
+    autoBuyer.savePlayers();
   }
   addToCurrent() {
     let playersToAdd = tableConverter.getAllData({
@@ -262,10 +339,11 @@ class PagePlayers {
       player.current[currentPlatform()] = true;
     });
 
+    this.tableAnalyzer.update();
     this.tableCurrent.update();
 
     a.go('/players/current')
-    this.savePlayers();
+    autoBuyer.savePlayers();
   }
   async analyze(data) {
     const playersToAnalyze = this.getAnalyzerPlayers();
@@ -273,7 +351,7 @@ class PagePlayers {
     playersToAnalyze.forEach(async (player) => {
       const res = await autoBuyer.performTask({
         type: 'priceCheck',
-        baseId: player.id,
+        player: player,
         pageMax: parseInt(data.pagesMax),
         cheapestItemsQuantity: data.cheapestItemsQuantity,
         platform: currentPlatform()
@@ -290,129 +368,11 @@ class PagePlayers {
     });
   }
 
-  async updateDatabase() {
-    let fetchedAllPages = false;
-    let allPages;
-    let currentPage = 1;
-    let players = [];
-
-    let el = $(`[data-role='playersUpdateDatabase']`);
-    el.attr('data-disabled', 1);
-    el.text('Updating database...')
-    try {
-      while(!fetchedAllPages) {
-
-        const result = await this.fetchSinglePage(currentPage);
-        allPages = result.totalPages;
-        players = players.concat(result.items);
-
-        el.text(`Updating database... (${currentPage}/${allPages})`)
-        if(currentPage >= allPages) { //TODO: TEMPORARY
-          fetchedAllPages = true;
-        } else {
-          currentPage++;
-          await this.wait(500);
-        }
-      }
-      console.log('fetched all players', players)
-      this.players = players;
-      el.text('Database updated!')
-    } catch(e) {
-      el.text('Error')
-    }
-    await this.savePlayers();
-    this.table.update();
-    await this.wait(3000);
-    el.text('Update database')
-    el.attr('data-disabled', 0);
-
-
-  }
-
-  async savePlayers() {
-    let newPlayers = [];
-    this.players.forEach(player => {
-      newPlayers.push({
-        //Important
-        baseId: player.baseId,
-        color: player.color,
-        commonName: player.commonName,
-        firstName: player.firstName,
-        headshot: player.headshot,
-        headshotImgUrl: player.headshotImgUrl,
-        id: player.id,
-        lastName: player.lastName,
-        league: player.league,
-        name: player.name,
-        nation: player.nation,
-        rating: player.rating,
-        club: player.club,
-
-        //Can be useful
-        specialImages: player.specialImages,
-        fitness: player.fitness,
-        position: player.position,
-        quality: player.quality,
-        isSpecialType: player.isSpecialType,
-        itemType: player.itemType,
-        playerType: player.playerType,
-
-        //Custom
-        analyzer: player.analyzer,
-        current: player.current,
-      })
-    });
-    await fse.outputJson(CONFIG.PATH_PLAYERS, newPlayers)
-  }
-
-  async loadPlayers() {
-    try {
-      console.log('getting players')
-      this.players = await fse.readJson(CONFIG.PATH_PLAYERS)
-      this.players.map(player => {
-        if(!player.current) {
-          player.current = {};
-        }
-        if(!player.analyzer) {
-          player.analyzer = {};
-        }
-        if(!player.lastPriceCheck) {
-          player.lastPriceCheck = {};
-        }
-
-      });
-      console.log('got', this.players)
-      this.table.update();
-    } catch(e) {
-      console.log(e)
-    }
-  }
-
   wait(time) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve();
       }, time);
     });
-  }
-
-  fetchSinglePage(page) {
-    return new Promise((resolve, reject) => {
-      const url = util.format(CONFIG.URL_DATABASE, page);
-      request({
-        url,
-        json: true
-      }, (err, res, body) => {
-        if(!err) {
-          console.log('fetched page ', page);
-          resolve(body)
-        } else {
-          console.log('wystapil blad', err);
-          reject(err)
-        }
-
-      })
-    });
-
   }
 }

@@ -5,6 +5,10 @@ const fs = require('fs');
 
 const readFile = util.promisify(fs.readFile);
 
+const checkbox = new Checkbox();
+const logger = new Logger();
+const smallMenu = new SmallMenu();
+
 //Add pages
 const memHeap = new MemHeap();
 
@@ -63,8 +67,6 @@ const start = async () => {
   await autoBuyer.init();
   await a.go('/bots');
 
-  await pages.players.loadPlayers();
-
   pltfrm.changePlatform('xone');
 
   await wait(1500);
@@ -74,13 +76,31 @@ const start = async () => {
 
 $(document).ready(start);
 
+let currentPageFirstArg;
+let timeoutClearPreviousPageContent;
+let aBusy = false;
 
-
-
-a.use((r, next) => {
-  r.set_data_args();
+a.use(async (r, next) => {
+  if(aBusy) {
+    return;
+  }
+  aBusy = true;
+  pageHandler.stop();
+  $("body").attr('data-a-loading', 1)
+  clearTimeout(timeoutClearPreviousPageContent);
+  if(currentPageFirstArg != r.args[0]) {
+    if(currentPageFirstArg) {
+      r.removePreviousContentArg = r.args[0];
+    }
+    currentPageFirstArg = r.args[0]
+    if($(`.s[data-name='${r.args[0]}']`).length == 0) {
+      let content = await readFile(`${__dirname}/html/${currentPageFirstArg}.html`)
+      content = `<div class="s" data-name="${currentPageFirstArg}" data-a-args="${currentPageFirstArg}">${content}</div>`
+      $(".c").append(content);
+    }
+  }
   next();
-})
+});
 
 
 a.get('/bots', async (r, next) => {
@@ -101,6 +121,18 @@ a.get('/players/*', async (r, next) => {
   await pageHandler.load('players');
   next();
 });
+a.use(async(r, next) => {
+  await wait(200);
+  $("body").attr('data-a-loading', 0)
+  r.set_data_args();
+  if(r.removePreviousContentArg) {
+    timeoutClearPreviousPageContent = setTimeout(() => {
+      $(".s").not(`[data-name='${r.removePreviousContentArg}']`).remove();
+    }, 1000);
+  }
+  next();
+})
 a.use((r, next) => {
+  aBusy = false;
   next();
 })
