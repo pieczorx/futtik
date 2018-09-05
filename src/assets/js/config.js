@@ -6,6 +6,8 @@ if(process.platform == "darwin"){
 } else {
   CONFIG.DIR_APPDATA = process.env.APPDATA.replace(/\\/g,"/");
 }
+//Futtik url
+CONFIG.URL = 'http://localhost:8765';
 
 //Main data directory
 CONFIG.DIR_DATA = `${CONFIG.DIR_APPDATA}/Futtik`;

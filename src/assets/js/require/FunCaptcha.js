@@ -199,7 +199,7 @@ class FunCaptcha extends Emitter {
       if(resGuess.body.solved) {
         return true;
       }
-      
+
       //Captcha timeout
       if(resGuess.body.error == 'DENIED ACCESS') {
         return false;
@@ -248,6 +248,27 @@ class FunCaptcha extends Emitter {
       options.id = id;
       this.captchas[id] = options;
       this.emit('solveRequest');
+    });
+  }
+
+  uploadCaptcha(base64, answer) {
+    return new Promise((resolve, reject) => {
+      const imageBuffer = new Buffer(base64, 'base64');
+      const formData = {
+        spins: 2,
+        image: imageBuffer,
+      };
+      
+      request.post({
+        url: `${CONFIG.URL}/api/captcha/upload`,
+        formData: formData
+      }, (err, res, body) => {
+        if (err) {
+          return console.error('upload failed:', err);
+        }
+        console.log('Upload successful! Server responded with:', body);
+      });
+
     });
   }
 
