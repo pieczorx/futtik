@@ -26,7 +26,6 @@ class FunCaptcha extends Emitter {
     v3 = v3.toString(CryptoJS.enc.Base64);
     v3 = atob(v3)
     v3 = btoa(v3)
-    v3 = "data:image/jpeg;base64," + v3;
     return v3;
   }
 
@@ -171,7 +170,8 @@ class FunCaptcha extends Emitter {
     for(let image of finalImages) {
       let finalImage = this.decodeImage(image, decryptionKey);
       let degrees = await this.requestCaptchaAnswer({
-        imgUrl: finalImage,
+        imgUrl: "data:image/jpeg;base64," + finalImage,
+        base64: finalImage,
         slices: 7
       });
       answers[answers.length] = degrees;
@@ -243,6 +243,7 @@ class FunCaptcha extends Emitter {
         const degreesFactor = 51.4;
         spins = parseInt(spins);
         const degrees = ((spins * (degreesFactor * 10)) / 10).toFixed(2);
+        this.uploadCaptcha(options.base64, parseFloat(degrees));
         resolve(degrees);
       };
       options.id = id;
@@ -251,14 +252,20 @@ class FunCaptcha extends Emitter {
     });
   }
 
-  uploadCaptcha(base64, answer) {
+  uploadCaptcha(base64, degrees) {
     return new Promise((resolve, reject) => {
       const imageBuffer = new Buffer(base64, 'base64');
       const formData = {
-        spins: 2,
-        image: imageBuffer,
+        degrees: degrees,
+        image: {
+          value: imageBuffer,
+          options: {
+            filename: 'captcha.png',
+            contentType: 'image/png'
+          }
+        },
       };
-      
+
       request.post({
         url: `${CONFIG.URL}/api/captcha/upload`,
         formData: formData
