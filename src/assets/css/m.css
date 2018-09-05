@@ -122,6 +122,15 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .menu .title {margin-left: 5px;}
 [data-small-menu='1'] .menu .title {display: none;}
 .menu .links .e[data-a-current='1'] {background-color: hsl(216, 83%, 55%);color:hsla(0, 0%, 95%, 1);}
+.menu .links .e .count {transition: all .15s ease;opacity: 0;transform:translateY(-50%);top: 50%;position: absolute;right: 10px;padding: 2px 8px;color: rgba(255, 255, 255, 0.5);border-radius: 19px;background-color: rgba(255, 255, 255, 0.09);}
+.menu .links .e .count[data-active='1'] {
+    background-color: hsl(216, 83%, 55%);
+    color: white;
+}
+.menu .links .e .count[data-show='1'] {opacity: 1;}
+.menu .links .e[data-a-current='1'] .count {background-color: hsla(0, 0%, 100%, 0.2);color: white;}
+.menu .links .e[data-a-current='1'] .count[data-active='1'] {background-color: rgba(255, 255, 255, 0.95);color: hsl(216, 83%, 55%);}
+
 .menu .panelWrapper {width: calc(100% - 30px); position: absolute; bottom: 15px; left: 15px;}
 [data-small-menu='1'] .menu .panelWrapper {width: 100%;left: 0;bottom: 0;}
 .menu .panel {width: 100%;margin-top: 5px;}

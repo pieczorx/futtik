@@ -12,7 +12,6 @@ class PageCaptcha {
         if(captcha.id == id) {
           console.log('mamy');
           captcha.onAnswer(el.attr('data-spins'));
-          captcha.solved = true;
         }
       }
       el.fadeOut(250);

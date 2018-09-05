@@ -237,17 +237,20 @@ class FunCaptcha extends Emitter {
   }
 
   requestCaptchaAnswer(options) {
+    const that = this;
     return new Promise((resolve, reject) => {
       const id = this.captchas.length;
-      options.onAnswer = (spins) => {
+      options.onAnswer = function(spins) {
         const degreesFactor = 51.4;
         spins = parseInt(spins);
         const degrees = ((spins * (degreesFactor * 10)) / 10).toFixed(2);
-        this.uploadCaptcha(options.base64, parseFloat(degrees));
+        that.uploadCaptcha(options.base64, parseFloat(degrees));
+        this.solved = true;
         resolve(degrees);
       };
       options.id = id;
       this.captchas[id] = options;
+
       this.emit('solveRequest');
     });
   }

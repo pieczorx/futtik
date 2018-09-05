@@ -41,6 +41,8 @@ const power = new Power();
 const autoBuyer = new AutoBuyer({
   captcha: funCaptcha
 });
+const menuCounter = new MenuCounter();
+
 const pageHandler = new PagesHandler();
 const a = new AsyncPages();
 
@@ -68,7 +70,7 @@ const start = async () => {
   await a.go('/bots');
 
   pltfrm.changePlatform('xone');
-
+  menuCounter.init();
   await wait(1500);
   popupLoadingInitial.hide();
   console.log('App started');
