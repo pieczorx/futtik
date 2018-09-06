@@ -1,17 +1,16 @@
 require('dotenv').config()
+
 const CryptoJS = require("crypto-js");
 const fse = require('fs-extra');
 const fs = require('fs');
-
+const { ipcRenderer } = require('electron');
 const readFile = util.promisify(fs.readFile);
+
 
 const checkbox = new Checkbox();
 const logger = new Logger();
 const smallMenu = new SmallMenu();
-
-//Add pages
 const memHeap = new MemHeap();
-
 const pltfrm = new Platform();
 const currentPlatform = () => {
   return pltfrm.current;
@@ -20,12 +19,20 @@ const currentPlatform = () => {
 const funCaptcha = new FunCaptcha({
   onRequest: async () => {
     pages.captcha.updateCaptchas();
-    //pageCaptcha.requestCaptcha(imgUrl);
-    //imgUrls.forEach(imgUrl => {
-
-    //});
   }
 });
+
+//Save changes upon exit
+let _saved = false;
+window.onbeforeunload = (e) => {
+  if(!_saved) {
+    autoBuyer.saveAll().then(() => {
+      _saved = true;
+      ipcRenderer.send('quitApp')
+    });
+    e.returnValue = false;
+  }
+};
 
 const testFuncaptcha = async () => {
 

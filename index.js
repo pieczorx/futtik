@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 
 app.on('ready', () => {
   const w = new BrowserWindow({
@@ -15,5 +15,9 @@ app.on('ready', () => {
     w.show();
     w.setMenu(null);
     w.webContents.openDevTools({mode: 'detach'});
+  });
+
+  ipcMain.on('quitApp', (event, info) => {
+    app.quit()
   })
 })

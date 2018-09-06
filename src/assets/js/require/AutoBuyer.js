@@ -578,6 +578,12 @@ class AutoBuyer extends Emitter {
 
   }
 
+  async saveAll() {
+    await Promise.all([
+      this.saveAccounts(),
+      this.savePlayers()
+    ])
+  }
   async loadAccounts() {
     try {
       const accountsFile = await fse.readJson(CONFIG.PATH_ACCOUNTS);
