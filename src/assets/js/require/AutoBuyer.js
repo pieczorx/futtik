@@ -518,7 +518,7 @@ class AutoBuyer extends Emitter {
     account.cookies = account.instance.cookies();
     this.busyMessage(account, 'Getting mass info');
     await account.instance.getMassInfo();
-    this.saveAccounts();
+    //this.saveAccounts();
 
     this.free(account);
   }
@@ -544,7 +544,7 @@ class AutoBuyer extends Emitter {
     }
     account.enabled = state;
     this.emit('accountUpdate');
-    this.saveAccounts();
+    //this.saveAccounts();
   }
 
   toggleAccountBuyState(account, state) {
@@ -554,7 +554,7 @@ class AutoBuyer extends Emitter {
 
     account.buy = state;
     this.emit('accountUpdate');
-    this.saveAccounts();
+    //this.saveAccounts();
   }
 
   init() {
@@ -614,11 +614,16 @@ class AutoBuyer extends Emitter {
       for(let i = 0; i < this.accounts.length; i++) {
         this.accounts[i].busy = false;
       }
+
     } catch(e) {
 
     }
+    this.accountsLoaded = true;
   }
   async saveAccounts() {
+    if(!this.accountsLoaded) {
+      return;
+    }
     await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts.map(account => {
       return {
         options: account.options,
@@ -655,13 +660,18 @@ class AutoBuyer extends Emitter {
 
       });
       console.log(`Loaded ${this.players.length} players`)
+
       this.emit('playersUpdate');
     } catch(e) {
       console.log(e)
     }
+    this.playersLoaded = true;
   }
 
   async savePlayers() {
+    if(!this.playersLoaded) {
+      return;
+    }
     let newPlayers = [];
     this.players.forEach(player => {
       newPlayers.push({
