@@ -14,12 +14,8 @@ class PageBots {
       },
       name: 'accounts',
       htmlEmpty: `
-      <div class="empty w100 center">
-        <div class="middle">
-          <div class="w100">No account added yet</div>
-          <button class="radius" data-role="showPopup" data-popup-name="addAccount"><i class="far fa-plus"></i> Add new account</button>
-        </div>
-      </div>
+      <div class="w100">No account added yet</div>
+      <button class="radius" data-role="showPopup" data-popup-name="addAccount"><i class="far fa-plus"></i> Add new account</button>
       `,
       getId: (row) => {return row.options.mail;},
       fields: [
