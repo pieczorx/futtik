@@ -103,11 +103,22 @@ class PageBots {
 
     $(document).on('submit', `form[name='addAccount']`, function() {
       const data = $(this).serializeJSON();
-      autoBuyer.addAccount(data).then(() => {
-        that.tableAccounts.update();
-        popupAddAccount.hide();
+      let canAdd = true;
+      console.log(data)
+      let requiredValues = ['mail', 'password', 'answer', 'platform', 'twoFactorToken'];
+      for(let key of requiredValues) {
+        if(!data[key]) {
+          canAdd = false;
+          alert('Missing value: ' + key);
+        }
+      }
+      if(canAdd) {
+        autoBuyer.addAccount(data).then(() => {
+          that.tableAccounts.update();
+          popupAddAccount.hide();
 
-      });
+        });
+      }
       return false;
     });
 
