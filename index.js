@@ -16,8 +16,15 @@ app.on('ready', () => {
     w.setMenu(null);
     w.webContents.openDevTools({mode: 'detach'});
   });
-
-  ipcMain.on('quitApp', (event, info) => {
-    app.quit()
+  let _appClose = false;
+  w.on('close', () => {
+    _appClose = true;
+  });
+  ipcMain.on('quitAppIfTriedToQuitBefore', (event, info) => {
+    if(_appClose) {
+      app.quit()
+    } else {
+      event.sender.send("quitReload");
+    }
   })
 })

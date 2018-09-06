@@ -714,9 +714,11 @@ class Account extends Emitter {
 
             resolve({res: res, body: body});
           } else {
+            console.log('mamy blad', err);
             reject(err);
           }
         } catch(e) {
+          console.log('mamy blad 2', e);
           reject(e);
         }
 

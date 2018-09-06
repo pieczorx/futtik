@@ -24,11 +24,18 @@ const funCaptcha = new FunCaptcha({
 
 //Save changes upon exit
 let _saved = false;
+ipcRenderer.on('quitReload', () => {
+  window.location.reload();
+})
+
 window.onbeforeunload = (e) => {
+  console.log(2)
   if(!_saved) {
-    autoBuyer.saveAll().then(() => {
+    console.log('Saving all...');
+    autoBuyer.saveAll().then(async () => {
+      await wait(2000);
       _saved = true;
-      ipcRenderer.send('quitApp')
+      ipcRenderer.send('quitAppIfTriedToQuitBefore')
     });
     e.returnValue = false;
   }
