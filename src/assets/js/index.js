@@ -29,11 +29,9 @@ ipcRenderer.on('quitReload', () => {
 })
 
 window.onbeforeunload = (e) => {
-  console.log(2)
   if(!_saved) {
     console.log('Saving all...');
     autoBuyer.saveAll().then(async () => {
-      await wait(2000);
       _saved = true;
       ipcRenderer.send('quitAppIfTriedToQuitBefore')
     });
