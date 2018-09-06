@@ -4,7 +4,7 @@ class PagePlayers {
   constructor() {
     let that = this;
     $(document).on('click', `[data-role='playersUpdateDatabase']`, function() {
-      that.updateDatabase();
+      autoBuyer.updateDatabase();
     });
     $(document).on('click', `[data-role='playersAddToAnalyzer']`, function() {
       that.addToAnalyzer();
