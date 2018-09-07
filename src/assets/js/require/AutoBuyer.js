@@ -43,6 +43,7 @@ class AutoBuyer extends Emitter {
   }
   async workSingle(account) {
     try {
+
       //Check if account is not busy
       if(account.busy) {
         return;
@@ -56,6 +57,12 @@ class AutoBuyer extends Emitter {
       //Check if instance was added
       if(!account.instance) {
         this.addInstance(account);
+      }
+
+      if(account.proxy) {
+        account.instance.setProxy(account.proxy); //TODO: performance
+      } else {
+        account.instance.removeProxy();
       }
 
       //Check if account is logged
@@ -557,12 +564,37 @@ class AutoBuyer extends Emitter {
     //this.saveAccounts();
   }
 
-  init() {
-    return new Promise(async (resolve, reject) => {
-      await this.loadAccounts();
-      await this.loadPlayers();
-      resolve();
-    });
+  async init() {
+    await Promise.all([
+      this.loadAccounts(),
+      this.loadPlayers(),
+      database.loadAll()
+    ]);
+  }
+  assignProxiesToAllAccounts() {
+    const unassignedAccounts = this.accounts.filter(account => {return !account.proxy;})
+    console.log(unassignedAccounts)
+    for(let account of unassignedAccounts) {
+      //Get proxies with count
+      const proxiesWithCount = database.proxies.map(proxy => {
+        const proxyCount = this.accounts.filter(account => {return account.proxy ? account.proxy.ip === proxy.ip : false;}).length;
+        return {
+          proxy: proxy,
+          count: proxyCount
+        };
+      });
+      console.log(proxiesWithCount)
+
+      //Sort them by usage
+      const leastUsedProxy = proxiesWithCount.sort((a, b) => {
+        return a.count - b.count;
+      })[0].proxy;
+      console.log(leastUsedProxy)
+      account.proxy = leastUsedProxy;
+      console.log(`Assign proxy ${leastUsedProxy.ip} to account ${account.options.mail}`);
+    }
+    this.emit('playersUpdate');
+    this.savePlayers();
   }
 
   addAccount(options) {
@@ -574,14 +606,20 @@ class AutoBuyer extends Emitter {
       await this.saveAccounts();
       resolve();
     });
-
-
+  }
+  addProxy(options) {
+    return new Promise(async (resolve, reject) => {
+      database.proxies.push(options);
+      await database.saveProxies();
+      resolve();
+    });
   }
 
   async saveAll() {
     await Promise.all([
       this.saveAccounts(),
-      this.savePlayers()
+      this.savePlayers(),
+      database.saveAll()
     ])
   }
   async loadAccounts() {
@@ -638,28 +676,10 @@ class AutoBuyer extends Emitter {
 
   async loadPlayers() {
     try {
-      this.players = await fse.readJson(CONFIG.PATH_PLAYERS)
-      this.players.map(player => {
-        if(!player.current) {
-          player.current = {};
-        }
-        if(!player.analyzer) {
-          player.analyzer = {};
-        }
-        if(player.lastPriceCheck) {
-          for(let platform of pltfrm.list) {
-            if(player.lastPriceCheck[platform]) {
-              player.lastPriceCheck[platform].date = new Date(player.lastPriceCheck[platform].date);
-            }
-          }
-        } else {
-          player.lastPriceCheck = {};
-        }
-
-
-
-      });
-      console.log(`Loaded ${this.players.length} players`)
+      let players = await fse.readJson(CONFIG.PATH_PLAYERS)
+      players = this.formatPlayersRead(players);
+      this.players = players;
+      console.log(`Loaded ${players.length} players`)
 
       this.emit('playersUpdate');
     } catch(e) {
@@ -668,12 +688,32 @@ class AutoBuyer extends Emitter {
     this.playersLoaded = true;
   }
 
-  async savePlayers() {
-    if(!this.playersLoaded) {
-      return;
+
+
+  formatPlayersRead(players) {
+    for(let player of players) {
+      if(!player.current) {
+        player.current = {};
+      }
+      if(!player.analyzer) {
+        player.analyzer = {};
+      }
+      if(player.lastPriceCheck) {
+        for(let platform of pltfrm.list) {
+          if(player.lastPriceCheck[platform]) {
+            player.lastPriceCheck[platform].date = new Date(player.lastPriceCheck[platform].date);
+          }
+        }
+      } else {
+        player.lastPriceCheck = {};
+      }
     }
+    return players;
+  }
+
+  formatPlayersWrite(players) {
     let newPlayers = [];
-    this.players.forEach(player => {
+    players.forEach(player => {
       newPlayers.push({
         //Important
         baseId: player.baseId,
@@ -705,7 +745,19 @@ class AutoBuyer extends Emitter {
         lastPriceCheck: player.lastPriceCheck
       })
     });
-    await fse.outputJson(CONFIG.PATH_PLAYERS, newPlayers)
+    return newPlayers;
+  }
+
+  formatPlayers(players) {
+    return this.formatPlayersRead(this.formatPlayersWrite(players));
+  }
+
+  async savePlayers() {
+    if(!this.playersLoaded) {
+      return;
+    }
+
+    await fse.outputJson(CONFIG.PATH_PLAYERS, this.formatPlayersWrite(this.players))
   }
   getPlayerFromId(id) {
     for(let player of this.players) {
@@ -722,6 +774,10 @@ class AutoBuyer extends Emitter {
     }
   }
   async updateDatabase() {
+    if(!this.playersLoaded) {
+      alert('Players did not load yet')
+      return;
+    }
     let fetchedAllPages = false;
     let allPages;
     let currentPage = 1;
@@ -729,16 +785,20 @@ class AutoBuyer extends Emitter {
 
     let el = $(`[data-role='playersUpdateDatabase']`);
     el.attr('data-disabled', 1);
-    el.text('Updating database...')
+    el.text('Updating database...');
+    const existingPlayerIds = this.players.map(player => {return player.id});
     try {
       while(!fetchedAllPages) {
 
         const result = await this.fetchSinglePage(currentPage);
         allPages = result.totalPages;
-        players = players.concat(result.items);
+
+        players = players.concat(result.items.filter(player => {
+          return !existingPlayerIds.includes(player.id);
+        }));
 
         el.text(`Updating database... (${currentPage}/${allPages})`)
-        if(currentPage >= allPages) { //TODO: TEMPORARY
+        if(currentPage >= allPages || currentPage == 12) { //TODO: TEMPORARY
           fetchedAllPages = true;
         } else {
           currentPage++;
@@ -746,13 +806,17 @@ class AutoBuyer extends Emitter {
         }
       }
       console.log('fetched all players', players)
-      this.players = players;
+      console.log('old players', this.players);
+      console.log('new players', this.formatPlayers(players));
+      this.players = this.players.concat(this.formatPlayers(players));
       el.text('Database updated!')
     } catch(e) {
+      alert('Error while updating database. See log for more details...');
+      console.error('Error with database update', e)
       el.text('Error')
     }
     await this.savePlayers();
-    this.table.update();
+    this.emit('playersUpdate');
     await wait(3000);
     el.text('Update database')
     el.attr('data-disabled', 0);

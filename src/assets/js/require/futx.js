@@ -13,6 +13,7 @@ class Account extends Emitter {
       xone: 'FFA18XBO'
     }
     this.gameSku = platforms[this.platform];
+    this.proxy = {};
   }
   //I think it's not used anymore
   // async relogin() {
@@ -20,6 +21,13 @@ class Account extends Emitter {
   //   this.bearer = null;
   //   await this.login;
   // }
+  setProxy(proxy) {
+    Object.assign(this.proxy, proxy)
+  }
+  removeProxy() {
+    this.proxy = {};
+  }
+
   login() {
     return new Promise(async (resolve, reject) => {
       await this.getWebAppConfig();

@@ -86,7 +86,9 @@ class PageBots {
           }
           return '-';
         }},
-
+        {name: 'proxy', title: 'Proxy', format: (row) => {
+          return row.proxy ? row.proxy.ip : '-';
+        }},
         {name: 'message', title: 'Message', width: 180}
       ],
       actions: {

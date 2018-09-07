@@ -38,12 +38,15 @@
   <script src="assets/js/require/Checkbox.js"></script>
   <script src="assets/js/require/SmallMenu.js"></script>
   <script src="assets/js/require/MenuCounter.js"></script>
+  <script src="assets/js/require/Database.js"></script>
 
   <script src="assets/js/pages/bots.js"></script>
   <script src="assets/js/pages/captcha.js"></script>
   <script src="assets/js/pages/players.js"></script>
+  <script src="assets/js/pages/proxies.js"></script>
 
   <script src="assets/js/popups/addAccount.js"></script>
+  <script src="assets/js/popups/addProxy.js"></script>
   <script src="assets/js/popups/loadingInitial.js"></script>
 
   <script src="assets/js/index.js"></script>
@@ -54,7 +57,7 @@
 <body>
   <div class="body">
     <div class="popups">
-      <div class="popup" data-popup="addAccount">
+      <div class="popup popupForm" data-popup="addAccount">
         <div class="center2">
           <form name="addAccount" class="w100">
             <div class="w100">
@@ -92,6 +95,36 @@
           </form>
         </div>
       </div>
+
+      <div class="popup popupForm" data-popup="addProxy">
+        <div class="center2">
+          <form name="addProxy" class="w100">
+            <div class="w100">
+              <div class="title w100">IP:</div>
+              <input type="text" name="ip" placeholder="Enter proxy ip" class="radius w100" value=""/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Port:</div>
+              <input type="text" name="port" placeholder="Enter port number" class="radius w100" value=""/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Username:</div>
+              <input type="text" name="username" placeholder="enter username" class="radius w100" value=""/>
+            </div>
+            <div class="w100">
+              <div class="title w100">Password:</div>
+              <input type="password" name="password" placeholder="Enter password" class="radius w100" value=""/>
+            </div>
+
+
+            <div class="w100">
+              <button type="button" class="l radius b3" data-role="hidePopup" data-popup-name="addProxy">Cancel</button>
+              <button type="submit" class="r radius"><i class="fas fa-plus l"></i> Add proxy</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div class="popup" data-popup="loadingInitial" data-show="1">
         <div class="middle">
           <div class="wrapper">
@@ -136,7 +169,7 @@
             <div class="title l">Captcha</div>
             <div class="count" data-role="menuCount" data-name="captcha"></div>
           </a>
-          <a href="/proxies" class="e w100" data-a-args="proxies" data-disabled="1">
+          <a href="/proxies" class="e w100" data-a-args="proxies">
           <i class="fas fa-user-secret"></i>
             <div class="title l">Proxies</div>
           </a>

@@ -15,7 +15,7 @@ const pltfrm = new Platform();
 const currentPlatform = () => {
   return pltfrm.current;
 }
-
+const database = new Database();
 const funCaptcha = new FunCaptcha({
   onRequest: async () => {
     pages.captcha.updateCaptchas();
@@ -62,7 +62,8 @@ const a = new AsyncPages();
 const pages = {
   bots: new PageBots(),
   captcha: new PageCaptcha(),
-  players: new PagePlayers()
+  players: new PagePlayers(),
+  proxies: new PageProxies()
 }
 
 Object.keys(pages).forEach(key => {
@@ -133,6 +134,10 @@ a.get('/players', async (r, next) => {
 });
 a.get('/players/*', async (r, next) => {
   await pageHandler.load('players');
+  next();
+});
+a.get('/proxies', async (r, next) => {
+  await pageHandler.load('proxies');
   next();
 });
 a.use(async(r, next) => {
