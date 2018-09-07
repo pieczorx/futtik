@@ -13,7 +13,7 @@ class Account extends Emitter {
       xone: 'FFA18XBO'
     }
     this.gameSku = platforms[this.platform];
-    this.proxy = {};
+    this.setDefaultProxy();
   }
   //I think it's not used anymore
   // async relogin() {
@@ -22,43 +22,46 @@ class Account extends Emitter {
   //   await this.login;
   // }
   setProxy(proxy) {
-    Object.assign(this.proxy, proxy)
+    if(!proxy.ip) {
+      throw new Error('INVALID_PROXY_IP');
+    }
+
+    if(proxy.username && proxy.password) {
+      this.proxy = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
+    } else {
+      this.proxy = `http://${proxy.ip}:${proxy.port || 80}`;
+    }
+
   }
-  removeProxy() {
-    this.proxy = {};
+  setDefaultProxy() {
+    this.proxy = 'http://127.0.0.1:8888';
   }
 
-  login() {
-    return new Promise(async (resolve, reject) => {
-      await this.getWebAppConfig();
-      await this.visitFirstPage();
+  async login() {
+    await this.getWebAppConfig();
+    await this.visitFirstPage();
 
-      if(!this.bearer) {
-        await this.getFid();
-        await this.getExecution();
-        await this.visitLoginPage();
-        await this.firstLogin();
+    if(!this.bearer) {
+      await this.getFid();
+      await this.getExecution();
+      await this.visitLoginPage();
+      await this.firstLogin();
 
-
-        if(this.twoStepEnabled) {
-          if(await this.visitAnswerPage()) {
-            await this.requestTwoFactorCode();
-            await this.visitCodePage();
-            await this.loginWithCode();
-          }
+      if(this.twoStepEnabled) {
+        if(await this.visitAnswerPage()) {
+          await this.requestTwoFactorCode();
+          await this.visitCodePage();
+          await this.loginWithCode();
         }
       }
-      await this.getPids(); //required
-      await this.getShards(); //required
-      await this.getUtasServer(); //required
-      await this.getFosServerCode(); //required
-      await this.getUtSid(); //required
-      await this.getSecurityQuestion(); //required
-      await this.answerSecurityQuestion(); //required
-
-      //this.logged = true;
-      resolve();
-    });
+    }
+    await this.getPids(); //required
+    await this.getShards(); //required
+    await this.getUtasServer(); //required
+    await this.getFosServerCode(); //required
+    await this.getUtSid(); //required
+    await this.getSecurityQuestion(); //required
+    await this.answerSecurityQuestion(); //required
   }
 
 
@@ -351,7 +354,8 @@ class Account extends Emitter {
       const funCaptchaToken = await this.captcha.trigger({
         publicKey: data.body.pk,
         blob: data.body.blob,
-        siteUrl: 'https://www.easports.com'
+        siteUrl: 'https://www.easports.com',
+        proxy: this.proxy
       });
 
       console.log('taki mamy token', funCaptchaToken);
@@ -648,25 +652,12 @@ class Account extends Emitter {
       if(options.replace_spaces_with_pluses_in_form) {
         request_options.body = request_options.body.replaceAll('%20', '+');
       }
-      //console.log(request_options);
 
-      //Set proxy for debugging purposes
-      if(process.env.FIDDLER == 1) {
-        request_options.proxy = 'http://127.0.0.1:8888'
-        //console.log('Use fiddler my friend');
-      } else {
-        if(this.proxy) {
-          //console.log('Use proxy my friend');
-          if(this.proxy_user) {
-            request_options.proxy = `http://${this.proxy_user}:${this.proxy_password}@${this.proxy}`;
-          } else {
-            request_options.proxy = `http://${this.proxy}`;
-          }
-        } else {
-          //console.log(`Dont use proxy my friend`);
-        }
-      }
-      if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
+      //Set proxy
+      request_options.proxy = this.proxy;
+
+
+      if((options.unzip || url.includes('/cp-ui/')) /*&& process.env.FIDDLER != 1*/) {
         request_options.encoding = null;
       }
 

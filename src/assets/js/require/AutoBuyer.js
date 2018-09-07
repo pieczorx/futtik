@@ -62,7 +62,7 @@ class AutoBuyer extends Emitter {
       if(account.proxy) {
         account.instance.setProxy(account.proxy); //TODO: performance
       } else {
-        account.instance.removeProxy();
+        account.instance.setDefaultProxy();
       }
 
       //Check if account is logged
