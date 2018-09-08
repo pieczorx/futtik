@@ -31,10 +31,11 @@ class Account extends Emitter {
     } else {
       this.proxy = `http://${proxy.ip}:${proxy.port || 80}`;
     }
-
+    this.fiddlerEnabled = false;
   }
   setDefaultProxy() {
     this.proxy = 'http://127.0.0.1:8888';
+    this.fiddlerEnabled = true;
   }
 
   async login() {
@@ -274,9 +275,11 @@ class Account extends Emitter {
           json: true,
           unzip: true
         });
-        finalShard = shard;
-        finalData = data;
-        break;
+        if(data.body.userAccountInfo.personas[0].onlineAccess) {
+          finalShard = shard;
+          finalData = data;
+          break;
+        }
       } catch(e) {
         //console.log(`Shard ${shard.clientFacingIpPort} doesn't work, it should be ok`);
       }
@@ -312,7 +315,8 @@ class Account extends Emitter {
         sku: 'FUT18WEB'
       },
       json: true,
-      sendJson: true
+      sendJson: true,
+      ut: true
     });
     this.utSid = data.body.sid;
     this.utas = `${data.body.protocol}://${data.body.ipPort}`;
@@ -320,7 +324,8 @@ class Account extends Emitter {
   async getSecurityQuestion() {
     const url = `${this.utas}/ut/game/fifa18/phishing/question`;
     const data = await this.get(url, {
-      json: true
+      json: true,
+      ut: true
     });
 
 
@@ -345,7 +350,8 @@ class Account extends Emitter {
     const url = `${this.utas}/ut/game/fifa18/phishing/validate?answer=${answerHashed}`;
     const data = await this.post(url, {
       form: answerHashed,
-      json: true
+      json: true,
+      ut: true
     });
     if(data.body.code != 200) {
       throw new Error('Could not answer question');
@@ -667,7 +673,7 @@ class Account extends Emitter {
         jar: this.jar,
       };
 
-      if(process.env.FIDDLER == 1) {
+      if(this.fiddlerEnabled) {
         request_options.rejectUnauthorized = false;
       }
       if(options.replace_spaces_with_pluses_in_form) {
@@ -678,7 +684,7 @@ class Account extends Emitter {
       request_options.proxy = this.proxy;
 
 
-      if((options.unzip || url.includes('/cp-ui/')) /*&& process.env.FIDDLER != 1*/) {
+      if((options.unzip || options.ut || url.includes('/cp-ui/')) && !this.fiddlerEnabled) {
         request_options.encoding = null;
       }
 
@@ -686,7 +692,8 @@ class Account extends Emitter {
       request(request_options, async function(err, res, body) {
         try {
           if(!err) {
-            if((options.unzip || url.includes('/cp-ui/')) /*&& process.env.FIDDLER != 1*/) {
+
+            if((options.unzip || options.ut || url.includes('/cp-ui/')) && !this.fiddlerEnabled) {
               try {
                 body = await that.unzipBody(body);
               } catch(e) {
@@ -733,7 +740,7 @@ class Account extends Emitter {
                 return reject(new Error('UNAUTHORIZED'));
               }
             }
-            console.log({res, body})
+
             resolve({res: res, body: body});
           } else {
             console.log('mamy blad', err);
