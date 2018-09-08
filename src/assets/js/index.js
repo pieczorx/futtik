@@ -5,7 +5,7 @@ const fse = require('fs-extra');
 const fs = require('fs');
 const { ipcRenderer } = require('electron');
 const readFile = util.promisify(fs.readFile);
-
+const zlib = require('zlib');
 
 const checkbox = new Checkbox();
 const logger = new Logger();

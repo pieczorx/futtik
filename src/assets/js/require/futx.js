@@ -73,7 +73,8 @@ class Account extends Emitter {
   async getWebAppConfig() {
     const url = `https://www.easports.com/pl/fifa/ultimate-team/web-app/config/config.json`;
     const data = await this.get(url, {
-      json: true
+      json: true,
+      unzip: true
     });
     this.webAppConfig = data.body;
     this.authUrl = this.webAppConfig.authURL;
@@ -578,6 +579,17 @@ class Account extends Emitter {
     options.method = 'POST';
     return this.request(url, options);
   }
+  unzipBody(body) {
+    return new Promise((resolve, reject) => {
+      zlib.unzip(body, (err, buffer) => {
+        if (!err) {
+          resolve(buffer.toString());
+        } else {
+          reject(err);
+        }
+      });
+    });
+  }
   request(url, options) {
     if(!options) {
       options = {};
@@ -665,10 +677,11 @@ class Account extends Emitter {
       request(request_options, async function(err, res, body) {
         try {
           if(!err) {
-            if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
+            if((options.unzip || url.includes('/cp-ui/')) /*&& process.env.FIDDLER != 1*/) {
               try {
-                body = await that.unzip_body(body);
+                body = await that.unzipBody(body);
               } catch(e) {
+                console.warn('error with zlib', e);
                 body = body.toString();
               }
             }
@@ -698,8 +711,9 @@ class Account extends Emitter {
             if(options.json) {
               try {
                 body = JSON.parse(body);
-                //{"message":null,"reason":"expired session","code":401}
               } catch(e) {
+                console.log(`Invalid response on url ${url}`);
+                console.log(body)
                 return reject(e);
               }
             }
@@ -710,7 +724,7 @@ class Account extends Emitter {
                 return reject(new Error('UNAUTHORIZED'));
               }
             }
-
+            console.log({res, body})
             resolve({res: res, body: body});
           } else {
             console.log('mamy blad', err);
