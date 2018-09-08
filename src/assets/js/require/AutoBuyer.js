@@ -135,13 +135,27 @@ class AutoBuyer extends Emitter {
   async workTaskEnsureLogged(account) {
     if(account.enabled && !account.logged) {
       //But make sure no other account on this proxy was logged less than X seconds before
-      if(this.lastLoginDate) {
-        if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
-          return true;
+      if(account.proxy) {
+        if(account.proxy.lastLoginDate) {
+          if((new Date() - account.proxy.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
+            return true;
+          }
+        }
+      } else {
+        if(this.lastLoginDate) {
+          if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
+            return true;
+          }
         }
       }
-      this.lastLoginDate = new Date();
+
+
       await this.login(account);
+      if(account.proxy) {
+        account.proxy.lastLoginDate = new Date();
+      } else {
+        this.lastLoginDate = new Date();
+      }
       return true;
     }
     return false;
