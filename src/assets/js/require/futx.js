@@ -258,7 +258,8 @@ class Account extends Emitter {
   async getShards() {
     const url = `https://${this.authUrl}/ut/shards/v2`;
     const data = await this.get(url, {
-      json: true
+      json: true,
+      unzip: true
     });
     this.shards = data.body.shardInfo;
   }
@@ -270,7 +271,8 @@ class Account extends Emitter {
       let shardUrl = `${shard.clientProtocol}://${shard.clientFacingIpPort}/ut/game/fifa18/user/accountinfo?filterConsoleLogin=true&sku=FUT18WEB&returningUserGameYear=2017`;
       try {
         let data = await this.get(shardUrl, {
-          json: true
+          json: true,
+          unzip: true
         });
         finalShard = shard;
         finalData = data;
@@ -688,7 +690,7 @@ class Account extends Emitter {
               try {
                 body = await that.unzipBody(body);
               } catch(e) {
-                console.warn('error with zlib', e);
+                //console.warn('error with zlib', e);
                 body = body.toString();
               }
             }
@@ -719,8 +721,8 @@ class Account extends Emitter {
               try {
                 body = JSON.parse(body);
               } catch(e) {
-                console.log(`Invalid response on url ${url}`);
-                console.log(body)
+                //console.log(`Invalid response on url ${url}`);
+                //console.log(body)
                 return reject(e);
               }
             }
