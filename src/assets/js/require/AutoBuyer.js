@@ -198,7 +198,7 @@ class AutoBuyer extends Emitter {
       for(let i = 0; i < auctionsInactive.length; i++) {
         let auction = auctionsInactive[i];
         const player = this.getPlayerFromId(auction.itemData.resourceId);
-        if(player.lastPriceCheck[platform] && (new Date() - player.lastPriceCheck[platform].date) < CONFIG.PRICE_CHECK_INTERVAL) {
+        if(player && player.lastPriceCheck[platform] && (new Date() - player.lastPriceCheck[platform].date) < CONFIG.PRICE_CHECK_INTERVAL) {
           await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
           const priceSell = this.getPlayerSellPrice(player, platform);
           const priceBid = Utils.calculateNextLowerPrice(priceSell);
