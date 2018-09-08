@@ -149,13 +149,13 @@ class AutoBuyer extends Emitter {
         }
       }
 
-
-      await this.login(account);
       if(account.proxy) {
         account.proxy.lastLoginDate = new Date();
       } else {
         this.lastLoginDate = new Date();
       }
+      await this.login(account);
+
       return true;
     }
     return false;
@@ -803,8 +803,14 @@ class AutoBuyer extends Emitter {
     const existingPlayerIds = this.players.map(player => {return player.id});
     try {
       while(!fetchedAllPages) {
-
-        const result = await this.fetchSinglePage(currentPage);
+        let proxy = database.proxies[(currentPage - 1) % database.proxies.length];
+        let proxyUrl;
+        if(proxy.username && proxy.password) {
+          proxyUrl = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
+        } else {
+          proxyUrl = `http://${proxy.ip}:${proxy.port || 80}`;
+        }
+        const result = await this.fetchSinglePage(currentPage, proxyUrl);
         allPages = result.totalPages;
 
         players = players.concat(result.items.filter(player => {
@@ -812,11 +818,11 @@ class AutoBuyer extends Emitter {
         }));
 
         el.text(`Updating database... (${currentPage}/${allPages})`)
-        if(currentPage >= allPages || currentPage == 12) { //TODO: TEMPORARY
+        if(currentPage >= allPages) {
           fetchedAllPages = true;
         } else {
           currentPage++;
-          await wait(500);
+          await wait(500 / database.proxies.length);
         }
       }
       console.log('fetched all players', players)
@@ -835,12 +841,14 @@ class AutoBuyer extends Emitter {
     el.text('Update database')
     el.attr('data-disabled', 0);
   }
-  fetchSinglePage(page) {
+  fetchSinglePage(page, proxyUrl) {
+    console.log(page, proxyUrl);
     return new Promise((resolve, reject) => {
       const url = util.format(CONFIG.URL_DATABASE, page);
       request({
         url,
-        json: true
+        json: true,
+        proxy: proxyUrl
       }, (err, res, body) => {
         if(!err) {
           resolve(body)
