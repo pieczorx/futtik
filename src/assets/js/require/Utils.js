@@ -17,4 +17,7 @@ class Utils {
       if(coins <= 100000) return coins - 500;
       return coins - 1000;
   }
+  static randomNumberInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 }

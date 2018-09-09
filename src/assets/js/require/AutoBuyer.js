@@ -9,7 +9,7 @@ class AutoBuyer extends Emitter {
 
     setInterval(() => {
       this.work();
-    }, CONFIG.AUTOBUYER_TICK)
+    }, settings.AUTOBUYER_TICK_INTERVAL)
   }
 
   getPlayerBuyPrice(player, platform) {
@@ -27,7 +27,7 @@ class AutoBuyer extends Emitter {
   }
 
   getProfit(buyPrice, sellPrice) {
-    return sellPrice * (1 - CONFIG.EA_COMMISSION) - buyPrice;
+    return sellPrice * (1 - settings.EA_COMMISSION) - buyPrice;
   }
 
   //Works
@@ -137,13 +137,13 @@ class AutoBuyer extends Emitter {
       //But make sure no other account on this proxy was logged less than X seconds before
       if(account.proxy) {
         if(account.proxy.lastLoginDate) {
-          if((new Date() - account.proxy.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
+          if((new Date() - account.proxy.lastLoginDate) < settings.LOGIN_DELAY) {
             return true;
           }
         }
       } else {
         if(this.lastLoginDate) {
-          if((new Date() - this.lastLoginDate) < CONFIG.ACCOUNT_LOGIN_DELAY) {
+          if((new Date() - this.lastLoginDate) < settings.LOGIN_DELAY) {
             return true;
           }
         }
@@ -175,7 +175,7 @@ class AutoBuyer extends Emitter {
       return player.current ? player.current[platform] : false;
     })
     for(let player of playersPlatform) {
-      if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= CONFIG.PRICE_CHECK_INTERVAL) {
+      if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= settings.PRICECHECK_INTERVAL) {
         const taskAlreadyAdded = this.findTask({
           type: 'priceCheck',
           player: player,
@@ -208,7 +208,7 @@ class AutoBuyer extends Emitter {
   }
   async workTaskGetTradePile(account) {
     const platform = account.options.platform;
-    if(!account.tradePile || (new Date() - account.tradePile.date) > CONFIG.TRADEPILE_CHECK_INTERVAL) {
+    if(!account.tradePile || (new Date() - account.tradePile.date) > settings.TRADEPILE_INTERVAL) {
       this.busy(account)
       this.busyMessage(account, 'Getting tradepile');
       let tradePile = await account.instance.getTradePile();
@@ -219,8 +219,8 @@ class AutoBuyer extends Emitter {
       for(let i = 0; i < auctionsInactive.length; i++) {
         let auction = auctionsInactive[i];
         const player = this.getPlayerFromId(auction.itemData.resourceId);
-        if(player && player.lastPriceCheck[platform] && (new Date() - player.lastPriceCheck[platform].date) < CONFIG.PRICE_CHECK_INTERVAL) {
-          await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+        if(player && player.lastPriceCheck[platform] && (new Date() - player.lastPriceCheck[platform].date) < settings.PRICECHECK_INTERVAL) {
+          await wait(settings.AUTOBUYER_REQUEST_DELAY);
           const priceSell = this.getPlayerSellPrice(player, platform);
           const priceBid = Utils.calculateNextLowerPrice(priceSell);
           this.busyMessage(account, `Selling player from tradepile (${i + 1} / ${auctionsInactive.length})`);
@@ -235,7 +235,7 @@ class AutoBuyer extends Emitter {
         }
       };
 
-      await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+      await wait(settings.AUTOBUYER_REQUEST_DELAY);
 
       //Clear sold cards
       const activeAuctions = tradePile.filter(auction => {
@@ -358,7 +358,7 @@ class AutoBuyer extends Emitter {
   }
   async workTaskMoveUnassigned(account) {
     if(account.unassignedPlayers) {
-      if((new Date() - account.unassignedPlayers.date) < CONFIG.UNASSIGNED_CHECK_INTERVAL) {
+      if((new Date() - account.unassignedPlayers.date) < settings.UNASSIGNED_INTERVAL) {
         return false;
       }
     }
@@ -370,7 +370,7 @@ class AutoBuyer extends Emitter {
 
     if(unassignedPlayers.length > 0) {
       for(let player of unassignedPlayers) {
-        await wait(CONFIG.AUTOBUYER_REQUEST_DELAY);
+        await wait(settings.AUTOBUYER_REQUEST_DELAY);
         this.busyMessage(account, `Putting to trade pile`)
         await account.instance.putToTradepile({
           itemId: player.id
@@ -549,7 +549,7 @@ class AutoBuyer extends Emitter {
   }
   async free(account, time) {
 
-    await wait(time || CONFIG.AUTOBUYER_REQUEST_DELAY);
+    await wait(time || settings.AUTOBUYER_REQUEST_DELAY);
     this.busyMessage(account, '-');
     account.busy = false;
 

@@ -7,6 +7,7 @@ const { ipcRenderer } = require('electron');
 const readFile = util.promisify(fs.readFile);
 const zlib = require('zlib');
 
+const settings = new Settings();
 const checkbox = new Checkbox();
 const logger = new Logger();
 const smallMenu = new SmallMenu();
@@ -36,6 +37,7 @@ window.onbeforeunload = (e) => {
   if(!_saved) {
     console.log('Saving all...');
     autoBuyer.saveAll().then(async () => {
+      await settings.save();
       _saved = true;
       ipcRenderer.send('quitAppIfTriedToQuitBefore')
     });
@@ -65,7 +67,8 @@ const pages = {
   bots: new PageBots(),
   captcha: new PageCaptcha(),
   players: new PagePlayers(),
-  proxies: new PageProxies()
+  proxies: new PageProxies(),
+  settings: new PageSettings()
 }
 
 Object.keys(pages).forEach(key => {
@@ -81,8 +84,9 @@ const start = async () => {
 
   $(`[data-popup='loadingInitial']`).attr('data-status', 1);
   await wait(1500);
+  await settings.load();
   await autoBuyer.init();
-  await a.go('/bots');
+  await a.go(settings.get('LAST_URL') || '/bots');
 
   pltfrm.changePlatform('xone');
   menuCounter.init();
@@ -142,6 +146,11 @@ a.get('/proxies', async (r, next) => {
   await pageHandler.load('proxies');
   next();
 });
+a.get('/settings', async (r, next) => {
+  await pageHandler.load('settings');
+  next();
+});
+
 a.use(async(r, next) => {
   listExpandable.update();
   await wait(200);
@@ -156,6 +165,7 @@ a.use(async(r, next) => {
   next();
 })
 a.use((r, next) => {
+  settings.set('LAST_URL', '/' + r.args.slice(0, -1).join('/'))
   aBusy = false;
   next();
 })

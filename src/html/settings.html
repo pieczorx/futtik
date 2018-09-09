@@ -1,5 +1,70 @@
 <div class="center">
   <form name="settings">
-    <input type="text" placeholder="Siema wpisz tu imie">
+    <div class="listExpandable">
+      <div class="e w100">
+        <div class="title l">Delay (per account):</div>
+        <div class="r">
+          <input type="text" name="AUTOBUYER_REQUEST_DELAY_MIN">
+          -
+          <input type="text" name="AUTOBUYER_REQUEST_DELAY_MAX">
+          ms
+        </div>
+      </div>
+
+      <div class="e w100">
+        <div class="title l">Login delay (per proxy):</div>
+        <div class="r">
+          <input type="text" name="LOGIN_DELAY_MIN">
+          -
+          <input type="text" name="LOGIN_DELAY_MAX">
+          ms
+        </div>
+      </div>
+
+      <div class="e w100">
+        <div class="title l">Tradepile refresh interval:</div>
+        <div class="r">
+          <input type="number" name="TRADEPILE_INTERVAL">
+          ms
+        </div>
+      </div>
+
+      <div class="e w100">
+        <div class="title l">Unassigned refresh interval:</div>
+        <div class="r">
+          <input type="text" name="UNASSIGNED_INTERVAL">
+          ms
+        </div>
+      </div>
+
+
+      <div class="e w100">
+        <div class="title l">Price check interval:</div>
+        <div class="r">
+          <input type="text" name="PRICECHECK_INTERVAL">
+          ms
+        </div>
+      </div>
+
+      <div class="e w100">
+        <div class="title l">EA commission percent:</div>
+        <div class="r">
+          <input type="text" name="EA_COMMISSION">
+          %
+        </div>
+      </div>
+
+      <div class="e w100">
+        <div class="title l">AutoBuyer tick:</div>
+        <div class="r">
+          <input type="text" name="AUTOBUYER_TICK_INTERVAL">
+          ms
+        </div>
+      </div>
+
+
+    </div>
+    <button type="submit">Save settings</button>
+
   </form>
 </div>
