@@ -1,10 +1,21 @@
 const {app, BrowserWindow, ipcMain} = require('electron')
 
-app.on('ready', () => {
+
+app.on('ready', async () => {
+  let packageVersion = app.getVersion();
+
+
+  let windowName = 'Futtik ';
+  let exVersion = packageVersion.split('.');
+  if(exVersion[2] == 0) {
+    windowName += exVersion.slice(0, -1).join('.');
+  } else {
+    windowName += packageVersion;
+  }
   const w = new BrowserWindow({
     width: 720,
     height: 500,
-    title: 'Futtik',
+    title: windowName,
     show: false
   });
   w.loadURL('file://' + __dirname + '/src/index.html');
