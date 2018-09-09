@@ -132,6 +132,12 @@ body[data-loaded='1'] .a {transform: scale(1);}
 
 
 .menu {height: 100%;width: 200px;background-color: hsla(0, 0%, 12%, 1);position: absolute;left: 0;bottom: 0px;/* overflow: hidden; *//* border-top: 1px solid hsl(0, 0%, 25%); */font-weight: 600;}
+.menu .logo {
+    font-size: 17px;
+    color: hsl(216, 83%, 66%);
+    font-weight: 600;
+    padding: 15px;
+}
 [data-small-menu='1'] .menu {width: 40px}
 .menu .links .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
 [data-small-menu='1'] .menu .links .e {padding: 10px 0px; text-align: center;}
