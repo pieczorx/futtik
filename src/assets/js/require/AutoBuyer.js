@@ -579,10 +579,10 @@ class AutoBuyer extends Emitter {
   }
 
   async init() {
+    await database.loadAll()
     await Promise.all([
       this.loadAccounts(),
       this.loadPlayers(),
-      database.loadAll()
     ]);
   }
   assignProxiesToAllAccounts() {
@@ -659,6 +659,14 @@ class AutoBuyer extends Emitter {
           }
         }
 
+        if(account.proxy) {
+          for(let proxy of database.proxies) {
+            if(proxy.ip === account.proxy) {
+              newAccount.proxy = proxy;
+            }
+          }
+        }
+
         newAccount.buy = account.buy ? true : false;
 
         return newAccount;
@@ -683,7 +691,8 @@ class AutoBuyer extends Emitter {
         enabled: account.enabled,
         tradePile: account.tradePile,
         coins: account.coins,
-        buy: account.buy ? true : false
+        buy: account.buy ? true : false,
+        proxy: account.proxy.ip
       };
     }));
   }

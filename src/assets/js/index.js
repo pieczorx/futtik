@@ -40,8 +40,6 @@ window.onbeforeunload = (e) => {
 };
 
 const testFuncaptcha = async () => {
-
-
   console.log('Requested captcha answer');
   funCaptcha.requestCaptchaAnswer({
     imgUrl: 'assets/img/captchaTest.png'
