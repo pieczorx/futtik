@@ -135,7 +135,7 @@ body[data-loaded='1'] .a {transform: scale(1);}
 [data-small-menu='1'] .menu {width: 40px}
 .menu .links .e {transition: all .1s ease;cursor: pointer;float: left;width: 100%;position: relative;color: hsla(0, 0%, 100%, 0.66);padding: 10px 15px;box-sizing: border-box;}
 [data-small-menu='1'] .menu .links .e {padding: 10px 0px; text-align: center;}
-.menu .links .e[data-disabled='1'] {opacity: 0.5; pointer-events: none;}
+.menu .links .e[data-disabled='1'] {opacity: 0.5;pointer-events: none;display: none;}
 .menu .links .e:hover {/* background-color: rgba(0, 0, 0, 0.05); */color: hsla(0, 0%, 100%, 0.9);}
 .menu .links .e:hover {background-color: rgba(0, 0, 0, 0.33);}
 .menu .links .e i {font-size: 15px;/* position: absolute; *//* left: 0; *//* width: 100%; *//* top: 50%; *//* transform: translateY(-50%); */float: left;width: 24px;}

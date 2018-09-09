@@ -30,7 +30,9 @@ class MenuCounter {
       active.captcha = true;
     }
 
-
+    //Proxies
+    values.proxies = database.proxies.length;
+    
     $(`[data-role='menuCount']`).each(function() {
       const name = $(this).attr('data-name');
       const hasValue = typeof values[name] !== 'undefined';
