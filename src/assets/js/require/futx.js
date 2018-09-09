@@ -13,6 +13,7 @@ class Account extends Emitter {
       xone: 'FFA18XBO'
     }
     this.gameSku = platforms[this.platform];
+    this.setDefaultProxy();
   }
   //I think it's not used anymore
   // async relogin() {
@@ -20,37 +21,48 @@ class Account extends Emitter {
   //   this.bearer = null;
   //   await this.login;
   // }
-  login() {
-    return new Promise(async (resolve, reject) => {
-      await this.getWebAppConfig();
-      await this.visitFirstPage();
+  setProxy(proxy) {
+    if(!proxy.ip) {
+      throw new Error('INVALID_PROXY_IP');
+    }
 
-      if(!this.bearer) {
-        await this.getFid();
-        await this.getExecution();
-        await this.visitLoginPage();
-        await this.firstLogin();
+    if(proxy.username && proxy.password) {
+      this.proxy = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
+    } else {
+      this.proxy = `http://${proxy.ip}:${proxy.port || 80}`;
+    }
+    this.fiddlerEnabled = false;
+  }
+  setDefaultProxy() {
+    this.proxy = 'http://127.0.0.1:8888';
+    this.fiddlerEnabled = true;
+  }
 
+  async login() {
+    await this.getWebAppConfig();
+    await this.visitFirstPage();
 
-        if(this.twoStepEnabled) {
-          if(await this.visitAnswerPage()) {
-            await this.requestTwoFactorCode();
-            await this.visitCodePage();
-            await this.loginWithCode();
-          }
+    if(!this.bearer) {
+      await this.getFid();
+      await this.getExecution();
+      await this.visitLoginPage();
+      await this.firstLogin();
+
+      if(this.twoStepEnabled) {
+        if(await this.visitAnswerPage()) {
+          await this.requestTwoFactorCode();
+          await this.visitCodePage();
+          await this.loginWithCode();
         }
       }
-      await this.getPids(); //required
-      await this.getShards(); //required
-      await this.getUtasServer(); //required
-      await this.getFosServerCode(); //required
-      await this.getUtSid(); //required
-      await this.getSecurityQuestion(); //required
-      await this.answerSecurityQuestion(); //required
-
-      //this.logged = true;
-      resolve();
-    });
+    }
+    await this.getPids(); //required
+    await this.getShards(); //required
+    await this.getUtasServer(); //required
+    await this.getFosServerCode(); //required
+    await this.getUtSid(); //required
+    await this.getSecurityQuestion(); //required
+    await this.answerSecurityQuestion(); //required
   }
 
 
@@ -62,7 +74,8 @@ class Account extends Emitter {
   async getWebAppConfig() {
     const url = `https://www.easports.com/pl/fifa/ultimate-team/web-app/config/config.json`;
     const data = await this.get(url, {
-      json: true
+      json: true,
+      unzip: true
     });
     this.webAppConfig = data.body;
     this.authUrl = this.webAppConfig.authURL;
@@ -246,7 +259,8 @@ class Account extends Emitter {
   async getShards() {
     const url = `https://${this.authUrl}/ut/shards/v2`;
     const data = await this.get(url, {
-      json: true
+      json: true,
+      unzip: true
     });
     this.shards = data.body.shardInfo;
   }
@@ -258,11 +272,14 @@ class Account extends Emitter {
       let shardUrl = `${shard.clientProtocol}://${shard.clientFacingIpPort}/ut/game/fifa18/user/accountinfo?filterConsoleLogin=true&sku=FUT18WEB&returningUserGameYear=2017`;
       try {
         let data = await this.get(shardUrl, {
-          json: true
+          json: true,
+          unzip: true
         });
-        finalShard = shard;
-        finalData = data;
-        break;
+        if(data.body.userAccountInfo.personas[0].onlineAccess) {
+          finalShard = shard;
+          finalData = data;
+          break;
+        }
       } catch(e) {
         //console.log(`Shard ${shard.clientFacingIpPort} doesn't work, it should be ok`);
       }
@@ -298,7 +315,8 @@ class Account extends Emitter {
         sku: 'FUT18WEB'
       },
       json: true,
-      sendJson: true
+      sendJson: true,
+      ut: true
     });
     this.utSid = data.body.sid;
     this.utas = `${data.body.protocol}://${data.body.ipPort}`;
@@ -306,7 +324,8 @@ class Account extends Emitter {
   async getSecurityQuestion() {
     const url = `${this.utas}/ut/game/fifa18/phishing/question`;
     const data = await this.get(url, {
-      json: true
+      json: true,
+      ut: true
     });
 
 
@@ -331,7 +350,8 @@ class Account extends Emitter {
     const url = `${this.utas}/ut/game/fifa18/phishing/validate?answer=${answerHashed}`;
     const data = await this.post(url, {
       form: answerHashed,
-      json: true
+      json: true,
+      ut: true
     });
     if(data.body.code != 200) {
       throw new Error('Could not answer question');
@@ -350,7 +370,8 @@ class Account extends Emitter {
       const funCaptchaToken = await this.captcha.trigger({
         publicKey: data.body.pk,
         blob: data.body.blob,
-        siteUrl: 'https://www.easports.com'
+        siteUrl: 'https://www.easports.com',
+        proxy: this.proxy
       });
 
       console.log('taki mamy token', funCaptchaToken);
@@ -573,6 +594,17 @@ class Account extends Emitter {
     options.method = 'POST';
     return this.request(url, options);
   }
+  unzipBody(body) {
+    return new Promise((resolve, reject) => {
+      zlib.unzip(body, (err, buffer) => {
+        if (!err) {
+          resolve(buffer.toString());
+        } else {
+          reject(err);
+        }
+      });
+    });
+  }
   request(url, options) {
     if(!options) {
       options = {};
@@ -641,31 +673,18 @@ class Account extends Emitter {
         jar: this.jar,
       };
 
-      if(process.env.FIDDLER == 1) {
+      if(this.fiddlerEnabled) {
         request_options.rejectUnauthorized = false;
       }
       if(options.replace_spaces_with_pluses_in_form) {
         request_options.body = request_options.body.replaceAll('%20', '+');
       }
-      //console.log(request_options);
 
-      //Set proxy for debugging purposes
-      if(process.env.FIDDLER == 1) {
-        request_options.proxy = 'http://127.0.0.1:8888'
-        //console.log('Use fiddler my friend');
-      } else {
-        if(this.proxy) {
-          //console.log('Use proxy my friend');
-          if(this.proxy_user) {
-            request_options.proxy = `http://${this.proxy_user}:${this.proxy_password}@${this.proxy}`;
-          } else {
-            request_options.proxy = `http://${this.proxy}`;
-          }
-        } else {
-          //console.log(`Dont use proxy my friend`);
-        }
-      }
-      if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
+      //Set proxy
+      request_options.proxy = this.proxy;
+
+
+      if((options.unzip || options.ut || url.includes('/cp-ui/')) && !this.fiddlerEnabled) {
         request_options.encoding = null;
       }
 
@@ -673,10 +692,12 @@ class Account extends Emitter {
       request(request_options, async function(err, res, body) {
         try {
           if(!err) {
-            if((options.unzip || url.indexOf('/cp-ui/') > -1) && process.env.FIDDLER != 1) {
+
+            if((options.unzip || options.ut || url.includes('/cp-ui/')) && !this.fiddlerEnabled) {
               try {
-                body = await that.unzip_body(body);
+                body = await that.unzipBody(body);
               } catch(e) {
+                //console.warn('error with zlib', e);
                 body = body.toString();
               }
             }
@@ -706,8 +727,9 @@ class Account extends Emitter {
             if(options.json) {
               try {
                 body = JSON.parse(body);
-                //{"message":null,"reason":"expired session","code":401}
               } catch(e) {
+                //console.log(`Invalid response on url ${url}`);
+                //console.log(body)
                 return reject(e);
               }
             }

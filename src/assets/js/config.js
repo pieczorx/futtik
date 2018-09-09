@@ -18,6 +18,9 @@ CONFIG.PATH_ACCOUNTS = `${CONFIG.DIR_DATA}/accounts.json`;
 //Path to players
 CONFIG.PATH_PLAYERS = `${CONFIG.DIR_DATA}/players.json`;
 
+//Path to proxies
+CONFIG.PATH_PROXIES = `${CONFIG.DIR_DATA}/proxies.json`;
+
 //AutoBuyer tick amount
 CONFIG.AUTOBUYER_TICK = 1000;
 

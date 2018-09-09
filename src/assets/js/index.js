@@ -5,7 +5,7 @@ const fse = require('fs-extra');
 const fs = require('fs');
 const { ipcRenderer } = require('electron');
 const readFile = util.promisify(fs.readFile);
-
+const zlib = require('zlib');
 
 const checkbox = new Checkbox();
 const logger = new Logger();
@@ -15,7 +15,7 @@ const pltfrm = new Platform();
 const currentPlatform = () => {
   return pltfrm.current;
 }
-
+const database = new Database();
 const funCaptcha = new FunCaptcha({
   onRequest: async () => {
     pages.captcha.updateCaptchas();
@@ -40,8 +40,6 @@ window.onbeforeunload = (e) => {
 };
 
 const testFuncaptcha = async () => {
-
-
   console.log('Requested captcha answer');
   funCaptcha.requestCaptchaAnswer({
     imgUrl: 'assets/img/captchaTest.png'
@@ -62,7 +60,8 @@ const a = new AsyncPages();
 const pages = {
   bots: new PageBots(),
   captcha: new PageCaptcha(),
-  players: new PagePlayers()
+  players: new PagePlayers(),
+  proxies: new PageProxies()
 }
 
 Object.keys(pages).forEach(key => {
@@ -133,6 +132,10 @@ a.get('/players', async (r, next) => {
 });
 a.get('/players/*', async (r, next) => {
   await pageHandler.load('players');
+  next();
+});
+a.get('/proxies', async (r, next) => {
+  await pageHandler.load('proxies');
   next();
 });
 a.use(async(r, next) => {
