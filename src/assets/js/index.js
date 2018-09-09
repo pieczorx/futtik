@@ -22,6 +22,10 @@ const funCaptcha = new FunCaptcha({
   }
 });
 
+//Disallow drag & drop
+document.addEventListener('dragover', event => event.preventDefault())
+document.addEventListener('drop', event => event.preventDefault())
+
 //Save changes upon exit
 let _saved = false;
 ipcRenderer.on('quitReload', () => {
