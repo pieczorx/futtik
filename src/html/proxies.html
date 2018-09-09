@@ -1,7 +1,11 @@
 <div class="center">
   <div class="w100">
-    <button type="submit" class="l radius" data-role="assignProxiesToAllAccounts"><i class="far fa-plus"></i> Assign proxies to all accounts</button>
-    <button type="submit" class="l radius" data-role="showPopup" data-popup-name="addProxy"><i class="far fa-plus"></i> Add proxy server</button>
+    <div class="r">
+      <button type="submit" class="l radius" data-role="assignProxiesToAllAccounts"><i class="far fa-plus"></i> Assign proxies to all accounts</button>
+      <button type="submit" class="l radius" data-role="showPopup" data-popup-name="addProxy"><i class="far fa-plus"></i> Add proxy server</button>
+    </div>
   </div>
-  <div data-table="proxies" class="w100"></div>
+  <div class="listExpandable">
+    <div data-table="proxies" class="w100"></div>
+  </div>
 </div>

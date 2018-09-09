@@ -38,11 +38,16 @@ class PageCaptcha {
   updateCaptchas() {
     let eList = $(`[data-role='captchaList']`);
     eList.empty();
-    funCaptcha.captchas.forEach(captcha => {
-      if(captcha.solved) {
-        return;
-      }
-      eList.append(html.captchaListElement(captcha))
-    });
+    if(funCaptcha.captchas.length > 0) {
+      funCaptcha.captchas.forEach(captcha => {
+        if(captcha.solved) {
+          return;
+        }
+        eList.append(html.captchaListElement(captcha))
+      });
+    } else {
+      eList.html('<div class="middle"><h2>No captchas to solve</h2></div>');
+    }
+
   }
 }

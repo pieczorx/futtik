@@ -139,7 +139,9 @@ a.get('/proxies', async (r, next) => {
   next();
 });
 a.use(async(r, next) => {
+  listExpandable.update();
   await wait(200);
+  listExpandable.update();
   $("body").attr('data-a-loading', 0)
   r.set_data_args();
   if(r.removePreviousContentArg) {
