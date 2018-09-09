@@ -523,6 +523,14 @@ class AutoBuyer extends Emitter {
       account.coins = account.instance.coins;
       this.emit('accountUpdate');
     });
+
+    account.instance.on('awaitingCaptcha', () => {
+      this.busyMessage(account, '<span style="color: hsla(4, 83%, 60%, 1);font-weight: 600;">Awaiting captcha</span>');
+    });
+    account.instance.on('validatingCaptcha', () => {
+      this.busyMessage(account, 'Validating captcha');
+    });
+
   }
 
   async login(account) {

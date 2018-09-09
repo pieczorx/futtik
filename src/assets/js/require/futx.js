@@ -334,14 +334,16 @@ class Account extends Emitter {
   }
 
   async validateCaptcha(funCaptchaToken) {
+    this.emit('validatingCaptcha');
     const url = `${this.utas}/ut/game/fifa18/captcha/fun/validate`;
-    await this.post(url, {
+    const data = await this.post(url, {
       form: {
         funCaptchaToken: funCaptchaToken
       },
       sendJson: true,
       ut: true
     });
+    console.log('CAPTCHA VALIDATED? :)', data);
   }
 
   async answerSecurityQuestion() {
@@ -367,6 +369,7 @@ class Account extends Emitter {
         json: true,
         ut: true
       });
+      this.emit('awaitingCaptcha');
       const funCaptchaToken = await this.captcha.trigger({
         publicKey: data.body.pk,
         blob: data.body.blob,

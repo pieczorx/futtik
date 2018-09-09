@@ -196,9 +196,6 @@ class FunCaptcha extends Emitter {
       });
 
       console.log('Answered single captcha', resGuess.body);
-      if(resGuess.body.decryption_key) {
-        decryptionKey = resGuess.body.decryption_key;
-      }
       if(resGuess.body.solved) {
         return true;
       }
@@ -207,6 +204,16 @@ class FunCaptcha extends Emitter {
       if(resGuess.body.error == 'DENIED ACCESS') {
         return false;
       }
+
+
+      if(!resGuess.body.decryption_key) {
+        return false;
+      }
+
+      decryptionKey = resGuess.body.decryption_key;
+
+
+
     }
     return false;
   }
