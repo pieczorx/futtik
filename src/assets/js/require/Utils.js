@@ -8,8 +8,11 @@ class Utils {
     if(coins < 100000) return coins - (coins % 500);
     return coins - (coins % 1000);
   }
-  static calculateNextLowerPrice(coins) {
+
+  static calculateNextLowerPrice(coins, isValid = false) {
+    if(!isValid) {
       coins = this.calculateValidPrice(coins);
+    }
       if(coins <= 150) return 150;
       if(coins <= 1000) return coins - 50;
       if(coins <= 10000) return  coins - 100;
@@ -17,6 +20,18 @@ class Utils {
       if(coins <= 100000) return coins - 500;
       return coins - 1000;
   }
+
+  static calculateNextHigherPrice(coins, isValid = false) {
+      if(!isValid) {
+        coins = this.calculateValidPrice(coins);
+      }
+      if(coins >= 100000) return coins + 1000;
+      if(coins >= 50000) return coins + 500;
+      if(coins >= 10000) return coins + 250;
+      if(coins >= 1000) return coins + 100;
+      return coins + 50;
+  }
+
   static randomNumberInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }

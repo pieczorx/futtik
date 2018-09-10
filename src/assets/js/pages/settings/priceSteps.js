@@ -78,7 +78,7 @@ class PageSettingsPriceSteps {
       $(this).find('input').each(function() {
         const name = $(this).attr('name');
         const val = $(this).val();
-        values[name] = val;
+        values[name] = parseInt(val);
       });
       finalSteps.push(values)
     });

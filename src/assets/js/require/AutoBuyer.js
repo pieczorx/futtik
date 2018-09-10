@@ -13,11 +13,49 @@ class AutoBuyer extends Emitter {
   }
 
   getPlayerBuyPrice(player, platform) {
-    return Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
+    const sellPrice = this.getPlayerSellPrice(player, platform);
+    if(!sellPrice) {
+      return false;
+    }
+    const averagePlayerPrice = player.lastPriceCheck[platform].priceBuyNowAverage;
+    for(let priceStep of database.priceSteps[platform]) {
+      if(priceStep.min <= averagePlayerPrice && priceStep.max >= averagePlayerPrice) {
+        return Utils.calculateValidPrice((sellPrice * (1 - settings.EA_COMMISSION)) - priceStep.minProfit);
+      }
+    }
+    return false;
+    //const averagePlayerPrice = player.lastPriceCheck[platform].priceBuyNowAverage
+    //return Utils.calculateValidPrice(CONFIG.AUTOBUYER_BUY_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
   }
 
   getPlayerSellPrice(player, platform) {
-    return Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
+    const averagePlayerPrice = player.lastPriceCheck[platform].priceBuyNowAverage;
+    for(let priceStep of database.priceSteps[platform]) {
+      if(priceStep.min <= averagePlayerPrice && priceStep.max >= averagePlayerPrice) {
+        let finalPrice = Utils.calculateValidPrice(averagePlayerPrice);
+        if(priceStep.sellSteps != 0) {
+          let utilsFnName;
+          let finalStepCount;
+
+          if(priceStep.sellSteps > 0) {
+            utilsFnName = 'calculateNextHigherPrice';
+            finalStepCount = priceStep.sellSteps;
+          }
+
+          if(priceStep.sellSteps < 0) {
+            utilsFnName = 'calculateNextLowerPrice';
+            finalStepCount = priceStep.sellSteps * -1;
+          }
+
+          for(let i = 0; i < finalStepCount; i++) {
+            finalPrice = Utils[utilsFnName](finalPrice, true);
+          }
+        }
+        return finalPrice;
+      }
+    }
+    return false;
+    //return Utils.calculateValidPrice(CONFIG.AUTOBUYER_SELL_FACTOR * player.lastPriceCheck[platform].priceBuyNowAverage); //TODO: performance
   }
 
   getPlayerProfit(player, platform) {
@@ -27,7 +65,7 @@ class AutoBuyer extends Emitter {
   }
 
   getProfit(buyPrice, sellPrice) {
-    return sellPrice * (1 - settings.EA_COMMISSION) - buyPrice;
+    return Math.floor(sellPrice * (1 - settings.EA_COMMISSION) - buyPrice);
   }
 
   //Works
@@ -298,7 +336,7 @@ class AutoBuyer extends Emitter {
         const priceSell = this.getPlayerSellPrice(player, platform);
         const profit = this.getProfit(priceBuyNowMax, priceSell);
 
-        if(account.coins >= priceBuyNowMax) {
+        if(priceBuyNowMax && priceSell && account.coins >= priceBuyNowMax) {
           player.buyCheckBusy = true;
           this.busyMessage(account, `Searching ${player.name} (${player.rating})`);
           this.busy(account)
