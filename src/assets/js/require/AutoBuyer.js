@@ -112,6 +112,10 @@ class AutoBuyer extends Emitter {
           console.error('NOT_ENOUGH_CREDIT');
           break;
         }
+        case 'ECONNRESET': {
+
+          break;
+        }
         default: {
           errorSolved = false;
           break;
