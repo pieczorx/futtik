@@ -226,8 +226,9 @@ class PagePlayers {
           },
           format: (row) => {
             if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              const buyPrice = autoBuyer.getPlayerBuyPrice(row, currentPlatform());
               return `
-              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerBuyPrice(row, currentPlatform()))}</span>
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${buyPrice ? formatCoins(buyPrice) : 'No step'}</span>
               `
             }
             return '-';
@@ -247,8 +248,9 @@ class PagePlayers {
           },
           format: (row) => {
             if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              const sellPrice = autoBuyer.getPlayerSellPrice(row, currentPlatform());
               return `
-              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerSellPrice(row, currentPlatform()))}</span>
+              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${sellPrice ? formatCoins(sellPrice) : 'No step'}</span>
               `
             }
             return '-';
