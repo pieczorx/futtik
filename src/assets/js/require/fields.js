@@ -51,4 +51,4 @@ const Fields = {
       return row.club.name;
     }
   },
-}
+};
