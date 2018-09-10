@@ -68,11 +68,12 @@ class FunCaptcha extends Emitter {
     return x6R;
   }
 
-  async trigger({publicKey, siteUrl, blob, proxy}) {
+  async trigger({publicKey, siteUrl, blob, proxy, localAddress}) {
 
     //Get captcha
     const resGetJsMdString  = await this.post(`https://funcaptcha.com/fc/api/?onload=loadFunCaptcha`, {
-      proxy: proxy
+      proxy: proxy,
+      localAddress: localAddress
     })
     const jsMdString = this.getFromBetween(resGetJsMdString.body, `https://cdn.funcaptcha.com/fc/js/`, `/standard/funcaptcha_api.js`);
 
@@ -84,6 +85,7 @@ class FunCaptcha extends Emitter {
     //Get from public key
     const resPublicKey = await this.post(`https://funcaptcha.com/fc/gt2/public_key/${publicKey}`, {
       proxy: proxy,
+      localAddress: localAddress,
       json: true,
       form: {
         bda: this.encodeBda(JSON.stringify(bdaData)),
@@ -119,7 +121,7 @@ class FunCaptcha extends Emitter {
     //Solve single captcha
     for(let i = 0; i < 3; i++) {
       console.log(`SOLVE CAPTCHA [TRY ${i}]`);
-      let captchaSolved = await this.solveSingleCaptcha(token, requestId, sid, proxy);
+      let captchaSolved = await this.solveSingleCaptcha(token, requestId, sid, proxy, localAddress);
       if(captchaSolved) {
         return resPublicKey.body.token;
       }
@@ -127,9 +129,10 @@ class FunCaptcha extends Emitter {
     throw new Error('It was unable to solve captcha');
   }
 
-  async solveSingleCaptcha(token, requestId, sid, proxy) {
+  async solveSingleCaptcha(token, requestId, sid, proxy, localAddress) {
     const resCaptchas = await this.post(`https://funcaptcha.com/fc/gfct/`, {
       proxy: proxy,
+      localAddress: localAddress,
       headers: this.getHeaders(requestId),
       form: {
         token: token,
@@ -149,7 +152,8 @@ class FunCaptcha extends Emitter {
     let finalImages = [];
     for(let imageUrl of imageUrls) {
       let resImage = await this.get(imageUrl, {
-        proxy: proxy
+        proxy: proxy,
+        localAddress: localAddress
       });
       finalImages[finalImages.length] = (resImage.body);
 
@@ -158,6 +162,7 @@ class FunCaptcha extends Emitter {
     //Get image encryption key
     const resEncryptionKey = await this.post(`https://funcaptcha.com/fc/ekey/`, {
       proxy: proxy,
+      localAddress: localAddress,
       headers: this.getHeaders(requestId),
       form: {
         sid: sid,
@@ -184,6 +189,7 @@ class FunCaptcha extends Emitter {
 
       let resGuess = await this.post(`https://funcaptcha.com/fc/ca/`, {
         proxy: proxy,
+        localAddress: localAddress,
         headers: this.getHeaders(requestId),
         form: {
           sid: sid,
@@ -311,6 +317,13 @@ class FunCaptcha extends Emitter {
       if(!options.headers) {
         options.headers = {};
       }
+      if(!options.localAddress) {
+        delete options.localAddress;
+      }
+      if(!options.proxy) {
+        delete options.proxy;
+      }
+
       const headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
         'Accept-Encoding': 'gzip, deflate, br',

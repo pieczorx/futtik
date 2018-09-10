@@ -29,7 +29,11 @@ class Account extends Emitter {
     if(!proxy.ip) {
       throw new Error('INVALID_PROXY_IP');
     }
-
+    if(proxy.isLocal) {
+      this.proxy = false;
+      this.localAddress = proxy.ip;
+      return;
+    }
     if(proxy.username && proxy.password) {
       this.proxy = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
     } else {
@@ -39,6 +43,7 @@ class Account extends Emitter {
   }
   setDefaultProxy() {
     this.proxy = 'http://127.0.0.1:8888';
+    this.localAddress = null;
     this.fiddlerEnabled = true;
   }
 
@@ -368,7 +373,8 @@ class Account extends Emitter {
         publicKey: data.body.pk,
         blob: data.body.blob,
         siteUrl: 'https://www.easports.com',
-        proxy: this.proxy
+        proxy: this.proxy,
+        localAddress: this.localAddress
       });
       await this.validateCaptcha(funCaptchaToken);
     } catch(e) {
@@ -676,8 +682,12 @@ class Account extends Emitter {
       }
 
       //Set proxy
-      request_options.proxy = this.proxy;
-
+      if(this.proxy) {
+        request_options.proxy = this.proxy;
+      }
+      if(this.localAddress) {
+        request_options.localAddress = this.localAddress;
+      }
 
       if((options.unzip || options.ut || url.includes('/cp-ui/')) && !this.fiddlerEnabled) {
         request_options.encoding = null;

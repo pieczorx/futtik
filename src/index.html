@@ -105,6 +105,17 @@
         <div class="center2">
           <form name="addProxy" class="w100">
             <div class="w100">
+              <div class="title w100">Proxy type:</div>
+              <div class="w100">
+                <input type="radio" name="isLocal" id="addAccountProxyIsLocalNo" value="0" checked />
+                <label for="addAccountProxyIsLocalNo">Normal</label>
+              </div>
+              <div class="w100">
+                <input type="radio" name="isLocal" id="addAccountProxyIsLocalYes" value="1" />
+                <label for="addAccountProxyIsLocalYes">Local machine address</label>
+              </div>
+            </div>
+            <div class="w100">
               <div class="title w100">IP:</div>
               <input type="text" name="ip" placeholder="Enter proxy ip" class="radius w100" value=""/>
             </div>

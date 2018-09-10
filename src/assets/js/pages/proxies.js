@@ -32,6 +32,13 @@ class PageProxies {
         {
           title: 'Password',
           name: 'password'
+        },
+        {
+          title: 'Local',
+          name: 'isLocal',
+          format: (row) => {
+            return row.isLocal ? 'Yes' : 'No';
+          }
         }
       ]
     });
@@ -45,9 +52,9 @@ class PageProxies {
     });
     $(document).on('submit', `form[name='addProxy']`, function() {
       const data = $(this).serializeJSON();
+      data.isLocal = data.isLocal == 1 ? true : false;
       let canAdd = true;
-      console.log(data)
-      let requiredValues = ['ip', 'port'];
+      let requiredValues = ['ip'];
       for(let key of requiredValues) {
         if(!data[key]) {
           canAdd = false;
@@ -56,7 +63,7 @@ class PageProxies {
       }
       if(canAdd) {
         autoBuyer.addProxy(data).then(() => {
-          //that.tableAccounts.update();
+          that.table.update();
           popupAddProxy.hide();
 
         });
