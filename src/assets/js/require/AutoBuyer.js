@@ -889,7 +889,9 @@ class AutoBuyer extends Emitter {
           if(proxy.username && proxy.password) {
             proxyUrl = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
           } else {
-            proxyUrl = `http://${proxy.ip}:${proxy.port || 80}`;
+            if(proxy.ip && proxy.port) {
+              proxyUrl = `http://${proxy.ip}:${proxy.port || 80}`;
+            }
           }
         }
 
@@ -927,15 +929,16 @@ class AutoBuyer extends Emitter {
   }
   fetchSinglePage(page, proxyUrl) {
     console.log(page, proxyUrl);
-    let requestOptions = {
-      url,
-      json: true
-    };
-    if(proxyUrl) {
-      requestOptions.proxy = proxyUrl;
-    }
+
     return new Promise((resolve, reject) => {
       const url = util.format(CONFIG.URL_DATABASE, page);
+      let requestOptions = {
+        url,
+        json: true
+      };
+      if(proxyUrl) {
+        requestOptions.proxy = proxyUrl;
+      }
       request(requestOptions, (err, res, body) => {
         if(!err) {
           resolve(body)
