@@ -10,7 +10,7 @@ if(process.platform == "darwin"){
 CONFIG.URL = 'http://localhost:8765';
 
 //Main data directory
-CONFIG.DIR_DATA = `${CONFIG.DIR_APPDATA}/Futtik`;
+CONFIG.DIR_DATA = `${CONFIG.DIR_APPDATA}/Futtik/data`;
 
 //Path to account cookies etc
 CONFIG.PATH_ACCOUNTS = `${CONFIG.DIR_DATA}/accounts.json`;
@@ -51,7 +51,7 @@ CONFIG.URL_PLAYER_AVATAR_SMALL = "https://fifa17.content.easports.com/fifa/fltOn
 CONFIG.TABLE_PLAYERS_PER_PAGE = 50;
 
 //Price check interval [ms]
-CONFIG.PRICE_CHECK_INTERVAL = 30 * 60 * 1000;
+//CONFIG.PRICE_CHECK_INTERVAL = 30 * 60 * 1000;
 
 //Price check pages
 CONFIG.PRICE_CHECK_PAGES = 5;
@@ -63,14 +63,14 @@ CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY = 3;
 CONFIG.TRANSFERMARKET_LIMIT = 36;
 
 //Buy & sell percentage
-CONFIG.AUTOBUYER_BUY_FACTOR = 89/100;
-CONFIG.AUTOBUYER_SELL_FACTOR = 99/100;
+//CONFIG.AUTOBUYER_BUY_FACTOR = 89/100;
+//CONFIG.AUTOBUYER_SELL_FACTOR = 99/100;
 
 //Tradepile check interval [ms]
 //CONFIG.TRADEPILE_CHECK_INTERVAL = 10 * 60 * 1000;
 
 //EA Commission
-CONFIG.EA_COMMISSION = 0.05;
+//CONFIG.EA_COMMISSION = 0.05;
 
 //Unassigned check interval [ms]
 //CONFIG.UNASSIGNED_CHECK_INTERVAL = 60 * 60 * 1000;
