@@ -10,9 +10,13 @@ class Account extends Emitter {
     //this.logged = false;
     this.listeners = [];
     let platforms = {
-      xone: 'FFA18XBO'
+      'xone': 'FFA18XBO',
+      'x360': 'FFA18XBX',
+      'ps3': 'FFA18PS3',
+      'ps4': 'FFA18PS4',
+      'pc': 'FFA18PCC'
     }
-    this.gameSku = platforms[this.platform];
+    this.sku = platforms[this.platform];
     this.setDefaultProxy();
   }
   //I think it's not used anymore
@@ -57,7 +61,6 @@ class Account extends Emitter {
       }
     }
     await this.getPids(); //required
-    await this.getShards(); //required
     await this.getUtasServer(); //required
     await this.getFosServerCode(); //required
     await this.getUtSid(); //required
@@ -262,27 +265,34 @@ class Account extends Emitter {
       json: true,
       unzip: true
     });
-    this.shards = data.body.shardInfo;
+    //this.shards = data.body.shardInfo;
+    return data.body.shardInfo;
   }
   async getUtasServer() {
+    const shards = await this.getShards();
     let finalShard;
     let finalData;
-    for(let i = 0; i < this.shards.length; i++) {
-      let shard = this.shards[i];
+    for(let i = 0; i < shards.length; i++) {
+      let shard = shards[i];
       let shardUrl = `${shard.clientProtocol}://${shard.clientFacingIpPort}/ut/game/fifa18/user/accountinfo?filterConsoleLogin=true&sku=FUT18WEB&returningUserGameYear=2017`;
-      try {
-        let data = await this.get(shardUrl, {
-          json: true,
-          unzip: true
-        });
-        if(data.body.userAccountInfo.personas[0].onlineAccess) {
-          finalShard = shard;
-          finalData = data;
-          break;
+      //console.log(shard.skus, this.sku)
+      if(shard.skus.includes(this.sku)) {
+        try {
+          let data = await this.get(shardUrl, {
+            json: true,
+            ut: true,
+            unzip: true
+          });
+          if(data.body.userAccountInfo.personas[0]) {
+            finalShard = shard;
+            finalData = data;
+            break;
+          }
+        } catch(e) {
+          //console.log(`Shard ${shard.clientFacingIpPort} doesn't work, it should be ok`, e);
         }
-      } catch(e) {
-        //console.log(`Shard ${shard.clientFacingIpPort} doesn't work, it should be ok`);
       }
+
     }
     if(!finalShard) {
       throw new Error('No working shards');
@@ -302,7 +312,7 @@ class Account extends Emitter {
     const data = await this.post(url, {
       form: {
         clientVersion: 1,
-        gameSku: this.gameSku,
+        gameSku: this.sku,
         identification: {
           authCode: this.fosCode,
           redirectUrl: 'nucleus:rest'
@@ -693,6 +703,7 @@ class Account extends Emitter {
 
       //Make request
       request(request_options, async function(err, res, body) {
+
         try {
           if(!err) {
 
@@ -704,7 +715,7 @@ class Account extends Emitter {
                 body = body.toString();
               }
             }
-
+            //console.log('REQ:', url, options, res.statusCode, body);
 
 
             if(options.ut && res.statusCode !== 200) {
