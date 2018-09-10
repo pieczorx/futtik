@@ -5,12 +5,7 @@
   25%, 75% {width: 10px;}
 }
 * {outline: none;}
-body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;text-align: -webkit-center;font-family: 'Oxygen', sans-serif;overflow: hidden;
--webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;}
+body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;text-align: -webkit-center;font-family: 'Oxygen', sans-serif;overflow: hidden;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-o-user-select: none;user-select: none;height: 100%;}
   a { -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -280,4 +275,8 @@ body[data-a-loading='1'] .s {transition: all .5s ease;opacity:0.66;pointer-event
 
 .s[data-name='settings'] {padding-top: 0px;}
 .s[data-name='settings'] .sSub[data-name='global'] .e {margin-bottom: 10px;}
-.s[data-name='settings'] .sSub[data-name='global'] input[type='number'] {width: 80px;padding: 0;text-align: center;}
+.s[data-name='settings'] .sSub[data-name='global'] input[type='number'] {width: 80px;padding: 3px 5px;text-align: center;}
+
+.s[data-name='settings'] .sSub[data-name='steps'] .priceStepList {}
+.s[data-name='settings'] .sSub[data-name='steps'] .priceStepList .e {margin-top: 5px;}
+.s[data-name='settings'] .sSub[data-name='steps'] .priceStepList input {padding: 2px 5px;; width: 100px; margin-right: 10px; margin-left: 5px;}

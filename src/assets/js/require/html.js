@@ -15,13 +15,13 @@ class html {
   static priceStepListElement(p) {
     return `
     <div class="e w100">
-      <input type="number" name="min" value="${p.min}"/>
+      <input type="number" class="radius" name="min" value="${p.min}"/>
       -
-      <input type="number" name="max" value="${p.max}"/>
+      <input type="number" class="radius" name="max" value="${p.max}"/>
       Sell steps
-      <input type="number" name="sellSteps" value="${p.sellSteps}"/>
+      <input type="number" class="radius" name="sellSteps" value="${p.sellSteps}"/>
       Profit
-      <input type="number" name="minProfit" value="${p.minProfit}"/>
+      <input type="number" class="radius" name="minProfit" value="${p.minProfit}"/>
     </div>
     `;
   }

@@ -80,9 +80,12 @@ class PageSettingsPriceSteps {
         const val = $(this).val();
         values[name] = parseInt(val);
       });
-      finalSteps.push(values)
+      if(values.max > 0 || values.minProfit > 0) {
+        finalSteps.push(values)
+      }
     });
 
     database.priceSteps[currentPlatform()] = finalSteps;
+    this.loadPriceSteps();
   }
 }

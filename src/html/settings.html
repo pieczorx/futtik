@@ -1,19 +1,19 @@
 <div class="subMenu w100">
-  <a class="e" href="/settings" data-a-args="settings,"><i class="fas fa-globe"></i> Global settings</a>
-  <a class="e" href="/settings/steps" data-a-args="settings,steps"><i class="fas fa-crosshairs"></i> Sell & buy steps</a>
+  <a class="e" href="/settings" data-a-args="settings,"><i class="far fa-globe-americas"></i> Global settings</a>
+  <a class="e" href="/settings/steps" data-a-args="settings,steps"><i class="far fa-coins"></i> Sell & buy steps</a>
 </div>
 
 <div class="sSub" data-a-args="settings," data-name="global">
   <div class="center">
-    <div class="w100">
+    <div class="w100 h100">
       <form name="settings">
         <div class="listExpandable">
           <div class="e w100">
             <div class="title l">Delay (per account):</div>
             <div class="r">
-              <input type="number" name="AUTOBUYER_REQUEST_DELAY_MIN">
+              <input type="number" class="radius" name="AUTOBUYER_REQUEST_DELAY_MIN">
               -
-              <input type="number" name="AUTOBUYER_REQUEST_DELAY_MAX">
+              <input type="number" class="radius" name="AUTOBUYER_REQUEST_DELAY_MAX">
               ms
             </div>
           </div>
@@ -21,7 +21,7 @@
           <div class="e w100">
             <div class="title l">Login delay (per proxy):</div>
             <div class="r">
-              <input type="number" name="LOGIN_DELAY">
+              <input type="number" class="radius" name="LOGIN_DELAY">
               ms
             </div>
           </div>
@@ -29,7 +29,7 @@
           <div class="e w100">
             <div class="title l">Tradepile refresh interval:</div>
             <div class="r">
-              <input type="number" name="TRADEPILE_INTERVAL">
+              <input type="number" class="radius" name="TRADEPILE_INTERVAL">
               ms
             </div>
           </div>
@@ -37,7 +37,7 @@
           <div class="e w100">
             <div class="title l">Unassigned refresh interval:</div>
             <div class="r">
-              <input type="number" name="UNASSIGNED_INTERVAL">
+              <input type="number" class="radius" name="UNASSIGNED_INTERVAL">
               ms
             </div>
           </div>
@@ -46,7 +46,7 @@
           <div class="e w100">
             <div class="title l">Price check interval:</div>
             <div class="r">
-              <input type="number" name="PRICECHECK_INTERVAL">
+              <input type="number" class="radius" name="PRICECHECK_INTERVAL">
               ms
             </div>
           </div>
@@ -54,7 +54,7 @@
           <div class="e w100">
             <div class="title l">EA commission percent:</div>
             <div class="r">
-              <input type="number" name="EA_COMMISSION">
+              <input type="number" class="radius" name="EA_COMMISSION">
               %
             </div>
           </div>
@@ -62,14 +62,14 @@
           <div class="e w100">
             <div class="title l">AutoBuyer tick:</div>
             <div class="r">
-              <input type="number" name="AUTOBUYER_TICK_INTERVAL">
+              <input type="number" class="radius" name="AUTOBUYER_TICK_INTERVAL">
               ms
             </div>
           </div>
 
 
         </div>
-        <button type="submit">Save settings</button>
+        <button type="submit" class="radius">Save settings</button>
 
       </form>
     </div>
@@ -77,9 +77,11 @@
 </div>
 
 <div class="sSub" data-a-args="settings,steps" data-name="steps">
-  <button data-role="settingsPriceStepAdd">Add</button>
-  <button data-role="settingsPriceStepSave">Save</button>
-  <div class="priceStepList" data-role="settingsPriceStepList">
+  <button data-role="settingsPriceStepAdd" class="radius">Add</button>
+  <button data-role="settingsPriceStepSave" class="radius">Save</button>
+  <div class="listExpandable">
+    <div class="priceStepList" data-role="settingsPriceStepList">
 
+    </div>
   </div>
 </div>
