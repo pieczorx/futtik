@@ -539,6 +539,11 @@ class AutoBuyer extends Emitter {
     account.instance.on('validatingCaptcha', () => {
       this.busyMessage(account, 'Validating captcha');
     });
+    account.instance.on('requestUtas', () => {
+      account.utasRequestCount++;
+      this.emit('accountUpdate');
+    });
+
 
   }
 
@@ -684,6 +689,10 @@ class AutoBuyer extends Emitter {
           }
         }
 
+        if(!account.utasRequestCount) {
+          newAccount.utasRequestCount = 0;
+        }
+
         newAccount.buy = account.buy ? true : false;
 
         return newAccount;
@@ -709,6 +718,7 @@ class AutoBuyer extends Emitter {
         tradePile: account.tradePile,
         coins: account.coins,
         buy: account.buy ? true : false,
+        utasRequestCount: account.utasRequestCount
       };
       if(account.proxy) {
         newAccount.proxy = account.proxy.ip;
@@ -750,6 +760,7 @@ class AutoBuyer extends Emitter {
       } else {
         player.lastPriceCheck = {};
       }
+
     }
     return players;
   }

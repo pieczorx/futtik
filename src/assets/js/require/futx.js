@@ -685,7 +685,9 @@ class Account extends Emitter {
 
       //Make request
       request(request_options, async function(err, res, body) {
-
+        if(options.ut) {
+          that.emit('requestUtas');
+        }
         try {
           if(!err) {
 

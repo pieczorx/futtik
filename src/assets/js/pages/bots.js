@@ -89,6 +89,10 @@ class PageBots {
         {name: 'proxy', title: 'Proxy', format: (row) => {
           return row.proxy ? row.proxy.ip : '-';
         }},
+        {
+          name: 'utasRequestCount',
+          title: 'UT Count'
+        },
         {name: 'message', title: 'Message', width: 180}
       ],
       actions: {
