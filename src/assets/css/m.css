@@ -4,7 +4,7 @@
   50% {margin-left: calc(100% - 10px);}
   25%, 75% {width: 10px;}
 }
-
+* {outline: none;}
 body {font-family: 'Rubik', sans-serif;padding: 0px;margin: 0;font-size: 13px;text-align:center;text-align: -webkit-center;font-family: 'Oxygen', sans-serif;overflow: hidden;
 -webkit-user-select: none;
   -khtml-user-select: none;

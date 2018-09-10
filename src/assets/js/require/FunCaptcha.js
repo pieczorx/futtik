@@ -318,19 +318,16 @@ class FunCaptcha extends Emitter {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
 
       };
-      if(process.env.FIDDLER == 1) {
-        options.rejectUnauthorized = false;
-      }
-      if(process.env.FIDDLER == 1) {
-        options.proxy = 'http://127.0.0.1:8888'
-      }
+      options.rejectUnauthorized = false;
       request(url, options, (error, response, body) => {
-        console.log('request done statusCode:', response.statusCode); // Print the response status code if a response was received
+
         if(!error) {
+          //console.log('request done statusCode:', response.statusCode, body); // Print the response status code if a response was received
           resolve({response, body})
         } else {
           reject(error);
-          console.log('error:', error); // Print the error if one occurred
+
+          //console.log('error:', error); // Print the error if one occurred
 
         }
         //console.log('body:', body); // Print the HTML for the Google homepage.

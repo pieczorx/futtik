@@ -62,10 +62,12 @@ class Account extends Emitter {
     }
     await this.getPids(); //required
     await this.getUtasServer(); //required
+    await this.getAccountInfo(); //required
     await this.getFosServerCode(); //required
     await this.getUtSid(); //required
     await this.getSecurityQuestion(); //required
     await this.answerSecurityQuestion(); //required
+
   }
 
 
@@ -224,20 +226,12 @@ class Account extends Emitter {
     } catch(e) {
       const dataJson = JSON.parse(data.body);
       if(dataJson.error == 'invalid_request') {
-        await this
+        console.warn('I forgot about this', dataJson)
+        //await this
       }
     }
-      //console.log('Got access token', this.bearer);
-    //} catch(e) {
-      //console.warn('login required XDDD');
-      //const url = `https://accounts.ea.com/connect/auth?prompt=login&accessToken=${this.bearer ? this.bearer : 'null'}&client_id=FIFA-18-WEBCLIENT&response_type=token&display=web2%2Flogin&locale=en_US&redirect_uri=https%3A%2F%2Fwww.easports.com%2Fpl%2Ffifa%2Fultimate-team%2Fweb-app%2Fauth.html&scope=basic.identity+offline+signin&fid=${this.fid}`;
-      //const data = await this.get(url, {
-      //  follow: false
-      //});
-      //this.bearer = (data.res.headers.location.split('access_token=')[1]).split('&')[0];
-    //}
 
-    //2do
+    //TODO
     //https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html#access_token=QVQwOjEuMDozLjA6NjA6ZmlnTml3azJRcTZnakNnMzZoZDdYbWVnOFZhZm1uMGh0MWY6NjgzNDM6b2IyN3U&token_type=Bearer&expires_in=3599
     //this.authorizationTokenExpiresAt =
   }
@@ -270,36 +264,25 @@ class Account extends Emitter {
   }
   async getUtasServer() {
     const shards = await this.getShards();
-    let finalShard;
-    let finalData;
-    for(let i = 0; i < shards.length; i++) {
-      let shard = shards[i];
-      let shardUrl = `${shard.clientProtocol}://${shard.clientFacingIpPort}/ut/game/fifa18/user/accountinfo?filterConsoleLogin=true&sku=FUT18WEB&returningUserGameYear=2017`;
-      //console.log(shard.skus, this.sku)
-      if(shard.skus.includes(this.sku)) {
-        try {
-          let data = await this.get(shardUrl, {
-            json: true,
-            ut: true,
-            unzip: true
-          });
-          if(data.body.userAccountInfo.personas[0]) {
-            finalShard = shard;
-            finalData = data;
-            break;
-          }
-        } catch(e) {
-          //console.log(`Shard ${shard.clientFacingIpPort} doesn't work, it should be ok`, e);
-        }
-      }
 
+    for(let shard of shards) {
+      if(shard.skus.includes(this.sku)) {
+        this.utas = `${shard.clientProtocol}://${shard.clientFacingIpPort}`;
+        return;
+      }
     }
-    if(!finalShard) {
-      throw new Error('No working shards');
-    }
-    this.utas = `${finalShard.clientProtocol}://${finalShard.clientFacingIpPort}`;
-    this.persona = finalData.body.userAccountInfo.personas[0];
   }
+
+  async getAccountInfo() {
+    const url = `${this.utas}/ut/game/fifa18/user/accountinfo?filterConsoleLogin=true&sku=FUT18WEB&returningUserGameYear=2017`;
+    const data = await this.get(url, {
+      json: true,
+      ut: true,
+      unzip: true
+    });
+    this.persona = data.body.userAccountInfo.personas[0];
+  }
+
   async getFosServerCode() {
     const url = `https://accounts.ea.com/connect/auth?client_id=FOS-SERVER&redirect_uri=nucleus:rest&response_type=code&access_token=${this.bearer}`;
     const data = await this.get(url, {
@@ -337,13 +320,14 @@ class Account extends Emitter {
       json: true,
       ut: true
     });
-
-
-    //console.log('Got security question info', data.body);
-
+    if(data.body.code == 458) {
+      console.log('Fun captcha was triggered');
+      await this.solveCaptcha();
+    }
   }
 
   async validateCaptcha(funCaptchaToken) {
+    console.log('Validating captcha with token', funCaptchaToken);
     this.emit('validatingCaptcha');
     const url = `${this.utas}/ut/game/fifa18/captcha/fun/validate`;
     const data = await this.post(url, {
@@ -386,8 +370,6 @@ class Account extends Emitter {
         siteUrl: 'https://www.easports.com',
         proxy: this.proxy
       });
-
-      console.log('taki mamy token', funCaptchaToken);
       await this.validateCaptcha(funCaptchaToken);
     } catch(e) {
       console.warn(e);
@@ -722,6 +704,9 @@ class Account extends Emitter {
               if(res.statusCode == 458) {
                 console.log('Captcha is pending, try to solve :)');
                 await that.solveCaptcha();
+                const data = await that.request(url, options);
+                resolve(data);
+                return;
               }
               //458 - puzzle captcha
               if(res.statusCode === 358) {

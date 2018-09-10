@@ -112,12 +112,17 @@ class AutoBuyer extends Emitter {
           console.error('NOT_ENOUGH_CREDIT');
           break;
         }
-        case 'ECONNRESET': {
-
-          break;
-        }
         default: {
-          errorSolved = false;
+          switch(e.code) {
+            case 'ECONNRESET': {
+
+              break;
+            }
+            default: {
+              errorSolved = false;
+              break;
+            }
+          }
           break;
         }
       }
@@ -697,15 +702,18 @@ class AutoBuyer extends Emitter {
       return;
     }
     await fse.outputJson(CONFIG.PATH_ACCOUNTS, this.accounts.map(account => {
-      return {
+      let newAccount = {
         options: account.options,
         cookies: account.cookies,
         enabled: account.enabled,
         tradePile: account.tradePile,
         coins: account.coins,
         buy: account.buy ? true : false,
-        proxy: account.proxy.ip
       };
+      if(account.proxy) {
+        newAccount.proxy = account.proxy.ip;
+      }
+      return newAccount;
     }));
   }
 
