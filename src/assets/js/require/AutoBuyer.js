@@ -269,16 +269,17 @@ class AutoBuyer extends Emitter {
         if(player && player.lastPriceCheck[platform] && (new Date() - player.lastPriceCheck[platform].date) < settings.PRICECHECK_INTERVAL) {
           await wait(settings.AUTOBUYER_REQUEST_DELAY);
           const priceSell = this.getPlayerSellPrice(player, platform);
-          const priceBid = Utils.calculateNextLowerPrice(priceSell);
-          this.busyMessage(account, `Selling player from tradepile (${i + 1} / ${auctionsInactive.length})`);
-          await account.instance.sell({
-            itemId: auction.itemData.id,
-            priceBuyNow: priceSell,
-            priceBid: priceBid,
-            duration: 3600
-          });
-          logger.logAccount(`Listed ${player.name} for ${formatCoins(priceSell)}`, account);
-
+          if(priceSell) {
+            const priceBid = Utils.calculateNextLowerPrice(priceSell);
+            this.busyMessage(account, `Selling player from tradepile (${i + 1} / ${auctionsInactive.length})`);
+            await account.instance.sell({
+              itemId: auction.itemData.id,
+              priceBuyNow: priceSell,
+              priceBid: priceBid,
+              duration: 3600
+            });
+            logger.logAccount(`Listed ${player.name} for ${formatCoins(priceSell)}`, account);
+          }
         }
       };
 
