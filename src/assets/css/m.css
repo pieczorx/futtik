@@ -280,4 +280,4 @@ body[data-a-loading='1'] .s {transition: all .5s ease;opacity:0.66;pointer-event
 
 .s[data-name='settings'] {}
 .s[data-name='settings'] .e {margin-bottom: 10px;}
-.s[data-name='settings'] input[type='number'] {width: 60px;}
+.s[data-name='settings'] input[type='number'] {width: 80px;padding: 0;text-align: center;}

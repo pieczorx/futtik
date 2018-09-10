@@ -12,7 +12,7 @@ class PageSettings {
 
       }
       for(let key of requiredValues) {
-        if($(this).find(`[data-name='${key}']`).attr('type') == 'number') {
+        if($(this).find(`[name='${key}']`).attr('type') == 'number') {
           data[key] = parseFloat(data[key]);
         }
         settings.set(key, data[key]);
