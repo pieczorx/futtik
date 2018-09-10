@@ -882,13 +882,18 @@ class AutoBuyer extends Emitter {
     const existingPlayerIds = this.players.map(player => {return player.id});
     try {
       while(!fetchedAllPages) {
-        let proxy = database.proxies[(currentPage - 1) % database.proxies.length];
-        let proxyUrl;
-        if(proxy.username && proxy.password) {
-          proxyUrl = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
-        } else {
-          proxyUrl = `http://${proxy.ip}:${proxy.port || 80}`;
+        let proxy;
+        let proxyUrl = false;
+        if(database.proxies.length > 0) {
+          proxy = database.proxies[(currentPage - 1) % database.proxies.length];
+          if(proxy.username && proxy.password) {
+            proxyUrl = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
+          } else {
+            proxyUrl = `http://${proxy.ip}:${proxy.port || 80}`;
+          }
         }
+
+
         const result = await this.fetchSinglePage(currentPage, proxyUrl);
         allPages = result.totalPages;
 
@@ -922,13 +927,16 @@ class AutoBuyer extends Emitter {
   }
   fetchSinglePage(page, proxyUrl) {
     console.log(page, proxyUrl);
+    let requestOptions = {
+      url,
+      json: true
+    };
+    if(proxyUrl) {
+      requestOptions.proxy = proxyUrl;
+    }
     return new Promise((resolve, reject) => {
       const url = util.format(CONFIG.URL_DATABASE, page);
-      request({
-        url,
-        json: true,
-        proxy: proxyUrl
-      }, (err, res, body) => {
+      request(requestOptions, (err, res, body) => {
         if(!err) {
           resolve(body)
         } else {
