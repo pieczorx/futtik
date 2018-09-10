@@ -25,26 +25,31 @@ class Account extends Emitter {
   //   this.bearer = null;
   //   await this.login;
   // }
+
   setProxy(proxy) {
+
     if(!proxy.ip) {
       throw new Error('INVALID_PROXY_IP');
     }
+    this.setDefaultProxy();
     if(proxy.isLocal) {
-      this.proxy = false;
       this.localAddress = proxy.ip;
       return;
     }
+
     if(proxy.username && proxy.password) {
-      this.proxy = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
+      this.proxyUrl = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
     } else {
-      this.proxy = `http://${proxy.ip}:${proxy.port || 80}`;
+      this.proxyUrl = `http://${proxy.ip}:${proxy.port || 80}`;
     }
-    this.fiddlerEnabled = false;
+
   }
   setDefaultProxy() {
-    this.proxy = 'http://127.0.0.1:8888';
+    this.proxyUrl = null;
     this.localAddress = null;
-    this.fiddlerEnabled = true;
+    //this.proxy = 'http://127.0.0.1:8888';
+    //this.localAddress = null;
+    //this.fiddlerEnabled = true;
   }
 
   async login() {
@@ -373,7 +378,7 @@ class Account extends Emitter {
         publicKey: data.body.pk,
         blob: data.body.blob,
         siteUrl: 'https://www.easports.com',
-        proxy: this.proxy,
+        proxy: this.proxyUrl,
         localAddress: this.localAddress
       });
       await this.validateCaptcha(funCaptchaToken);
@@ -681,17 +686,29 @@ class Account extends Emitter {
         request_options.body = request_options.body.replaceAll('%20', '+');
       }
 
-      //Set proxy
-      if(this.proxy) {
-        request_options.proxy = this.proxy;
-      }
-      if(this.localAddress) {
-        request_options.localAddress = this.localAddress;
+
+      if(!this.fiddlerEnabled) {
+        //Set proxy
+        if(this.proxyUrl) {
+          request_options.proxy = this.proxyUrl;
+        }
+
+        //Set localAddress
+        if(this.localAddress) {
+          request_options.localAddress = this.localAddress;
+        }
+
+        //Dont encode content in request module if fiddler is disabled
+        if(options.unzip || options.ut || url.includes('/cp-ui/')) {
+          request_options.encoding = null;
+        }
+
+      } else {
+        //Set fiddler proxy
+        request_options.proxy = 'http://127.0.0.1:8888';
       }
 
-      if((options.unzip || options.ut || url.includes('/cp-ui/')) && !this.fiddlerEnabled) {
-        request_options.encoding = null;
-      }
+
 
       //Make request
       request(request_options, async function(err, res, body) {
