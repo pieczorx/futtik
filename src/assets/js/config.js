@@ -24,6 +24,10 @@ CONFIG.PATH_PROXIES = `${CONFIG.DIR_DATA}/proxies.json`;
 //Path to settings
 CONFIG.PATH_SETTINGS = `${CONFIG.DIR_DATA}/settings.json`;
 
+//Path to price steps
+CONFIG.PATH_PRICE_STEPS = `${CONFIG.DIR_DATA}/priceSteps.json`;
+
+
 
 
 

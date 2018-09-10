@@ -12,6 +12,7 @@ class Platform extends Emitter {
     $(`[data-role='platformChanger'] .e`).attr('data-current', 0);
     $(`[data-role='platformChanger'] .e[data-platform='${platform}']`).attr('data-current', 1);
     this.current = platform;
+    settings.set('lastPlatform', platform);
     this.emit('change');
   }
   get list() {

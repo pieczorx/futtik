@@ -68,7 +68,8 @@ const pages = {
   captcha: new PageCaptcha(),
   players: new PagePlayers(),
   proxies: new PageProxies(),
-  settings: new PageSettings()
+  settingsGlobal: new PageSettings(),
+  settingsPriceSteps: new PageSettingsPriceSteps()
 }
 
 Object.keys(pages).forEach(key => {
@@ -86,9 +87,9 @@ const start = async () => {
   await wait(1500);
   await settings.load();
   await autoBuyer.init();
+  pltfrm.changePlatform(settings.get('lastPlatform') || 'xone');
   await a.go(settings.get('LAST_URL') || '/bots');
 
-  pltfrm.changePlatform('xone');
   menuCounter.init();
   await wait(1500);
   popupLoadingInitial.hide();
@@ -147,9 +148,14 @@ a.get('/proxies', async (r, next) => {
   next();
 });
 a.get('/settings', async (r, next) => {
-  await pageHandler.load('settings');
+  await pageHandler.load('settingsGlobal');
   next();
 });
+a.get('/settings/steps', async (r, next) => {
+  await pageHandler.load('settingsPriceSteps');
+  next();
+});
+
 
 a.use(async(r, next) => {
   listExpandable.update();
