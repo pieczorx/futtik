@@ -254,7 +254,7 @@ class FunCaptcha extends Emitter {
         const degreesFactor = 51.4;
         spins = parseInt(spins);
         const degrees = ((spins * (degreesFactor * 10)) / 10).toFixed(2);
-        that.uploadCaptcha(options.base64, parseFloat(degrees));
+        //that.uploadCaptcha(options.base64, parseFloat(degrees));
         this.solved = true;
         resolve(degrees);
       };
