@@ -300,7 +300,7 @@ class AutoBuyer extends Emitter {
 
         if(account.coins >= priceBuyNowMax) {
           player.buyCheckBusy = true;
-          this.busyMessage(account, 'Searching...');
+          this.busyMessage(account, `Searching ${player.name} (${player.rating})`);
           this.busy(account)
           try {
 
@@ -488,7 +488,7 @@ class AutoBuyer extends Emitter {
     if(!task.auctions) {
       task.auctions = [];
     }
-    this.busyMessage(account, `Price checking (${task.page} / ${task.pageMax})`);
+    this.busyMessage(account, `Pricecheck ${task.player.name} (${task.player.rating}) [${task.page}/${task.pageMax}]`);
     const response = await account.instance.searchTransferMarket({
       page: task.page,
       baseId: task.player.id,
