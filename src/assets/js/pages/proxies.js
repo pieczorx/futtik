@@ -1,5 +1,6 @@
 class PageProxies {
   constructor() {
+    let that = this;
     this.table = new Table({
       name: 'proxies',
       getData: () => {
