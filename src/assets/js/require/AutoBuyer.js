@@ -853,16 +853,16 @@ class AutoBuyer extends Emitter {
     await fse.outputJson(CONFIG.PATH_PLAYERS, this.formatPlayersWrite(this.players))
   }
   getPlayerFromId(id) {
-    for(let player of this.players) {
-      if(player.id == id) {
-        return player;
+    for(let i = 0; i < this.players.length; i++) {
+      if(this.players[i].id == id) {
+        return this.players[i];
       }
     }
   }
   getAccountFromId(id) {
-    for(let account of this.accounts) {
-      if(account.options.mail == id) {
-        return account;
+    for(let i = 0; i < this.accounts.length; i++) {
+      if(this.accounts[i].options.mail == id) {
+        return this.accounts[i];
       }
     }
   }

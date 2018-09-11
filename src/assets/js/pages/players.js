@@ -89,7 +89,7 @@ class PagePlayers {
           player.analyzer[currentPlatform()] = !player.analyzer[currentPlatform()];
           this.tableAnalyzer.update();
           this.table.update();
-          autoBuyer.savePlayers();
+          //autoBuyer.savePlayers();
         }
       }
     });
@@ -174,7 +174,7 @@ class PagePlayers {
           let player = autoBuyer.getPlayerFromId(id);
           player.analyzer[currentPlatform()] = false;
           this.tableAnalyzer.update();
-          autoBuyer.savePlayers();
+          //autoBuyer.savePlayers();
         }
       }
     });
@@ -294,7 +294,7 @@ class PagePlayers {
           let player = autoBuyer.getPlayerFromId(id);
           player.current[currentPlatform()] = false;
           this.tableCurrent.update();
-          autoBuyer.savePlayers();
+          //autoBuyer.savePlayers();
         }
       }
     });
@@ -329,7 +329,7 @@ class PagePlayers {
     this.tableAnalyzer.update();
     this.table.update();
     a.go('/players/analyzer')
-    autoBuyer.savePlayers();
+    //autoBuyer.savePlayers();
   }
   addToCurrent() {
     let playersToAdd = tableConverter.getAllData({
@@ -345,7 +345,7 @@ class PagePlayers {
     this.tableCurrent.update();
 
     a.go('/players/current')
-    autoBuyer.savePlayers();
+    //autoBuyer.savePlayers();
   }
   async analyze(data) {
     const playersToAnalyze = this.getAnalyzerPlayers();
