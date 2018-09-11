@@ -650,35 +650,39 @@ class AutoBuyer extends Emitter {
     const unassignedAccounts = this.accounts.filter(account => {return !account.proxy;})
     console.log(unassignedAccounts)
     for(let account of unassignedAccounts) {
-      //Get proxies with count
-      const proxiesWithCount = database.proxies.map(proxy => {
-        const proxyCount = this.accounts.filter(account => {return account.proxy ? account.proxy.ip === proxy.ip : false;}).length;
-        return {
-          proxy: proxy,
-          count: proxyCount
-        };
-      });
-      console.log(proxiesWithCount)
-
-      //Sort them by usage
-      const leastUsedProxy = proxiesWithCount.sort((a, b) => {
-        return a.count - b.count;
-      })[0].proxy;
-      console.log(leastUsedProxy)
-      account.proxy = leastUsedProxy;
-      console.log(`Assign proxy ${leastUsedProxy.ip} to account ${account.options.mail}`);
+      this.assignLeastUsedProxyToAccount(account);
     }
     this.emit('playersUpdate');
     this.savePlayers();
   }
+  assignLeastUsedProxyToAccount(account) {
+    //Get proxies with count
+    const proxiesWithCount = database.proxies.map(proxy => {
+      const proxyCount = this.accounts.filter(account => {return account.proxy ? account.proxy.ip === proxy.ip : false;}).length;
+      return {
+        proxy: proxy,
+        count: proxyCount
+      };
+    });
+    console.log(proxiesWithCount)
+
+    //Sort them by usage
+    const leastUsedProxy = proxiesWithCount.sort((a, b) => {
+      return a.count - b.count;
+    })[0].proxy;
+    account.proxy = leastUsedProxy;
+    console.log(`Assign proxy ${leastUsedProxy.ip} to account ${account.options.mail}`);
+  }
 
   addAccount(options) {
     return new Promise(async (resolve, reject) => {
-      this.accounts.push({
+      let account = {
         options: options,
         enabled: true,
         utasRequestCount: 0
-      });
+      };
+      this.assignLeastUsedProxyToAccount(account);
+      this.accounts.push(account);
       await this.saveAccounts();
       resolve();
     });
