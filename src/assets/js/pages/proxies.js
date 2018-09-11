@@ -40,6 +40,13 @@ class PageProxies {
           format: (row) => {
             return row.isLocal ? 'Yes' : 'No';
           }
+        },
+        {
+          title: 'Account quantity',
+          name: 'accountQuantity',
+          format: (row) => {
+            return autoBuyer.accounts.filter(account => {return account.proxy ? account.proxy.ip === row.ip : false;}).length;
+          }
         }
       ]
     });
