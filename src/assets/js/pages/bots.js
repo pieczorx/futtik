@@ -79,7 +79,7 @@ class PageBots {
         }},
         {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
         {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? formatCoins(row.coins) : '-';}},
-        {name: 'coinsWithActiveAuctions', title: 'Coins Max', format: row => {
+        {name: 'coinsWithActiveAuctions', title: 'Coins + TP', format: row => {
           if(typeof row.coins !== 'undefined' && typeof row.tradePile !== 'undefined') {
             const coinsFromActiveAuctions = row.tradePile.auctions.filter(x => {return x.tradeState === 'active';}).reduce((current, auction) => {return current + auction.buyNowPrice;}, 0)
             return formatCoins(row.coins + coinsFromActiveAuctions)
