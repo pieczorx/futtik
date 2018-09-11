@@ -676,7 +676,8 @@ class AutoBuyer extends Emitter {
     return new Promise(async (resolve, reject) => {
       this.accounts.push({
         options: options,
-        enabled: true
+        enabled: true,
+        utasRequestCount: 0
       });
       await this.saveAccounts();
       resolve();
