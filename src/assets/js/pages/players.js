@@ -205,9 +205,7 @@ class PagePlayers {
           search: 'text',
           format: (row) => {
             if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
-              return `
-              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(Math.round(row.lastPriceCheck[currentPlatform()].priceBuyNowAverage))}</span>
-              `
+              return formatCoins(Math.round(row.lastPriceCheck[currentPlatform()].priceBuyNowAverage));
             }
             return '-';
           }
@@ -227,9 +225,7 @@ class PagePlayers {
           format: (row) => {
             if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
               const buyPrice = autoBuyer.getPlayerBuyPrice(row, currentPlatform());
-              return `
-              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${buyPrice ? formatCoins(buyPrice) : 'No step'}</span>
-              `
+              return buyPrice ? formatCoins(buyPrice) : 'No step';
             }
             return '-';
           }
@@ -249,9 +245,7 @@ class PagePlayers {
           format: (row) => {
             if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
               const sellPrice = autoBuyer.getPlayerSellPrice(row, currentPlatform());
-              return `
-              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${sellPrice ? formatCoins(sellPrice) : 'No step'}</span>
-              `
+              return sellPrice ? formatCoins(sellPrice) : 'No step';
             }
             return '-';
           }
@@ -270,9 +264,26 @@ class PagePlayers {
           },
           format: (row) => {
             if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
-              return `
-              <span title="${row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString()}">${formatCoins(autoBuyer.getPlayerProfit(row, currentPlatform()))}</span>
-              `
+              return formatCoins(autoBuyer.getPlayerProfit(row, currentPlatform()));
+            }
+            return '-';
+          }
+        },
+        {
+          title: 'Last pricecheck',
+          name: 'lastPriceCheckDate',
+          format: (row) => {
+            if(row.lastPriceCheck && row.lastPriceCheck[currentPlatform()]) {
+              const dateFormatted = row.lastPriceCheck[currentPlatform()].date.toLocaleTimeString();
+              const dateDiffMinutes = Math.floor((new Date() - row.lastPriceCheck[currentPlatform()].date) / (1000 * 60));
+              let finalDateAgoString;
+              if(dateDiffMinutes > 60) {
+                let diffHours = Math.floor(dateDiffMinutes / 60);
+                finalDateAgoString = `${diffHours}h ${(dateDiffMinutes - (diffHours * 60))}m`;
+              } else {
+                finalDateAgoString = dateDiffMinutes + 'm'
+              }
+              return `<span title="${dateFormatted}">${finalDateAgoString}</span>`;
             }
             return '-';
           }
