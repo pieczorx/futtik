@@ -43,7 +43,8 @@ class Table {
       that.changeFilters();
     });
 
-    for(let field of this.fields) {
+    for(let i = 0; i < this.fields.length; i++) {
+      let field = this.fields[i]
       if(field.type == 'action' || field.type == 'checkbox') {
         $(document).on('click', `[data-table='${this.name}'] [data-table-role='action'][data-field-name='${field.name}'] button`, function() {
           const id = $(this).closest(`[data-table-role='action']`).attr('data-id');
@@ -77,10 +78,12 @@ class Table {
     // console.log(params);
     let values = params.split('&');
     let filters = {}
-    values.forEach(value => {
+    for(let i = 0; i < values.length; i++) {
+      let value = values[i];
+
       let exValue = value.split('=')
       filters[exValue[0]] = decodeURIComponent(exValue[1]);
-    });
+    };
     console.log('filters', filters);
     Object.assign(this.filters, filters);
     this.changeFilters({
@@ -241,15 +244,17 @@ class Table {
   }
 
   appendData() {
-    this.rows.forEach((row, id) => {
-      let values = this.getValuesFromRow(row, id);
+    for(let i = 0; i < this.rows.length; i++) {
+      let row = this.rows[i];
+      let values = this.getValuesFromRow(row, i);
       this.appendRow(values);
-    });
+    };
   }
 
   getValuesFromRow(row, id) {
     let values = [];
-    this.fields.forEach((field) => {
+    for(let i = 0; i < this.fields.length; i++) {
+      let field = this.fields[i];
       let value = '-';
       if(typeof(row[field.name]) != 'undefined') {
         value = row[field.name];
@@ -261,7 +266,7 @@ class Table {
         value = `<div data-table-role="action" data-field-name="${field.name}" data-id="${this.getId(row)}">${value}</div>`;
       }
       values[values.length] = {value: value, width: field.width, align: field.align};
-    });
+    };
     return values;
   }
 
@@ -272,7 +277,9 @@ class Table {
     const divTag = isHeader ? 'th' : 'td';
 
 
-    fields.forEach(value => {
+
+    for(let i = 0; i < fields.length; i++) {
+      let value = fields[i];
       if(typeof(value) != 'object') {
         value = {value: value};
       }
@@ -284,7 +291,7 @@ class Table {
         styles += `text-align:${value.align};`
       }
       htmlValues += `<${divTag}${styles ? ` style="${styles}"` : ''}>${value.value}</${divTag}>`
-    });
+    };
 
     elTable.append(`
       <tr>${htmlValues}</tr>
