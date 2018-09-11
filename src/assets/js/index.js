@@ -81,6 +81,11 @@ Object.keys(pages).forEach(key => {
 
 
 const start = async () => {
+  $(`[data-role='openDeveloperTools']`).click(() => {
+    ipcRenderer.send('openDeveloperTools')
+  });
+  
+
   await wait(100);
 
   $(`[data-popup='loadingInitial']`).attr('data-status', 1);
@@ -94,6 +99,8 @@ const start = async () => {
   await wait(1500);
   popupLoadingInitial.hide();
   console.log('App started');
+
+
 }
 
 $(document).ready(start);

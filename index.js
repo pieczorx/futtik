@@ -25,7 +25,7 @@ app.on('ready', async () => {
   w.once('ready-to-show', () => {
     w.show();
     w.setMenu(null);
-    w.webContents.openDevTools({mode: 'detach'});
+
   });
   let _appClose = false;
   w.on('close', () => {
@@ -38,4 +38,8 @@ app.on('ready', async () => {
       event.sender.send("quitReload");
     }
   })
+
+  ipcMain.on('openDeveloperTools', () => {
+    w.webContents.openDevTools({mode: 'detach'});
+  });
 })
