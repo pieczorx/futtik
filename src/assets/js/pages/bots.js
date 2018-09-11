@@ -129,9 +129,13 @@ class PageBots {
     });
 
     autoBuyer.on('accountUpdate', () => {
+      if(this.lastTablesUpdateDate && (new Date() - this.lastTablesUpdateDate) < settings.MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL) {
+        return;
+      }
       if(!this.active) {
         return;
       }
+      this.lastTablesUpdateDate = new Date();
       this.tableAccounts.update();
     });
     power.on('update', () => {

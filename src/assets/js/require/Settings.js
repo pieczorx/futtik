@@ -12,6 +12,8 @@ class Settings {
       PRICECHECK_INTERVAL: 30 * 60 * 1000,
 
       EA_COMMISSION: 5,
+
+      MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL: 1500
     };
     this.settings = {};
   }
@@ -70,6 +72,10 @@ class Settings {
 
   get PRICECHECK_INTERVAL() {
     return this.get('PRICECHECK_INTERVAL');
+  }
+
+  get MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL() {
+    return this.get('MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL')
   }
 
 }
