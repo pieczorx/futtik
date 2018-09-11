@@ -110,6 +110,8 @@ class PagePlayers {
         Fields.playerAvatar,
         Fields.playerName,
         Fields.playerRating,
+        Fields.playerColor,
+        Fields.playerClub,
         {
           title: 'Auctions',
           name: 'lastAnalyzerPriceCheckAuctionCount',
