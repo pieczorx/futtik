@@ -13,8 +13,8 @@ app.on('ready', async () => {
     windowName += packageVersion;
   }
   const w = new BrowserWindow({
-    width: 720,
-    height: 500,
+    width: 1200,
+    height: 720,
     title: windowName,
     show: false
   });
