@@ -300,7 +300,7 @@ class AutoBuyer extends Emitter {
             if(!boughtItem.priceSold) {
               boughtItem.priceSold = auction.buyNowPrice;
               account.stats.itemsSold++;
-              account.stats.profit = account.stats.profit + (boughtItem.priceSold - boughtItem.priceBought);
+              account.stats.profit = account.stats.profit + ((boughtItem.priceSold * (1 - settings.EA_COMMISSION)) - boughtItem.priceBought);
             }
           }
         }
