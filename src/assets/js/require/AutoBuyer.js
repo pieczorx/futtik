@@ -300,7 +300,7 @@ class AutoBuyer extends Emitter {
             if(!boughtItem.priceSold) {
               boughtItem.priceSold = auction.buyNowPrice;
               account.stats.itemsSold++;
-              account.stats.profit = account.stats.profit + auction.buyNowPrice;
+              account.stats.profit = account.stats.profit + (boughtItem.priceBought - boughtItem.priceSold);
             }
           }
         }
@@ -309,7 +309,9 @@ class AutoBuyer extends Emitter {
       if(soldAuctions.length > 0) {
         this.busyMessage(account, `Deleting ${soldAuctions.length} sold auctions`);
         const resDeleteAuctions = await account.instance.deleteSoldAuctions();
-        logger.logAccount(`Deleted ${soldAuctions.length} sold auctions`, account);
+        logger.logAccount(`Deleted ${soldAuctions.length} sold auctions`, account, {
+          soldAuctions: soldAuctions
+        });
       }
 
 
