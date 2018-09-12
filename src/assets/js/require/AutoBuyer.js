@@ -450,7 +450,7 @@ class AutoBuyer extends Emitter {
         await account.instance.putToTradepile({
           itemId: player.id
         });
-        logger.logAccount(`Moved ${player.name} to trade pile`, account, {player: player});
+        logger.logAccount(`Moved item to trade pile`, account, {player: player});
         //await this.sellPlayerFromTradePile(); //TODO
       }
     }
@@ -758,15 +758,15 @@ class AutoBuyer extends Emitter {
     if(!account.utasRequestCount) {
       newAccount.utasRequestCount = 0;
     }
-
-    if(account.boughtItems) {
-      for(let boughtItem of account.boughtItems) {
-        boughtItem.player = getPlayerFromId(boughtItem.playerId);
-        delete boughtItem.playerId;
-      }
-    } else {
+    if(!newAccount.boughtItems) {
       newAccount.boughtItems = [];
     }
+
+    for(let boughtItem of newAccount.boughtItems) {
+      boughtItem.player = getPlayerFromId(boughtItem.playerId);
+      delete boughtItem.playerId;
+    }
+
 
     if(!account.stats) {
       newAccount.stats = {};
