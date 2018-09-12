@@ -81,7 +81,6 @@ class AutoBuyer extends Emitter {
   }
   async workSingle(account) {
     try {
-
       //Check if account is not busy
       if(account.busy) {
         return;
@@ -136,18 +135,23 @@ class AutoBuyer extends Emitter {
         }
         case 'FUN_CAPTCHA_REQUIRED': {
           account.logged = false;
+          account.enabled = false;
           this.emit('accountUpdate');
-          console.log('CAPTCHA DETECTED XDDD');
+          logger.logAccount(`Captcha detected, logout account`, account);
           break;
         }
         case 'UNAUTHORIZED': {
-          console.warn('Account was unauthorized');
+          logger.logAccount(`Account was unauthorized, try to log in again...`, account);
           account.logged = false;
           this.emit('accountUpdate');
           break;
         }
         case 'NOT_ENOUGH_CREDIT': {
           console.error('NOT_ENOUGH_CREDIT');
+          break;
+        }
+        case 'SERVICE_UNAVAILABLE_ERROR': {
+
           break;
         }
         default: {
@@ -174,6 +178,12 @@ class AutoBuyer extends Emitter {
         power.updateState(false);
         this.emit('accountUpdate');
         this.free(account, 0)
+        if(!isDev()) {
+          Raven.setExtraContext({
+            account: account
+          });
+          Raven.captureException(e);
+        }
       }
 
     }

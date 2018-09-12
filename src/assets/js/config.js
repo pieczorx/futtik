@@ -6,6 +6,11 @@ if(process.platform == "darwin"){
 } else {
   CONFIG.DIR_APPDATA = process.env.APPDATA.replace(/\\/g,"/");
 }
+
+const isDev = () => {
+  return process.mainModule.filename.indexOf('app.asar') === -1;
+}
+
 //Futtik url
 CONFIG.URL = 'http://localhost:8765';
 
