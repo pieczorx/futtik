@@ -57,6 +57,16 @@ class PageBots {
           alert('Missing value: ' + key);
         }
       }
+
+      if(canAdd) {
+        for(let account of autoBuyer.accounts) {
+          if(data.mail == account.options.mail) {
+            canAdd = false;
+            alert('Account with this mail was already added');
+          }
+        }
+      }
+
       if(canAdd) {
         autoBuyer.addAccount(data).then(() => {
           that.tableAccounts.update();
