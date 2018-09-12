@@ -286,13 +286,30 @@ class AutoBuyer extends Emitter {
       await wait(settings.AUTOBUYER_REQUEST_DELAY);
 
       //Clear sold cards
-      const activeAuctions = tradePile.filter(auction => {
+      const soldAuctions = tradePile.filter(auction => {
         return auction.tradeState === 'closed';
       });
-      if(activeAuctions.length > 0) {
-        this.busyMessage(account, 'Deleting sold auctions');
+
+      //Add sold player to Stats
+      for(let i = 0; i < soldAuctions.length; i++) {
+        let auction = soldAuctions[i];
+        for(let i2 = 0; i2 < account.boughtItems.length; i2++) {
+          let boughtItem = account.boughtItems[i2];
+          if(boughtItem.id == auction.itemData.id) {
+            //This is player sold by futtik, not someone else
+            if(!boughtItem.priceSold) {
+              boughtItem.priceSold = auction.buyNowPrice;
+              account.stats.itemsSold++;
+              account.stats.profit = account.stats.profit + auction.buyNowPrice;
+            }
+          }
+        }
+      }
+
+      if(soldAuctions.length > 0) {
+        this.busyMessage(account, `Deleting ${soldAuctions.length} sold auctions`);
         const resDeleteAuctions = await account.instance.deleteSoldAuctions();
-        logger.logAccount('Deleted sold auctions', account);
+        logger.logAccount(`Deleted ${soldAuctions.length} sold auctions`, account);
       }
 
 
@@ -368,14 +385,24 @@ class AutoBuyer extends Emitter {
               tradeId: cheapestTrade.tradeId
             });
             logger.logAccount(`Bought ${player.name} for ${formatCoins(cheapestTrade.buyNowPrice)}`, account);
-
+            account.stats.itemsBought++;
+            account.boughtItems[account.boughtItems.length] = {
+              id: playerBought[0].itemData.id,
+              player: player,
+              priceBought: cheapestTrade.buyNowPrice
+            };
             await wait()
+
+
+
             //Put to tradepile
             this.busyMessage(account, `Putting to trade pile`)
             await account.instance.putToTradepile({
               itemId: playerBought[0].itemData.id
             });
             logger.logAccount(`Moved ${player.name} to trade pile`, account);
+
+
 
             //List player for sell
             const priceBid = Utils.calculateNextLowerPrice(priceSell);
@@ -626,7 +653,6 @@ class AutoBuyer extends Emitter {
     }
     account.enabled = state;
     this.emit('accountUpdate');
-    //this.saveAccounts();
   }
 
   toggleAccountBuyState(account, state) {
@@ -636,15 +662,12 @@ class AutoBuyer extends Emitter {
 
     account.buy = state;
     this.emit('accountUpdate');
-    //this.saveAccounts();
   }
 
   async init() {
-    await database.loadAll()
-    await Promise.all([
-      this.loadAccounts(),
-      this.loadPlayers(),
-    ]);
+    await database.loadAll(); //First load database
+    await this.loadPlayers(); //Then players
+    await this.loadAccounts(); //And then accounts (important)
   }
   assignProxiesToAllAccounts() {
     const unassignedAccounts = this.accounts.filter(account => {return !account.proxy;})
@@ -681,6 +704,7 @@ class AutoBuyer extends Emitter {
         enabled: true,
         utasRequestCount: 0
       };
+      account = this.formatAccountRead(account);
       this.assignLeastUsedProxyToAccount(account);
       this.accounts.push(account);
       await this.saveAccounts();
@@ -702,52 +726,86 @@ class AutoBuyer extends Emitter {
       database.saveAll()
     ])
   }
-  async loadAccounts() {
-    try {
-      const accountsFile = await fse.readJson(CONFIG.PATH_ACCOUNTS);
-      this.accounts = accountsFile.map(account => {
-        const newAccount = {
-          options: account.options,
-          cookies: account.cookies,
-        };
 
-        if(account.coins) {
-          newAccount.coins = account.coins;
-        }
-        if(account.enabled) {
-          newAccount.enabled = true;
-        }
+  formatAccountRead(account) {
+    const newAccount = {
+      options: account.options,
+      cookies: account.cookies,
+    };
 
-        if(account.tradePile) {
-          newAccount.tradePile = {
-            auctions: account.tradePile.auctions,
-            date: new Date(account.tradePile.date)
-          }
-        }
-
-        if(account.proxy) {
-          for(let proxy of database.proxies) {
-            if(proxy.ip === account.proxy) {
-              newAccount.proxy = proxy;
-            }
-          }
-        }
-
-        if(!account.utasRequestCount) {
-          newAccount.utasRequestCount = 0;
-        }
-
-        newAccount.buy = account.buy ? true : false;
-
-        return newAccount;
-      });
-      for(let i = 0; i < this.accounts.length; i++) {
-        this.accounts[i].busy = false;
-      }
-
-    } catch(e) {
-
+    if(account.coins) {
+      newAccount.coins = account.coins;
     }
+    if(account.enabled) {
+      newAccount.enabled = true;
+    }
+
+    if(account.tradePile) {
+      newAccount.tradePile = {
+        auctions: account.tradePile.auctions,
+        date: new Date(account.tradePile.date)
+      }
+    }
+
+    if(account.proxy) {
+      for(let proxy of database.proxies) {
+        if(proxy.ip === account.proxy) {
+          newAccount.proxy = proxy;
+        }
+      }
+    }
+
+    if(!account.utasRequestCount) {
+      newAccount.utasRequestCount = 0;
+    }
+
+    if(account.boughtItems) {
+      for(let boughtItem of account.boughtItems) {
+        boughtItem.player = getPlayerFromId(boughtItem.playerId);
+        delete boughtItem.playerId;
+      }
+    } else {
+      newAccount.boughtItems = [];
+    }
+
+    if(!account.stats) {
+      newAccount.stats = {};
+    } else {
+      newAccount.stats = account.stats;
+    }
+
+    if(!newAccount.stats.itemsSold) {
+      newAccount.stats.itemsSold = 0;
+    }
+
+    if(!newAccount.stats.itemsBought) {
+      newAccount.stats.itemsBought = 0;
+    }
+
+    if(!newAccount.stats.profit) {
+      newAccount.stats.profit = 0;
+    }
+
+    newAccount.buy = account.buy ? true : false;
+
+    return newAccount;
+  }
+  async loadAccounts() {
+    let accountsFile;
+    try {
+      accountsFile = await fse.readJson(CONFIG.PATH_ACCOUNTS);
+    } catch(e) {
+      this.accountsLoaded = true;
+      return;
+    }
+    this.accounts = accountsFile.map(account => {
+      return this.formatAccountRead(account);
+    });
+    for(let i = 0; i < this.accounts.length; i++) {
+      this.accounts[i].busy = false;
+    }
+
+
     this.accountsLoaded = true;
   }
   async saveAccounts() {
@@ -762,8 +820,21 @@ class AutoBuyer extends Emitter {
         tradePile: account.tradePile,
         coins: account.coins,
         buy: account.buy ? true : false,
-        utasRequestCount: account.utasRequestCount
+        utasRequestCount: account.utasRequestCount,
+        stats: account.stats
       };
+      if(account.boughtItems) {
+        newAccount.boughtItems = account.boughtItems.map(boughtItem => {
+          return {
+            id: boughtItem.id,
+            playerId: boughtItem.player.id,
+            priceBought: boughtItem.priceBought,
+            priceSold: boughtItem.priceSold
+          }
+        });
+
+
+      }
       if(account.proxy) {
         newAccount.proxy = account.proxy.ip;
       }
@@ -784,8 +855,6 @@ class AutoBuyer extends Emitter {
     }
     this.playersLoaded = true;
   }
-
-
 
   formatPlayersRead(players) {
     for(let player of players) {

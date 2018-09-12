@@ -27,6 +27,9 @@ class PageBots {
         Fields.accountPlatform,
         Fields.accountCoins,
         Fields.accountCoinsWithActiveAuctions,
+        Fields.accountProfit,
+        Fields.accountItemsBought,
+        Fields.accountItemsSold,
         Fields.accountProxy,
         Fields.accountUtasRequestCount,
         Fields.accountMessage

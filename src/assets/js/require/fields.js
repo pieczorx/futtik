@@ -225,7 +225,6 @@ const Fields = {
     align: 'center',
     width: 40
   },
-
   accountMail: {
     name: 'mail',
     title: 'Mail',
@@ -236,7 +235,6 @@ const Fields = {
     }
 
   },
-
   accountTradepile: {
     name: 'tradepile',
     title: '<span title="active | closed | expired | available">Tradepile</span>',
@@ -267,7 +265,6 @@ const Fields = {
       return `<span class="tradePileValues">${finalArray.join(' · ')}</span>`;
     }
   },
-
   accountPlatform: {
     name: 'platform',
     title: 'Platform',
@@ -319,6 +316,28 @@ const Fields = {
     name: 'message',
     title: 'Message',
     width: 180
+  },
+  accountProfit: {
+    name: 'profit',
+    title: 'Profit',
+    format: (row) => {
+      return formatCoins(row.stats.profit);
+    }
+  },
+  accountItemsBought: {
+    name: 'itemsBought',
+    title: 'Bought',
+    format: (row) => {
+      return formatCoins(row.stats.itemsBought);
+    }
+  },
+
+  accountItemsSold: {
+    name: 'itemsSold',
+    title: 'Sold',
+    format: (row) => {
+      return formatCoins(row.stats.itemsSold);
+    }
   }
 
 };
