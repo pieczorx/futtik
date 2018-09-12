@@ -32,16 +32,14 @@ CONFIG.PATH_SETTINGS = `${CONFIG.DIR_DATA}/settings.json`;
 //Path to price steps
 CONFIG.PATH_PRICE_STEPS = `${CONFIG.DIR_DATA}/priceSteps.json`;
 
-
-
-
-
 //Official fifa database url
 CONFIG.URL_DATABASE = "https://www.easports.com/fifa/ultimate-team/api/fut/item?jsonParamObject=%7B%22page%22:%d,%22position%22:%22LF,CF,RF,ST,LW,LM,CAM,CDM,CM,RM,RW,LWB,LB,CB,RB,GK,RWB%22%7D";
-//CONFIG.URL_DATABASE = "https://www.easports.com/fifa/ultimate-team/api/fut/item?jsonParamObject=%7B%22page%22:%d,%22position%22:%22LF,CF%22%7D"
 
-CONFIG.URL_PLAYER_AVATAR_SMALL = "https://fifa17.content.easports.com/fifa/fltOnlineAssets/B1BA185F-AD7C-4128-8A64-746DE4EC5A82/2018/fut/items/images/players/html5/40x40/%d.png";
+//Players per page in tables
+CONFIG.TABLE_PLAYERS_PER_PAGE = 50;
 
+//Transfermarket search limit per page
+CONFIG.TRANSFERMARKET_LIMIT = 36;
 
 //AutoBuyer tick amount
 //CONFIG.AUTOBUYER_TICK = 1000;
@@ -52,20 +50,17 @@ CONFIG.URL_PLAYER_AVATAR_SMALL = "https://fifa17.content.easports.com/fifa/fltOn
 //How much delay should be between two login requests [ms]
 //CONFIG.ACCOUNT_LOGIN_DELAY = 5000;
 
-//Players per page in tables
-CONFIG.TABLE_PLAYERS_PER_PAGE = 50;
+
 
 //Price check interval [ms]
 //CONFIG.PRICE_CHECK_INTERVAL = 30 * 60 * 1000;
 
 //Price check pages
-CONFIG.PRICE_CHECK_PAGES = 5;
+//CONFIG.PRICE_CHECK_PAGES = 5;
 
 //Price check cheapest items quantity
-CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY = 3;
+//CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY = 3;
 
-//Transfermarket search limit per page
-CONFIG.TRANSFERMARKET_LIMIT = 36;
 
 //Buy & sell percentage
 //CONFIG.AUTOBUYER_BUY_FACTOR = 89/100;

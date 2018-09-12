@@ -13,7 +13,10 @@ class Settings {
 
       EA_COMMISSION: 5,
 
-      MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL: 1500
+      MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL: 1500,
+
+      PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY: 3,
+      PRICE_CHECK_PAGES: 5
     };
     this.settings = {};
   }
@@ -78,4 +81,11 @@ class Settings {
     return this.get('MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL')
   }
 
+  get PRICE_CHECK_PAGES() {
+    return this.get('PRICE_CHECK_PAGES')
+  }
+
+  get PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY() {
+    return this.get('PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY')
+  }
 }

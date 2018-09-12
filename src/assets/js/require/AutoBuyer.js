@@ -243,8 +243,8 @@ class AutoBuyer extends Emitter {
           this.addTask({
             type: 'priceCheck',
             player: player,
-            pageMax: CONFIG.PRICE_CHECK_PAGES,
-            cheapestItemsQuantity: CONFIG.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY,
+            pageMax: settings.PRICE_CHECK_PAGES,
+            cheapestItemsQuantity: settings.PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY,
             platform: platform,
             account: account,
             taskSource: 'defaultPriceCheck',
