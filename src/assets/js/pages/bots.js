@@ -4,13 +4,14 @@ class PageBots {
 
     this.tableAccounts = new Table({
       getData: () => {
-        return {
+        return tableConverter.convert({
           rows: autoBuyer.accounts,
-          paging: {
-            previous: false,
-            next: false
-          }
-        }
+          filters: this.tableAccounts.filters,
+          fields: this.tableAccounts.fields
+        })
+      },
+      onFilterChange: () => {
+        this.tableAccounts.update();
       },
       name: 'accounts',
       htmlEmpty: `
@@ -19,81 +20,16 @@ class PageBots {
       `,
       getId: (row) => {return row.options.mail;},
       fields: [
-        {
-          title: 'Enable',
-          name: 'enabledState',
-          type: 'checkbox',
-          format: (row) => {
-
-            return `
-            <div class="checkbox">
-              <input type="checkbox"${row.enabled ? ` checked="checked"` : ''}>
-              <span class="box radius"><i class="far fa-check"></i></span>
-            </div>
-            `
-          },
-          align: 'center',
-          width: 40
-        },
-        {
-          title: 'Buy',
-          name: 'buyState',
-          type: 'checkbox',
-          format: (row) => {
-
-            return `
-            <div class="checkbox">
-              <input type="checkbox"${row.buy ? ` checked="checked"` : ''}>
-              <span class="box radius"><i class="far fa-check"></i></span>
-            </div>
-            `
-          },
-          align: 'center',
-          width: 40
-        },
-        {name: 'mail', title: 'Mail', format: row => row.options.mail},
-        {name: 'tradepile', title: '<span title="active | closed | expired | available">Tradepile</span>', format: row => {
-          if(!row.tradePile) {
-            return '-';
-          }
-          const tradePileTypes = ['active', 'closed', 'expired', 'available'];
-          let tradePileCount = {};
-          tradePileTypes.forEach(type => {
-            tradePileCount[type] = 0;
-          });
-          row.tradePile.auctions.forEach(auction => {
-            if(typeof(tradePileCount[auction.tradeState]) != 'undefined') {
-              tradePileCount[auction.tradeState]++;
-            } else {
-              tradePileCount['available']++;
-            }
-          });
-          let finalArray = [];
-          tradePileTypes.forEach(type => {
-            finalArray[finalArray.length] = tradePileCount[type];
-          });
-          finalArray = finalArray.map((value, i) => {
-            return `<span title="${tradePileTypes[i]}">${value}</span>`;
-          })
-          return `<span class="tradePileValues">${finalArray.join(' · ')}</span>`;
-        }},
-        {name: 'platform', title: 'Platform', format: row => {return row.options.platform.toUpperCase();}},
-        {name: 'coins', title: 'Coins', format: row => {return typeof(row.coins) != 'undefined' ? formatCoins(row.coins) : '-';}},
-        {name: 'coinsWithActiveAuctions', title: 'Coins + TP', format: row => {
-          if(typeof row.coins !== 'undefined' && typeof row.tradePile !== 'undefined') {
-            const coinsFromActiveAuctions = row.tradePile.auctions.filter(x => {return x.tradeState === 'active';}).reduce((current, auction) => {return current + auction.buyNowPrice;}, 0)
-            return formatCoins(row.coins + coinsFromActiveAuctions)
-          }
-          return '-';
-        }},
-        {name: 'proxy', title: 'Proxy', format: (row) => {
-          return row.proxy ? row.proxy.ip : '-';
-        }},
-        {
-          name: 'utasRequestCount',
-          title: 'UT Count'
-        },
-        {name: 'message', title: 'Message', width: 180}
+        Fields.accountEnabledState,
+        Fields.accountBuyState,
+        Fields.accountMail,
+        Fields.accountTradepile,
+        Fields.accountPlatform,
+        Fields.accountCoins,
+        Fields.accountCoinsWithActiveAuctions,
+        Fields.accountProxy,
+        Fields.accountUtasRequestCount,
+        Fields.accountMessage
       ],
       actions: {
         buyState: (id, state) => {

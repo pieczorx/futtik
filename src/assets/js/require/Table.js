@@ -78,13 +78,11 @@ class Table {
       values[values.length] = `${key}=${encodeURIComponent(this.filters[key])}`;
     });
     let params = values.join('&');
-    console.log('params',params);
 
     return params;
   }
 
   setFiltersFromParams(params) {
-    // console.log(params);
     let values = params.split('&');
     let filters = {}
     for(let i = 0; i < values.length; i++) {
@@ -93,7 +91,6 @@ class Table {
       let exValue = value.split('=')
       filters[exValue[0]] = decodeURIComponent(exValue[1]);
     };
-    console.log('filters', filters);
     Object.assign(this.filters, filters);
     this.changeFilters({
       dontChangeURL: true
@@ -242,7 +239,10 @@ class Table {
         }
       }
 
-      return `<div data-table-role="filter" data-name="${field.name}" data-type="${fieldType}">${inputHTML}</div>`;
+      return {
+        width: field.width,
+        value: `<div data-table-role="filter" data-name="${field.name}" data-type="${fieldType}">${inputHTML}</div>`
+      };
     }), true);
   }
 
