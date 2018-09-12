@@ -44,6 +44,12 @@ class PopupChooseList {
       const el = $(`[data-role='popupChooseListCategories']`);
       el.empty();
       for(let category of options.categories) {
+        for(let categoryElement of category.list) {
+          if(options.selected && options.selected.length > 0 && options.selected.includes(categoryElement.name)) {
+            categoryElement.selected = true;
+          }
+
+        }
         el.append(html.popupChooseListCategory(category))
       }
       $(`[data-popup='${this.name}']`).attr('data-show', 1);

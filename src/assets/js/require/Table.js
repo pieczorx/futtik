@@ -59,7 +59,9 @@ class Table {
 
       if(field.search && field.search.type == 'textArray') {
         $(document).on('click', `[data-table='${this.name}'] [data-table-role='filter'][data-name='${field.name}'] [data-table-request]`, async function() {
-          that.filters[field.name] = await field.search.onRequest();
+          that.filters[field.name] = await field.search.onRequest({
+            filters: that.filters
+          });
           that.changeFilters();
         });
       }

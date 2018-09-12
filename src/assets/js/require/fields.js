@@ -25,7 +25,7 @@ const Fields = {
     search: {
       type: 'textArray',
       html: '<button class="radius" data-table-request>Choose</button>',
-      onRequest: async () => {
+      onRequest: async ({filters}) => {
         console.log('On request');
         //return ['toty', 'tots_gold'];
         let categories = [
@@ -103,7 +103,8 @@ const Fields = {
           list: otherColors.map(color => {return {title: color, name: color};})
         })
         return await popupChooseList.show({
-          categories: categories
+          categories: categories,
+          selected: filters.color
         });
       }
     },

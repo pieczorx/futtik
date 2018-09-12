@@ -44,7 +44,7 @@ class html {
 
   static popupChooseListSubCategory(p) {
     return `
-    <div class="e2 l radius" data-role="popupChooseListElement" data-name="${p.name}">
+    <div class="e2 l radius" data-role="popupChooseListElement" data-name="${p.name}" data-selected="${p.selected << false}">
       <div class="title l">${p.title}</div>
     </div>
     `;
