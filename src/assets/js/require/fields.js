@@ -26,8 +26,6 @@ const Fields = {
       type: 'textArray',
       html: '<button class="radius" data-table-request>Choose color</button>',
       onRequest: async ({filters}) => {
-        console.log('On request');
-        //return ['toty', 'tots_gold'];
         let categories = [
           {
             title: 'Default',
@@ -192,6 +190,27 @@ const Fields = {
       return row.club.name;
     }
   },
+  playerStatsProfit: {
+    name: 'statsProfit',
+    title: 'Profit',
+    format: (row) => {
+      return formatCoins(row.stats.profit);
+    }
+  },
+  playerStatsBought: {
+    name: 'statsBought',
+    title: 'Bought',
+    format: (row) => {
+      return row.stats.bought;
+    }
+  },
+  playerStatsSold: {
+    name: 'statsSold',
+    title: 'Sold',
+    format: (row) => {
+      return row.stats.sold;
+    }
+  },
 
   accountEnabledState: {
     title: 'Enable',
@@ -328,15 +347,14 @@ const Fields = {
     name: 'itemsBought',
     title: 'Bought',
     format: (row) => {
-      return formatCoins(row.stats.itemsBought);
+      return row.stats.itemsBought;
     }
   },
-
   accountItemsSold: {
     name: 'itemsSold',
     title: 'Sold',
     format: (row) => {
-      return formatCoins(row.stats.itemsSold);
+      return row.stats.itemsSold;
     }
   }
 

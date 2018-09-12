@@ -300,7 +300,10 @@ class AutoBuyer extends Emitter {
             if(!boughtItem.priceSold) {
               boughtItem.priceSold = auction.buyNowPrice;
               account.stats.itemsSold++;
-              account.stats.profit = account.stats.profit + ((boughtItem.priceSold * (1 - settings.EA_COMMISSION)) - boughtItem.priceBought);
+              const boughtItemProfit = (boughtItem.priceSold * (1 - settings.EA_COMMISSION)) - boughtItem.priceBought;
+              account.stats.profit = account.stats.profit + boughtItemProfit;
+              boughtItem.player.stats.sold++;
+              boughtItem.player.stats.profit = boughtItem.player.stats.profit + boughtItemProfit;
             }
           }
         }
@@ -388,6 +391,7 @@ class AutoBuyer extends Emitter {
             });
             logger.logAccount(`Bought ${player.name} for ${formatCoins(cheapestTrade.buyNowPrice)}`, account);
             account.stats.itemsBought++;
+            player.stats.bought++;
             account.boughtItems[account.boughtItems.length] = {
               id: playerBought[0].itemData.id,
               player: player,
@@ -884,6 +888,21 @@ class AutoBuyer extends Emitter {
         player.lastPriceCheck = {};
       }
 
+      if(!player.stats) {
+        player.stats = {};
+      }
+
+      if(!player.stats.sold) {
+        player.stats.sold = 0;
+      }
+
+      if(!player.stats.bought) {
+        player.stats.bought = 0;
+      }
+
+      if(!player.stats.profit) {
+        player.stats.profit = 0;
+      }
     }
     return players;
   }
@@ -891,7 +910,7 @@ class AutoBuyer extends Emitter {
   formatPlayersWrite(players) {
     let newPlayers = [];
     players.forEach(player => {
-      newPlayers.push({
+      let newPlayer = {
         //Important
         baseId: player.baseId,
         color: player.color,
@@ -921,8 +940,10 @@ class AutoBuyer extends Emitter {
         //Custom
         analyzer: player.analyzer,
         current: player.current,
-        lastPriceCheck: player.lastPriceCheck
-      })
+        lastPriceCheck: player.lastPriceCheck,
+        stats: player.stats
+      };
+      newPlayers.push(newPlayer);
     });
     return newPlayers;
   }

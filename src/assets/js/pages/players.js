@@ -269,6 +269,9 @@ class PagePlayers {
             return '-';
           }
         },
+        Fields.playerStatsBought,
+        Fields.playerStatsSold,
+        Fields.playerStatsProfit,
         {
           title: 'Last pricecheck',
           name: 'lastPriceCheckDate',
