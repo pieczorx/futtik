@@ -450,7 +450,8 @@ class AutoBuyer extends Emitter {
         await account.instance.putToTradepile({
           itemId: player.id
         });
-        logger.logAccount(`Moved item to trade pile`, account, {player: player});
+        let realPlayer = this.getPlayerFromId(player.assetId)
+        logger.logAccount(`Moved ${realPlayer.name} to trade pile`, account, {player: realPlayer});
         //await this.sellPlayerFromTradePile(); //TODO
       }
     }
