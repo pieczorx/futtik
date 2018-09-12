@@ -52,7 +52,11 @@ class PopupChooseList {
         }
         el.append(html.popupChooseListCategory(category))
       }
+
       $(`[data-popup='${this.name}']`).attr('data-show', 1);
+      setTimeout(() => {
+        listExpandable.update();
+      }, 50);
     });
 
     //$(`body`).attr('data-blur', 1);

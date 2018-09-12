@@ -24,7 +24,7 @@ const Fields = {
     name: 'color',
     search: {
       type: 'textArray',
-      html: '<button class="radius" data-table-request>Choose</button>',
+      html: '<button class="radius" data-table-request>Choose color</button>',
       onRequest: async ({filters}) => {
         console.log('On request');
         //return ['toty', 'tots_gold'];
@@ -113,9 +113,37 @@ const Fields = {
   playerLeague: {
     name: 'league',
     search: {
-      type: 'text',
+      type: 'textArray',
+      html: '<button class="radius" data-table-request>Choose league</button>',
       format: (row) => {
-        return row.league.name;
+        return row.league.abbrName;
+      },
+      onRequest: async ({filters}) => {
+
+        let allLeagueNames = [];
+        let list = [];
+
+        for(let player of autoBuyer.players) {
+          if(!allLeagueNames.includes(player.league.abbrName)) {
+            allLeagueNames.push(player.league.abbrName);
+            list.push({
+              title: player.league.name,
+              name: player.league.abbrName
+            })
+          }
+        }
+
+        let categories = [{
+          title: 'All leagues',
+          name: 'all',
+          list: list
+        }];
+
+
+        return await popupChooseList.show({
+          categories: categories,
+          selected: filters.league
+        });
       }
     },
     title: 'League',
@@ -126,9 +154,37 @@ const Fields = {
   playerClub: {
     name: 'club',
     search: {
-      type: 'text',
+      type: 'textArray',
+      html: '<button class="radius" data-table-request>Choose club</button>',
       format: (row) => {
-        return row.club.name;
+        return row.club.abbrName;
+      },
+      onRequest: async ({filters}) => {
+
+        let allClubNames = [];
+        let list = [];
+
+        for(let player of autoBuyer.players) {
+          if(!allClubNames.includes(player.club.abbrName)) {
+            allClubNames.push(player.club.abbrName);
+            list.push({
+              title: player.club.name,
+              name: player.club.abbrName
+            })
+          }
+        }
+
+        let categories = [{
+          title: 'All clubs',
+          name: 'all',
+          list: list
+        }];
+
+
+        return await popupChooseList.show({
+          categories: categories,
+          selected: filters.club
+        });
       }
     },
     title: 'Club',

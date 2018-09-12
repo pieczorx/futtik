@@ -238,7 +238,7 @@ body[data-loaded='1'] .a {transform: scale(1);}
 .popup[data-popup='chooseList'] .list .e .header .selectAll {transition: all .1s ease;cursor: pointer;color: rgba(255, 255, 255, 0.5);}
 .popup[data-popup='chooseList'] .list .e .header .selectAll:hover {color: rgba(255, 255, 255, 0.75);}
 .popup[data-popup='chooseList'] .list .e .checkbox {margin-right: 3px;display: none;}
-.popup[data-popup='chooseList'] .list .e2 {/* width: 100%; */margin-top: 5px;margin-right: 5px;background-color: rgba(255, 255, 255, 0.1);padding: 5px 8px;cursor: pointer;transition: all .1s ease;}
+.popup[data-popup='chooseList'] .list .e2 {/* width: 100%; */margin-top: 5px;margin-right: 5px;background-color: rgba(255, 255, 255, 0.1);padding: 5px 8px;cursor: pointer;transition: all .1s ease;max-height: 28px;box-sizing: border-box;}
 .popup[data-popup='chooseList'] .list .e2:hover {background-color: rgba(255, 255, 255, 0.2);}
 .popup[data-popup='chooseList'] .list .e2[data-selected='1'] {color: black;background-color: rgba(255, 255, 255, 0.95);}
 
