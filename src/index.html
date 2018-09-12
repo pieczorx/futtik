@@ -53,6 +53,7 @@
   <script src="assets/js/popups/addAccount.js"></script>
   <script src="assets/js/popups/addProxy.js"></script>
   <script src="assets/js/popups/loadingInitial.js"></script>
+  <script src="assets/js/popups/chooseList.js"></script>
 
   <script src="assets/js/index.js"></script>
 
@@ -149,6 +150,21 @@
           </div>
         </div>
       </div>
+
+      <div class="popup" data-popup="chooseList">
+        <div class="center2 h100">
+          <div class="listExpandable">
+            <div class="list w100" data-role="popupChooseListCategories">
+
+            </div>
+          </div>
+          <div class="submitPanel w100">
+            <button data-role="hidePopup" data-popup-name="chooseList" class="l radius b3">Cancel</button>
+            <button data-role="popupChooseListSave" class="r radius">Save</button>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="a">
       <div class="h draggable radius noRadiusDown">

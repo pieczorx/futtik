@@ -1,8 +1,8 @@
 class Checkbox {
   constructor(name, state) {
     this.name = name;
-    $(document).on('click', '.checkbox .box', function() {
-      $(this).closest('.checkbox').find('input').click();
+    $(document).on('click', '.checkbox', function() {
+      $(this).find('input').click();
     });
   }
   html() {

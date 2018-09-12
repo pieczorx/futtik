@@ -25,4 +25,28 @@ class html {
     </div>
     `;
   }
+
+  static popupChooseListCategory(p) {
+    return `
+    <div class="e w100" data-name="${p.name}" data-role="popupChooseListCategory">
+      <div class="w100 header">
+        <div class="title l">${p.title}</div>
+        <div class="selectAll r" data-role="popupChooseListSelectAll">Select all</div>
+      </div>
+      <div class="w100 sub">
+      ${p.list.map(e => {
+        return html.popupChooseListSubCategory(e);
+      }).join('')}
+      </div>
+    </div>
+    `
+  }
+
+  static popupChooseListSubCategory(p) {
+    return `
+    <div class="e2 l radius" data-role="popupChooseListElement" data-name="${p.name}">
+      <div class="title l">${p.title}</div>
+    </div>
+    `;
+  }
 }

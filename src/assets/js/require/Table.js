@@ -56,6 +56,13 @@ class Table {
           that.actions[field.name](id, state);
         });
       }
+
+      if(field.search && field.search.type == 'textArray') {
+        $(document).on('click', `[data-table='${this.name}'] [data-table-role='filter'][data-name='${field.name}'] [data-table-request]`, async function() {
+          that.filters[field.name] = await field.search.onRequest();
+          that.changeFilters();
+        });
+      }
     }
   }
 
@@ -222,6 +229,10 @@ class Table {
             fieldsHTML += `<option>${field.search.fields[i]}</option>`
           }
           inputHTML = `<select>${fieldsHTML}</select>`
+          break;
+        }
+        case 'textArray': {
+          inputHTML = field.search.html || '';
           break;
         }
         default: {

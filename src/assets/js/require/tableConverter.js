@@ -56,6 +56,17 @@ class TableConverter {
                 }
                 break;
               }
+              case 'textArray': {
+                try {
+                  if(filter.length > 0 && !filter.includes(value)) {
+                    matches = false;
+                  }
+
+                } catch(e) {
+
+                }
+                break;
+              }
             }
 
           }

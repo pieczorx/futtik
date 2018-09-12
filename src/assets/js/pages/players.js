@@ -58,10 +58,8 @@ class PagePlayers {
       },
       name: 'players',
       htmlEmpty: `
-
-      <div class="w100">There are no players</div>
-      <div class="w100"><button type="submit" class="inline radius" data-role="playersUpdateDatabase">Fetch database</button></div>
-
+        <div class="w100">There are no players</div>
+        <div class="w100"><button type="submit" class="inline radius" data-role="playersUpdateDatabase">Fetch database</button></div>
       `,
       fields: [
         //Fields.playerAvatar,
