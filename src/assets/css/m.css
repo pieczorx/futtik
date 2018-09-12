@@ -56,9 +56,9 @@ table input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0; /* <
 [data-table='accounts'] .activeStatus[data-status='2'] .dot {background-color: hsl(216, 83%, 66%);}
 */
 
-[data-table-design='players'] td:first-child, [data-table-design='players'] th:first-child {width: 16px;padding: 0px 0px 0px 12px;}
+/*[data-table-design='players'] td:first-child, [data-table-design='players'] th:first-child {width: 16px;padding: 0px 0px 0px 12px;}
 [data-table-design='players'] img {height: 24px;}
-
+*/
 [data-table] .tradePileValues {color: rgba(255, 255, 255, 0.2);}
 [data-table] .tradePileValues span:nth-child(1) {color: hsl(216, 83%, 66%);}
 [data-table] .tradePileValues span:nth-child(2) {color: hsl(119, 83%, 66%);}

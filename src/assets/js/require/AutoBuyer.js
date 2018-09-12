@@ -818,8 +818,7 @@ class AutoBuyer extends Emitter {
         color: player.color,
         commonName: player.commonName,
         firstName: player.firstName,
-        headshot: player.headshot,
-        headshotImgUrl: player.headshotImgUrl,
+        //headshotImgUrl: player.headshotImgUrl, //:C
         id: player.id,
         lastName: player.lastName,
         league: {

@@ -64,7 +64,7 @@ class PagePlayers {
 
       `,
       fields: [
-        Fields.playerAvatar,
+        //Fields.playerAvatar,
         Fields.playerName,
         Fields.playerRating,
         Fields.playerColor,
@@ -107,7 +107,7 @@ class PagePlayers {
       name: 'playersAnalyzer',
       htmlEmpty: `<div class="w100">There are no players, add them from <a href="/players/">database tab</a>.</div>`,
       fields: [
-        Fields.playerAvatar,
+        //Fields.playerAvatar,
         Fields.playerName,
         Fields.playerRating,
         Fields.playerColor,
@@ -195,7 +195,7 @@ class PagePlayers {
       name: 'playersCurrent',
       htmlEmpty: `<div class="w100">There are no players, add them from <a href="/players/analyzer/">analyzer tab</a>.</div>`,
       fields: [
-        Fields.playerAvatar,
+        //.playerAvatar,
         Fields.playerName,
         Fields.playerRating,
         Fields.playerColor,
