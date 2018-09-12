@@ -513,13 +513,9 @@ class Account extends Emitter {
   }
   async deleteSoldAuctions() {
     const url = `${this.utas}/ut/game/fifa18/trade/sold`
-    try {
-      await this.delete(url, {
-        ut: true
-      });
-    } catch(e) {
-      throw new Error('Could not delete sold auctions');
-    }
+    await this.delete(url, {
+      ut: true
+    });
   }
   async getUnassignedItems() {
     const body = await this.getMassInfo();
