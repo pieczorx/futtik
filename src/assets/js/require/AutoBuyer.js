@@ -822,20 +822,23 @@ class AutoBuyer extends Emitter {
         headshotImgUrl: player.headshotImgUrl,
         id: player.id,
         lastName: player.lastName,
-        league: player.league,
+        league: {
+          abbrName: player.league.abbrName,
+          id: player.league.id,
+          name: player.league.name
+        },
         name: player.name,
-        nation: player.nation,
+        nation: {
+          abbrName: player.nation.abbrName,
+          id: player.nation.id,
+          name: player.nation.name,
+        },
         rating: player.rating,
-        club: player.club,
-
-        //Can be useful
-        specialImages: player.specialImages,
-        fitness: player.fitness,
-        position: player.position,
-        quality: player.quality,
-        isSpecialType: player.isSpecialType,
-        itemType: player.itemType,
-        playerType: player.playerType,
+        club: {
+          abbrName: player.club.abbrName,
+          id: player.club.id,
+          name: player.club.name
+        },
 
         //Custom
         analyzer: player.analyzer,
