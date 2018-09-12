@@ -758,15 +758,20 @@ class AutoBuyer extends Emitter {
       }
     }
 
-    if(!account.utasRequestCount) {
+    if(account.utasRequestCount) {
+      newAccount.utasRequestCount = parseInt(account.utasRequestCount);
+    } else {
       newAccount.utasRequestCount = 0;
     }
-    if(!newAccount.boughtItems) {
+
+    if(account.boughtItems) {
+      newAccount.boughtItems = account.boughtItems;
+    } else {
       newAccount.boughtItems = [];
     }
 
     for(let boughtItem of newAccount.boughtItems) {
-      boughtItem.player = getPlayerFromId(boughtItem.playerId);
+      boughtItem.player = this.getPlayerFromId(boughtItem.playerId);
       delete boughtItem.playerId;
     }
 
@@ -823,9 +828,11 @@ class AutoBuyer extends Emitter {
         tradePile: account.tradePile,
         coins: account.coins,
         buy: account.buy ? true : false,
-        utasRequestCount: account.utasRequestCount,
         stats: account.stats
       };
+      if(account.utasRequestCount) {
+        newAccount.utasRequestCount = account.utasRequestCount;
+      }
       if(account.boughtItems) {
         newAccount.boughtItems = account.boughtItems.map(boughtItem => {
           return {
