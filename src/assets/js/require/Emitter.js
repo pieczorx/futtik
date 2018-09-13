@@ -4,14 +4,15 @@ class Emitter {
   }
 
   on(t, f) {
-    this.emitListeners.push({t, f});
+    this.emitListeners[this.emitListeners.length] = {t, f};
   }
 
   emit(t, d) {
-    this.emitListeners.forEach(emitListener => {
+    for(let i = 0; i < this.emitListeners.length) {
+      const emitListener = this.emitListeners[i];
       if(emitListener.t == t) {
         emitListener.f(d);
       }
-    });
+    }
   }
 }
