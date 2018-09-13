@@ -54,7 +54,7 @@ class Account extends Emitter {
 
   async login() {
     await this.getWebAppConfig();
-    await this.visitFirstPage();
+    //await this.visitFirstPage();
 
     if(!this.bearer) {
       await this.getFid();
