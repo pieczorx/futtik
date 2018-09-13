@@ -13,6 +13,8 @@ const logger = new Logger();
 const smallMenu = new SmallMenu();
 const memHeap = new MemHeap();
 const pltfrm = new Platform();
+const backup = new Backup();
+
 const currentPlatform = () => {
   return pltfrm.current;
 }
@@ -98,6 +100,7 @@ const start = async () => {
   menuCounter.init();
   await wait(1500);
   popupLoadingInitial.hide();
+  backup.start();
   console.log('App started');
 
 

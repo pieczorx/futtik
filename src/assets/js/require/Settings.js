@@ -16,7 +16,8 @@ class Settings {
       MINIMUM_TABLE_ACCOUNTS_REFRESH_INTERVAL: 10000,
 
       PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY: 3,
-      PRICE_CHECK_PAGES: 5
+      PRICE_CHECK_PAGES: 5,
+      AUTOMATIC_BACKUP_INTERVAL: 1000 * 60 * 10
     };
     this.settings = {};
   }
@@ -87,5 +88,9 @@ class Settings {
 
   get PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY() {
     return this.get('PRICE_CHECK_CHEAPEST_ITEMS_QUANTITY')
+  }
+
+  get AUTOMATIC_BACKUP_INTERVAL() {
+    return this.get('AUTOMATIC_BACKUP_INTERVAL')
   }
 }
