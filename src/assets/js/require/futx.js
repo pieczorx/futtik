@@ -1,3 +1,12 @@
+class FutxException extends Error {
+  constructor(options) {
+    super();
+    if(typeof options !== 'object') {
+      options = {message: options};
+    }
+    Object.assign(this, options);
+  }
+}
 const request = require('request');
 const querystring = require('querystring');
 const gotp = require('gotp');
@@ -763,11 +772,10 @@ class Account extends Emitter {
               //426 - upgrade required (? XD)
               //429 - too many requests (too many actions have been taken)
               //521 - error (unknown but it's always related with too many requests)
-
               if(futxErrors[res.statusCode]) {
-                return reject(new Error(futxErrors[res.statusCode]));
+                return reject(new FutxException({message: futxErrors[res.statusCode], url, options}));
               }
-              return reject(new Error(`INVALID_RESPONSE_CODE_${res.statusCode}`));
+              return reject(new FutxException({message: `INVALID_RESPONSE_CODE_${res.statusCode}`, url, options}));
             }
 
             if(options.json) {
@@ -783,7 +791,7 @@ class Account extends Emitter {
             if(options.ut) {
               if(body.code == 401) {
                 //this.logged = false;
-                return reject(new Error('UNAUTHORIZED'));
+                return reject(new FutxException('UNAUTHORIZED'));
               }
             }
 
