@@ -5,7 +5,7 @@ class AutoBuyer extends Emitter {
     this.players = [];
     this.tasks = [];
     this.playersPlatform = {};
-
+    this.emptyTasksTime = [];
     let that = this;
 
     setInterval(() => {
@@ -87,6 +87,7 @@ class AutoBuyer extends Emitter {
     }
   }
   async workSingle(account) {
+    let dateStart = new Date();
     try {
       //Check if account is not busy
       if(account.busy) {
@@ -196,6 +197,7 @@ class AutoBuyer extends Emitter {
       }
 
     }
+    this.emptyTasksTime.unshift(new Date() - dateStart);
   }
 
   async workTaskEnsureLogged(account) {
