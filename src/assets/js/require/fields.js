@@ -221,6 +221,16 @@ const Fields = {
       return (row.stats.profit / row.stats.search).toFixed(2);
     }
   },
+  playerStatsSearch: {
+    name: 'profitPerSearch',
+    title: '<i class="far fa-search"></i>',
+    format: (row) => {
+      if(row.stats.search == 0) {
+        return '-';
+      }
+      return row.stats.search;
+    }
+  },
 
   accountEnabledState: {
     title: 'Enable',
