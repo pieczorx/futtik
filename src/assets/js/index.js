@@ -6,7 +6,7 @@ const fs = require('fs');
 const { ipcRenderer } = require('electron');
 const readFile = util.promisify(fs.readFile);
 const zlib = require('zlib');
-
+const csv = new CSV();
 const settings = new Settings();
 const checkbox = new Checkbox();
 const logger = new Logger();
@@ -84,7 +84,7 @@ const start = async () => {
   $(`[data-role='openDeveloperTools']`).click(() => {
     ipcRenderer.send('openDeveloperTools')
   });
-  
+
 
   await wait(100);
 
