@@ -8,7 +8,7 @@ class Emitter {
   }
 
   emit(t, d) {
-    for(let i = 0; i < this.emitListeners.length) {
+    for(let i = 0; i < this.emitListeners.length; i++) {
       const emitListener = this.emitListeners[i];
       if(emitListener.t == t) {
         emitListener.f(d);
