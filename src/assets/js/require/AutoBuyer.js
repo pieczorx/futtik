@@ -4,6 +4,7 @@ class AutoBuyer extends Emitter {
     this.accounts = [];
     this.players = [];
     this.tasks = [];
+    this.playersPlatform = {};
 
     let that = this;
 
@@ -74,10 +75,16 @@ class AutoBuyer extends Emitter {
     if(!power.state) {
       return;
     }
-
-    this.accounts.forEach(account => {
+    for(let i = 0; i < pltfrm.list.length; i++) {
+      let platform = pltfrm.list[i];
+      this.playersPlatform[platform] = this.players.filter(player => {
+        return player.current ? player.current[platform] : false;
+      })
+    }
+    for(let i = 0; i < this.accounts.length; i++) {
+      const account = this.accounts[i];
       this.workSingle(account);
-    });
+    }
   }
   async workSingle(account) {
     try {
@@ -228,9 +235,8 @@ class AutoBuyer extends Emitter {
   }
   async workTaskPriceCheck(account) {
     const platform = account.options.platform;
-    const playersPlatform = this.players.filter(player => {
-      return player.current ? player.current[platform] : false;
-    })
+    const playersPlatform = this.playersPlatform[platform];
+
     for(let player of playersPlatform) {
       if(!player.lastPriceCheck || !player.lastPriceCheck[platform] || (new Date() - player.lastPriceCheck[platform].date) >= settings.PRICECHECK_INTERVAL) {
         const taskAlreadyAdded = this.findTask({
@@ -346,9 +352,7 @@ class AutoBuyer extends Emitter {
       return false;
     }
     const platform = account.options.platform;
-    const playersPlatform = this.players.filter(player => {
-      return player.current ? player.current[platform] : false;
-    })
+    const playersPlatform = this.playersPlatform[platform];
     playersPlatform.sort((a, b) => {
       let lastBuyCheckDate = {
         a: new Date(0),
@@ -714,12 +718,18 @@ class AutoBuyer extends Emitter {
     console.log(`Assign proxy ${leastUsedProxy.ip} to account ${account.options.mail}`);
   }
 
+  addAccountValidate(options) {
+    let requiredValues = ['mail', 'password', 'platform', 'twoFactorToken', 'answer'];
+    for(let value of requiredValues) {
+      if(!options[value]) {
+        throw new Error(`Missing ${value}`);
+      }
+    }
+  }
   addAccount(options) {
     return new Promise(async (resolve, reject) => {
       let account = {
-        options: options,
-        enabled: true,
-        utasRequestCount: 0
+        options: options
       };
       account = this.formatAccountRead(account);
       this.assignLeastUsedProxyToAccount(account);
@@ -746,10 +756,12 @@ class AutoBuyer extends Emitter {
 
   formatAccountRead(account) {
     const newAccount = {
-      options: account.options,
-      cookies: account.cookies,
+      options: account.options
     };
 
+    if(account.cookies) {
+      newAccount.cookies = account.cookies;
+    }
     if(account.coins) {
       newAccount.coins = account.coins;
     }

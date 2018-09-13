@@ -5,7 +5,10 @@ class MenuCounter {
   init() {
     setInterval(() => {
       this.update();
-    }, 250);
+    }, 1500);
+    pltfrm.on('change', () => {
+      this.update();
+    });
     this.update();
   }
 
@@ -32,7 +35,7 @@ class MenuCounter {
 
     //Proxies
     values.proxies = database.proxies.length;
-    
+
     $(`[data-role='menuCount']`).each(function() {
       const name = $(this).attr('data-name');
       const hasValue = typeof values[name] !== 'undefined';

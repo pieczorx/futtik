@@ -1,10 +1,29 @@
 class PopupAddAccount {
   constructor() {
+    let that = this;
     $(document).on('click', `[data-role='showPopup'][data-popup-name='addAccount']`, () => {
       this.show();
     });
     $(document).on('click', `[data-role='hidePopup'][data-popup-name='addAccount']`, () => {
       this.hide();
+    });
+    $(document).on('change', `[data-role='popupAddAccountImport']`, async function() {
+      const file = $(this)[0].files[0];
+      const rows = await csv.loadFromFile(file);
+      for(let i = 0; i < rows.length; i++) {
+        let row = rows[i];
+        try {
+          autoBuyer.addAccountValidate(row);
+        } catch(e) {
+          alert(`Error in row ${i + 2}: ${e.message}`);
+          return;
+        }
+      }
+      for(let i = 0; i < rows.length; i++) {
+        let row = rows[i];
+        autoBuyer.addAccount(row);
+      }
+      that.hide();
     });
   }
   show() {
