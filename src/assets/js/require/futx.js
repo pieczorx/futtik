@@ -330,7 +330,7 @@ class Account extends Emitter {
       json: true,
       ut: true
     });
-    if(data.body.code == 458) {
+    if(data.body.code == 358) {
       console.log('Fun captcha was triggered');
       await this.solveCaptcha();
     }
@@ -726,15 +726,14 @@ class Account extends Emitter {
 
 
             if(options.ut && res.statusCode !== 200) {
-              if(res.statusCode == 458) {
-                console.log('Captcha is pending, try to solve :)');
+              if(res.statusCode == 358) {
                 await that.solveCaptcha();
                 const data = await that.request(url, options);
                 resolve(data);
                 return;
               }
               //458 - puzzle captcha
-              if(res.statusCode === 358) {
+              if(res.statusCode === 458) {
                 return reject(new Error('FUN_CAPTCHA_REQUIRED'));
               }
 
