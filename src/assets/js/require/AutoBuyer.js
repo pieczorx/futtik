@@ -725,6 +725,12 @@ class AutoBuyer extends Emitter {
         throw new Error(`Missing ${value}`);
       }
     }
+
+    for(let account of autoBuyer.accounts) {
+      if(options.mail == account.options.mail) {
+        throw new Error(`Account ${options.mail} already exists`);
+      }
+    }
   }
   addAccount(options) {
     return new Promise(async (resolve, reject) => {
