@@ -272,24 +272,27 @@ const Fields = {
       if(!row.tradePile) {
         return '-';
       }
-      const tradePileTypes = ['active', 'closed', 'expired', 'available'];
+      const tradePileTypes = ['active', /*'closed',*/ 'expired', 'available'];
       let tradePileCount = {};
-      tradePileTypes.forEach(type => {
-        tradePileCount[type] = 0;
-      });
-      row.tradePile.auctions.forEach(auction => {
+      for(let i = 0; i < tradePileTypes.length; i++) {
+        tradePileCount[tradePileTypes[i]] = 0;
+      }
+      for(let i = 0; i < row.tradePile.auctions.length; i++) {
+        let auction = row.tradePile.auctions[i];
         if(typeof(tradePileCount[auction.tradeState]) != 'undefined') {
           tradePileCount[auction.tradeState]++;
         } else {
           tradePileCount['available']++;
         }
-      });
+      }
+
       let finalArray = [];
-      tradePileTypes.forEach(type => {
-        finalArray[finalArray.length] = tradePileCount[type];
-      });
+      for(let i = 0; i < tradePileTypes.length; i++) {
+        finalArray[finalArray.length] = tradePileCount[tradePileTypes[i]];
+      }
+
       finalArray = finalArray.map((value, i) => {
-        return `<span title="${tradePileTypes[i]}">${value}</span>`;
+        return `<span>${value}</span>`;
       })
       return `<span class="tradePileValues">${finalArray.join(' · ')}</span>`;
     }
