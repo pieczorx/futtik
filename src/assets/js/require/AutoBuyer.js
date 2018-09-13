@@ -141,6 +141,7 @@ class AutoBuyer extends Emitter {
           break;
         }
         case 'FUN_CAPTCHA_REQUIRED': {
+          await account.instance.logout();
           console.warn('FUN_CAPTCHA_REQUIRED HEHE');
           account.logged = false;
           account.enabled = false;

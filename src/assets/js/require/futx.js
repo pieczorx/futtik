@@ -290,7 +290,31 @@ class Account extends Emitter {
       ut: true,
       unzip: true
     });
-    this.persona = data.body.userAccountInfo.personas[0];
+
+    const availablePersonas = data.body.userAccountInfo.personas.filter(persona => {
+      if(!persona.userClubList) {
+        return false;
+      }
+      for(let club of persona.userClubList) {
+        if(club.skuAccessList && club.skuAccessList[this.sku]) {
+          return true;
+        }
+      }
+      return false;
+    });
+
+    if(availablePersonas.length > 1) {
+      //We don't handle this yet
+      console.warn(availablePersonas)
+      throw new Error('MULTIPLE_PERSONAS_AVAILABLE');
+    }
+    if(availablePersonas.length == 0) {
+      //This should never appear but in case it does...
+      console.warn(data.body.userAccountInfo.personas)
+      console.warn(availablePersonas)
+      throw new Error('NO_PERSONA_FOR_THIS_PLATFORM');
+    }
+    this.persona = availablePersonas[0];
   }
 
   async getFosServerCode() {
@@ -330,7 +354,7 @@ class Account extends Emitter {
       json: true,
       ut: true
     });
-    if(data.body.code == 358) {
+    if(data.body.code == 358 || data.body.code == 458) {
       console.log('Fun captcha was triggered');
       await this.solveCaptcha();
     }
@@ -363,7 +387,7 @@ class Account extends Emitter {
       this.phishingToken = data.body.token;
       return;
     }
-    if(data.body.code == 358) {
+    if(data.body.code == 358 || data.body.code == 458) {
       await this.solveCaptcha();
       return;
     }
@@ -394,6 +418,11 @@ class Account extends Emitter {
 
   }
 
+  async logout() {
+    const url = `https://accounts.ea.com/connect/logout?client_id=FIFA-18-WEBCLIENT&redirect_uri=https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html`
+    await this.get(url);
+    this.bearer = '';
+  }
   //Fifa functions
   async getMassInfo() {
     const url = `${this.utas}/ut/game/fifa18/usermassinfo`
@@ -716,9 +745,9 @@ class Account extends Emitter {
         if(options.ut) {
           that.emit('requestUtas');
         }
-        try {
-          if(!err) {
 
+        if(!err) {
+          try {
             if((options.unzip || options.ut || url.includes('/cp-ui/')) && !this.fiddlerEnabled) {
               try {
                 body = await that.unzipBody(body);
@@ -759,14 +788,16 @@ class Account extends Emitter {
             }
 
             resolve({res: res, body: body});
-          } else {
-            console.log('mamy blad', err);
-            reject(err);
+
+          } catch(e) {
+            console.log('mamy blad wewnetrzny', e);
+            reject(e);
           }
-        } catch(e) {
-          console.log('mamy blad 2', e);
-          reject(e);
+        } else {
+          console.log('mamy blad node request', err);
+          reject(err);
         }
+
 
       });
     });
