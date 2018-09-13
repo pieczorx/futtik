@@ -211,6 +211,16 @@ const Fields = {
       return row.stats.sold;
     }
   },
+  playerStatsProfitPerSearch: {
+    name: 'profitPerSearch',
+    title: '<span title="Profit per search">PPS</span>',
+    format: (row) => {
+      if(row.stats.search == 0) {
+        return '-';
+      }
+      return (row.stats.profit / row.stats.search).toFixed(2);
+    }
+  },
 
   accountEnabledState: {
     title: 'Enable',

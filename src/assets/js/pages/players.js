@@ -272,6 +272,7 @@ class PagePlayers {
         Fields.playerStatsBought,
         Fields.playerStatsSold,
         Fields.playerStatsProfit,
+        Fields.playerStatsProfitPerSearch,
         {
           title: 'Last pricecheck',
           name: 'lastPriceCheckDate',

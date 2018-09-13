@@ -133,13 +133,7 @@ class Table {
     if(!el.has("table:has(thead)").length){
       el.html(`
         <table${this.hideBorders ? ` cellspacing="0" cellpadding="0"` : ''}></table>
-        <div class="paging">
-          <div data-table-role="pagingPrevious">Previous</div>
-          <div data-table-role="pagingNext">Next</div>
-          <div data-table-role="count"></div>
-        </div>
         <div class="empty">${this.htmlEmpty}</div>
-        <!--<div data-table-role="loadMore">${this.htmlLoadMore}</div>-->
       `);
     }
 

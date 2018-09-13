@@ -387,6 +387,7 @@ class AutoBuyer extends Emitter {
               page: 1,
               priceBuyNowMax: priceBuyNowMax
             });
+            player.stats.search++;
             if(playersFound.auctions.length === 0) {
               player.lastBuyCheckDate = new Date();
               player.buyCheckBusy = false;
@@ -932,6 +933,10 @@ class AutoBuyer extends Emitter {
 
       if(!player.stats.profit) {
         player.stats.profit = 0;
+      }
+
+      if(!player.stats.search) {
+        player.stats.search = 0;
       }
     }
     return players;
