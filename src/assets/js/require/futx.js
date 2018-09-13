@@ -359,11 +359,16 @@ class Account extends Emitter {
       json: true,
       ut: true
     });
-    if(data.body.code != 200) {
-      throw new Error('Could not answer question');
+    if(data.body.code == 200) {
+      this.phishingToken = data.body.token;
+      return;
     }
-    this.phishingToken = data.body.token;
-    //console.log('secret hash data', data);
+    if(data.body.code == 358) {
+      await this.solveCaptcha();
+      return;
+    }
+
+    throw new Error('Could not answer question');
   }
 
   //Captcha
@@ -726,17 +731,6 @@ class Account extends Emitter {
 
 
             if(options.ut && res.statusCode !== 200) {
-              if(res.statusCode == 358) {
-                await that.solveCaptcha();
-                const data = await that.request(url, options);
-                resolve(data);
-                return;
-              }
-              //458 - puzzle captcha
-              if(res.statusCode === 458) {
-                return reject(new Error('FUN_CAPTCHA_REQUIRED'));
-              }
-
               //426 - upgrade required (? XD)
               //429 - too many requests (too many actions have been taken)
               //521 - error (unknown but it's always related with too many requests)
