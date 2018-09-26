@@ -1,3 +1,115 @@
+class Table2 extends Emitter {
+  constructor(options) {
+    super();
+    this.filters = {
+      page: 1
+    };
+
+    if(options.filters) {
+      Object.assign(this.filters, options.filters);
+    }
+
+  }
+
+  draw(redraw = false) {
+    const el = $(`[data-table='${this.name}']`);
+
+    // for(let i = 0; i < this.fields.length; i++) {
+    //   htmlHead += `<col width="${}">`;
+    // }
+    el.html(`
+      <table${this.hideBorders ? ` cellspacing="0" cellpadding="0"` : ''}>
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+      <div class="empty">${this.htmlEmpty}</div>
+    `);
+
+
+    //Fill header & fill search
+    let htmlHead = '';
+    let htmlSearch = '';
+
+    for(let i = 0; i < this.fields.length; i++) {
+      const field = this.fields[i];
+      htmlHead += `<th>${field.title}</th>`;
+      htmlSearch += `<td>${this.getSearchCell(field)}</td>`;
+    }
+    el.find('thead').html(`
+      <tr>${htmlHead}</tr>
+      <tr>${htmlSearch}</tr>
+    `);
+
+    //Append data
+    let htmlData = '';
+    const data = this.getData();
+    for(let i = 0; i < data.length; i++) {
+      const row = data[i];
+      let htmlSingleRow = ''
+      for(let i2 = 0; i2 < this.fields.length; i2++) {
+        const field = this.fields[i2];
+        htmlSingleRow += `<td>${field.format ? field.format(row) : row[field.name]}</td>`
+      }
+      htmlData += `<tr>${htmlSingleRow}</tr>`
+    }
+    el.find('tbody').html(htmlData);
+
+  }
+
+  getSearchCell(field) {
+    let fieldType = field.search;
+    let inputHTML;
+
+    if(typeof(field.search) == 'object'){
+      fieldType = field.search.type;
+    }
+    switch(fieldType){
+      case 'text':
+        inputHTML = `<input placeholder="${field.title}"/>`
+        break;
+      case 'numericFromTo': {
+        inputHTML = `
+        <input type="number" placeholder="Min" data-type="from" min="${field.search.min}" max="${field.search.max}"/>
+        <input type="number" placeholder="Max" data-type="to" min="${field.search.min}" max="${field.search.max}"/>
+        `;
+        break;
+      }
+      case 'date': {
+        inputHTML = `<input type="date" id="start"/> <input type="date" id="end"/>`
+        break;
+      }
+
+      case 'select': {
+        let fieldsHTML = ``;
+        for (var i = 0; i < field.search.fields.length; i++) {
+          fieldsHTML += `<option>${field.search.fields[i]}</option>`
+        }
+        inputHTML = `<select>${fieldsHTML}</select>`
+        break;
+      }
+      case 'textArray': {
+        inputHTML = field.search.html || '';
+        break;
+      }
+      default: {
+        return '';
+      }
+    }
+
+    return `<td><div data-table-role="filter" data-name="${field.name}" data-type="${fieldType}">${inputHTML}</div><td>`;
+  }
+
+  getCell(field) {
+    let styles = '';
+    if(value.width) {
+      styles += `width:${value.width}px;`
+    }
+    if(value.align) {
+      styles += `text-align:${value.align};`
+    }
+  }
+}
+
 class Table {
   constructor(info) {
     this.filters = {}
@@ -102,12 +214,6 @@ class Table {
       options = {}
     }
 
-  //  let params = this.getParamsFromFilters();
-
-    if(!options.dontChangeURL){
-      //a.go(`/users/${params}/`);
-    }
-
     if(!options.isPage){
       this.filters.page = 1;
     }
@@ -125,7 +231,6 @@ class Table {
 
   init() {
     this.update();
-
   }
 
   update() {

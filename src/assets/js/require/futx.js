@@ -14,16 +14,17 @@ const gotp = require('gotp');
 class Account extends Emitter {
   constructor(data) {
     super();
+    this.fifaVersion = 19;
     this.jar = request.jar();
     Object.assign(this, data);
     //this.logged = false;
     this.listeners = [];
     let platforms = {
-      'xone': 'FFA18XBO',
-      'x360': 'FFA18XBX',
-      'ps3': 'FFA18PS3',
-      'ps4': 'FFA18PS4',
-      'pc': 'FFA18PCC'
+      'xone': `FFA${this.fifaVersion}XBO`,
+      'x360': `FFA${this.fifaVersion}XBX`,
+      'ps3': `FFA${this.fifaVersion}PS3`,
+      'ps4': `FFA${this.fifaVersion}PS4`,
+      'pc': `FFA${this.fifaVersion}PCC`
     }
     this.sku = platforms[this.platform];
     this.setDefaultProxy();
@@ -84,8 +85,10 @@ class Account extends Emitter {
     await this.getAccountInfo(); //required
     await this.getFosServerCode(); //required
     await this.getUtSid(); //required
-    await this.getSecurityQuestion(); //required
-    await this.answerSecurityQuestion(); //required
+    const questionWasAsked = await this.getSecurityQuestion(); //required
+    if(questionWasAsked) {
+      await this.answerSecurityQuestion(); //required
+    }
 
   }
 
@@ -111,11 +114,11 @@ class Account extends Emitter {
     this.execution = (data.res.headers.location.split('execution=')[1]).split('&')[0];
   }
   async visitLoginPage() {
-    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
+    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
     const data = await this.get(url);
   }
   async firstLogin() {
-    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
+    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
     const data = await this.post(url, {
       form: {
         email: this.mail,
@@ -148,7 +151,7 @@ class Account extends Emitter {
     }
   }
   async visitAnswerPage() {
-    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin&_eventId=end`;
+    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin&_eventId=end`;
     const data = await this.get(url, {follow: false});
     if(data.res.headers.location) {
       if(data.res.headers.location.includes('execution=')) {
@@ -158,7 +161,7 @@ class Account extends Emitter {
       }
       //console.log('Got execution after visiting answer page:', this.execution);
 
-      const url2 = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
+      const url2 = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
       const data2 = await this.get(url2);
     } else {
       //console.log('Visited answer page', data);
@@ -166,7 +169,7 @@ class Account extends Emitter {
     return true;
   }
   async requestTwoFactorCode(resend) {
-    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
+    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
     const data  = await this.post(url, {
       form: {
         codeType: this.twoFactorToken ? 'APP' : 'EMAIL',
@@ -178,7 +181,7 @@ class Account extends Emitter {
     //console.log('Two factor code requested');
   }
   async visitCodePage() {
-    await this.get(`https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`);
+    await this.get(`https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`);
   }
   async loginWithCode() {
     let code = '';
@@ -188,7 +191,7 @@ class Account extends Emitter {
     } else {
       throw new Error('Loggin in with mail is not ready yet');
     }
-    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-18-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
+    const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
     await this.post(url, {
       form: {
         oneTimeCode: code,
@@ -203,7 +206,7 @@ class Account extends Emitter {
     let parameters = {
       prompt: 'login',
       accessToken: this.bearer || 'null',
-      client_id: 'FIFA-18-WEBCLIENT',
+      client_id: `FIFA-${this.fifaVersion}-WEBCLIENT`,
       response_type: 'token',
       display: 'web2/login',
       locale: 'en_US',
@@ -224,7 +227,7 @@ class Account extends Emitter {
     let parameters = {
       prompt: this.cookies_set ? undefined : 'login',
       accessToken: this.bearer || 'null',
-      client_id: 'FIFA-18-WEBCLIENT',
+      client_id: `FIFA-${this.fifaVersion}-WEBCLIENT`,
       response_type: 'token',
       display: 'web2/login',
       locale: 'en_US',
@@ -293,7 +296,7 @@ class Account extends Emitter {
   }
 
   async getAccountInfo() {
-    const url = `${this.utas}/ut/game/fifa18/user/accountinfo?filterConsoleLogin=true&sku=FUT18WEB&returningUserGameYear=2017`;
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/user/accountinfo?filterConsoleLogin=true&sku=FUT${this.fifaVersion}WEB&returningUserGameYear=2017`;
     const data = await this.get(url, {
       json: true,
       ut: true,
@@ -334,7 +337,7 @@ class Account extends Emitter {
     this.fosCode = data.body.code;
   }
   async getUtSid() {
-    const url = `${this.utas}/ut/auth?sku_b=FFT18`;
+    const url = `${this.utas}/ut/auth?sku_b=FFT${this.fifaVersion}`;
     const data = await this.post(url, {
       form: {
         clientVersion: 1,
@@ -348,7 +351,7 @@ class Account extends Emitter {
         method: 'authcode',
         nucleusPersonaId: this.persona.personaId,
         priorityLevel: 4,
-        sku: 'FUT18WEB'
+        sku: `FUT${this.fifaVersion}WEB`
       },
       json: true,
       sendJson: true,
@@ -358,21 +361,27 @@ class Account extends Emitter {
     this.utas = `${data.body.protocol}://${data.body.ipPort}`;
   }
   async getSecurityQuestion() {
-    const url = `${this.utas}/ut/game/fifa18/phishing/question`;
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/phishing/question`;
     const data = await this.get(url, {
       json: true,
       ut: true
     });
+    if(data.body.code == 480) {
+      //phishing is disabled
+      return false;
+    }
     if(data.body.code == 358 || data.body.code == 458) {
       console.log('Fun captcha was triggered');
       await this.solveCaptcha();
     }
+
+    return true;
   }
 
   async validateCaptcha(funCaptchaToken) {
     console.log('Validating captcha with token', funCaptchaToken);
     this.emit('validatingCaptcha');
-    const url = `${this.utas}/ut/game/fifa18/captcha/fun/validate`;
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/captcha/fun/validate`;
     const data = await this.post(url, {
       form: {
         funCaptchaToken: funCaptchaToken
@@ -386,7 +395,7 @@ class Account extends Emitter {
   async answerSecurityQuestion() {
     const answerHashed = eaHasher(this.answer);
     //console.log('answerHashed', answerHashed);
-    const url = `${this.utas}/ut/game/fifa18/phishing/validate?answer=${answerHashed}`;
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/phishing/validate?answer=${answerHashed}`;
     const data = await this.post(url, {
       form: answerHashed,
       json: true,
@@ -407,7 +416,7 @@ class Account extends Emitter {
   //Captcha
   async solveCaptcha() {
     try {
-      const data = await this.get(`${this.utas}/ut/game/fifa18/captcha/fun/data`, {
+      const data = await this.get(`${this.utas}/ut/game/fifa${this.fifaVersion}/captcha/fun/data`, {
         json: true,
         ut: true
       });
@@ -428,13 +437,13 @@ class Account extends Emitter {
   }
 
   async logout() {
-    const url = `https://accounts.ea.com/connect/logout?client_id=FIFA-18-WEBCLIENT&redirect_uri=https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html`
+    const url = `https://accounts.ea.com/connect/logout?client_id=FIFA-${this.fifaVersion}-WEBCLIENT&redirect_uri=https://www.easports.com/pl/fifa/ultimate-team/web-app/auth.html`
     await this.get(url);
     this.bearer = '';
   }
   //Fifa functions
   async getMassInfo() {
-    const url = `${this.utas}/ut/game/fifa18/usermassinfo`
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/usermassinfo`
     const data = await this.get(url, {
       json: true,
       ut: true
@@ -456,7 +465,7 @@ class Account extends Emitter {
       maxb: p.priceBuyNowMax || undefined
     }
 
-    const url = `${this.utas}/ut/game/fifa18/transfermarket?${querystring.stringify(parameters)}`
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/transfermarket?${querystring.stringify(parameters)}`
     const data = await this.get(url, {
       json: true,
       ut: true
@@ -467,7 +476,7 @@ class Account extends Emitter {
     };
   }
   async putToTradepile(p) {
-    const url = `${this.utas}/ut/game/fifa18/item`;
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/item`;
     const data = await this.put(url, {
       form: {
         itemData: [
@@ -483,7 +492,7 @@ class Account extends Emitter {
     });
   }
   async bid(p) {
-    const url = `${this.utas}/ut/game/fifa18/trade/${p.tradeId}/bid?sku_b=FFT18`
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/trade/${p.tradeId}/bid?sku_b=FFT${this.fifaVersion}`
     try {
       const data = await this.put(url, {
         form: {
@@ -507,7 +516,7 @@ class Account extends Emitter {
 
   }
   async relistAuctions() {
-    const url = `${this.utas}/ut/game/fifa18/auctionhouse/relist`
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/auctionhouse/relist`
     const data = await this.put(url, {
       json: true,
       ut: true
@@ -523,7 +532,7 @@ class Account extends Emitter {
     */
   }
   async getTradePile() {
-    const url = `${this.utas}/ut/game/fifa18/tradepile`
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/tradepile`
     const data = await this.get(url, {
       json: true,
       ut: true
@@ -536,7 +545,7 @@ class Account extends Emitter {
     */
   }
   async sell(p) {
-    const url = `${this.utas}/ut/game/fifa18/auctionhouse?sku_b=FFT18`
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/auctionhouse?sku_b=FFT${this.fifaVersion}`
     const data = await this.post(url, {
       form: {
         buyNowPrice: p.priceBuyNow,
@@ -555,7 +564,7 @@ class Account extends Emitter {
     */
   }
   async deleteSoldAuctions() {
-    const url = `${this.utas}/ut/game/fifa18/trade/sold`
+    const url = `${this.utas}/ut/game/fifa${this.fifaVersion}/trade/sold`
     await this.delete(url, {
       ut: true
     });
