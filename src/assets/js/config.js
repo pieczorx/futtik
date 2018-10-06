@@ -12,7 +12,12 @@ const isDev = () => {
 }
 
 //Futtik url
-CONFIG.URL = 'http://localhost:8765';
+if(isDev()) {
+  CONFIG.URL = 'http://localhost:8765';
+} else {
+  CONFIG.URL = 'http://159.89.39.224';
+}
+
 
 //Main data directory
 CONFIG.DIR_DATA = `${CONFIG.DIR_APPDATA}/Futtik/data`;
