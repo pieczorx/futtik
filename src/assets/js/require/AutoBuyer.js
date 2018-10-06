@@ -1044,7 +1044,6 @@ class AutoBuyer extends Emitter {
 
         const result = await this.fetchSinglePage(currentPage, proxyUrl);
         allPages = result.totalPages;
-        allPages = 2;
         players = players.concat(result.items.filter(player => {
           return !existingPlayerIds.includes(player.id);
         }));

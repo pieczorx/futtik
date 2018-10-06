@@ -90,7 +90,7 @@ const Fields = {
         }
         let otherColors = [];
 
-        for(let player of autoBuyer.players) {
+        for(let player of autoBuyer.players.map(Utils.formatPlayer)) {
           if(!otherColors.includes(player.color) && !existingColors.includes(player.color)) {
             otherColors.push(player.color);
           }
