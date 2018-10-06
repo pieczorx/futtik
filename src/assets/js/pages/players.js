@@ -48,7 +48,7 @@ class PagePlayers {
     this.table = new Table({
       getData: () => {
         return tableConverter.convert({
-          rows: this.players,
+          rows: this.players.map(Utils.formatPlayer),
           filters: this.table.filters,
           fields: this.table.fields
         })
@@ -94,7 +94,7 @@ class PagePlayers {
     this.tableAnalyzer = new Table({
       getData: () => {
         return tableConverter.convert({
-          rows: this.getAnalyzerPlayers(),
+          rows: this.getAnalyzerPlayers().map(Utils.formatPlayer),
           filters: this.tableAnalyzer.filters,
           fields: this.tableAnalyzer.fields
         })
@@ -181,7 +181,7 @@ class PagePlayers {
     this.tableCurrent = new Table({
       getData: () => {
         return tableConverter.convert({
-          rows: this.getCurrentPlayers(),
+          rows: this.getCurrentPlayers().map(Utils.formatPlayer),
           filters: this.tableCurrent.filters,
           fields: this.tableCurrent.fields
         })

@@ -973,6 +973,8 @@ class AutoBuyer extends Emitter {
           id: player.club.id,
           name: player.club.name
         },
+        quality: player.quality,
+        rarityId: player.rarityId,
 
         //Custom
         analyzer: player.analyzer,
@@ -1042,7 +1044,7 @@ class AutoBuyer extends Emitter {
 
         const result = await this.fetchSinglePage(currentPage, proxyUrl);
         allPages = result.totalPages;
-
+        allPages = 2;
         players = players.concat(result.items.filter(player => {
           return !existingPlayerIds.includes(player.id);
         }));
