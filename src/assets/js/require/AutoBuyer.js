@@ -1040,7 +1040,6 @@ class AutoBuyer extends Emitter {
     //Get total pages
     const result = await this.fetchSinglePage(1);
     this.updateDatabaseInfo.pages = result.totalPages;
-    this.updateDatabaseInfo.pages = 6;
     for(let i = 0; i < this.updateDatabaseInfo.playerPages; i++) {
       this.updateDatabaseInfo.playerPages[i] = null;
     }
