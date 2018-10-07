@@ -1012,7 +1012,133 @@ class AutoBuyer extends Emitter {
       }
     }
   }
+
   async updateDatabase() {
+    if(!this.playersLoaded) {
+      alert('Players did not load yet')
+      return;
+    }
+
+    let el = $(`[data-role='playersUpdateDatabase']`);
+    el.attr('data-disabled', 1);
+    el.text('Fetching first page...');
+
+    this.updateDatabaseInfo = {
+      pagesInfo: {},
+      playerPages: [],
+      proxyBusy: [],
+      players: [],
+      finished: false,
+      pagesFetched: 0
+    };
+
+
+    for(let i = 0; i < database.proxies.length; i++) {
+      this.updateDatabaseInfo.proxyBusy[i] = false;
+    }
+
+    //Get total pages
+    const result = await this.fetchSinglePage(1);
+    this.updateDatabaseInfo.pages = result.totalPages;
+    this.updateDatabaseInfo.pages = 6;
+    for(let i = 0; i < this.updateDatabaseInfo.playerPages; i++) {
+      this.updateDatabaseInfo.playerPages[i] = null;
+    }
+
+    for(let i = 0; i < database.proxies.length; i++) {
+      this.fetchNextPage();
+    }
+
+  }
+
+  async fetchNextPage() {
+    const el = $(`[data-role='playersUpdateDatabase']`);
+    el.attr('data-disabled', 1);
+    //el.attr('data-disabled', 1);
+    if(this.updateDatabaseInfo.finished) {
+      return;
+    }
+    const freeProxyId = this.getFreeProxyId();
+    if(freeProxyId !== false) {
+
+      //Get first free proxy
+      let proxy = database.proxies[freeProxyId];
+
+
+      //Get page
+      const page = this.updateDatabaseGetNextPage();
+      if(page === false) {
+        if(this.updateDatabaseInfo.pagesFetched == this.updateDatabaseInfo.pages) {
+          //all pages were fetched
+          this.updateDatabaseFinish();
+        }
+
+        return;
+      }
+
+
+
+      this.updateDatabaseInfo.pagesInfo[page] = 1;
+
+      try {
+        this.updateDatabaseInfo.proxyBusy[freeProxyId] = true;
+        const result = await this.fetchSinglePage(page + 1, proxy);
+        this.updateDatabaseInfo.pagesInfo[page] = 2;
+        this.updateDatabaseInfo.pagesFetched++;
+        el.text(`Updating database... ${this.updateDatabaseInfo.pagesFetched} / ${this.updateDatabaseInfo.pages}`);
+        this.updateDatabaseInfo.playerPages[page] = result.items;
+      } catch(e) {
+        console.log('Error with fetchSinglePage', e);
+        this.updateDatabaseInfo.pagesInfo[page] = 0;
+      }
+
+
+
+      await wait(500);
+      this.updateDatabaseInfo.proxyBusy[freeProxyId] = false;
+      this.fetchNextPage();
+
+
+    }
+  }
+
+  updateDatabaseFinish() {
+    this.updateDatabaseInfo.finished = true;
+    console.log('Fetched all pages');
+    let players = [];
+    const existingPlayerIds = this.players.map(player => {return player.id});
+    for(let i = 0; i < this.updateDatabaseInfo.playerPages.length; i++) {
+      let newPlayers = this.updateDatabaseInfo.playerPages[i];
+      players = players.concat(newPlayers.filter(player => {
+        return !existingPlayerIds.includes(player.id);
+      }));
+    }
+
+    this.players = this.players.concat(this.formatPlayers(players));
+    const el = $(`[data-role='playersUpdateDatabase']`);
+    el.attr('data-disabled', 0);
+    el.text('Update database');
+  }
+
+  updateDatabaseGetNextPage() {
+    for(let i = 0; i < this.updateDatabaseInfo.pages; i++) {
+      if(!this.updateDatabaseInfo.pagesInfo[i]) {
+        return i;
+      }
+    }
+    return false;
+  }
+
+  getFreeProxyId() {
+    for(let i = 0; i < database.proxies.length; i++) {
+      if(!this.updateDatabaseInfo.proxyBusy[i]) {
+        return i;
+      }
+    }
+    return false;
+  }
+
+  async updateDatabaseOld() {
     if(!this.playersLoaded) {
       alert('Players did not load yet')
       return;
@@ -1072,8 +1198,19 @@ class AutoBuyer extends Emitter {
     el.text('Update database')
     el.attr('data-disabled', 0);
   }
-  fetchSinglePage(page, proxyUrl) {
-    console.log(page, proxyUrl);
+  fetchSinglePage(page, proxy) {
+    let proxyUrl;
+    if(proxy) {
+      if(proxy.username && proxy.password) {
+        proxyUrl = `http://${proxy.username}:${proxy.password}@${proxy.ip}:${proxy.port || 80}`;
+      } else {
+        if(proxy.ip && proxy.port) {
+          proxyUrl = `http://${proxy.ip}:${proxy.port || 80}`;
+        }
+      }
+    }
+
+    console.log(`get page ${page} from proxy ${proxyUrl}`);
 
     return new Promise((resolve, reject) => {
       const url = util.format(CONFIG.URL_DATABASE, page);
