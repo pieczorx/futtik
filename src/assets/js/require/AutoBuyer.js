@@ -1112,11 +1112,12 @@ class AutoBuyer extends Emitter {
         return !existingPlayerIds.includes(player.id);
       }));
     }
-
     this.players = this.players.concat(this.formatPlayers(players));
     const el = $(`[data-role='playersUpdateDatabase']`);
     el.attr('data-disabled', 0);
     el.text('Update database');
+    this.savePlayers();
+    this.emit('playersUpdate');
   }
 
   updateDatabaseGetNextPage() {
