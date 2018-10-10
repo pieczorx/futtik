@@ -336,7 +336,7 @@ class PagePlayers {
   addToAnalyzer() {
     let playersToAdd = tableConverter.getAllData({
       filters: this.table.filters,
-      rows: this.players,
+      rows: this.players.map(Utils.formatPlayer),
       fields: this.table.fields
     });
     playersToAdd.forEach(player => {
@@ -351,7 +351,7 @@ class PagePlayers {
   addToCurrent() {
     let playersToAdd = tableConverter.getAllData({
       filters: this.tableAnalyzer.filters,
-      rows: this.getAnalyzerPlayers(),
+      rows: this.getAnalyzerPlayers().map(Utils.formatPlayer),
       fields: this.tableAnalyzer.fields
     });
     playersToAdd.forEach(player => {
@@ -365,6 +365,7 @@ class PagePlayers {
     //autoBuyer.savePlayers();
   }
   async analyze(data) {
+    const platform = currentPlatform();
     const playersToAnalyze = this.getAnalyzerPlayers();
 
     playersToAnalyze.forEach(async (player) => {
@@ -373,12 +374,12 @@ class PagePlayers {
         player: player,
         pageMax: parseInt(data.pagesMax),
         cheapestItemsQuantity: data.cheapestItemsQuantity,
-        platform: currentPlatform()
+        platform: platform
       });
       if(!player.lastAnalyzerPriceCheck) {
         player.lastAnalyzerPriceCheck = {};
       }
-      player.lastAnalyzerPriceCheck[currentPlatform()] = {
+      player.lastAnalyzerPriceCheck[platform] = {
         auctionCount: res.auctions.length,
         priceBuyNowAverage: res.buyNowPriceAverage,
         //date: new Date()
