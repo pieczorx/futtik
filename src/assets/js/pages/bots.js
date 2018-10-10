@@ -51,12 +51,13 @@ class PageBots {
       try {
         autoBuyer.addAccountValidate(data);
         autoBuyer.addAccount(data);
+        popupAddAccount.hide();
       } catch(e) {
         alert(e.message);
       }
 
       //that.tableAccounts.update();
-      popupAddAccount.hide();
+
 
       /*
       let canAdd = true;

@@ -755,11 +755,11 @@ class AutoBuyer extends Emitter {
       }
     }
 
-    for(let account of autoBuyer.accounts) {
+    /*for(let account of autoBuyer.accounts) {
       if(options.mail == account.options.mail) {
         throw new Error(`Account ${options.mail} already exists`);
       }
-    }
+    }*/
   }
   addAccount(options) {
     return new Promise((resolve, reject) => {
