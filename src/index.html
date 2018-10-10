@@ -44,6 +44,7 @@
   <script src="assets/js/require/Settings.js"></script>
   <script src="assets/js/require/CSV.js"></script>
   <script src="assets/js/require/Backup.js"></script>
+  <script src="assets/js/require/Mailbox.js"></script>
 
   <script src="assets/js/pages/bots.js"></script>
   <script src="assets/js/pages/captcha.js"></script>
@@ -68,19 +69,19 @@
       <div class="popup popupForm" data-popup="addAccount">
         <div class="center2">
           <form name="addAccount" class="w100">
-            <div class="w100">
+            <div class="w100 formEl">
               <div class="title w100">Mail:</div>
               <input type="text" name="mail" placeholder="account@gmail.com" class="radius w100"/>
             </div>
-            <div class="w100">
+            <div class="w100 formEl">
               <div class="title w100">Password:</div>
               <input type="text" name="password" placeholder="enter password" class="radius w100"/>
             </div>
-            <div class="w100">
+            <div class="w100 formEl">
               <div class="title w100">Secret answer:</div>
               <input type="text" name="answer" placeholder="enter secret" class="radius w100"/>
             </div>
-            <div class="w100">
+            <div class="w100 formEl">
               <div class="title w100">Platform:</div>
               <select name="platform" class="radius w100">
                 <option value="" disabled selected hidden>Choose platform...</option>
@@ -93,10 +94,36 @@
               </select>
             </div>
             <div class="w100">
-              <div class="title w100">Two factor secret key:</div>
-              <input type="text" name="twoFactorToken" placeholder="enter secret key" class="radius w100"/>
+              <div class="title w100">Authentication method:</div>
+              <input type="radio" name="authenticationMethod" value="twoFactorToken" checked/>Token
+              <input type="radio" name="authenticationMethod" value="mail"/>Mail
+
             </div>
-            <div class="w100">
+            <div data-role="addAccountAuthenticationMethodFieldsWrapper" data-value="twoFactorToken">
+              <div class="w100 formEl">
+                <div class="title w100">Two factor secret key:</div>
+                <input type="text" name="twoFactorToken" placeholder="enter secret key" class="radius w100"/>
+              </div>
+            </div>
+            <div data-role="addAccountAuthenticationMethodFieldsWrapper" data-value="mail" style="display: none;">
+              <div class="w100 formEl">
+                <div class="title w100">Mail password:</div>
+                <input type="text" name="mailPassword" placeholder="enter password" class="radius w100"/>
+              </div>
+              <div class="w100 formEl">
+                <div class="title w100">Mail host:</div>
+                <input type="text" name="mailHost" placeholder="enter host" class="radius w100"/>
+              </div>
+              <div class="w100 formEl">
+                <div class="title w100">Mail port:</div>
+                <input type="text" name="mailPort" placeholder="enter port" class="radius w100" value="143"/>
+              </div>
+              <div class="w100 formEl">
+                <div class="title w100">Mail TLS:</div>
+                <input type="checkbox" name="mailTls"/>Enable
+              </div>
+            </div>
+            <div class="w100 formEl formElSubmit">
               <input type="file" data-role="popupAddAccountImport" accept=".csv"/>
               <button type="button" class="l radius b3" data-role="hidePopup" data-popup-name="addAccount">Cancel</button>
               <button type="submit" class="r radius"><i class="fas fa-plus l"></i> Add account</button>

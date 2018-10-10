@@ -99,6 +99,11 @@ class AutoBuyer extends Emitter {
         return;
       }
 
+      //Check if mailbox was added
+      if(account.options.authenticationMethod == 'mail' && !account.mailbox) {
+        await this.addMailbox(account);
+      }
+
       //Check if instance was added
       if(!account.instance) {
         this.addInstance(account);
@@ -109,6 +114,8 @@ class AutoBuyer extends Emitter {
       } else {
         account.instance.setDefaultProxy();
       }
+
+
 
       //Check if account is logged
       if(await this.workTaskEnsureLogged(account)) {return;}
@@ -636,7 +643,24 @@ class AutoBuyer extends Emitter {
       this.emit('accountUpdate');
     });
 
+    if(account.options.authenticationMethod == 'mail') {
+      account.instance.on('getMailCode', async (callback) => {
+        callback(await account.mailbox.get_latest('code'))
+      });
+    }
 
+  }
+
+  async addMailbox(account) {
+    console.log(`add mailbox to ${account.options.mail}`, account.options.mailTls);
+    account.mailbox = new Mailbox({
+      user: account.options.mail,
+      password: account.options.mailPassword,
+      host: account.options.mailHost,
+      port: account.options.mailPort,
+      tls: account.options.mailTls ? true : false
+    }, 30);
+    await account.mailbox.connect();
   }
 
   async login(account) {
@@ -724,7 +748,7 @@ class AutoBuyer extends Emitter {
   }
 
   addAccountValidate(options) {
-    let requiredValues = ['mail', 'password', 'platform', 'twoFactorToken', 'answer'];
+    let requiredValues = ['mail', 'password', 'platform', 'answer'];
     for(let value of requiredValues) {
       if(!options[value]) {
         throw new Error(`Missing ${value}`);
@@ -738,14 +762,24 @@ class AutoBuyer extends Emitter {
     }
   }
   addAccount(options) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
+      for(let account of autoBuyer.accounts) {
+        if(options.mail == account.options.mail) {
+          console.log(`Account ${options.mail} already exists and was modified :)`);
+          account.options = options;
+          //Reset instance
+          account.instance = null;
+          return resolve();
+        }
+      }
+
       let account = {
         options: options
       };
       account = this.formatAccountRead(account);
       this.assignLeastUsedProxyToAccount(account);
       this.accounts.push(account);
-      await this.saveAccounts();
+      this.emit('accountUpdate');
       resolve();
     });
   }

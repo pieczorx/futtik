@@ -172,7 +172,7 @@ class Account extends Emitter {
     const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
     const data  = await this.post(url, {
       form: {
-        codeType: this.twoFactorToken ? 'APP' : 'EMAIL',
+        codeType: this.authenticationMethod == 'twoFactorToken' ? 'APP' : 'EMAIL',
         _eventId: resend ? 'resend' : 'submit'
       },
       follow: false
@@ -185,14 +185,13 @@ class Account extends Emitter {
   }
   async loginWithCode() {
     let code = '';
-    if(this.twoFactorToken) {
-      //console.log('Loggin in with 2 factor');
+    if(this.authenticationMethod == 'twoFactorToken') {
       code = gotp(this.twoFactorToken, 6, 30, Math.floor(Date.now() / 1000));
     } else {
-      throw new Error('Loggin in with mail is not ready yet');
+      code = await this.getMailCode();
     }
     const url = `https://signin.ea.com/p/web2/login?execution=${this.execution}&initref=https%3A%2F%2Faccounts.ea.com%3A443%2Fconnect%2Fauth%3Fprompt%3Dlogin%26accessToken%3Dnull%26client_id%3DFIFA-${this.fifaVersion}-WEBCLIENT%26response_type%3Dtoken%26display%3Dweb2%252Flogin%26locale%3Den_US%26redirect_uri%3Dhttps%253A%252F%252Fwww.easports.com%252Fpl%252Ffifa%252Fultimate-team%252Fweb-app%252Fauth.html%26scope%3Dbasic.identity%2Boffline%2Bsignin`;
-    await this.post(url, {
+    const data = await this.post(url, {
       form: {
         oneTimeCode: code,
         _trustThisDevice: 'on',
@@ -201,6 +200,9 @@ class Account extends Emitter {
       },
       follow: false
     });
+    if(data.res.headers.location && data.res.headers.location.includes('web2/login')) {
+      throw new Error('INVALID_CODE');
+    }
   }
   async getFid() {
     let parameters = {
@@ -251,6 +253,7 @@ class Account extends Emitter {
         console.warn('I forgot about this', dataJson)
         //await this
       }
+      throw new Error('INVALID_BEARER_REQUEST');
     }
 
     //TODO
@@ -819,5 +822,11 @@ class Account extends Emitter {
       });
     });
   }
-
+  getMailCode() {
+    return new Promise((resolve, reject) => {
+      this.emit('getMailCode', (code) => {
+        resolve(code);
+      });
+    });
+  }
 }

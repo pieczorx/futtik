@@ -48,9 +48,20 @@ class PageBots {
 
     $(document).on('submit', `form[name='addAccount']`, function() {
       const data = $(this).serializeJSON();
+      try {
+        autoBuyer.addAccountValidate(data);
+        autoBuyer.addAccount(data);
+      } catch(e) {
+        alert(e.message);
+      }
+
+      //that.tableAccounts.update();
+      popupAddAccount.hide();
+
+      /*
       let canAdd = true;
       console.log(data)
-      let requiredValues = ['mail', 'password', 'answer', 'platform', 'twoFactorToken'];
+      let requiredValues = ['mail', 'password', 'answer', 'platform', 'authenticationMethod'];
       for(let key of requiredValues) {
         if(!data[key]) {
           canAdd = false;
@@ -73,8 +84,16 @@ class PageBots {
           popupAddAccount.hide();
 
         });
-      }
+      }*/
+
       return false;
+    });
+
+    $(document).on('change', `form[name='addAccount'] [name='authenticationMethod']`, function() {
+      const val = $(this).val();
+      $(`[data-role='addAccountAuthenticationMethodFieldsWrapper']`).hide();
+      $(`[data-role='addAccountAuthenticationMethodFieldsWrapper'][data-value='${val}']`).show();
+
     });
 
     autoBuyer.on('accountUpdate', () => {
